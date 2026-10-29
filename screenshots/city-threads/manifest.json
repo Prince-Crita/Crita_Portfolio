@@ -1,0 +1,234 @@
+{
+  "admin-desktop/overview": {
+    "title": "Warehouse overview",
+    "role": "admin",
+    "device": "desktop",
+    "url": "https://city-threads-prototype.prince-4a5.workers.dev/admin/overview",
+    "full": false,
+    "capturedAt": "2026-10-27T07:56:29.838Z"
+  },
+  "admin-desktop/overview-full": {
+    "title": "Warehouse overview (full page)",
+    "role": "admin",
+    "device": "desktop",
+    "url": "https://city-threads-prototype.prince-4a5.workers.dev/admin/overview",
+    "full": true,
+    "capturedAt": "2026-10-27T07:56:39.144Z"
+  },
+  "admin-desktop/warehouse": {
+    "title": "Warehouse explorer",
+    "role": "admin",
+    "device": "desktop",
+    "url": "https://city-threads-prototype.prince-4a5.workers.dev/admin/warehouse",
+    "full": false,
+    "capturedAt": "2026-10-27T07:56:48.314Z"
+  },
+  "admin-desktop/warehouse-area": {
+    "title": "Area → rack → bin",
+    "role": "admin",
+    "device": "desktop",
+    "url": "https://city-threads-prototype.prince-4a5.workers.dev/admin/warehouse",
+    "full": false,
+    "capturedAt": "2026-10-27T07:57:01.087Z"
+  },
+  "admin-desktop/stock": {
+    "title": "Stock units",
+    "role": "admin",
+    "device": "desktop",
+    "url": "https://city-threads-prototype.prince-4a5.workers.dev/admin/inventory/stock",
+    "full": false,
+    "capturedAt": "2026-10-27T07:57:08.422Z"
+  },
+  "admin-desktop/products": {
+    "title": "Product catalogue",
+    "role": "admin",
+    "device": "desktop",
+    "url": "https://city-threads-prototype.prince-4a5.workers.dev/admin/inventory/products",
+    "full": false,
+    "capturedAt": "2026-10-27T07:57:16.155Z"
+  },
+  "admin-desktop/sales-orders": {
+    "title": "Sales orders pipeline",
+    "role": "admin",
+    "device": "desktop",
+    "url": "https://city-threads-prototype.prince-4a5.workers.dev/admin/order-to-dispatch/sales-orders",
+    "full": false,
+    "capturedAt": "2026-10-27T07:57:23.688Z"
+  },
+  "admin-desktop/purchase-orders": {
+    "title": "Purchase orders",
+    "role": "admin",
+    "device": "desktop",
+    "url": "https://city-threads-prototype.prince-4a5.workers.dev/admin/order-to-dispatch/purchase-orders",
+    "full": false,
+    "capturedAt": "2026-10-27T07:57:31.204Z"
+  },
+  "admin-desktop/dispatch": {
+    "title": "Dispatch",
+    "role": "admin",
+    "device": "desktop",
+    "url": "https://city-threads-prototype.prince-4a5.workers.dev/admin/order-to-dispatch/dispatch",
+    "full": false,
+    "capturedAt": "2026-10-27T07:57:38.809Z"
+  },
+  "admin-desktop/counts": {
+    "title": "Cycle counts",
+    "role": "admin",
+    "device": "desktop",
+    "url": "https://city-threads-prototype.prince-4a5.workers.dev/admin/inventory/counts",
+    "full": false,
+    "capturedAt": "2026-10-27T07:57:46.296Z"
+  },
+  "admin-desktop/movements": {
+    "title": "Stock movement ledger",
+    "role": "admin",
+    "device": "desktop",
+    "url": "https://city-threads-prototype.prince-4a5.workers.dev/admin/movements",
+    "full": false,
+    "capturedAt": "2026-10-27T07:57:54.087Z"
+  },
+  "admin-desktop/sales": {
+    "title": "Sales",
+    "role": "admin",
+    "device": "desktop",
+    "url": "https://city-threads-prototype.prince-4a5.workers.dev/admin/sales",
+    "full": false,
+    "capturedAt": "2026-10-27T07:58:01.701Z"
+  },
+  "admin-desktop/executives": {
+    "title": "Executives",
+    "role": "admin",
+    "device": "desktop",
+    "url": "https://city-threads-prototype.prince-4a5.workers.dev/admin/executives",
+    "full": false,
+    "capturedAt": "2026-10-27T07:58:09.103Z"
+  },
+  "admin-desktop/requests": {
+    "title": "Requests",
+    "role": "admin",
+    "device": "desktop",
+    "url": "https://city-threads-prototype.prince-4a5.workers.dev/admin/requests",
+    "full": false,
+    "capturedAt": "2026-10-27T07:58:16.895Z"
+  },
+  "admin-mobile/overview": {
+    "title": "Warehouse overview",
+    "role": "admin",
+    "device": "mobile",
+    "url": "https://city-threads-prototype.prince-4a5.workers.dev/admin/overview",
+    "full": false,
+    "capturedAt": "2026-10-27T07:58:37.776Z"
+  },
+  "admin-mobile/warehouse": {
+    "title": "Warehouse explorer",
+    "role": "admin",
+    "device": "mobile",
+    "url": "https://city-threads-prototype.prince-4a5.workers.dev/admin/warehouse",
+    "full": false,
+    "capturedAt": "2026-10-27T07:58:47.064Z"
+  },
+  "admin-mobile/sales-orders": {
+    "title": "Sales orders",
+    "role": "admin",
+    "device": "mobile",
+    "url": "https://city-threads-prototype.prince-4a5.workers.dev/admin/order-to-dispatch/sales-orders",
+    "full": false,
+    "capturedAt": "2026-10-27T07:58:54.704Z"
+  },
+  "executive-mobile/home": {
+    "title": "Executive home",
+    "role": "executive",
+    "device": "mobile",
+    "url": "https://city-threads-prototype.prince-4a5.workers.dev/exec/home",
+    "full": false,
+    "capturedAt": "2026-10-27T07:59:11.438Z"
+  },
+  "executive-mobile/operations": {
+    "title": "Warehouse operations",
+    "role": "executive",
+    "device": "mobile",
+    "url": "https://city-threads-prototype.prince-4a5.workers.dev/exec/operations",
+    "full": false,
+    "capturedAt": "2026-10-27T07:59:18.672Z"
+  },
+  "executive-mobile/stock": {
+    "title": "Stock lookup",
+    "role": "executive",
+    "device": "mobile",
+    "url": "https://city-threads-prototype.prince-4a5.workers.dev/exec/stock",
+    "full": false,
+    "capturedAt": "2026-10-27T07:59:25.856Z"
+  },
+  "executive-mobile/stock-unit": {
+    "title": "Stock unit with barcode",
+    "role": "executive",
+    "device": "mobile",
+    "url": "https://city-threads-prototype.prince-4a5.workers.dev/exec/stock",
+    "full": false,
+    "capturedAt": "2026-10-27T08:02:59.732Z"
+  },
+  "executive-mobile/transfer": {
+    "title": "Stock transfer",
+    "role": "executive",
+    "device": "mobile",
+    "url": "https://city-threads-prototype.prince-4a5.workers.dev/exec/operations/transfer",
+    "full": false,
+    "capturedAt": "2026-10-27T07:59:47.257Z"
+  },
+  "executive-mobile/pick": {
+    "title": "Pick list",
+    "role": "executive",
+    "device": "mobile",
+    "url": "https://city-threads-prototype.prince-4a5.workers.dev/exec/operations/pick",
+    "full": false,
+    "capturedAt": "2026-10-27T07:59:54.036Z"
+  },
+  "executive-mobile/dispatch": {
+    "title": "Dispatch",
+    "role": "executive",
+    "device": "mobile",
+    "url": "https://city-threads-prototype.prince-4a5.workers.dev/exec/operations/dispatch",
+    "full": false,
+    "capturedAt": "2026-10-27T08:00:00.598Z"
+  },
+  "executive-mobile/count": {
+    "title": "Cycle count",
+    "role": "executive",
+    "device": "mobile",
+    "url": "https://city-threads-prototype.prince-4a5.workers.dev/exec/operations/count",
+    "full": false,
+    "capturedAt": "2026-10-27T08:00:07.275Z"
+  },
+  "executive-mobile/inward": {
+    "title": "Goods inward",
+    "role": "executive",
+    "device": "mobile",
+    "url": "https://city-threads-prototype.prince-4a5.workers.dev/exec/operations/inward",
+    "full": false,
+    "capturedAt": "2026-10-27T08:00:13.793Z"
+  },
+  "executive-mobile/activity": {
+    "title": "My activity",
+    "role": "executive",
+    "device": "mobile",
+    "url": "https://city-threads-prototype.prince-4a5.workers.dev/exec/activity",
+    "full": false,
+    "capturedAt": "2026-10-27T08:00:20.559Z"
+  },
+  "executive-desktop/home": {
+    "title": "Executive home on desktop",
+    "role": "executive",
+    "device": "desktop",
+    "url": "https://city-threads-prototype.prince-4a5.workers.dev/exec/home",
+    "full": false,
+    "capturedAt": "2026-10-27T08:00:41.084Z"
+  },
+  "executive-desktop/stock-unit": {
+    "title": "Stock unit with barcode",
+    "role": "executive",
+    "device": "desktop",
+    "url": "https://city-threads-prototype.prince-4a5.workers.dev/exec/stock",
+    "full": false,
+    "capturedAt": "2026-10-27T08:03:25.623Z"
+  }
+}

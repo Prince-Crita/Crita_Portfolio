@@ -1,0 +1,30 @@
+{
+  "name": "crita-portfolio",
+  "private": true,
+  "type": "module",
+  "description": "Crita Creative LLP — selected work portfolio: website, PowerPoint and PDF from one content source.",
+  "scripts": {
+    "dev": "npm run media && astro dev --root web",
+    "media": "node tools/media/build-media.mjs",
+    "build:web": "npm run media && astro build --root web",
+    "preview": "astro preview --root web",
+    "build:pdf": "node pdf/build-pdf.mjs",
+    "build:ppt": "node ppt/build-art.mjs && node ppt/build-deck.mjs && node ppt/build-deck.mjs --presenter",
+    "build:slides-pdf": "powershell -NoProfile -ExecutionPolicy Bypass -File ppt/export-pdf.ps1",
+    "build": "npm run build:web && npm run build:pdf && npm run build:ppt && npm run check",
+    "check": "node tools/qa/leak-check.mjs",
+    "capture": "node tools/capture/capture.mjs"
+  },
+  "dependencies": {
+    "astro": "5.18.2",
+    "sharp": "0.35.5"
+  },
+  "devDependencies": {
+    "pdf-lib": "1.17.1",
+    "playwright-core": "1.56.1",
+    "pptxgenjs": "4.0.1"
+  },
+  "engines": {
+    "node": ">=20.3"
+  }
+}

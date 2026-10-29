@@ -1,0 +1,38 @@
+---
+// Responsive screenshot from the media manifest (WebP variants, intrinsic size).
+// `pick` pins one variant (the smallest at least that wide) for print pages,
+// where the browser must not choose by viewport and nothing may lazy-load.
+import { shot } from '../lib/content';
+
+interface Props {
+  k: string;
+  alt?: string;
+  sizes?: string;
+  eager?: boolean;
+  pick?: number;
+  class?: string;
+  style?: string;
+}
+const { k, alt, sizes = '(min-width: 1100px) 60vw, 92vw', eager = false, pick, class: cls, style } = Astro.props;
+const m = shot(k);
+const largest = m.variants[m.variants.length - 1];
+// Print picks from the JPEG set (embedded as-is in the PDF).
+const printSet = m.print?.length ? m.print : m.variants;
+const chosen = pick ? (printSet.find((v) => v.w >= pick) ?? printSet[printSet.length - 1]) : largest;
+const srcset = pick ? undefined : m.variants.map((v) => `${v.src} ${v.w}w`).join(', ');
+// Variants are scaled to width; keep the true aspect ratio for layout stability.
+const height = Math.round((chosen.w / m.w) * m.h);
+---
+<img
+  src={chosen.src}
+  srcset={srcset}
+  sizes={pick ? undefined : sizes}
+  width={chosen.w}
+  height={height}
+  alt={alt ?? m.title}
+  loading={eager || pick ? 'eager' : 'lazy'}
+  decoding={pick ? 'sync' : 'async'}
+  fetchpriority={eager ? 'high' : undefined}
+  class={cls}
+  style={style}
+/>

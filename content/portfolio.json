@@ -1,0 +1,406 @@
+{
+  "meta": {
+    "title": "Crita Creative LLP — Selected Work 2026",
+    "description": "Selected software projects by Crita Creative LLP: field-audit operations, scrap-yard inventory, business intelligence and warehouse management platforms.",
+    "year": "2026"
+  },
+
+  "company": {
+    "name": "Crita Creative LLP",
+    "short": "Crita",
+    "positioning": "Consulting-led technology partner",
+    "headline": "Software that brings clarity to complex operations.",
+    "intro": "Crita Creative LLP is a consulting-led technology partner. We design and build custom business platforms — for field teams, warehouses, scrap yards and finance — around the way each business actually works.",
+    "about": "We combine strategy, product design and engineering to turn fragmented operations into connected systems people actually use. Every project starts with the business, not the brief.",
+    "stats": [
+      { "value": "18+", "label": "Projects delivered" },
+      { "value": "07", "label": "Industries served" }
+    ],
+    "statsSource": "crita.in",
+    "approach": {
+      "title": "Clarity, then code.",
+      "steps": [
+        { "title": "Discover", "body": "Map the operation, the constraints and the priorities that really decide how the business scales." },
+        { "title": "Strategize", "body": "Design the workflows, roles and architecture against outcomes — not feature lists." },
+        { "title": "Build", "body": "Ship a working system quickly, with automation and rules built in from day one." },
+        { "title": "Scale", "body": "Tune the system with real usage so it keeps up as the business grows." }
+      ]
+    },
+    "capabilities": [
+      { "title": "Operations platforms", "body": "Role-based systems that plan, run and audit work across field teams and the office.", "proof": ["smc", "veloce"] },
+      { "title": "Inventory & warehousing", "body": "Lots, barcodes, bins and ledgers that make every unit of stock traceable.", "proof": ["veloce", "city-threads"] },
+      { "title": "Business intelligence", "body": "Dashboards that turn the systems you already use into clear decisions.", "proof": ["clario", "veloce"] },
+      { "title": "Applied AI", "body": "Assistants that answer from your own data, with sources — never invented numbers.", "proof": ["clario"] },
+      { "title": "Mobile-first apps", "body": "Designed for one hand on the shop floor and in the field, packaged for Android.", "proof": ["smc", "veloce", "city-threads"] },
+      { "title": "Multi-tenant foundations", "body": "Workspaces, roles, data isolation and audit trails, ready to scale.", "proof": ["veloce", "clario"] }
+    ],
+    "contact": {
+      "email": "abishek@crita.in",
+      "website": "https://www.crita.in",
+      "websiteLabel": "www.crita.in"
+    },
+    "closing": {
+      "eyebrow": "Start the conversation",
+      "headline": "Let’s build something meaningful together.",
+      "body": "Tell us where you’re stuck. We’ll reply within one business day with a clear point of view.",
+      "cta": "Start a conversation"
+    }
+  },
+
+  "projects": [
+    {
+      "id": "smc",
+      "number": "01",
+      "name": "SMC Task Management",
+      "client": "Shaabi Management Consultancy",
+      "sector": "Audit & consulting",
+      "type": "Field operations platform",
+      "platforms": "Web · Android",
+      "roles": "Admin · Field Executive",
+      "tagline": "Field audits, planned, run and closed in one system.",
+      "summary": "A field-audit operations platform for an audit consultancy. Admins plan visits and define each client’s checklist; executives run every visit from their phone; nothing incomplete is lost between visits.",
+      "challenge": {
+        "headline": "Weekly audits, dozens of clients, no single view.",
+        "body": "SMC’s executives visit client sites every week to verify operations, stock, accounts and reports — and every client needs a different checklist. Tracking was manual: unfinished items relied on memory to reach the next visit, and management had no live view of progress across the team."
+      },
+      "solution": {
+        "headline": "One system, from the admin’s calendar to the executive’s phone.",
+        "body": "Crita built a role-based platform that turns each audit visit into a structured, trackable workflow. Admins schedule visits and configure checklists per client. Executives open the visit on their phone, complete each item or record why it couldn’t be done, and close it only when the rules are met. Unfinished work carries forward — with admin approval — into the next visit."
+      },
+      "capabilities": [
+        { "title": "Visit planning & calendar", "body": "Schedule, reschedule and reassign visits across executives in a weekly calendar.", "shot": "smc/admin-desktop/calendar-w34" },
+        { "title": "Client-specific checklists", "body": "Each client gets its own task and subtask template, applied to every new visit automatically.", "shot": "smc/admin-desktop/task-config" },
+        { "title": "Rules that keep audits complete", "body": "A visit closes only when required work is done. The MD meeting must be answered and every open item needs a reason.", "shot": "smc/executive-mobile/visit-partial-tasks" },
+        { "title": "Carry-forward with approval", "body": "Unfinished items move into the next visit with their history — after an admin reviews and approves them.", "shot": "smc/admin-desktop/carry-forward" },
+        { "title": "Progress, trail and summary", "body": "Live progress per visit, a full activity trail and an automatic summary with a rating when the visit closes.", "shot": "smc/executive-desktop/visit-summary" },
+        { "title": "Attendance & leave", "body": "Executives punch in and request leave from the app; admins review attendance and approve requests.", "shot": "smc/executive-mobile/attendance" }
+      ],
+      "tour": [
+        { "title": "The week at a glance", "body": "Admins plan visits across the team in a weekly calendar — done, in progress, planned and carried forward, colour-coded.", "shot": "smc/admin-desktop/calendar-w34" },
+        { "title": "Live operational dashboard", "body": "Completion rate, staff performance and task distribution, with every executive’s workload one click away.", "shot": "smc/admin-desktop/dashboard-analytics" },
+        { "title": "Carry-forward, under control", "body": "Nothing moves to the next visit until an admin reviews it, chooses the schedule date and approves.", "shot": "smc/admin-desktop/carry-forward" },
+        { "title": "A visit, start to finish", "body": "Tasks, subtasks, carried items and an activity trail on one screen — then an automatic summary at closure.", "shot": "smc/executive-desktop/visit-closed" }
+      ],
+      "rolesDetail": [
+        {
+          "name": "Admin",
+          "device": "Desktop & mobile",
+          "lead": "Plans the week and keeps every visit on track.",
+          "points": ["Dashboard of visits, completion rate and staff performance", "Weekly calendar for scheduling and reassignment", "Carry-forward approvals and client checklists", "Executive workload, attendance and leave"],
+          "shots": ["smc/admin-desktop/dashboard"]
+        },
+        {
+          "name": "Field Executive",
+          "device": "Mobile-first",
+          "lead": "Runs each visit on site, from the phone.",
+          "points": ["Pending visits and carried-forward items at a glance", "Checklist per task, with reasons for open items", "MD meeting confirmation before closing", "Punch in, punch out and leave requests"],
+          "shots": ["smc/executive-mobile/dashboard", "smc/executive-mobile/visit-closed"]
+        }
+      ],
+      "mobile": ["smc/executive-mobile/dashboard", "smc/executive-mobile/visit-partial-tasks", "smc/executive-mobile/visit-summary", "smc/executive-mobile/attendance"],
+      "mobileTitle": "Planned at the desk. Run in the field.",
+      "mobileNote": "Executives run every visit from their phone — checklists, reasons, summaries, attendance. Admins get the same live picture on desktop and mobile.",
+      "value": [
+        { "title": "Live visibility", "body": "Management sees the status of every visit and executive without chasing calls." },
+        { "title": "Nothing slips between visits", "body": "Unfinished items carry forward with their reason, so follow-ups are never lost." },
+        { "title": "Consistent audits", "body": "Client-specific checklists and closing rules make every visit complete and comparable." },
+        { "title": "Less manual reporting", "body": "Progress and visit summaries are produced by the system, not compiled by hand." }
+      ],
+      "quote": null,
+      "delivery": {
+        "stack": ["Next.js", "TypeScript", "PostgreSQL", "Prisma", "Role-based access", "Android app"],
+        "highlights": [
+          "Mobile-first web app with an Android build for field executives",
+          "Executives only ever see the visits assigned to them",
+          "Lean data and instant checklist feedback on mobile networks"
+        ]
+      },
+      "live": { "url": "https://smc-crita.vercel.app/login", "label": "View live project", "name": "SMC Task Management" },
+      "demo": { "roles": ["Admin", "Field Executive"] },
+      "privacy": "Client, contact and staff names in these screens are anonymised to protect SMC’s confidentiality.",
+      "theme": { "stage": "#13213D", "stageInk": "light", "accent": "#7EA6F2", "tint": "#E9EDF5" },
+      "media": {
+        "hero": "smc/admin-desktop/dashboard",
+        "heroPhone": "smc/executive-mobile/visit-closed",
+        "card": "smc/admin-desktop/calendar-w34",
+        "challenge": "smc/admin-desktop/visits",
+        "solution": "smc/admin-mobile/calendar",
+        "responsiveDesktop": "smc/admin-desktop/dashboard"
+      }
+    },
+
+    {
+      "id": "veloce",
+      "number": "02",
+      "name": "Veloce Scrap Flow",
+      "client": "Veloce",
+      "sector": "Scrap & recycling",
+      "type": "Yard operations & inventory platform",
+      "platforms": "Web · Android",
+      "roles": "Admin · Owner · Supervisor",
+      "tagline": "Every kilogram, from weighbridge to dispatch.",
+      "summary": "A yard operating system for a scrap business: a calculator-fast mobile app for the weighbridge and the sorting floor, and a desktop console that gives management live control across yards and warehouses.",
+      "challenge": {
+        "headline": "Mixed loads in. Graded material out. No reliable trail in between.",
+        "body": "A scrap yard buys mixed material by weight, sorts it into sellable grades and sells it by the truckload. Every step changes the numbers. Without one system, it is hard to know what is in stock, what is waiting to be sorted and what has actually left the yard — and impossible to see it across several yards."
+      },
+      "solution": {
+        "headline": "Built for the yard floor. Controlled from one console.",
+        "body": "Crita built Scrap Flow as a multi-yard platform. Owners and supervisors work in a mobile app designed like a calculator — big keys, live rates, clear steps — while the platform admin manages yards, warehouses, users and analytics from a desktop console. Every action writes to one inventory ledger, updated in real time."
+      },
+      "capabilities": [
+        { "title": "Inward at the weighbridge", "body": "Vendor, vehicle and multiple weighments on an LED-style keypad, with photo evidence. Each load becomes a traceable lot.", "shot": "veloce/owner-mobile/inward-keypad" },
+        { "title": "Sorting that balances", "body": "Mixed lots are split into finished grades and wastage; a run can’t close until every kilogram is accounted for.", "shot": "veloce/owner-mobile/sort-selected" },
+        { "title": "Sell, allocate, dispatch", "body": "A sale reserves stock; supervisors load vehicles against it. The same kilograms can’t be sold twice or over-dispatched.", "shot": "veloce/supervisor-mobile/outward-active" },
+        { "title": "Live stock across warehouses", "body": "Stock on hand, sale thresholds and pending work per yard and warehouse, updated as it happens.", "shot": "veloce/owner-mobile/home" },
+        { "title": "Admin console & analytics", "body": "Yards, warehouses, users and permissions, with analytics for inward, sorting, dispatch and materials.", "shot": "veloce/admin-desktop/yard" },
+        { "title": "Governance built in", "body": "Every privileged action is recorded in an audit log with before-and-after values.", "shot": "veloce/admin-desktop/audit" }
+      ],
+      "tour": [
+        { "title": "Weight entry, calculator-fast", "body": "Big keys, a live LED display and kg / ton / tonne switching — built for gloved hands at the weighbridge.", "shot": "veloce/owner-mobile/inward-keypad" },
+        { "title": "Segregation that balances", "body": "Pick a mixed lot and split it into grades and wastage. Vendor, vehicle and lot history stay attached.", "shot": "veloce/owner-mobile/sort-selected" },
+        { "title": "One console for every yard", "body": "Warehouses, supervisors, stock and records for each yard — with the admin able to step inside any yard.", "shot": "veloce/admin-desktop/yard" },
+        { "title": "Platform overview", "body": "Headline numbers, alerts and pending actions computed by the system, so nothing waits to be noticed.", "shot": "veloce/admin-desktop/overview" }
+      ],
+      "rolesDetail": [
+        {
+          "name": "Admin",
+          "device": "Desktop console",
+          "lead": "Runs the platform across yards.",
+          "points": ["Platform overview with alerts and pending actions", "Yards, warehouses and supervisor assignments", "Users, roles and access", "Analytics and a full audit log"],
+          "shots": ["veloce/admin-desktop/overview"]
+        },
+        {
+          "name": "Owner",
+          "device": "Mobile app",
+          "lead": "Runs the yard and the trade.",
+          "points": ["Yard dashboard: stock, ready-to-sell and pending lots", "Inward, sorting and materials", "Sales, invoices and receivables", "Dispatch status per invoice"],
+          "shots": ["veloce/owner-mobile/home", "veloce/owner-mobile/sell"]
+        },
+        {
+          "name": "Supervisor",
+          "device": "Mobile app",
+          "lead": "Runs the floor in an assigned warehouse.",
+          "points": ["Materials on hand by category", "Inward and sorting", "Loading vehicles against allocations", "Dispatch history"],
+          "shots": ["veloce/supervisor-mobile/home", "veloce/supervisor-mobile/outward-active"]
+        }
+      ],
+      "mobile": ["veloce/owner-mobile/home", "veloce/owner-mobile/inward-keypad", "veloce/owner-mobile/sort-selected", "veloce/supervisor-mobile/outward-active"],
+      "mobileTitle": "Designed like a calculator, for the yard floor.",
+      "mobileNote": "Big keys, high contrast, live rates and one clear step at a time — so weighments, sorting and dispatch are recorded where they happen.",
+      "value": [
+        { "title": "Control without being on site", "body": "Owners and admins see stock, pending sorting and dispatch status the moment they change." },
+        { "title": "Traceable from vendor to buyer", "body": "Lots keep their vendor through sorting and dispatch, so every kilogram has a history." },
+        { "title": "Mistakes prevented, not corrected", "body": "Rules block double-selling, over-dispatch and unbalanced sorting before they happen." },
+        { "title": "Ready for more yards", "body": "A multi-yard architecture with strict data isolation between yards." }
+      ],
+      "quote": {
+        "text": "We didn’t need another digital tool; we needed a technology partner who understood how our business worked. CRITA helped us simplify processes, connect different parts of the business, and introduce technology where it could create real value.",
+        "name": "Abhirup",
+        "company": "Veloce"
+      },
+      "delivery": {
+        "stack": ["Next.js", "TypeScript", "PostgreSQL", "Real-time updates", "Multi-tenant architecture", "Android app"],
+        "highlights": [
+          "2,500+ automated checks across 36 test suites",
+          "Yard data isolated at session, query and database level",
+          "Number-plate recognition built as a separate computer-vision service (YOLOv8 + PaddleOCR)"
+        ]
+      },
+      "live": { "url": "https://scrap-flow-veloce-crita.vercel.app/", "label": "View live project", "name": "Veloce Scrap Management" },
+      "demo": { "roles": ["Admin", "Owner", "Supervisor"] },
+      "privacy": "Screens from the live demonstration yard.",
+      "theme": { "stage": "#033F2D", "stageInk": "light", "accent": "#F5A524", "tint": "#EEF0E8" },
+      "media": {
+        "hero": "veloce/admin-desktop/overview",
+        "heroPhone": "veloce/owner-mobile/inward-keypad",
+        "card": "veloce/owner-mobile/inward-keypad",
+        "challenge": "veloce/owner-mobile/home",
+        "solution": "veloce/admin-desktop/yard",
+        "responsiveDesktop": "veloce/admin-desktop/analytics-dispatch"
+      }
+    },
+
+    {
+      "id": "clario",
+      "number": "03",
+      "name": "Clario",
+      "client": "A Crita product",
+      "sector": "Business intelligence",
+      "type": "Business-intelligence platform",
+      "platforms": "Web · Responsive",
+      "roles": "Workspace owners & members",
+      "tagline": "Understand your business, not just your numbers.",
+      "summary": "Crita’s own business-intelligence platform. Clario connects to the systems a business already uses — starting with Zoho Books — and turns them into a clear finance command centre, with an assistant that answers in plain words, from the books.",
+      "challenge": {
+        "headline": "The numbers exist. The answers don’t.",
+        "body": "Growing businesses keep their figures in accounting software, but turning ledgers into decisions takes reports, spreadsheets and an accountant’s time. Generic AI tools can’t be trusted with financial figures — and every new system adds another place to look."
+      },
+      "solution": {
+        "headline": "Connect once. See clearly. Ask anything.",
+        "body": "Clario gives each client a private workspace. They connect Zoho Books securely, and Clario turns the data into a finance command centre — overview, trends, receivables, payables and balance sheet. Ask Clario answers questions in plain words using the same figures as the reports, and shows where each answer comes from."
+      },
+      "capabilities": [
+        { "title": "Secure connection", "body": "Zoho Books connects through OAuth with read-only access, into the client’s own workspace.", "shot": "clario/owner-desktop/workspace" },
+        { "title": "Finance overview", "body": "Cash, revenue, profit, collections, costs and receivables on one screen, with performance signals.", "shot": "clario/owner-desktop/overview" },
+        { "title": "Ask Clario", "body": "Plain-language questions answered from the books, with the source and date of every figure.", "shot": "clario/owner-desktop/ask-owes" },
+        { "title": "Decision support", "body": "What needs attention, what to consider next and simple scenarios — clearly labelled as guidance.", "shot": "clario/owner-desktop/overview-decisions" },
+        { "title": "Trends & receivables", "body": "Month-by-month billing, collections and spending; overdue ageing and a full invoice register.", "shot": "clario/owner-desktop/receivables" },
+        { "title": "Workspaces & roles", "body": "Every client works in an isolated workspace with its own members and connected systems.", "shot": "clario/owner-mobile/workspace" }
+      ],
+      "tour": [
+        { "title": "The business on one screen", "body": "Cash on hand, revenue, profit, collections and receivables — each with its basis and as-of date.", "shot": "clario/owner-desktop/overview" },
+        { "title": "Answers, with sources", "body": "Ask in plain words. Every answer uses the same figures as the reports and says where they came from.", "shot": "clario/owner-desktop/ask-owes" },
+        { "title": "What to do next", "body": "Signals and decision support turn the figures into an ordered list of what deserves attention.", "shot": "clario/owner-desktop/overview-decisions" },
+        { "title": "Trends that explain themselves", "body": "Billing, collections and spending month by month — every chart with a table view.", "shot": "clario/owner-desktop/trends" }
+      ],
+      "rolesDetail": [],
+      "architecture": {
+        "title": "One platform, many connected systems.",
+        "principle": "Figures are calculated in code; the AI explains them. Each assistant only answers from its own domain’s data.",
+        "layers": [
+          { "name": "Connectors", "items": [
+            { "label": "Zoho Books", "status": "Live" },
+            { "label": "Tally", "status": "In development" },
+            { "label": "Inventory systems", "status": "Planned" },
+            { "label": "Lead management", "status": "Planned" }
+          ] },
+          { "name": "Domains", "items": [
+            { "label": "Finance", "status": "Live" },
+            { "label": "Inventory", "status": "Planned" },
+            { "label": "Leads", "status": "Planned" }
+          ] },
+          { "name": "Experience", "items": [
+            { "label": "Command centre", "status": "Live" },
+            { "label": "Ask Clario assistant", "status": "Live" }
+          ] },
+          { "name": "Platform", "items": [
+            { "label": "Workspaces, roles & isolation", "status": "Live" }
+          ] }
+        ]
+      },
+      "mobile": ["clario/owner-mobile/overview", "clario/owner-mobile/ask-owes", "clario/owner-mobile/receivables", "clario/owner-mobile/trends"],
+      "mobileTitle": "The whole command centre, in your pocket.",
+      "mobileNote": "Every view — including Ask Clario — adapts to a phone, so owners can check cash or chase receivables between meetings.",
+      "value": [
+        { "title": "Clarity without reports", "body": "Owners see performance, cash and receivables without building spreadsheets." },
+        { "title": "Answers you can trust", "body": "Every figure traces back to the books, with its date." },
+        { "title": "Guidance, in order", "body": "Signals and next steps turn numbers into a short list of decisions." },
+        { "title": "Built to grow", "body": "Each new system Crita connects becomes another module on the same platform." }
+      ],
+      "quote": null,
+      "delivery": {
+        "stack": ["React", "TypeScript", "Python API", "PostgreSQL", "Zoho Books API", "LLM with scoped tools"],
+        "highlights": [
+          "Deterministic finance calculations — the assistant explains figures, never invents them",
+          "Server-side OAuth with encrypted tokens",
+          "Workspace isolation enforced on the server"
+        ]
+      },
+      "live": { "url": "https://clariocrita.vercel.app/login?next=%2F", "label": "View live product", "name": "Clario" },
+      "demo": { "roles": ["Workspace owner"] },
+      "privacy": "Shown with a sample company and test data.",
+      "theme": { "stage": "#E2E9D6", "stageInk": "dark", "accent": "#6E9A1E", "tint": "#EEF2E7" },
+      "media": {
+        "hero": "clario/owner-desktop/overview",
+        "heroPhone": "clario/owner-mobile/ask-owes",
+        "card": "clario/owner-desktop/overview",
+        "challenge": "clario/owner-desktop/receivables",
+        "solution": "clario/owner-desktop/ask-owes",
+        "responsiveDesktop": "clario/owner-desktop/trends"
+      }
+    },
+
+    {
+      "id": "city-threads",
+      "number": "04",
+      "name": "City Threads",
+      "client": "City Threads Textiles",
+      "sector": "Textile distribution",
+      "type": "Warehouse & inventory management",
+      "platforms": "Web · Android",
+      "roles": "Administrator · Warehouse Executive",
+      "tagline": "Every lot, every bin, every dispatch — accounted for.",
+      "summary": "A warehouse management system for a textile distributor: barcoded stock units, a visual map of every rack and bin, and an order-to-dispatch flow — with a one-handed phone app for the warehouse floor.",
+      "challenge": {
+        "headline": "Two warehouses. A fragmented inventory process.",
+        "body": "City Threads stores thread stock across racks and bins in two warehouses. With a fragmented, manual process, finding a lot, knowing which space was free and tracing what moved where took time — and depended on the people who remembered."
+      },
+      "solution": {
+        "headline": "A barcode on every lot. A map of every bin.",
+        "body": "Crita built a warehouse system where every physical lot becomes a stock unit with a permanent ID and barcode. Administrators manage the structure, orders and stock from a desktop workspace; executives receive, move, count, pick and dispatch from their phone — scanning instead of searching."
+      },
+      "capabilities": [
+        { "title": "Barcoded stock units", "body": "Every lot gets a permanent Stock ID and Code 128 barcode. Scan it with the phone camera, upload a photo or type the ID.", "shot": "city-threads/executive-mobile/stock-unit" },
+        { "title": "Warehouse explorer", "body": "Walk area → rack → bin to see capacity, occupancy and blocked locations, and change the structure in place.", "shot": "city-threads/admin-desktop/warehouse-area" },
+        { "title": "Order to dispatch", "body": "Purchase orders and goods receipts in; sales orders, pick lists and dispatch out — with stock reserved on the way.", "shot": "city-threads/admin-desktop/sales-orders" },
+        { "title": "Floor operations on the phone", "body": "Goods inward, transfer, adjustment, cycle count, picking and dispatch — built for one hand.", "shot": "city-threads/executive-mobile/operations" },
+        { "title": "A ledger that reconciles", "body": "Every movement is recorded. Counts verify the shelf without changing stock; differences are corrected with a reason.", "shot": "city-threads/admin-desktop/counts" },
+        { "title": "Commercial visibility", "body": "Customers, suppliers, sales and executive performance alongside stock.", "shot": "city-threads/admin-desktop/overview" }
+      ],
+      "tour": [
+        { "title": "The whole operation, live", "body": "Stock, utilisation, locations, count discrepancies and recent sales across both warehouses.", "shot": "city-threads/admin-desktop/overview" },
+        { "title": "Area, rack, bin", "body": "A visual map of the floor: capacity, occupancy and blocked locations at every level.", "shot": "city-threads/admin-desktop/warehouse-area" },
+        { "title": "From order to truck", "body": "Sales orders move through picking to dispatch, with every quantity reserved and accounted for.", "shot": "city-threads/admin-desktop/sales-orders" },
+        { "title": "Dispatch with proof", "body": "Ready-to-ship orders and a full dispatch history with vehicle numbers and who sent what.", "shot": "city-threads/admin-desktop/dispatch" }
+      ],
+      "rolesDetail": [
+        {
+          "name": "Administrator",
+          "device": "Desktop workspace",
+          "lead": "Sees and shapes the whole operation.",
+          "points": ["Overview of stock, utilisation and recent operations", "Warehouse structure: areas, racks and bins", "Purchase orders, sales orders and dispatch", "Customers, suppliers and users"],
+          "shots": ["city-threads/admin-desktop/overview"]
+        },
+        {
+          "name": "Warehouse Executive",
+          "device": "Mobile app",
+          "lead": "Works the floor, one-handed.",
+          "points": ["Home with capacity and today’s operations", "Inward, transfer, adjustment, count, pick and dispatch", "Scan or search any stock unit", "Personal activity history"],
+          "shots": ["city-threads/executive-mobile/home", "city-threads/executive-mobile/stock-unit"]
+        }
+      ],
+      "mobile": ["city-threads/executive-mobile/home", "city-threads/executive-mobile/stock-unit", "city-threads/executive-mobile/transfer", "city-threads/executive-mobile/pick"],
+      "mobileTitle": "One hand on the phone. One on the stock.",
+      "mobileNote": "Executives scan, confirm and move on — inward, transfer, count, pick and dispatch. Administrators plan and review from the desktop.",
+      "value": [
+        { "title": "Find any lot, instantly", "body": "Scan a label to see what it is, where it is and what to do next." },
+        { "title": "Plan space with confidence", "body": "Utilisation and free capacity are visible before put-away." },
+        { "title": "Fewer errors on the floor", "body": "One identification flow for every operation; counts never change stock silently." },
+        { "title": "Real-time visibility", "body": "Stock and operations across both warehouses, as they happen." }
+      ],
+      "quote": {
+        "text": "CRITA helped us replace a fragmented inventory process with a much more organised and efficient system. The application gave our team better visibility, reduced manual work, and made it easier to track inventory in real time.",
+        "name": "Sreyash",
+        "company": "City Threads"
+      },
+      "delivery": {
+        "stack": ["Next.js", "React", "PostgreSQL", "Cloudflare Workers", "Code 128 barcodes", "Android app"],
+        "highlights": [
+          "Camera scanning through the browser’s native barcode detector, with manual entry always available",
+          "Bins are released only when stock reaches zero — enforced in one place",
+          "Served from Cloudflare’s global edge network"
+        ]
+      },
+      "live": { "url": "https://city-threads-prototype.prince-4a5.workers.dev/", "label": "View live demo", "name": "City Threads" },
+      "demo": {
+        "roles": ["Administrator", "Warehouse Executive"],
+        "public": [
+          { "role": "Administrator", "user": "admin@citythreads.com", "pass": "Admin@123" },
+          { "role": "Warehouse Executive", "user": "aarav@citythreads.com", "pass": "Exec@123" }
+        ],
+        "publicNote": "Demonstration accounts, also offered on the app’s own login screen."
+      },
+      "privacy": "Demonstration environment with sample data.",
+      "theme": { "stage": "#DFE4EC", "stageInk": "dark", "accent": "#1D3A7A", "tint": "#EDF0F4" },
+      "media": {
+        "hero": "city-threads/admin-desktop/overview",
+        "heroPhone": "city-threads/executive-mobile/stock-unit",
+        "card": "city-threads/admin-desktop/warehouse",
+        "challenge": "city-threads/admin-desktop/warehouse",
+        "solution": "city-threads/executive-mobile/stock-unit",
+        "responsiveDesktop": "city-threads/admin-desktop/stock"
+      }
+    }
+  ]
+}

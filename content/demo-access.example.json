@@ -1,0 +1,37 @@
+{
+  "_readme": "Copy to demo-access.json (git-ignored) and fill in. Used by tools/capture and the PowerPoint speaker notes only — never by the website or PDF.",
+  "smc": {
+    "visibility": "presenter",
+    "why": "Live production system with real client data.",
+    "accounts": [
+      { "key": "admin", "role": "Admin", "user": "…", "pass": "…" },
+      { "key": "executive", "role": "Field Executive", "user": "…", "pass": "…" }
+    ],
+    "path": ["Admin on a laptop: Dashboard → Calendar → Carry Forward → Task Config."]
+  },
+  "veloce": {
+    "visibility": "presenter",
+    "why": "Shared production deployment; the admin account can change any yard.",
+    "accounts": [
+      { "key": "admin", "role": "Admin", "user": "…", "pass": "…" },
+      { "key": "owner", "role": "Owner", "user": "…", "pass": "…" },
+      { "key": "supervisor", "role": "Supervisor", "user": "…", "pass": "…" }
+    ],
+    "path": ["Owner on a phone: Home → Inward → Sort → Sell."]
+  },
+  "clario": {
+    "visibility": "presenter",
+    "why": "Personal workspace owner account.",
+    "accounts": [{ "key": "owner", "role": "Workspace owner", "user": "…", "pass": "…" }],
+    "path": ["Overview → Ask Clario → History → open a conversation."]
+  },
+  "city-threads": {
+    "visibility": "public",
+    "why": "Demonstration accounts offered on the app’s own login screen.",
+    "accounts": [
+      { "key": "admin", "role": "Administrator", "user": "…", "pass": "…" },
+      { "key": "executive", "role": "Warehouse Executive", "user": "…", "pass": "…" }
+    ],
+    "path": ["Tap a role under “Demonstration access” on the login screen."]
+  }
+}

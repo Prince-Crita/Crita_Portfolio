@@ -1,0 +1,23 @@
+---
+// Frames any screenshot in the right device: phone for mobile captures,
+// browser window for desktop captures.
+import BrowserFrame from './BrowserFrame.astro';
+import PhoneFrame from './PhoneFrame.astro';
+import { shot } from '../lib/content';
+
+interface Props {
+  k: string;
+  url?: string;
+  dark?: boolean;
+  sizes?: string;
+  phoneSizes?: string;
+  ratio?: string;
+  class?: string;
+  pick?: number;
+}
+const { k, url, dark = false, sizes, phoneSizes, ratio, class: cls, pick } = Astro.props;
+const mobile = shot(k).device === 'mobile';
+---
+{mobile
+  ? <PhoneFrame k={k} sizes={phoneSizes} class={cls} pick={pick ? Math.min(pick, 1170) : undefined} />
+  : <BrowserFrame k={k} url={url} tone={dark ? 'dark' : 'light'} sizes={sizes} ratio={ratio} class={cls} pick={pick} />}

@@ -1,0 +1,226 @@
+{
+  "admin-desktop/overview": {
+    "title": "Platform overview",
+    "role": "admin",
+    "device": "desktop",
+    "url": "https://scrap-flow-veloce-crita.vercel.app/admin",
+    "full": false,
+    "capturedAt": "2026-10-27T07:27:52.785Z"
+  },
+  "admin-desktop/overview-full": {
+    "title": "Platform overview (full page)",
+    "role": "admin",
+    "device": "desktop",
+    "url": "https://scrap-flow-veloce-crita.vercel.app/admin",
+    "full": true,
+    "capturedAt": "2026-10-27T07:27:59.361Z"
+  },
+  "admin-desktop/analytics": {
+    "title": "Analytics · 90 days",
+    "role": "admin",
+    "device": "desktop",
+    "url": "https://scrap-flow-veloce-crita.vercel.app/admin/analytics",
+    "full": false,
+    "capturedAt": "2026-10-27T07:28:11.282Z"
+  },
+  "admin-desktop/analytics-full": {
+    "title": "Analytics · 90 days (full page)",
+    "role": "admin",
+    "device": "desktop",
+    "url": "https://scrap-flow-veloce-crita.vercel.app/admin/analytics",
+    "full": true,
+    "capturedAt": "2026-10-27T07:28:23.518Z"
+  },
+  "admin-desktop/analytics-inward": {
+    "title": "Inward analytics",
+    "role": "admin",
+    "device": "desktop",
+    "url": "https://scrap-flow-veloce-crita.vercel.app/admin/analytics",
+    "full": false,
+    "capturedAt": "2026-10-27T07:28:38.761Z"
+  },
+  "admin-desktop/analytics-dispatch": {
+    "title": "Dispatch analytics",
+    "role": "admin",
+    "device": "desktop",
+    "url": "https://scrap-flow-veloce-crita.vercel.app/admin/analytics",
+    "full": false,
+    "capturedAt": "2026-10-27T07:28:54.204Z"
+  },
+  "admin-desktop/analytics-materials": {
+    "title": "Material analytics",
+    "role": "admin",
+    "device": "desktop",
+    "url": "https://scrap-flow-veloce-crita.vercel.app/admin/analytics",
+    "full": false,
+    "capturedAt": "2026-10-27T07:29:09.392Z"
+  },
+  "admin-desktop/yard": {
+    "title": "Yard detail",
+    "role": "admin",
+    "device": "desktop",
+    "url": "https://scrap-flow-veloce-crita.vercel.app/admin/yards/cmsg0jh6h0000i3b8ud1qlm7r",
+    "full": false,
+    "capturedAt": "2026-10-27T10:05:25.103Z"
+  },
+  "admin-desktop/yard-full": {
+    "title": "Yard detail (full page)",
+    "role": "admin",
+    "device": "desktop",
+    "url": "https://scrap-flow-veloce-crita.vercel.app/admin/yards/cmsg0jh6h0000i3b8ud1qlm7r",
+    "full": true,
+    "capturedAt": "2026-10-27T10:05:33.333Z"
+  },
+  "admin-desktop/yards": {
+    "title": "Yards",
+    "role": "admin",
+    "device": "desktop",
+    "url": "https://scrap-flow-veloce-crita.vercel.app/admin/yards",
+    "full": false,
+    "capturedAt": "2026-10-27T07:29:29.510Z"
+  },
+  "admin-desktop/users": {
+    "title": "Users and roles",
+    "role": "admin",
+    "device": "desktop",
+    "url": "https://scrap-flow-veloce-crita.vercel.app/admin/users",
+    "full": false,
+    "capturedAt": "2026-10-27T07:29:36.566Z"
+  },
+  "admin-desktop/stock": {
+    "title": "Material master",
+    "role": "admin",
+    "device": "desktop",
+    "url": "https://scrap-flow-veloce-crita.vercel.app/admin/stock",
+    "full": false,
+    "capturedAt": "2026-10-27T07:36:26.794Z"
+  },
+  "admin-desktop/vendors": {
+    "title": "Vendors",
+    "role": "admin",
+    "device": "desktop",
+    "url": "https://scrap-flow-veloce-crita.vercel.app/admin/vendors",
+    "full": false,
+    "capturedAt": "2026-10-27T07:29:50.089Z"
+  },
+  "admin-desktop/audit": {
+    "title": "Audit log",
+    "role": "admin",
+    "device": "desktop",
+    "url": "https://scrap-flow-veloce-crita.vercel.app/admin/audit",
+    "full": false,
+    "capturedAt": "2026-10-27T07:29:56.458Z"
+  },
+  "admin-mobile/overview": {
+    "title": "Platform overview",
+    "role": "admin",
+    "device": "mobile",
+    "url": "https://scrap-flow-veloce-crita.vercel.app/admin",
+    "full": false,
+    "capturedAt": "2026-10-27T07:30:10.399Z"
+  },
+  "admin-mobile/analytics": {
+    "title": "Analytics",
+    "role": "admin",
+    "device": "mobile",
+    "url": "https://scrap-flow-veloce-crita.vercel.app/admin/analytics",
+    "full": false,
+    "capturedAt": "2026-10-27T07:30:22.086Z"
+  },
+  "owner-mobile/home": {
+    "title": "Yard dashboard",
+    "role": "owner",
+    "device": "mobile",
+    "url": "https://scrap-flow-veloce-crita.vercel.app/stock",
+    "full": false,
+    "capturedAt": "2026-10-27T07:30:39.780Z"
+  },
+  "owner-mobile/inward": {
+    "title": "Inward weight entry",
+    "role": "owner",
+    "device": "mobile",
+    "url": "https://scrap-flow-veloce-crita.vercel.app/inward",
+    "full": false,
+    "capturedAt": "2026-10-27T07:30:47.132Z"
+  },
+  "owner-mobile/sort": {
+    "title": "Segregation run",
+    "role": "owner",
+    "device": "mobile",
+    "url": "https://scrap-flow-veloce-crita.vercel.app/sort",
+    "full": false,
+    "capturedAt": "2026-10-27T07:30:54.546Z"
+  },
+  "owner-mobile/sell": {
+    "title": "Sell and dispatch status",
+    "role": "owner",
+    "device": "mobile",
+    "url": "https://scrap-flow-veloce-crita.vercel.app/sell",
+    "full": false,
+    "capturedAt": "2026-10-27T07:31:02.062Z"
+  },
+  "owner-desktop/home": {
+    "title": "Yard app on desktop",
+    "role": "owner",
+    "device": "desktop",
+    "url": "https://scrap-flow-veloce-crita.vercel.app/stock",
+    "full": false,
+    "capturedAt": "2026-10-27T07:31:38.671Z"
+  },
+  "supervisor-mobile/home": {
+    "title": "Materials on hand",
+    "role": "supervisor",
+    "device": "mobile",
+    "url": "https://scrap-flow-veloce-crita.vercel.app/stock",
+    "full": false,
+    "capturedAt": "2026-10-27T07:31:53.232Z"
+  },
+  "supervisor-mobile/inward": {
+    "title": "Inward weight entry",
+    "role": "supervisor",
+    "device": "mobile",
+    "url": "https://scrap-flow-veloce-crita.vercel.app/inward",
+    "full": false,
+    "capturedAt": "2026-10-27T07:32:00.566Z"
+  },
+  "supervisor-mobile/outward": {
+    "title": "Outward dispatch",
+    "role": "supervisor",
+    "device": "mobile",
+    "url": "https://scrap-flow-veloce-crita.vercel.app/outward",
+    "full": false,
+    "capturedAt": "2026-10-27T07:32:09.983Z"
+  },
+  "supervisor-mobile/outward-history": {
+    "title": "Dispatch history",
+    "role": "supervisor",
+    "device": "mobile",
+    "url": "https://scrap-flow-veloce-crita.vercel.app/outward/history",
+    "full": false,
+    "capturedAt": "2026-10-27T07:32:17.872Z"
+  },
+  "supervisor-mobile/outward-active": {
+    "title": "Active dispatch",
+    "role": "supervisor",
+    "device": "mobile",
+    "url": "https://scrap-flow-veloce-crita.vercel.app/outward/active",
+    "full": false,
+    "capturedAt": "2026-10-27T07:32:25.663Z"
+  },
+  "owner-mobile/sort-selected": {
+    "title": "Segregation run with a load selected",
+    "role": "owner",
+    "device": "mobile",
+    "url": "https://scrap-flow-veloce-crita.vercel.app/sort",
+    "full": false,
+    "capturedAt": "2026-10-27T07:37:24.313Z"
+  },
+  "owner-mobile/inward-keypad": {
+    "title": "LED weight keypad",
+    "role": "owner",
+    "device": "mobile",
+    "url": "https://scrap-flow-veloce-crita.vercel.app/inward",
+    "full": false,
+    "capturedAt": "2026-10-27T07:38:49.386Z"
+  }
+}

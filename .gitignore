@@ -1,0 +1,12 @@
+node_modules/
+web/dist/
+web/.astro/
+
+# Private: presenter-only demo logins (see content/demo-access.example.json)
+# and the presenter copy of the deck, whose speaker notes carry them
+content/demo-access.json
+ppt/presenter/
+
+*.log
+.DS_Store
+Thumbs.db

@@ -1,0 +1,266 @@
+{
+  "admin-desktop/dashboard": {
+    "title": "Admin dashboard",
+    "role": "admin",
+    "device": "desktop",
+    "url": "https://smc-crita.vercel.app/admin",
+    "full": false,
+    "capturedAt": "2026-10-27T07:21:39.343Z"
+  },
+  "admin-desktop/dashboard-full": {
+    "title": "Admin dashboard (full page)",
+    "role": "admin",
+    "device": "desktop",
+    "url": "https://smc-crita.vercel.app/admin",
+    "full": true,
+    "capturedAt": "2026-10-27T07:21:44.963Z"
+  },
+  "admin-desktop/dashboard-analytics": {
+    "title": "Staff performance and task distribution",
+    "role": "admin",
+    "device": "desktop",
+    "url": "https://smc-crita.vercel.app/admin",
+    "full": false,
+    "capturedAt": "2026-10-27T07:21:50.914Z"
+  },
+  "admin-desktop/visits": {
+    "title": "All visits",
+    "role": "admin",
+    "device": "desktop",
+    "url": "https://smc-crita.vercel.app/admin/visits",
+    "full": false,
+    "capturedAt": "2026-10-27T07:21:56.063Z"
+  },
+  "admin-desktop/carry-forward": {
+    "title": "Carry-forward approvals",
+    "role": "admin",
+    "device": "desktop",
+    "url": "https://smc-crita.vercel.app/admin/carry-forward",
+    "full": false,
+    "capturedAt": "2026-10-27T07:22:01.385Z"
+  },
+  "admin-desktop/calendar-w33": {
+    "title": "Visit calendar",
+    "role": "admin",
+    "device": "desktop",
+    "url": "https://smc-crita.vercel.app/admin/calendar",
+    "full": false,
+    "capturedAt": "2026-10-27T07:22:19.444Z"
+  },
+  "admin-desktop/calendar-w34": {
+    "title": "Visit calendar",
+    "role": "admin",
+    "device": "desktop",
+    "url": "https://smc-crita.vercel.app/admin/calendar",
+    "full": false,
+    "capturedAt": "2026-10-27T07:22:36.601Z"
+  },
+  "admin-desktop/calendar-w35": {
+    "title": "Visit calendar",
+    "role": "admin",
+    "device": "desktop",
+    "url": "https://smc-crita.vercel.app/admin/calendar",
+    "full": false,
+    "capturedAt": "2026-10-27T07:22:52.633Z"
+  },
+  "admin-desktop/task-config": {
+    "title": "Client-specific checklists",
+    "role": "admin",
+    "device": "desktop",
+    "url": "https://smc-crita.vercel.app/admin/task-config",
+    "full": false,
+    "capturedAt": "2026-10-27T07:22:57.735Z"
+  },
+  "admin-desktop/executives": {
+    "title": "Executive workload",
+    "role": "admin",
+    "device": "desktop",
+    "url": "https://smc-crita.vercel.app/admin/executives",
+    "full": false,
+    "capturedAt": "2026-10-27T07:23:02.747Z"
+  },
+  "admin-desktop/clients": {
+    "title": "Clients",
+    "role": "admin",
+    "device": "desktop",
+    "url": "https://smc-crita.vercel.app/admin/clients",
+    "full": false,
+    "capturedAt": "2026-10-27T07:23:07.845Z"
+  },
+  "admin-desktop/visit-detail": {
+    "title": "Visit detail (admin)",
+    "role": "admin",
+    "device": "desktop",
+    "url": "https://smc-crita.vercel.app/admin/visits/cmt06q3in000c04l29gsci9ys",
+    "full": false,
+    "capturedAt": "2026-10-27T07:23:13.290Z"
+  },
+  "admin-mobile/dashboard": {
+    "title": "Admin dashboard",
+    "role": "admin",
+    "device": "mobile",
+    "url": "https://smc-crita.vercel.app/admin",
+    "full": false,
+    "capturedAt": "2026-10-27T07:23:23.779Z"
+  },
+  "admin-mobile/dashboard-charts": {
+    "title": "Admin dashboard charts",
+    "role": "admin",
+    "device": "mobile",
+    "url": "https://smc-crita.vercel.app/admin",
+    "full": false,
+    "capturedAt": "2026-10-27T07:23:29.723Z"
+  },
+  "admin-mobile/visits": {
+    "title": "All visits",
+    "role": "admin",
+    "device": "mobile",
+    "url": "https://smc-crita.vercel.app/admin/visits",
+    "full": false,
+    "capturedAt": "2026-10-27T07:23:34.640Z"
+  },
+  "admin-mobile/carry-forward": {
+    "title": "Carry-forward approvals",
+    "role": "admin",
+    "device": "mobile",
+    "url": "https://smc-crita.vercel.app/admin/carry-forward",
+    "full": false,
+    "capturedAt": "2026-10-27T07:23:39.220Z"
+  },
+  "admin-mobile/calendar": {
+    "title": "Visit calendar",
+    "role": "admin",
+    "device": "mobile",
+    "url": "https://smc-crita.vercel.app/admin/calendar",
+    "full": false,
+    "capturedAt": "2026-10-27T08:03:57.989Z"
+  },
+  "executive-desktop/dashboard": {
+    "title": "Executive dashboard",
+    "role": "executive",
+    "device": "desktop",
+    "url": "https://smc-crita.vercel.app/executive",
+    "full": false,
+    "capturedAt": "2026-10-27T07:24:06.132Z"
+  },
+  "executive-desktop/visits": {
+    "title": "My visits",
+    "role": "executive",
+    "device": "desktop",
+    "url": "https://smc-crita.vercel.app/executive/visits",
+    "full": false,
+    "capturedAt": "2026-10-27T07:24:11.766Z"
+  },
+  "executive-desktop/visit-closed": {
+    "title": "Completed visit with activity trail",
+    "role": "executive",
+    "device": "desktop",
+    "url": "https://smc-crita.vercel.app/executive/visits/cmt06q3in000c04l29gsci9ys",
+    "full": false,
+    "capturedAt": "2026-10-27T07:24:16.374Z"
+  },
+  "executive-desktop/visit-closed-full": {
+    "title": "Completed visit (full page)",
+    "role": "executive",
+    "device": "desktop",
+    "url": "https://smc-crita.vercel.app/executive/visits/cmt06q3in000c04l29gsci9ys",
+    "full": true,
+    "capturedAt": "2026-10-27T07:24:21.117Z"
+  },
+  "executive-desktop/visit-team": {
+    "title": "Team visit, ready to open",
+    "role": "executive",
+    "device": "desktop",
+    "url": "https://smc-crita.vercel.app/executive/visits/cmt1fyvld000104l2yb2c8vd5",
+    "full": false,
+    "capturedAt": "2026-10-27T07:24:25.905Z"
+  },
+  "executive-desktop/visit-partial": {
+    "title": "Visit with reasons for incomplete items",
+    "role": "executive",
+    "device": "desktop",
+    "url": "https://smc-crita.vercel.app/executive/visits/cmsmwhs6v005r04i9elhmgmeh",
+    "full": false,
+    "capturedAt": "2026-10-27T07:24:31.039Z"
+  },
+  "executive-desktop/visit-summary": {
+    "title": "Auto-generated visit summary",
+    "role": "executive",
+    "device": "desktop",
+    "url": "https://smc-crita.vercel.app/executive/visits/cmt06q3in000c04l29gsci9ys",
+    "full": false,
+    "capturedAt": "2026-10-27T07:24:37.393Z"
+  },
+  "executive-desktop/calendar": {
+    "title": "My calendar",
+    "role": "executive",
+    "device": "desktop",
+    "url": "https://smc-crita.vercel.app/executive/calendar",
+    "full": false,
+    "capturedAt": "2026-10-27T07:24:53.983Z"
+  },
+  "executive-mobile/dashboard": {
+    "title": "Executive dashboard",
+    "role": "executive",
+    "device": "mobile",
+    "url": "https://smc-crita.vercel.app/executive",
+    "full": false,
+    "capturedAt": "2026-10-27T07:25:03.905Z"
+  },
+  "executive-mobile/visits": {
+    "title": "My visits",
+    "role": "executive",
+    "device": "mobile",
+    "url": "https://smc-crita.vercel.app/executive/visits",
+    "full": false,
+    "capturedAt": "2026-10-27T07:25:08.789Z"
+  },
+  "executive-mobile/visit-closed": {
+    "title": "Completed visit",
+    "role": "executive",
+    "device": "mobile",
+    "url": "https://smc-crita.vercel.app/executive/visits/cmt06q3in000c04l29gsci9ys",
+    "full": false,
+    "capturedAt": "2026-10-27T07:25:13.239Z"
+  },
+  "executive-mobile/visit-partial": {
+    "title": "Visit progress",
+    "role": "executive",
+    "device": "mobile",
+    "url": "https://smc-crita.vercel.app/executive/visits/cmsmwhs6v005r04i9elhmgmeh",
+    "full": false,
+    "capturedAt": "2026-10-27T07:25:17.769Z"
+  },
+  "executive-mobile/visit-partial-tasks": {
+    "title": "MD meeting and reasons",
+    "role": "executive",
+    "device": "mobile",
+    "url": "https://smc-crita.vercel.app/executive/visits/cmsmwhs6v005r04i9elhmgmeh",
+    "full": false,
+    "capturedAt": "2026-10-27T07:25:23.429Z"
+  },
+  "executive-mobile/visit-summary": {
+    "title": "Visit summary",
+    "role": "executive",
+    "device": "mobile",
+    "url": "https://smc-crita.vercel.app/executive/visits/cmt06q3in000c04l29gsci9ys",
+    "full": false,
+    "capturedAt": "2026-10-27T07:25:29.626Z"
+  },
+  "executive-mobile/attendance": {
+    "title": "Attendance and leave",
+    "role": "executive",
+    "device": "mobile",
+    "url": "https://smc-crita.vercel.app/executive/leave",
+    "full": false,
+    "capturedAt": "2026-10-27T07:25:34.009Z"
+  },
+  "executive-mobile/calendar": {
+    "title": "My calendar",
+    "role": "executive",
+    "device": "mobile",
+    "url": "https://smc-crita.vercel.app/executive/calendar",
+    "full": false,
+    "capturedAt": "2026-10-27T07:25:50.379Z"
+  }
+}

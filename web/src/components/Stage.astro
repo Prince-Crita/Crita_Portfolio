@@ -1,0 +1,54 @@
+---
+// A project's signature composition: its main desktop screen with a phone
+// screen overlapping, on the project's own stage colour.
+import BrowserFrame from './BrowserFrame.astro';
+import PhoneFrame from './PhoneFrame.astro';
+import type { Project } from '../lib/content';
+
+interface Props {
+  project: Project;
+  size?: 'card' | 'hero';
+  eager?: boolean;
+  vt?: boolean;
+}
+const { project: p, size = 'card', eager = false, vt = false } = Astro.props;
+const dark = p.id === 'veloce';
+const sizes = size === 'hero' ? '(min-width: 1100px) 70vw, 94vw' : '(min-width: 1100px) 46vw, 92vw';
+---
+<div class:list={['stage', `stage--${size}`, `stage--${p.theme.stageInk}`]} style={`--stage:${p.theme.stage};--accent:${p.theme.accent}`}>
+  <span class="stage__glow" aria-hidden="true"></span>
+  <div class="stage__desk" data-parallax={size === 'hero' ? '0.03' : undefined}>
+    <BrowserFrame k={p.media.hero} url={p.live.name} tone={dark ? 'dark' : 'light'} sizes={sizes} eager={eager} vt={vt ? `stage-${p.id}` : undefined} />
+  </div>
+  <div class="stage__phone" data-parallax={size === 'hero' ? '-0.05' : undefined}>
+    <PhoneFrame k={p.media.heroPhone} sizes={size === 'hero' ? '(min-width: 1100px) 16vw, 34vw' : '(min-width: 1100px) 11vw, 26vw'} eager={eager} />
+  </div>
+</div>
+
+<style>
+  .stage {
+    position: relative;
+    isolation: isolate;
+    border-radius: var(--r-stage);
+    background: var(--stage);
+    overflow: hidden;
+    padding: 7% 13% 0 6%;
+    aspect-ratio: 16 / 11;
+  }
+  .stage--hero { aspect-ratio: auto; padding: 0; overflow: visible; background: none; border-radius: 0; }
+  .stage__glow {
+    position: absolute; inset: auto -20% -60% 30%; height: 120%; z-index: -1;
+    background: radial-gradient(closest-side, color-mix(in srgb, var(--accent) 34%, transparent), transparent 72%);
+    opacity: 0.55;
+    pointer-events: none;
+  }
+  .stage--dark .stage__glow { opacity: 0.35; }
+  .stage--hero .stage__glow { display: none; }
+  .stage__desk { position: relative; z-index: 1; }
+  .stage__phone {
+    position: absolute; z-index: 2;
+    width: 21%; right: 5%; bottom: -14%;
+  }
+  .stage--hero .stage__desk { width: 84%; }
+  .stage--hero .stage__phone { width: 19%; right: 0; bottom: -10%; }
+</style>

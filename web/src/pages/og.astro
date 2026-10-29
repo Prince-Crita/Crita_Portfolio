@@ -1,0 +1,36 @@
+---
+// 1200 × 630 social-share card, rendered to /og.jpg by pdf/build-pdf.mjs.
+import Print from '../layouts/Print.astro';
+import BrowserFrame from '../components/BrowserFrame.astro';
+import PhoneFrame from '../components/PhoneFrame.astro';
+import { company, site, projectById } from '../lib/content';
+---
+<Print>
+  <div class="og" data-og>
+    <div class="og__copy">
+      <img src="/brand/crita-logo.svg" alt="Crita" class="og__logo" />
+      <p class="og__label">Selected work {site.meta.year}</p>
+      <h1>Software that brings <span>clarity</span> to complex operations.</h1>
+      <p class="og__sub">{company.positioning} · {company.contact.websiteLabel}</p>
+    </div>
+    <div class="og__art">
+      <div class="og__desk"><BrowserFrame k="clario/owner-desktop/overview" url={projectById('clario').live.name} pick={1400} /></div>
+      <div class="og__phone"><PhoneFrame k="veloce/owner-mobile/inward-keypad" pick={780} /></div>
+    </div>
+  </div>
+</Print>
+
+<style is:global>
+  .og { position: relative; width: 1200px; height: 630px; overflow: hidden; background: var(--night); color: var(--on-dark); display: grid; grid-template-columns: 560px 1fr; }
+  .og::before { content: ''; position: absolute; inset: 0; background: radial-gradient(55% 60% at 90% 10%, rgba(127, 165, 63, 0.2), transparent 70%), radial-gradient(50% 60% at 0% 100%, rgba(3, 63, 45, 0.7), transparent 70%); }
+  .og > * { position: relative; }
+  .og__copy { padding: 64px 0 56px 64px; display: flex; flex-direction: column; }
+  .og__logo { width: 150px; }
+  .og__label { margin-top: auto; font-size: 15px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: var(--on-dark-3); }
+  .og h1 { margin-top: 14px; font-size: 54px; line-height: 1; letter-spacing: -0.04em; font-weight: 700; }
+  .og h1 span { color: var(--lime); }
+  .og__sub { margin-top: 22px; font-size: 18px; color: var(--on-dark-2); }
+  .og__art { position: relative; }
+  .og__desk { position: absolute; left: 40px; top: 110px; width: 720px; }
+  .og__phone { position: absolute; left: 26px; top: 250px; width: 150px; }
+</style>

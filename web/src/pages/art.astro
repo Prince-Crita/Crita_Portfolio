@@ -1,0 +1,100 @@
+---
+// Device-framed compositions for the PowerPoint deck, rendered to images by
+// ppt/build-art.mjs. Each piece sits on the exact colour of the slide area it
+// is placed on, so it can ship as a compact JPEG with invisible edges.
+import Print from '../layouts/Print.astro';
+import BrowserFrame from '../components/BrowserFrame.astro';
+import PhoneFrame from '../components/PhoneFrame.astro';
+import { projects, projectById, shot } from '../lib/content';
+
+const mobile = (k: string) => shot(k).device === 'mobile';
+const night = '#06120D';
+const capPhone = (p: (typeof projects)[number]) => p.capabilities.map((c) => c.shot).find(mobile) ?? p.mobile[0];
+---
+<Print>
+  <main class="arts">
+    <div class="art" data-art="cover" style={`--bg:${night};width:1500px`}>
+      <div class="comp comp--cover">
+        <div class="c-back"><BrowserFrame k="smc/admin-desktop/calendar-w34" url={projectById('smc').live.name} pick={2200} /></div>
+        <div class="c-main"><BrowserFrame k="clario/owner-desktop/overview" url={projectById('clario').live.name} pick={2200} /></div>
+        <div class="c-p1"><PhoneFrame k="veloce/owner-mobile/inward-keypad" pick={1170} /></div>
+        <div class="c-p2"><PhoneFrame k="city-threads/executive-mobile/stock-unit" pick={1170} /></div>
+      </div>
+    </div>
+
+    {projects.map((p) => {
+      const url = p.live.name;
+      const tone = p.id === 'veloce' ? 'dark' : 'light';
+      const dev = (k: string, w: number) =>
+        mobile(k) ? <PhoneFrame k={k} pick={1170} style={`width:${Math.round(w * 0.36)}px`} /> : <BrowserFrame k={k} url={url} tone={tone} pick={2200} style={`width:${w}px`} />;
+      return (
+        <>
+          <div class="art" data-art={`${p.id}-hero`} style={`--bg:${p.theme.stage};width:1500px`}>
+            <div class="comp comp--hero">
+              <div class="h-desk"><BrowserFrame k={p.media.hero} url={url} tone={tone} pick={2200} /></div>
+              <div class="h-phone"><PhoneFrame k={p.media.heroPhone} pick={1170} /></div>
+            </div>
+          </div>
+
+          <div class="art" data-art={`${p.id}-cs`} style={`--bg:${p.theme.tint};width:1300px`}>
+            <div class:list={['comp', 'comp--cs', mobile(p.media.solution) ? 'cs-phone' : 'cs-desk', mobile(p.media.challenge) && 'cs-aphone']}>
+              <div class="cs-a">{dev(p.media.challenge, 980)}</div>
+              <div class="cs-b">{dev(p.media.solution, 860)}</div>
+            </div>
+          </div>
+
+          {p.tour.map((t, i) => (
+            <div class="art" data-art={`${p.id}-tour-${i}`} style={`--bg:${p.theme.tint};width:${mobile(t.shot) ? 600 : 1500}px`}>
+              {mobile(t.shot) ? <PhoneFrame k={t.shot} pick={1170} /> : <BrowserFrame k={t.shot} url={url} tone={tone} pick={2200} />}
+            </div>
+          ))}
+
+          {p.rolesDetail.map((r, i) => (
+            <div class="art" data-art={`${p.id}-role-${i}`} style={`--bg:${p.theme.stage};width:${r.shots.every(mobile) ? 260 + 420 * r.shots.length : 1400}px`}>
+              <div class="row">
+                {r.shots.map((k) => (mobile(k) ? <PhoneFrame k={k} pick={1170} style="width:420px" /> : <BrowserFrame k={k} url={url} tone={tone} pick={2200} style="width:1300px" />))}
+              </div>
+            </div>
+          ))}
+
+          <div class="art" data-art={`${p.id}-mobile`} style={`--bg:${p.theme.stage};width:1760px`}>
+            <div class="row row--stagger">
+              {p.mobile.map((k) => <PhoneFrame k={k} pick={1170} style="width:380px" />)}
+            </div>
+          </div>
+
+          <div class="art" data-art={`${p.id}-capphone`} style={`--bg:${p.theme.stage};width:560px`}>
+            <PhoneFrame k={capPhone(p)} pick={1170} />
+          </div>
+        </>
+      );
+    })}
+  </main>
+</Print>
+
+<style is:global>
+  body.print { background: #888; }
+  .arts { display: grid; gap: 40px; padding: 40px; justify-items: start; }
+  .art { background: var(--bg); padding: 70px 80px 110px; box-sizing: content-box; }
+  .art .bframe { box-shadow: 0 34px 60px -26px rgba(4, 14, 9, 0.5), 0 12px 24px -14px rgba(4, 14, 9, 0.3), 0 0 0 1px rgba(13, 24, 19, 0.08); }
+  .art .bframe--dark { box-shadow: 0 34px 60px -26px rgba(0, 0, 0, 0.6), 0 0 0 1px rgba(238, 240, 230, 0.12); }
+
+  .comp { position: relative; }
+  .comp--cover { height: 1080px; }
+  .c-back { position: absolute; left: 0; top: 0; width: 900px; opacity: 0.92; }
+  .c-main { position: absolute; right: 0; top: 150px; width: 1080px; }
+  .c-p1 { position: absolute; left: 150px; top: 420px; width: 250px; }
+  .c-p2 { position: absolute; right: -30px; top: 520px; width: 230px; }
+
+  .comp--hero { padding-bottom: 60px; }
+  .h-desk { width: 84%; }
+  .h-phone { position: absolute; right: 0; bottom: 0; width: 19%; }
+
+  .comp--cs { height: 900px; }
+  .cs-a { position: absolute; left: 0; top: 0; }
+  .cs-b { position: absolute; right: 0; bottom: 0; }
+  .cs-aphone .cs-a { left: 40px; }
+
+  .row { display: flex; gap: 60px; align-items: flex-start; justify-content: center; }
+  .row--stagger > :nth-child(even) { margin-top: 70px; }
+</style>

@@ -1,0 +1,75 @@
+---
+// A minimal modern phone around a mobile screenshot (390 × 844 app viewport),
+// with a system status bar drawn in the app's own top colour.
+// The outer element is the size container; every proportion inside is in cqi
+// so the device keeps its shape at any width.
+import Shot from './Shot.astro';
+import { shot } from '../lib/content';
+
+interface Props {
+  k: string;
+  sizes?: string;
+  eager?: boolean;
+  alt?: string;
+  class?: string;
+  style?: string;
+  pick?: number;
+}
+const { k, sizes = '(min-width: 1100px) 22vw, 60vw', eager, alt, class: cls, style, pick } = Astro.props;
+const m = shot(k) as ReturnType<typeof shot> & { top?: string; topDark?: boolean };
+---
+<figure class:list={['phone', cls]} style={style}>
+  <div class="phone__body">
+    <div class="phone__screen" style={`--top:${m.top ?? '#fff'};--status:${m.topDark ? '#fff' : '#0d1813'}`}>
+      <div class="phone__status" aria-hidden="true">
+        <span class="phone__time">9:41</span>
+        <span class="phone__island"></span>
+        <svg class="phone__icons" viewBox="0 0 64 12">
+          <path d="M1 9h2v2H1zM5 7h2v4H5zM9 5h2v6H9zM13 3h2v8h-2z" fill="currentColor" />
+          <path d="M25 4.2a7.6 7.6 0 0 1 10 0l-1.3 1.4a5.7 5.7 0 0 0-7.4 0zM27.6 6.9a3.9 3.9 0 0 1 4.8 0L30 9.4z" fill="currentColor" />
+          <rect x="42.5" y="1.5" width="18" height="9" rx="2.6" fill="none" stroke="currentColor" opacity="0.5" />
+          <rect x="44.2" y="3.2" width="13.6" height="5.6" rx="1.4" fill="currentColor" />
+          <path d="M62 4.6v2.8a1.4 1.4 0 0 0 0-2.8z" fill="currentColor" opacity="0.5" />
+        </svg>
+      </div>
+      <div class="phone__view">
+        <Shot k={k} sizes={sizes} eager={eager} alt={alt} pick={pick} />
+      </div>
+    </div>
+  </div>
+</figure>
+
+<style>
+  .phone { margin: 0; container-type: inline-size; }
+  .phone__body {
+    padding: 3.2cqi;
+    border-radius: 15cqi;
+    background: linear-gradient(150deg, #353b35 0%, #0d100e 46%, #232823 100%);
+    box-shadow:
+      inset 0 0 0 1px rgba(255, 255, 255, 0.18),
+      inset 0 0 0 0.9cqi #040605,
+      var(--shadow-frame);
+  }
+  .phone__screen {
+    border-radius: 12cqi;
+    overflow: hidden;
+    background: var(--top);
+  }
+  .phone__status {
+    position: relative;
+    display: flex; align-items: center; justify-content: space-between;
+    aspect-ratio: 390 / 46;
+    padding: 0 8cqi 0 9.5cqi;
+    color: var(--status);
+  }
+  .phone__time { font-size: 3.9cqi; font-weight: 650; letter-spacing: -0.01em; font-variant-numeric: tabular-nums; line-height: 1; }
+  .phone__icons { width: 16cqi; height: auto; }
+  .phone__island {
+    position: absolute; left: 50%; top: 20%;
+    width: 28%; height: 66%;
+    transform: translateX(-50%);
+    border-radius: 999px; background: #050605;
+  }
+  .phone__view { aspect-ratio: 390 / 844; overflow: hidden; background: #fff; }
+  .phone__view :global(img) { width: 100%; height: 100%; object-fit: cover; object-position: top; }
+</style>

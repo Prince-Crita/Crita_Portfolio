@@ -1,0 +1,31 @@
+---
+// Minimal shell for the print route: same tokens and fonts as the site,
+// no header, footer, motion or view transitions.
+import '../styles/base.css';
+import { site } from '../lib/content';
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=1123" />
+    <meta name="robots" content="noindex" />
+    <title>{site.meta.title}</title>
+  </head>
+  <body class="print">
+    <slot />
+  </body>
+</html>
+
+<style is:global>
+  /* Static TrueType weights for print: Chrome embeds TTF as real fonts in the
+     PDF (searchable, correct punctuation), but flattens WOFF2 and variable
+     fonts into Type 3 glyphs. */
+  @font-face { font-family: 'Satoshi Print'; src: url('/fonts/print/Satoshi-Light.ttf') format('truetype'); font-weight: 300; }
+  @font-face { font-family: 'Satoshi Print'; src: url('/fonts/print/Satoshi-Regular.ttf') format('truetype'); font-weight: 400; }
+  @font-face { font-family: 'Satoshi Print'; src: url('/fonts/print/Satoshi-Italic.ttf') format('truetype'); font-weight: 400; font-style: italic; }
+  @font-face { font-family: 'Satoshi Print'; src: url('/fonts/print/Satoshi-Medium.ttf') format('truetype'); font-weight: 500; }
+  @font-face { font-family: 'Satoshi Print'; src: url('/fonts/print/Satoshi-Bold.ttf') format('truetype'); font-weight: 600 700; }
+  @font-face { font-family: 'Satoshi Print'; src: url('/fonts/print/Satoshi-Black.ttf') format('truetype'); font-weight: 800 900; }
+  body.print { --font: 'Satoshi Print', ui-sans-serif, system-ui, sans-serif; font-family: var(--font); }
+</style>

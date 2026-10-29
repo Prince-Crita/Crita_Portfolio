@@ -1,0 +1,111 @@
+---
+import { company, projects, mailto } from '../lib/content';
+
+interface Props {
+  tone?: 'dark' | 'light';
+  current?: string;
+}
+const { tone = 'dark', current } = Astro.props;
+const links = [
+  { href: '/#work', label: 'Work' },
+  { href: '/#capabilities', label: 'Capabilities' },
+  { href: '/#approach', label: 'Approach' },
+  { href: '/#contact', label: 'Contact' },
+];
+---
+<header class="hdr" data-tone={tone} data-header>
+  <div class="hdr__in wrap--wide">
+    <a class="hdr__logo" href="/" aria-label="Crita Creative LLP — home">
+      <img src="/brand/crita-logo.svg" alt="" width="120" height="23" />
+    </a>
+
+    <nav class="hdr__nav" aria-label="Primary">
+      {links.map((l) => <a href={l.href} class="hdr__link">{l.label}</a>)}
+    </nav>
+
+    <div class="hdr__actions">
+      <a class="hdr__pdf" href="/Crita-Portfolio-2026.pdf" download>
+        <svg viewBox="0 0 16 16" width="15" height="15" aria-hidden="true"><path d="M8 2v8m0 0 3.2-3.2M8 10 4.8 6.8M3 13h10" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <span>PDF</span>
+      </a>
+      <a class="btn btn--sm hdr__cta" href={mailto('Project enquiry — from the Crita portfolio')}>Start a conversation</a>
+      <button class="hdr__menu" type="button" aria-expanded="false" aria-controls="menu" data-menu-toggle>
+        <span class="sr-only">Menu</span>
+        <i></i><i></i>
+      </button>
+    </div>
+  </div>
+</header>
+
+<div class="menu on-dark" id="menu" data-menu hidden>
+  <div class="menu__in wrap--wide">
+    <p class="label">Selected work</p>
+    <ul class="menu__work">
+      {projects.map((p) => (
+        <li>
+          <a href={`/work/${p.id}/`} aria-current={current === p.id ? 'page' : undefined}>
+            <span class="menu__num tnum">{p.number}</span>
+            <span class="menu__name">{p.name}</span>
+            <span class="menu__type">{p.type}</span>
+          </a>
+        </li>
+      ))}
+    </ul>
+    <ul class="menu__links">
+      {links.map((l) => <li><a href={l.href}>{l.label}</a></li>)}
+      <li><a href="/Crita-Portfolio-2026.pdf" download>Download PDF</a></li>
+    </ul>
+    <a class="btn btn--lime" href={mailto('Project enquiry — from the Crita portfolio')}>{company.closing.cta} <span class="arrow">→</span></a>
+  </div>
+</div>
+
+<style>
+  .hdr {
+    position: fixed; inset: 0 0 auto 0; z-index: 50;
+    color: var(--on-dark);
+    transition: background-color 400ms var(--ease-out), color 300ms, box-shadow 400ms, transform 500ms var(--ease-out);
+  }
+  .hdr[data-tone='light'] { color: var(--ink); }
+  .hdr.is-scrolled { background: rgba(6, 18, 13, 0.86); backdrop-filter: saturate(140%) blur(14px); -webkit-backdrop-filter: saturate(140%) blur(14px); box-shadow: 0 1px 0 var(--line-dark); }
+  .hdr.is-scrolled[data-tone='light'] { background: rgba(245, 245, 239, 0.88); box-shadow: 0 1px 0 var(--line); }
+  .hdr.is-hidden { transform: translateY(-100%); }
+
+  .hdr__in { display: flex; align-items: center; gap: 2rem; height: 76px; }
+  .hdr__logo img { width: 112px; height: auto; }
+  .hdr__nav { display: flex; gap: 2rem; margin-inline: auto; }
+  .hdr__link { font-size: 0.95rem; font-weight: 560; opacity: 0.82; transition: opacity 200ms; }
+  .hdr__link:hover { opacity: 1; }
+  .hdr__actions { display: flex; align-items: center; gap: 1.1rem; }
+  .hdr__pdf { display: inline-flex; align-items: center; gap: 0.35em; font-size: 0.9rem; font-weight: 600; opacity: 0.82; }
+  .hdr__pdf:hover { opacity: 1; }
+  .hdr .hdr__cta { --bg: var(--lime); --fg: var(--ink); }
+  .hdr[data-tone='light'] .hdr__cta { --bg: var(--ink); --fg: var(--paper); }
+
+  .hdr__menu { display: none; width: 44px; height: 44px; border-radius: 50%; position: relative; box-shadow: inset 0 0 0 1px currentColor; }
+  .hdr__menu i { position: absolute; left: 13px; right: 13px; height: 1.6px; background: currentColor; transition: transform 400ms var(--ease-out); }
+  .hdr__menu i:first-of-type { top: 18px; }
+  .hdr__menu i:last-of-type { top: 25px; }
+  .hdr__menu[aria-expanded='true'] i:first-of-type { transform: translateY(3.5px) rotate(45deg); }
+  .hdr__menu[aria-expanded='true'] i:last-of-type { transform: translateY(-3.5px) rotate(-45deg); }
+
+  .menu { position: fixed; inset: 0; z-index: 40; overflow-y: auto; padding: 108px 0 40px; }
+  .menu[hidden] { display: none; }
+  .menu__in { display: grid; gap: 2rem; }
+  .menu__work li + li { border-top: 1px solid var(--line-dark); }
+  .menu__work a { display: grid; grid-template-columns: 2.4rem 1fr; padding: 0.9rem 0; row-gap: 0.1rem; }
+  .menu__num { grid-row: span 2; color: var(--lime); font-weight: 600; padding-top: 0.35rem; }
+  .menu__name { font-size: 1.7rem; font-weight: 640; letter-spacing: -0.03em; }
+  .menu__type { color: var(--on-dark-3); font-size: 0.92rem; }
+  .menu__links { display: flex; flex-wrap: wrap; gap: 0.6rem 1.6rem; font-weight: 600; color: var(--on-dark-2); }
+
+  @media (max-width: 1040px) {
+    .hdr__nav, .hdr__pdf { display: none; }
+    .hdr__actions { margin-left: auto; }
+    .hdr__menu { display: block; }
+  }
+  @media (max-width: 560px) {
+    .hdr__in { height: 66px; }
+    .hdr__cta { display: none !important; }
+    .hdr__logo img { width: 98px; }
+  }
+</style>

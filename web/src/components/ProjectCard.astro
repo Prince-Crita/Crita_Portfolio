@@ -1,0 +1,55 @@
+---
+import Stage from './Stage.astro';
+import type { Project } from '../lib/content';
+
+interface Props {
+  project: Project;
+  flip?: boolean;
+}
+const { project: p, flip = false } = Astro.props;
+const href = `/work/${p.id}/`;
+---
+<article class:list={['pcard', { 'pcard--flip': flip }]}>
+  <a class="pcard__media" href={href} aria-label={`${p.name} — view case study`} data-reveal="scale">
+    <Stage project={p} vt />
+  </a>
+  <div class="pcard__text" data-reveal>
+    <p class="pcard__num tnum">{p.number}</p>
+    <h3 class="h2 pcard__name"><a href={href}>{p.name}</a></h3>
+    <p class="pcard__type">{p.client} · {p.sector}</p>
+    <p class="lead pcard__tag">{p.tagline}</p>
+    <ul class="pcard__chips">
+      <li class="chip">{p.platforms}</li>
+      <li class="chip">{p.roles}</li>
+    </ul>
+    <a class="link pcard__link" href={href}>View case study <span class="arrow">→</span></a>
+  </div>
+</article>
+
+<style>
+  .pcard {
+    display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); column-gap: var(--gap);
+    align-items: center;
+  }
+  .pcard__media { grid-column: 1 / span 7; display: block; border-radius: var(--r-stage); }
+  .pcard__text { grid-column: 9 / span 4; }
+  .pcard--flip .pcard__media { grid-column: 6 / span 7; grid-row: 1; }
+  .pcard--flip .pcard__text { grid-column: 1 / span 4; grid-row: 1; }
+  .pcard__media :global(.stage) { transition: transform 900ms var(--ease-out); }
+  .pcard__media:hover :global(.stage) { transform: scale(0.985); }
+  .pcard__media :global(.stage__phone) { transition: transform 900ms var(--ease-out); }
+  .pcard__media:hover :global(.stage__phone) { transform: translateY(-10px); }
+
+  .pcard__num { font-size: 0.95rem; font-weight: 650; color: var(--leaf); letter-spacing: 0.04em; margin-bottom: 1.2rem; }
+  .pcard__name a { background: linear-gradient(currentColor, currentColor) no-repeat 0 92% / 0 2px; transition: background-size 600ms var(--ease-out); }
+  .pcard__name a:hover { background-size: 100% 2px; }
+  .pcard__type { margin-top: 0.9rem; font-weight: 560; color: var(--ink-3); font-size: 0.95rem; }
+  .pcard__tag { margin-top: 1.4rem; color: var(--ink); }
+  .pcard__chips { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 1.6rem; }
+  .pcard__link { margin-top: 2rem; }
+
+  @media (max-width: 960px) {
+    .pcard, .pcard--flip { grid-template-columns: 1fr; row-gap: 2.2rem; }
+    .pcard__media, .pcard__text, .pcard--flip .pcard__media, .pcard--flip .pcard__text { grid-column: 1; grid-row: auto; }
+  }
+</style>

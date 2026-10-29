@@ -1,0 +1,80 @@
+/* Crita portfolio design tokens.
+   Palette from the Crita brand guide (Rainforest, Treetop, Greenery, Limeade,
+   Green Essence), extended with a near-black "night" and neutral paper tones. */
+
+@font-face {
+  font-family: 'Satoshi';
+  src: url('/fonts/Satoshi-Variable.woff2') format('woff2');
+  font-weight: 300 900;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Satoshi';
+  src: url('/fonts/Satoshi-VariableItalic.woff2') format('woff2');
+  font-weight: 300 900;
+  font-style: italic;
+  font-display: swap;
+}
+
+:root {
+  /* Brand */
+  --forest: #033f2d;
+  --moss: #4e6b31;
+  --leaf: #7fa53f;
+  --sprout: #a8cf39;
+  --lime: #d6e151;
+  --cream: #ecebcb;
+
+  /* Surfaces */
+  --night: #06120d;
+  --night-2: #0b1d16;
+  --paper: #f5f5ef;
+  --paper-2: #ecebe1;
+  --white: #ffffff;
+
+  /* Ink on light */
+  --ink: #0d1813;
+  --ink-2: #34433b;
+  --ink-3: #5c6a62;
+  --line: rgba(13, 24, 19, 0.12);
+  --line-2: rgba(13, 24, 19, 0.2);
+
+  /* Ink on dark */
+  --on-dark: #eef0e6;
+  --on-dark-2: rgba(238, 240, 230, 0.74);
+  --on-dark-3: rgba(238, 240, 230, 0.52);
+  --line-dark: rgba(238, 240, 230, 0.14);
+
+  --brand-gradient: linear-gradient(90deg, #4f6b31 0%, #a8cf39 100%);
+
+  /* Type */
+  --font: 'Satoshi', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  --fs-display: clamp(2.6rem, 1.15rem + 5.6vw, 6.4rem);
+  --fs-h1: clamp(2.5rem, 1.3rem + 4.4vw, 5.6rem);
+  --fs-h2: clamp(2rem, 1.25rem + 2.6vw, 3.6rem);
+  --fs-h3: clamp(1.35rem, 1.1rem + 0.9vw, 1.9rem);
+  --fs-h4: clamp(1.125rem, 1.04rem + 0.3vw, 1.3rem);
+  --fs-lead: clamp(1.125rem, 1.02rem + 0.42vw, 1.4rem);
+  --fs-body: 1.0625rem;
+  --fs-small: 0.9375rem;
+  --fs-label: 0.75rem;
+
+  /* Space & layout */
+  --gutter: clamp(20px, 4.2vw, 64px);
+  --maxw: 1320px;
+  --section: clamp(5.5rem, 3.2rem + 8vw, 11rem);
+  --gap: clamp(1.25rem, 0.9rem + 1.2vw, 2rem);
+
+  /* Shape */
+  --r-frame: 14px;
+  --r-card: 20px;
+  --r-stage: 28px;
+  --shadow-frame: 0 50px 90px -30px rgba(4, 14, 9, 0.5), 0 18px 36px -18px rgba(4, 14, 9, 0.32);
+  --shadow-soft: 0 24px 60px -28px rgba(4, 14, 9, 0.28);
+
+  /* Motion */
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+  --t-reveal: 1000ms;
+}

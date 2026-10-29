@@ -1,0 +1,186 @@
+{
+  "owner-desktop/workspace": {
+    "title": "Workspace and connected systems",
+    "role": "owner",
+    "device": "desktop",
+    "url": "https://clariocrita.vercel.app/w/crita-creative-llp-dev",
+    "full": false,
+    "capturedAt": "2026-10-27T07:40:47.501Z"
+  },
+  "owner-desktop/overview": {
+    "title": "Finance overview",
+    "role": "owner",
+    "device": "desktop",
+    "url": "https://clariocrita.vercel.app/w/crita-creative-llp-dev/zoho-books/finance/overview",
+    "full": false,
+    "capturedAt": "2026-10-27T07:40:57.265Z"
+  },
+  "owner-desktop/overview-full": {
+    "title": "Finance overview (full page)",
+    "role": "owner",
+    "device": "desktop",
+    "url": "https://clariocrita.vercel.app/w/crita-creative-llp-dev/zoho-books/finance/overview",
+    "full": true,
+    "capturedAt": "2026-10-27T07:41:05.151Z"
+  },
+  "owner-desktop/overview-decisions": {
+    "title": "Decision support and scenarios",
+    "role": "owner",
+    "device": "desktop",
+    "url": "https://clariocrita.vercel.app/w/crita-creative-llp-dev/zoho-books/finance/overview",
+    "full": false,
+    "capturedAt": "2026-10-27T07:41:13.053Z"
+  },
+  "owner-desktop/ask": {
+    "title": "Ask Clario",
+    "role": "owner",
+    "device": "desktop",
+    "url": "https://clariocrita.vercel.app/w/crita-creative-llp-dev/zoho-books/finance/clario",
+    "full": false,
+    "capturedAt": "2026-10-27T07:41:19.774Z"
+  },
+  "owner-desktop/ask-full": {
+    "title": "Ask Clario (full page)",
+    "role": "owner",
+    "device": "desktop",
+    "url": "https://clariocrita.vercel.app/w/crita-creative-llp-dev/zoho-books/finance/clario",
+    "full": true,
+    "capturedAt": "2026-10-27T07:41:26.751Z"
+  },
+  "owner-desktop/ask-history": {
+    "title": "Conversation history",
+    "role": "owner",
+    "device": "desktop",
+    "url": "https://clariocrita.vercel.app/w/crita-creative-llp-dev/zoho-books/finance/clario",
+    "full": false,
+    "capturedAt": "2026-10-27T07:41:35.894Z"
+  },
+  "owner-desktop/trends": {
+    "title": "Trends and analysis",
+    "role": "owner",
+    "device": "desktop",
+    "url": "https://clariocrita.vercel.app/w/crita-creative-llp-dev/zoho-books/finance/trends",
+    "full": false,
+    "capturedAt": "2026-10-27T07:41:43.171Z"
+  },
+  "owner-desktop/trends-full": {
+    "title": "Trends and analysis (full page)",
+    "role": "owner",
+    "device": "desktop",
+    "url": "https://clariocrita.vercel.app/w/crita-creative-llp-dev/zoho-books/finance/trends",
+    "full": true,
+    "capturedAt": "2026-10-27T07:41:50.526Z"
+  },
+  "owner-desktop/receivables": {
+    "title": "Receivables",
+    "role": "owner",
+    "device": "desktop",
+    "url": "https://clariocrita.vercel.app/w/crita-creative-llp-dev/zoho-books/finance/receivables",
+    "full": false,
+    "capturedAt": "2026-10-27T07:41:57.586Z"
+  },
+  "owner-desktop/receivables-full": {
+    "title": "Receivables (full page)",
+    "role": "owner",
+    "device": "desktop",
+    "url": "https://clariocrita.vercel.app/w/crita-creative-llp-dev/zoho-books/finance/receivables",
+    "full": true,
+    "capturedAt": "2026-10-27T07:42:04.853Z"
+  },
+  "owner-desktop/balance-sheet": {
+    "title": "Balance sheet",
+    "role": "owner",
+    "device": "desktop",
+    "url": "https://clariocrita.vercel.app/w/crita-creative-llp-dev/zoho-books/finance/balance-sheet",
+    "full": false,
+    "capturedAt": "2026-10-27T07:42:11.482Z"
+  },
+  "owner-desktop/payables": {
+    "title": "Payables",
+    "role": "owner",
+    "device": "desktop",
+    "url": "https://clariocrita.vercel.app/w/crita-creative-llp-dev/zoho-books/finance/payables",
+    "full": false,
+    "capturedAt": "2026-10-27T07:42:18.197Z"
+  },
+  "owner-mobile/overview": {
+    "title": "Finance overview",
+    "role": "owner",
+    "device": "mobile",
+    "url": "https://clariocrita.vercel.app/w/crita-creative-llp-dev/zoho-books/finance/overview",
+    "full": false,
+    "capturedAt": "2026-10-27T07:42:29.842Z"
+  },
+  "owner-mobile/overview-performance": {
+    "title": "Business performance",
+    "role": "owner",
+    "device": "mobile",
+    "url": "https://clariocrita.vercel.app/w/crita-creative-llp-dev/zoho-books/finance/overview",
+    "full": false,
+    "capturedAt": "2026-10-27T07:42:37.164Z"
+  },
+  "owner-mobile/ask": {
+    "title": "Ask Clario",
+    "role": "owner",
+    "device": "mobile",
+    "url": "https://clariocrita.vercel.app/w/crita-creative-llp-dev/zoho-books/finance/clario",
+    "full": false,
+    "capturedAt": "2026-10-27T07:42:44.149Z"
+  },
+  "owner-mobile/receivables": {
+    "title": "Receivables",
+    "role": "owner",
+    "device": "mobile",
+    "url": "https://clariocrita.vercel.app/w/crita-creative-llp-dev/zoho-books/finance/receivables",
+    "full": false,
+    "capturedAt": "2026-10-27T07:42:51.120Z"
+  },
+  "owner-mobile/trends": {
+    "title": "Trends",
+    "role": "owner",
+    "device": "mobile",
+    "url": "https://clariocrita.vercel.app/w/crita-creative-llp-dev/zoho-books/finance/trends",
+    "full": false,
+    "capturedAt": "2026-10-27T07:42:57.803Z"
+  },
+  "owner-mobile/workspace": {
+    "title": "Workspace",
+    "role": "owner",
+    "device": "mobile",
+    "url": "https://clariocrita.vercel.app/w/crita-creative-llp-dev",
+    "full": false,
+    "capturedAt": "2026-10-27T07:43:04.146Z"
+  },
+  "owner-desktop/ask-owes": {
+    "title": "Answer: who owes us the most",
+    "role": "owner",
+    "device": "desktop",
+    "url": "https://clariocrita.vercel.app/w/crita-creative-llp-dev/zoho-books/finance/clario",
+    "full": false,
+    "capturedAt": "2026-10-27T07:50:59.852Z"
+  },
+  "owner-desktop/ask-profit": {
+    "title": "Answer: what is affecting profit",
+    "role": "owner",
+    "device": "desktop",
+    "url": "https://clariocrita.vercel.app/w/crita-creative-llp-dev/zoho-books/finance/clario",
+    "full": false,
+    "capturedAt": "2026-10-27T07:51:12.479Z"
+  },
+  "owner-desktop/ask-year": {
+    "title": "Answer: how is the year going",
+    "role": "owner",
+    "device": "desktop",
+    "url": "https://clariocrita.vercel.app/w/crita-creative-llp-dev/zoho-books/finance/clario",
+    "full": false,
+    "capturedAt": "2026-10-27T07:51:24.915Z"
+  },
+  "owner-mobile/ask-owes": {
+    "title": "Answer on mobile",
+    "role": "owner",
+    "device": "mobile",
+    "url": "https://clariocrita.vercel.app/w/crita-creative-llp-dev/zoho-books/finance/clario",
+    "full": false,
+    "capturedAt": "2026-10-27T07:51:42.301Z"
+  }
+}

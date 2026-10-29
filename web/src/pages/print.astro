@@ -1,0 +1,583 @@
+---
+// The PDF portfolio: fixed A4-landscape pages rendered by Chrome (pdf/build-pdf.mjs).
+import Print from '../layouts/Print.astro';
+import BrowserFrame from '../components/BrowserFrame.astro';
+import PhoneFrame from '../components/PhoneFrame.astro';
+import Device from '../components/Device.astro';
+import { site, company, projects, projectById, publicDemo, demoRoles, shot, type Project } from '../lib/content';
+
+type Page =
+  | { type: 'cover' | 'about' | 'index' | 'close' }
+  | { type: 'intro' | 'cs' | 'caps' | 'roles' | 'value'; p: Project }
+  | { type: 'tour'; p: Project; items: number[]; part: number };
+
+const pages: Page[] = [
+  { type: 'cover' },
+  { type: 'about' },
+  { type: 'index' },
+  ...projects.flatMap((p): Page[] => [
+    { type: 'intro', p },
+    { type: 'cs', p },
+    { type: 'tour', p, items: [0, 1], part: 1 },
+    { type: 'tour', p, items: [2, 3], part: 2 },
+    { type: 'caps', p },
+    { type: 'roles', p },
+    { type: 'value', p },
+  ]),
+  { type: 'close' },
+];
+const startPage = (id: string) => pages.findIndex((pg) => 'p' in pg && pg.p.id === id && pg.type === 'intro') + 1;
+const pad = (n: number) => String(n).padStart(2, '0');
+const isMobile = (k: string) => shot(k).device === 'mobile';
+const nameOf = (id: string) => projectById(id).name;
+const joinRoles = (r: string[]) => r.join(', ').replace(/, ([^,]*)$/, ' and $1');
+---
+<Print>
+  {pages.map((pg, i) => {
+    const n = i + 1;
+    const p = 'p' in pg ? pg.p : undefined;
+    const darkUI = p?.id === 'veloce';
+    const url = p ? p.live.name : '';
+    const footer = (tone: 'light' | 'dark') => (
+      <footer class:list={['pf', tone === 'dark' && 'pf--dark']}>
+        <span>{company.name} — Selected work {site.meta.year}</span>
+        {p && <span>{p.number} · {p.name}</span>}
+        <span class="tnum">{pad(n)}</span>
+      </footer>
+    );
+
+    /* ── Cover ─────────────────────────────────────────────── */
+    if (pg.type === 'cover') return (
+      <section class="pg pg--night cover">
+        <div class="cover__top">
+          <img src="/brand/crita-logo.svg" alt="Crita" class="cover__logo" />
+          <span class="plabel plabel--dark">Selected work {site.meta.year}</span>
+        </div>
+        <div class="cover__body">
+          <div class="cover__copy">
+            <p class="plabel plabel--dark">{company.positioning}</p>
+            <h1 class="p-display">Software that brings <span class="hl">clarity</span> to complex operations.</h1>
+            <p class="p-lead on-dark-2">{company.intro}</p>
+          </div>
+          <div class="cover__art">
+            <div class="ca ca--back"><BrowserFrame k="smc/admin-desktop/calendar-w34" url={projectById('smc').live.name} pick={1400} /></div>
+            <div class="ca ca--main"><BrowserFrame k="clario/owner-desktop/overview" url={projectById('clario').live.name} pick={2200} /></div>
+            <div class="ca ca--phone"><PhoneFrame k="veloce/owner-mobile/inward-keypad" pick={780} /></div>
+            <div class="ca ca--phone2"><PhoneFrame k="city-threads/executive-mobile/stock-unit" pick={780} /></div>
+          </div>
+        </div>
+        <ol class="cover__index">
+          {projects.map((q) => (
+            <li><span class="tnum hl-text">{q.number}</span><strong>{q.name}</strong><span>{q.type}</span></li>
+          ))}
+        </ol>
+        <p class="cover__contact">{company.contact.email} · {company.contact.websiteLabel}</p>
+      </section>
+    );
+
+    /* ── Who we are ────────────────────────────────────────── */
+    if (pg.type === 'about') return (
+      <section class="pg about">
+        <div class="about__grid">
+          <div>
+            <p class="plabel">Who we are</p>
+            <h2 class="p-h2">{company.name}</h2>
+            <p class="about__pos">{company.positioning}</p>
+            <p class="p-h3 about__statement">{company.about}</p>
+            <p class="p-body muted about__intro">{company.intro}</p>
+          </div>
+          <dl class="about__stats">
+            {company.stats.map((s) => (<div><dt>{s.label}</dt><dd class="tnum">{s.value}</dd></div>))}
+            <p class="p-small muted">Figures from {company.statsSource}.</p>
+          </dl>
+        </div>
+        <div class="about__caps">
+          <p class="plabel">What we build</p>
+          <ol>
+            {company.capabilities.map((c, j) => (
+              <li>
+                <span class="tnum">{pad(j + 1)}</span>
+                <strong>{c.title}</strong>
+                <p>{c.body}</p>
+                <em>{c.proof.map(nameOf).join(' · ')}</em>
+              </li>
+            ))}
+          </ol>
+        </div>
+        {footer('light')}
+      </section>
+    );
+
+    /* ── Selected work index ───────────────────────────────── */
+    if (pg.type === 'index') return (
+      <section class="pg pg--paper2 index">
+        <p class="plabel">Selected work</p>
+        <h2 class="p-h2 index__title">Four platforms, each built around how the business actually works.</h2>
+        <ol class="index__grid">
+          {projects.map((q) => (
+            <li class="tile">
+              <a class="tile__art" href={`#p-${q.id}`} style={`--stage:${q.theme.stage}`}>
+                <div class="tile__desk"><BrowserFrame k={q.media.hero} url={q.live.name} tone={q.id === 'veloce' ? 'dark' : 'light'} pick={1400} /></div>
+                <div class="tile__phone"><PhoneFrame k={q.media.heroPhone} pick={390} /></div>
+              </a>
+              <div class="tile__text">
+                <span class="tnum tile__num">{q.number}</span>
+                <h3 class="p-h3">{q.name}</h3>
+                <p class="p-small muted">{q.client} · {q.sector}</p>
+                <p class="p-body">{q.tagline}</p>
+                <p class="p-small tile__page">Page {pad(startPage(q.id))}</p>
+              </div>
+            </li>
+          ))}
+        </ol>
+        {footer('light')}
+      </section>
+    );
+
+    /* ── Project intro ─────────────────────────────────────── */
+    if (pg.type === 'intro' && p) return (
+      <section id={`p-${p.id}`} class:list={['pg', 'intro', p.theme.stageInk === 'light' ? 'pg--darkstage' : '']} style={`--stage:${p.theme.stage}`}>
+        <div class="intro__copy">
+          <p class:list={['plabel', p.theme.stageInk === 'light' && 'plabel--dark']}>{p.number} — {p.type}</p>
+          <h2 class="p-h1">{p.name}</h2>
+          <p class="p-lead intro__tag">{p.tagline}</p>
+          <p class="p-body intro__sum">{p.summary}</p>
+          <dl class="intro__meta">
+            <div><dt>Client</dt><dd>{p.client}</dd></div>
+            <div><dt>Sector</dt><dd>{p.sector}</dd></div>
+            <div><dt>Platform</dt><dd>{p.platforms}</dd></div>
+            <div><dt>Roles</dt><dd>{p.roles}</dd></div>
+          </dl>
+        </div>
+        <div class="intro__art">
+          <div class="intro__desk"><BrowserFrame k={p.media.hero} url={url} tone={darkUI ? 'dark' : 'light'} pick={2200} /></div>
+          <div class="intro__phone"><PhoneFrame k={p.media.heroPhone} pick={780} /></div>
+        </div>
+        {footer(p.theme.stageInk === 'light' ? 'dark' : 'light')}
+      </section>
+    );
+
+    /* ── Challenge & solution ──────────────────────────────── */
+    if (pg.type === 'cs' && p) {
+      const a = p.media.challenge;
+      const b = p.media.solution;
+      return (
+        <section class="pg cs">
+          <div class="cs__text">
+            <div class="cs__block">
+              <p class="plabel">The challenge</p>
+              <h3 class="p-h3">{p.challenge.headline}</h3>
+              <p class="p-body muted">{p.challenge.body}</p>
+            </div>
+            <div class="cs__block">
+              <p class="plabel">What we built</p>
+              <h3 class="p-h3">{p.solution.headline}</h3>
+              <p class="p-body muted">{p.solution.body}</p>
+            </div>
+          </div>
+          <div class:list={['cs__art', isMobile(b) ? 'cs__art--phone' : 'cs__art--desk']} style={`--stage:${p.theme.tint}`}>
+            <div class="cs__a"><Device k={a} url={url} dark={darkUI} pick={isMobile(a) ? 780 : 1400} /></div>
+            <div class="cs__b"><Device k={b} url={url} dark={darkUI} pick={isMobile(b) ? 780 : 1400} /></div>
+          </div>
+          {footer('light')}
+        </section>
+      );
+    }
+
+    /* ── Product tour ──────────────────────────────────────── */
+    if (pg.type === 'tour' && p) return (
+      <section class="pg tour" style={`--tint:${p.theme.tint}`}>
+        <header class="ph">
+          <p class="plabel">Product experience · {pg.part} of 2</p>
+          <h3 class="p-h3">Inside {p.name}.</h3>
+        </header>
+        <div class="tour__grid">
+          {pg.items.map((idx) => {
+            const s = p.tour[idx];
+            const mob = isMobile(s.shot);
+            return (
+              <figure class:list={['tstep', mob && 'tstep--phone']}>
+                <div class="tstep__art"><Device k={s.shot} url={url} dark={darkUI} pick={mob ? 1170 : 2200} /></div>
+                <figcaption>
+                  <span class="tnum tstep__num">{pad(idx + 1)}</span>
+                  <strong class="p-h4">{s.title}</strong>
+                  <p class="p-body muted">{s.body}</p>
+                </figcaption>
+              </figure>
+            );
+          })}
+        </div>
+        {footer('light')}
+      </section>
+    );
+
+    /* ── Capabilities ──────────────────────────────────────── */
+    if (pg.type === 'caps' && p) return (
+      <section class="pg caps">
+        <header class="ph">
+          <p class="plabel">Key capabilities</p>
+          <h3 class="p-h3">What {p.name} does.</h3>
+        </header>
+        <ol class="caps__grid">
+          {p.capabilities.map((c, j) => (
+            <li class="capc">
+              <div class:list={['capc__art', isMobile(c.shot) && 'capc__art--phone']} style={`--stage:${p.theme.tint}`}>
+                {isMobile(c.shot)
+                  ? <PhoneFrame k={c.shot} pick={780} />
+                  : <BrowserFrame k={c.shot} url={url} tone={darkUI ? 'dark' : 'light'} ratio="16 / 9.4" pick={1400} />}
+              </div>
+              <span class="tnum capc__num">{pad(j + 1)}</span>
+              <strong class="p-h4">{c.title}</strong>
+              <p class="p-small muted">{c.body}</p>
+            </li>
+          ))}
+        </ol>
+        {footer('light')}
+      </section>
+    );
+
+    /* ── Roles / architecture + mobile ─────────────────────── */
+    if (pg.type === 'roles' && p) {
+      const arch = (p as any).architecture as { title: string; principle: string; layers: { name: string; items: { label: string; status: string }[] }[] } | undefined;
+      return (
+        <section class:list={['pg', 'roles', p.theme.stageInk === 'light' ? 'pg--darkstage' : '']} style={`--stage:${p.theme.stage}`}>
+          <div class="roles__top">
+            {p.rolesDetail.length > 0 ? (
+              <>
+                <header class="ph">
+                  <p class:list={['plabel', p.theme.stageInk === 'light' && 'plabel--dark']}>Role-based experience</p>
+                  <h3 class="p-h3">Built for every role.</h3>
+                </header>
+                <div class:list={['roles__grid', `roles__grid--${p.rolesDetail.length}`]}>
+                  {p.rolesDetail.map((r) => (
+                    <div class="rolec">
+                      <p class="rolec__device">{r.device}</p>
+                      <strong class="p-h4">{r.name}</strong>
+                      <p class="p-small rolec__lead">{r.lead}</p>
+                      <ul>{r.points.map((pt) => <li class="p-small">{pt}</li>)}</ul>
+                    </div>
+                  ))}
+                </div>
+              </>
+            ) : arch && (
+              <>
+                <header class="ph">
+                  <p class="plabel">Platform architecture</p>
+                  <h3 class="p-h3">{arch.title}</h3>
+                </header>
+                <p class="p-small arch__principle">{arch.principle}</p>
+                <div class="arch">
+                  {arch.layers.map((l) => (
+                    <div class="arch__row">
+                      <span class="arch__name">{l.name}</span>
+                      <span class="arch__items">
+                        {l.items.map((it) => (
+                          <span class:list={['arch__item', `is-${it.status.toLowerCase().replace(/\s+/g, '-')}`]}>{it.label}<em>{it.status}</em></span>
+                        ))}
+                      </span>
+                    </div>
+                  ))}
+                </div>
+              </>
+            )}
+          </div>
+          <div class="roles__mobile">
+            <div class="roles__mobilecopy">
+              <p class:list={['plabel', p.theme.stageInk === 'light' && 'plabel--dark']}>Responsive experience</p>
+              <strong class="p-h4">{p.mobileTitle}</strong>
+              <p class="p-small">{p.mobileNote}</p>
+            </div>
+            <div class="roles__phones">
+              {p.mobile.map((k) => <PhoneFrame k={k} pick={780} />)}
+            </div>
+          </div>
+          {footer(p.theme.stageInk === 'light' ? 'dark' : 'light')}
+        </section>
+      );
+    }
+
+    /* ── Value, delivery & live ────────────────────────────── */
+    if (pg.type === 'value' && p) {
+      const demo = publicDemo(p.id);
+      return (
+        <section class="pg value">
+          <div class="value__main">
+            <p class="plabel">Business value</p>
+            <h3 class="p-h3">What it changes for the business.</h3>
+            <ol class="value__grid">
+              {p.value.map((v) => (<li><strong class="p-h4">{v.title}</strong><p class="p-small muted">{v.body}</p></li>))}
+            </ol>
+            {p.quote && (
+              <figure class="value__quote">
+                <blockquote>“{p.quote.text}”</blockquote>
+                <figcaption><strong>{p.quote.name}</strong> · {p.quote.company}</figcaption>
+              </figure>
+            )}
+          </div>
+          <aside class="value__side">
+            <div>
+              <p class="plabel">Technology & delivery</p>
+              <ul class="chips">{p.delivery.stack.map((s) => <li>{s}</li>)}</ul>
+              <ul class="value__hl">{p.delivery.highlights.map((h) => <li class="p-small">{h}</li>)}</ul>
+            </div>
+            <div class="livebox">
+              <p class="plabel plabel--dark">Live product</p>
+              <a class="livebox__link" href={p.live.url}>{p.live.label} →</a>
+              <p class="livebox__url"><a href={p.live.url}>{p.live.name}</a></p>
+              <div class="livebox__demo">
+                <p class="livebox__title">Demo access</p>
+                {demo ? (
+                  <table>
+                    <tbody>
+                      {demo.map((a: any) => (<tr><td>{a.role}</td><td><code>{a.user}</code></td><td><code>{a.pass}</code></td></tr>))}
+                    </tbody>
+                  </table>
+                ) : (
+                  <p class="p-small">Guided demo of the {joinRoles(demoRoles(p.id))} views, on request — <a href={`mailto:${company.contact.email}`}>{company.contact.email}</a></p>
+                )}
+              </div>
+            </div>
+            <p class="p-small muted value__privacy">{p.privacy}</p>
+          </aside>
+          {footer('light')}
+        </section>
+      );
+    }
+
+    /* ── Closing ───────────────────────────────────────────── */
+    if (pg.type === 'close') return (
+      <section class="pg pg--night close">
+        <div class="close__main">
+          <p class="plabel plabel--dark">{company.closing.eyebrow}</p>
+          <h2 class="p-display">{company.closing.headline}</h2>
+          <p class="p-lead on-dark-2">{company.closing.body}</p>
+          <div class="close__contact">
+            <a href={`mailto:${company.contact.email}`}>{company.contact.email}</a>
+            <a href={company.contact.website}>{company.contact.websiteLabel}</a>
+          </div>
+        </div>
+        <div class="close__caps">
+          <p class="plabel plabel--dark">How we work — {company.approach.title}</p>
+          <ol>
+            {company.approach.steps.map((s, j) => (
+              <li><span class="tnum hl-text">{pad(j + 1)}</span><strong>{s.title}</strong><span>{s.body}</span></li>
+            ))}
+          </ol>
+        </div>
+        <div class="close__foot">
+          <img src="/brand/crita-logo.svg" alt="Crita" />
+          <span>© {site.meta.year} {company.name}. Product screens are real; third-party names are anonymised where noted.</span>
+        </div>
+      </section>
+    );
+    return null;
+  })}
+</Print>
+
+<style is:global>
+  @page { size: A4 landscape; margin: 0; }
+  html, body.print { background: #fff; margin: 0; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  body.print { font-size: 9.6pt; line-height: 1.5; }
+
+  .pg {
+    position: relative; overflow: hidden;
+    width: 297mm; height: 210mm;
+    padding: 15mm 16mm 16mm;
+    background: var(--paper); color: var(--ink);
+    break-after: page; page-break-after: always;
+  }
+  .pg:last-child { break-after: auto; page-break-after: auto; }
+  .pg--night { background: var(--night); color: var(--on-dark); }
+  .pg--paper2 { background: var(--paper-2); }
+  .pg--darkstage { background: var(--stage); color: var(--on-dark); }
+  .intro:not(.pg--darkstage), .roles:not(.pg--darkstage) { background: var(--stage); }
+
+  /* Type */
+  .p-display { font-size: 40pt; line-height: 1; letter-spacing: -0.042em; font-weight: 640; text-wrap: balance; }
+  .p-h1 { font-size: 36pt; line-height: 1; letter-spacing: -0.04em; font-weight: 650; }
+  .p-h2 { font-size: 24pt; line-height: 1.08; letter-spacing: -0.034em; font-weight: 650; text-wrap: balance; }
+  .p-h3 { font-size: 15pt; line-height: 1.18; letter-spacing: -0.022em; font-weight: 650; text-wrap: balance; }
+  .p-h4 { display: block; font-size: 10.6pt; line-height: 1.28; letter-spacing: -0.012em; font-weight: 640; }
+  .p-lead { font-size: 11.5pt; line-height: 1.5; }
+  .p-body { font-size: 9.4pt; line-height: 1.55; }
+  .p-small { font-size: 8pt; line-height: 1.5; }
+  .on-dark-2 { color: var(--on-dark-2); }
+  .hl { background: linear-gradient(90deg, var(--sprout), var(--lime)); -webkit-background-clip: text; background-clip: text; color: transparent; }
+  .hl-text { color: var(--lime); }
+  .plabel { display: flex; align-items: center; gap: 2mm; font-size: 6.6pt; font-weight: 650; letter-spacing: 0.16em; text-transform: uppercase; color: var(--ink-3); margin-bottom: 3mm; }
+  .plabel::before { content: ''; width: 4.4mm; height: 2.2mm; background: url('/brand/crita-c.svg') no-repeat center / contain; }
+  .plabel--dark { color: var(--on-dark-3); }
+  .ph { margin-bottom: 6mm; }
+
+  /* Frames in print: tighter shadows */
+  .print .bframe { box-shadow: 0 3mm 7mm -3mm rgba(4, 14, 9, 0.32), 0 0 0 0.25mm rgba(13, 24, 19, 0.1); border-radius: 2.4mm; }
+  .print .bframe--dark { box-shadow: 0 3mm 7mm -3mm rgba(0, 0, 0, 0.5), 0 0 0 0.25mm rgba(238, 240, 230, 0.12); }
+  .print .phone__body { box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.18), inset 0 0 0 0.9cqi #040605, 0 3mm 7mm -3mm rgba(4, 14, 9, 0.45); }
+
+  /* Footer */
+  .pf { position: absolute; left: 16mm; right: 16mm; bottom: 7mm; display: flex; justify-content: space-between; font-size: 6.4pt; letter-spacing: 0.06em; color: var(--ink-3); }
+  .pf--dark { color: var(--on-dark-3); }
+
+  /* Cover */
+  .cover { display: flex; flex-direction: column; padding-bottom: 12mm; }
+  .cover::after { content: ''; position: absolute; inset: 0; background: radial-gradient(60% 55% at 85% 20%, rgba(127, 165, 63, 0.16), transparent 70%), radial-gradient(45% 45% at 0% 100%, rgba(3, 63, 45, 0.6), transparent 70%); pointer-events: none; }
+  .cover > * { position: relative; z-index: 1; }
+  .cover__top { display: flex; justify-content: space-between; align-items: center; }
+  .cover__logo { width: 36mm; }
+  .cover__top .plabel { margin: 0; }
+  .cover__body { flex: 1; display: grid; grid-template-columns: 112mm 1fr; gap: 8mm; align-items: center; }
+  .cover__copy .p-display { margin: 2mm 0 6mm; }
+  .cover__copy .p-lead { font-size: 10.5pt; max-width: 104mm; }
+  .cover__art { position: relative; height: 108mm; }
+  .ca { position: absolute; }
+  .ca--back { width: 92mm; left: 0; top: 0; opacity: 0.9; }
+  .ca--main { width: 112mm; right: 0; top: 16mm; }
+  .ca--phone { width: 27mm; left: 18mm; top: 44mm; }
+  .ca--phone2 { width: 25mm; right: -4mm; top: 52mm; }
+  .cover__index { display: grid; grid-template-columns: repeat(4, 1fr); gap: 5mm; border-top: 0.25mm solid var(--line-dark); padding-top: 4mm; }
+  .cover__index li { display: grid; gap: 0.6mm; font-size: 7.6pt; color: var(--on-dark-3); }
+  .cover__index strong { font-size: 9.4pt; color: var(--on-dark); font-weight: 620; }
+  .cover__contact { position: absolute; right: 16mm; top: 15mm; display: none; }
+
+  /* About */
+  .about__grid { display: grid; grid-template-columns: 1fr 62mm; gap: 14mm; }
+  .about__pos { margin-top: 1.5mm; font-weight: 600; color: var(--leaf); font-size: 10pt; }
+  .about__statement { margin-top: 6mm; font-weight: 560; font-size: 15pt; line-height: 1.32; max-width: 172mm; }
+  .about__intro { margin-top: 4mm; max-width: 160mm; }
+  .about__stats { display: grid; gap: 7mm; align-content: start; padding-top: 8mm; }
+  .about__stats dt { font-size: 8pt; color: var(--ink-3); }
+  .about__stats dd { font-size: 36pt; font-weight: 650; letter-spacing: -0.04em; line-height: 1; margin-top: 1.5mm; }
+  .about__caps { position: absolute; left: 16mm; right: 16mm; bottom: 17mm; }
+  .about__caps ol { display: grid; grid-template-columns: repeat(3, 1fr); gap: 5mm 8mm; }
+  .about__caps li { border-top: 0.25mm solid var(--line-2); padding-top: 3mm; display: grid; gap: 1mm; align-content: start; font-size: 8pt; color: var(--ink-3); }
+  .about__caps li span { color: var(--leaf); font-weight: 650; font-size: 7.4pt; }
+  .about__caps li strong { font-size: 10.6pt; color: var(--ink); font-weight: 640; }
+  .about__caps li em { font-style: normal; font-size: 7pt; color: var(--leaf); font-weight: 560; }
+
+  /* Index */
+  .index__title { max-width: 190mm; margin-bottom: 8mm; }
+  .index__grid { display: grid; grid-template-columns: 1fr 1fr; gap: 7mm 10mm; }
+  .tile { display: grid; grid-template-columns: 70mm 1fr; gap: 5mm; align-items: center; }
+  .tile__art { position: relative; display: block; height: 47mm; border-radius: 3mm; background: var(--stage); overflow: hidden; padding: 4mm 9mm 0 4mm; }
+  .tile__desk { width: 100%; }
+  .tile__phone { position: absolute; width: 13mm; right: 4mm; bottom: -6mm; }
+  .tile__text { display: grid; gap: 1.2mm; align-content: center; }
+  .tile__num { color: var(--leaf); font-weight: 650; font-size: 8pt; }
+  .tile__page { color: var(--leaf); font-weight: 600; margin-top: 1mm; }
+
+  /* Intro */
+  .intro { display: grid; grid-template-columns: 96mm 1fr; gap: 10mm; align-items: center; }
+  .intro__copy .p-h1 { margin: 1mm 0 4mm; }
+  .intro__tag { font-weight: 560; }
+  .intro__sum { margin-top: 4mm; opacity: 0.86; }
+  .intro__meta { display: grid; grid-template-columns: 1fr 1fr; gap: 4mm 6mm; margin-top: 7mm; padding-top: 4mm; border-top: 0.25mm solid color-mix(in srgb, currentColor 22%, transparent); }
+  .intro__meta dt { font-size: 6.4pt; font-weight: 650; letter-spacing: 0.14em; text-transform: uppercase; opacity: 0.6; }
+  .intro__meta dd { font-size: 8.8pt; font-weight: 600; margin-top: 0.8mm; }
+  .intro__art { position: relative; height: 150mm; display: flex; align-items: center; }
+  .intro__desk { width: 142mm; }
+  .intro__phone { position: absolute; width: 36mm; right: -2mm; bottom: 6mm; }
+
+  /* Challenge & solution */
+  .cs { display: grid; grid-template-columns: 104mm 1fr; gap: 12mm; }
+  .cs__text { display: grid; gap: 10mm; align-content: center; }
+  .cs__block .p-h3 { margin-bottom: 3mm; }
+  .cs__art { position: relative; border-radius: 4mm; background: var(--stage); height: 172mm; margin-top: -3mm; overflow: hidden; }
+  .cs__a { position: absolute; left: 8mm; top: 12mm; width: 118mm; }
+  .cs__b { position: absolute; right: 8mm; bottom: 12mm; width: 98mm; }
+  .cs__art--phone .cs__b { width: 42mm; right: 12mm; bottom: 10mm; }
+  .cs__art .cs__a > .phone { width: 46mm; }
+
+  /* Tour */
+  .tour { background: var(--tint); }
+  .tour__grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10mm; }
+  .tstep { display: grid; gap: 5mm; align-content: start; }
+  .tstep__art { height: 86mm; display: flex; align-items: flex-start; }
+  .tstep__art > * { width: 100%; }
+  .tstep--phone { grid-template-columns: 62mm 1fr; align-items: center; }
+  .tstep--phone .tstep__art { height: auto; }
+  .tstep--phone .tstep__art > .phone { width: 62mm; }
+  .tstep figcaption { display: grid; gap: 1.6mm; max-width: 118mm; }
+  .tstep__num { color: var(--leaf); font-weight: 650; font-size: 8pt; }
+
+  /* Capabilities */
+  .caps__grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 7mm 8mm; }
+  .capc { display: grid; gap: 1.6mm; align-content: start; }
+  .capc__art { height: 44mm; border-radius: 2.6mm; background: var(--stage); overflow: hidden; display: flex; align-items: flex-start; justify-content: center; padding: 3mm 3mm 0; margin-bottom: 2mm; }
+  .capc__art > .bframe { width: 100%; }
+  .capc__art--phone { padding: 3mm 0 0; }
+  .capc__art--phone > .phone { width: 27mm; }
+  .capc__num { color: var(--leaf); font-weight: 650; font-size: 7.6pt; }
+
+  /* Roles */
+  .roles { display: grid; grid-template-rows: auto 1fr; gap: 6mm; }
+  .roles__grid { display: grid; gap: 6mm; }
+  .roles__grid--2 { grid-template-columns: 1fr 1fr; }
+  .roles__grid--3 { grid-template-columns: 1fr 1fr 1fr; }
+  .rolec { display: grid; gap: 1.2mm; align-content: start; padding-top: 3mm; border-top: 0.25mm solid color-mix(in srgb, currentColor 22%, transparent); }
+  .rolec__device { font-size: 6.4pt; font-weight: 650; letter-spacing: 0.14em; text-transform: uppercase; opacity: 0.6; }
+  .rolec__lead { font-weight: 600; opacity: 0.9; }
+  .rolec ul { display: grid; gap: 0.8mm; margin-top: 1mm; opacity: 0.8; }
+  .rolec li { padding-left: 3mm; position: relative; }
+  .rolec li::before { content: ''; position: absolute; left: 0; top: 0.62em; width: 1.2mm; height: 1.2mm; border-radius: 50%; background: var(--leaf); }
+  .pg--darkstage .rolec li::before { background: var(--lime); }
+  .roles__mobile { display: grid; grid-template-columns: 70mm 1fr; gap: 8mm; align-items: center; }
+  .roles__mobilecopy { display: grid; gap: 2mm; align-content: center; }
+  .roles__mobilecopy .p-small { opacity: 0.8; }
+  .roles__phones { display: grid; grid-template-columns: repeat(4, 1fr); gap: 6mm; align-items: start; }
+  .roles__phones .phone { width: 36mm; justify-self: center; }
+  .roles__phones .phone:nth-child(even) { margin-top: 5mm; }
+  .arch__principle { max-width: 170mm; margin: -3mm 0 4mm; color: var(--ink-2); }
+  .arch { display: grid; gap: 2mm; }
+  .arch__row { display: grid; grid-template-columns: 30mm 1fr; align-items: center; gap: 4mm; padding: 2.2mm 3mm; border-radius: 2.6mm; background: rgba(255, 255, 255, 0.7); }
+  .arch__name { font-size: 6.4pt; font-weight: 650; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-3); }
+  .arch__items { display: flex; flex-wrap: wrap; gap: 2mm; }
+  .arch__item { display: inline-flex; align-items: center; gap: 2mm; padding: 1.2mm 1.4mm 1.2mm 3mm; border-radius: 99mm; font-size: 8pt; font-weight: 600; box-shadow: inset 0 0 0 0.25mm var(--line-2); }
+  .arch__item em { font-style: normal; font-size: 5.8pt; font-weight: 650; letter-spacing: 0.06em; text-transform: uppercase; padding: 0.6mm 1.6mm; border-radius: 99mm; background: var(--paper-2); color: var(--ink-3); }
+  .arch__item.is-live { background: var(--forest); color: var(--on-dark); box-shadow: none; }
+  .arch__item.is-live em { background: var(--lime); color: var(--ink); }
+  .arch__item.is-in-development em { background: #e9e3c9; color: #5c4f12; }
+
+  /* Value */
+  .value { display: grid; grid-template-columns: 1fr 92mm; gap: 12mm; }
+  .value__grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5mm 8mm; margin-top: 6mm; }
+  .value__grid li { border-top: 0.25mm solid var(--line-2); padding-top: 3mm; display: grid; gap: 1.2mm; }
+  .value__quote { margin-top: 8mm; padding: 6mm 7mm; border-radius: 3mm; background: var(--forest); color: var(--on-dark); }
+  .value__quote blockquote { font-size: 10.5pt; line-height: 1.45; font-weight: 560; letter-spacing: -0.01em; }
+  .value__quote figcaption { margin-top: 3mm; font-size: 8pt; color: var(--on-dark-2); }
+  .value__side { display: grid; gap: 7mm; align-content: start; }
+  .chips { display: flex; flex-wrap: wrap; gap: 1.6mm; }
+  .chips li { font-size: 7.4pt; font-weight: 560; padding: 0.9mm 2.6mm; border-radius: 99mm; box-shadow: inset 0 0 0 0.25mm var(--line-2); color: var(--ink-2); }
+  .value__hl { display: grid; gap: 1.6mm; margin-top: 4mm; color: var(--ink-2); }
+  .value__hl li { padding-left: 4.4mm; position: relative; }
+  .value__hl li::before { content: ''; position: absolute; left: 0; top: 0.45em; width: 3mm; height: 1.5mm; background: url('/brand/crita-c.svg') no-repeat center / contain; }
+  .livebox { padding: 6mm; border-radius: 3mm; background: var(--night); color: var(--on-dark); display: grid; gap: 2mm; }
+  .livebox__link { font-size: 12pt; font-weight: 650; color: var(--lime); }
+  .livebox__url { font-size: 7.4pt; color: var(--on-dark-3); word-break: break-all; }
+  .livebox__demo { margin-top: 2mm; padding-top: 3mm; border-top: 0.25mm solid var(--line-dark); display: grid; gap: 1.6mm; }
+  .livebox__title { font-weight: 650; font-size: 8.6pt; }
+  .livebox table { border-collapse: collapse; font-size: 7.4pt; }
+  .livebox td { padding: 1mm 3mm 1mm 0; border-top: 0.25mm solid var(--line-dark); }
+  .livebox code { font-family: ui-monospace, Consolas, monospace; font-size: 7.2pt; }
+  .livebox a { color: var(--lime); }
+  .livebox__url a { color: inherit; }
+  .value__privacy { margin-top: -2mm; }
+
+  /* Closing */
+  .close { display: grid; grid-template-columns: 1fr 108mm; gap: 14mm; padding-bottom: 26mm; }
+  .close::after { content: ''; position: absolute; inset: 0; background: url('/brand/pattern-c.svg') 112% 50% / 120mm auto repeat-y; opacity: 0.07; pointer-events: none; }
+  .close > * { position: relative; z-index: 1; }
+  .close__main { display: grid; gap: 6mm; align-content: center; }
+  .close__main .p-display { font-size: 38pt; max-width: 140mm; }
+  .close__contact { display: flex; gap: 8mm; font-size: 11pt; font-weight: 600; }
+  .close__contact a { color: var(--lime); }
+  .close__caps { align-self: center; }
+  .close__caps ol { display: grid; gap: 3.2mm; }
+  .close__caps li { display: grid; grid-template-columns: 7mm 1fr; column-gap: 2mm; font-size: 7.8pt; color: var(--on-dark-2); }
+  .close__caps li span:first-child { grid-row: span 2; font-weight: 650; }
+  .close__caps ol { gap: 5mm; }
+  .close__caps li { font-size: 8.6pt; }
+  .close__caps strong { color: var(--on-dark); font-size: 9.4pt; font-weight: 620; }
+  .close__caps em { font-style: normal; font-size: 6.8pt; color: var(--on-dark-3); }
+  .close__foot { position: absolute; left: 16mm; right: 16mm; bottom: 9mm; display: flex; justify-content: space-between; align-items: center; font-size: 6.6pt; color: var(--on-dark-3); }
+  .close__foot img { width: 26mm; }
+</style>

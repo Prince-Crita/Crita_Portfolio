@@ -1,0 +1,483 @@
+---
+import Base from '../../layouts/Base.astro';
+import Stage from '../../components/Stage.astro';
+import Device from '../../components/Device.astro';
+import PhoneFrame from '../../components/PhoneFrame.astro';
+import BrowserFrame from '../../components/BrowserFrame.astro';
+import { projects, neighbours, publicDemo, demoRoles, mailto, shot, type Project } from '../../lib/content';
+
+export function getStaticPaths() {
+  return projects.map((p) => ({ params: { id: p.id }, props: { project: p } }));
+}
+
+const { project: p } = Astro.props as { project: Project };
+const { prev, next } = neighbours(p.id);
+const lightStage = p.theme.stageInk === 'light';
+const darkUI = p.id === 'veloce';
+const url = p.live.name;
+const demo = publicDemo(p.id);
+const roles = demoRoles(p.id);
+const arch = (p as any).architecture as
+  | { title: string; principle: string; layers: { name: string; items: { label: string; status: string }[] }[] }
+  | undefined;
+const isMobile = (k: string) => shot(k).device === 'mobile';
+---
+<Base
+  title={`${p.name} — ${p.type} · Crita Creative LLP`}
+  description={p.summary}
+  tone={lightStage ? 'dark' : 'light'}
+  current={p.id}
+>
+  <!-- ── Hero ─────────────────────────────────────────────────── -->
+  <section
+    class:list={['cs-hero', lightStage ? 'cs-hero--dark' : 'cs-hero--light']}
+    style={`--stage:${p.theme.stage};--accent:${p.theme.accent}`}
+    data-tone-section={lightStage ? 'dark' : 'light'}
+  >
+    <div class="wrap">
+      <nav class="rail" aria-label="Case studies">
+        <a href="/#work" class="rail__back"><span aria-hidden="true">←</span> All work</a>
+        <ol class="rail__list">
+          {projects.map((q) => (
+            <li>
+              <a href={`/work/${q.id}/`} aria-current={q.id === p.id ? 'page' : undefined} title={q.name}>
+                <span class="tnum">{q.number}</span><span class="rail__name">{q.name}</span>
+              </a>
+            </li>
+          ))}
+        </ol>
+        <span class="rail__keys" aria-hidden="true"><kbd>←</kbd><kbd>→</kbd></span>
+      </nav>
+
+      <div class="cs-hero__copy">
+        <p class="label" data-reveal>{p.number} — {p.type}</p>
+        <h1 class="h1" data-reveal style="--i:1">{p.name}</h1>
+        <p class="lead cs-hero__tag" data-reveal style="--i:2">{p.tagline}</p>
+      </div>
+
+      <dl class="meta" data-reveal style="--i:3">
+        <div><dt>Client</dt><dd>{p.client}</dd></div>
+        <div><dt>Sector</dt><dd>{p.sector}</dd></div>
+        <div><dt>Platform</dt><dd>{p.platforms}</dd></div>
+        <div><dt>Roles</dt><dd>{p.roles}</dd></div>
+      </dl>
+
+      <div class="cs-hero__cta" data-reveal style="--i:4">
+        <a class:list={['btn', lightStage ? 'btn--lime' : '']} href={p.live.url} target="_blank" rel="noopener">{p.live.label} <span class="arrow">↗</span></a>
+        <a class="link" href="#live">Demo access <span class="arrow">↓</span></a>
+      </div>
+    </div>
+
+    <div class="wrap cs-hero__stage" data-reveal="fade" style="--i:2">
+      <Stage project={p} size="hero" eager vt />
+    </div>
+  </section>
+
+  <!-- ── Summary ──────────────────────────────────────────────── -->
+  <section class="summary" data-tone-section="light">
+    <div class="wrap summary__grid">
+      <p class="label" data-reveal>Overview</p>
+      <p class="h3 summary__text" data-reveal style="--i:1">{p.summary}</p>
+    </div>
+  </section>
+
+  <!-- ── Challenge / solution ─────────────────────────────────── -->
+  <section class="section cs" data-tone-section="light">
+    <div class="wrap cs__grid">
+      <article class="cs__col" data-reveal>
+        <p class="label">The challenge</p>
+        <h2 class="h3">{p.challenge.headline}</h2>
+        <p class="muted">{p.challenge.body}</p>
+      </article>
+      <article class="cs__col" data-reveal style="--i:1">
+        <p class="label">What we built</p>
+        <h2 class="h3">{p.solution.headline}</h2>
+        <p class="muted">{p.solution.body}</p>
+      </article>
+    </div>
+  </section>
+
+  <!-- ── Product tour ─────────────────────────────────────────── -->
+  <section class="tour" data-tour data-tone-section="light" style={`--tint:${p.theme.tint};--accent:${p.theme.accent}`}>
+    <div class="wrap">
+      <header class="tour__head">
+        <p class="label" data-reveal>Product experience</p>
+        <h2 class="h2" data-reveal style="--i:1">Inside the product.</h2>
+      </header>
+      <div class="tour__grid">
+        <ol class="tour__steps">
+          {p.tour.map((s, i) => (
+            <li class="tour__step" data-tour-step>
+              <span class="tour__num tnum">{String(i + 1).padStart(2, '0')}</span>
+              <h3 class="h3">{s.title}</h3>
+              <p class="muted">{s.body}</p>
+              <div class="tour__inline">
+                <Device k={s.shot} url={url} dark={darkUI} sizes="92vw" phoneSizes="60vw" />
+              </div>
+            </li>
+          ))}
+        </ol>
+        <div class="tour__media" aria-hidden="true">
+          <div class="tour__sticky">
+            {p.tour.map((s) => (
+              <div class:list={['tour__frame', isMobile(s.shot) && 'tour__frame--phone']} data-tour-media>
+                <Device k={s.shot} url={url} dark={darkUI} sizes="(min-width: 1100px) 56vw, 1px" phoneSizes="(min-width: 1100px) 20vw, 1px" />
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Capabilities ─────────────────────────────────────────── -->
+  <section class="section" data-tone-section="light">
+    <div class="wrap">
+      <header class="sec-head">
+        <p class="label" data-reveal>Key capabilities</p>
+        <h2 class="h2" data-reveal style="--i:1">What the platform does.</h2>
+      </header>
+      <ol class="caps">
+        {p.capabilities.map((c, i) => (
+          <li class="cap" data-reveal style={`--i:${i % 3}`}>
+            <span class="cap__num tnum">{String(i + 1).padStart(2, '0')}</span>
+            <h3 class="h4">{c.title}</h3>
+            <p class="muted">{c.body}</p>
+          </li>
+        ))}
+      </ol>
+    </div>
+  </section>
+
+  <!-- ── Roles or architecture ────────────────────────────────── -->
+  {p.rolesDetail.length > 0 && (
+    <section class="section on-paper-2 roles" data-tone-section="light">
+      <div class="wrap">
+        <header class="sec-head">
+          <p class="label" data-reveal>Role-based experience</p>
+          <h2 class="h2" data-reveal style="--i:1">Built for every role.</h2>
+          <p class="lead" data-reveal style="--i:2">Each role sees only what it needs, on the device it actually works on.</p>
+        </header>
+        <div class:list={['roles__grid', `roles__grid--${p.rolesDetail.length}`]}>
+          {p.rolesDetail.map((r, i) => (
+            <article class="role" data-reveal style={`--i:${i}`}>
+              <div class:list={['role__visual', r.shots.every(isMobile) ? 'role__visual--phones' : 'role__visual--desk']} style={`--stage:${p.theme.stage}`}>
+                {r.shots.map((k) =>
+                  isMobile(k)
+                    ? <PhoneFrame k={k} sizes="(min-width: 1100px) 14vw, 40vw" />
+                    : <BrowserFrame k={k} url={url} tone={darkUI ? 'dark' : 'light'} sizes="(min-width: 1100px) 40vw, 90vw" />
+                )}
+              </div>
+              <div class="role__text">
+                <p class="role__device">{r.device}</p>
+                <h3 class="h3">{r.name}</h3>
+                <p class="role__lead">{r.lead}</p>
+                <ul class="role__points">{r.points.map((pt) => <li>{pt}</li>)}</ul>
+              </div>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+  )}
+
+  {arch && (
+    <section class="section on-paper-2 arch" data-tone-section="light">
+      <div class="wrap">
+        <header class="sec-head">
+          <p class="label" data-reveal>Platform architecture</p>
+          <h2 class="h2" data-reveal style="--i:1">{arch.title}</h2>
+          <p class="lead" data-reveal style="--i:2">{arch.principle}</p>
+        </header>
+        <div class="arch__layers">
+          {arch.layers.map((layer, i) => (
+            <div class="arch__layer" data-reveal style={`--i:${i}`}>
+              <p class="arch__name">{layer.name}</p>
+              <ul class="arch__items">
+                {layer.items.map((it) => (
+                  <li class:list={['arch__item', `is-${it.status.toLowerCase().replace(/\s+/g, '-')}`]}>
+                    <span>{it.label}</span><em>{it.status}</em>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </div>
+        <p class="small muted arch__note" data-reveal>“Live” is available in the product today. “In development” and “Planned” describe the platform’s direction.</p>
+      </div>
+    </section>
+  )}
+
+  <!-- ── Mobile ───────────────────────────────────────────────── -->
+  <section class:list={['section', 'mobile', lightStage ? 'on-dark' : '']} style={`--stage:${p.theme.stage}`} data-tone-section={lightStage ? 'dark' : 'light'}>
+    <div class="wrap">
+      <header class="sec-head">
+        <p class="label" data-reveal>Responsive experience</p>
+        <h2 class="h2" data-reveal style="--i:1">{p.mobileTitle}</h2>
+        <p class="lead" data-reveal style="--i:2">{p.mobileNote}</p>
+      </header>
+    </div>
+    <div class="wrap mobile__row">
+      {p.mobile.map((k, i) => (
+        <div class="mobile__phone" data-reveal style={`--i:${i}`}>
+          <PhoneFrame k={k} sizes="(min-width: 1100px) 20vw, 62vw" />
+          <p class="small mobile__cap">{shot(k).title}</p>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <!-- ── Value ────────────────────────────────────────────────── -->
+  <section class="section" data-tone-section="light">
+    <div class="wrap">
+      <header class="sec-head">
+        <p class="label" data-reveal>Business value</p>
+        <h2 class="h2" data-reveal style="--i:1">What it changes for the business.</h2>
+      </header>
+      <ol class="value">
+        {p.value.map((v, i) => (
+          <li class="value__item" data-reveal style={`--i:${i % 2}`}>
+            <h3 class="h3">{v.title}</h3>
+            <p class="muted">{v.body}</p>
+          </li>
+        ))}
+      </ol>
+      {p.quote && (
+        <figure class="pull" data-reveal style={`--stage:${p.theme.stage}`}>
+          <blockquote class="h3">“{p.quote.text}”</blockquote>
+          <figcaption><strong>{p.quote.name}</strong> · {p.quote.company}</figcaption>
+        </figure>
+      )}
+    </div>
+  </section>
+
+  <!-- ── Delivery + live ──────────────────────────────────────── -->
+  <section id="live" class="section on-dark live" data-tone-section="dark">
+    <div class="wrap live__grid">
+      <div class="live__build" data-reveal>
+        <p class="label">Technology & delivery</p>
+        <ul class="live__stack">{p.delivery.stack.map((s) => <li class="chip">{s}</li>)}</ul>
+        <ul class="live__highlights">{p.delivery.highlights.map((h) => <li>{h}</li>)}</ul>
+      </div>
+
+      <div class="live__card" data-reveal style="--i:1">
+        <p class="label">Live product</p>
+        <h2 class="h3">See {p.name} running.</h2>
+        <a class="btn btn--lime" href={p.live.url} target="_blank" rel="noopener">{p.live.label} <span class="arrow">↗</span></a>
+        <p class="small muted live__url"><a href={p.live.url} target="_blank" rel="noopener">{p.live.name} <span class="arrow">↗</span></a></p>
+
+        <div class="demo">
+          <p class="demo__title">Demo access</p>
+          {demo ? (
+            <table class="demo__table">
+              <thead><tr><th>Role</th><th>Username</th><th>Password</th></tr></thead>
+              <tbody>
+                {demo.map((a: any) => (
+                  <tr>
+                    <td>{a.role}</td>
+                    <td><code>{a.user}</code> <button class="demo__copy" type="button" data-copy={a.user}>Copy</button></td>
+                    <td><code>{a.pass}</code> <button class="demo__copy" type="button" data-copy={a.pass}>Copy</button></td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          ) : (
+            <>
+              <p class="muted small">A guided demo is available for {roles.join(', ').replace(/, ([^,]*)$/, ' and $1')} views. We’ll walk you through it live.</p>
+              <a class="link" href={mailto(`Guided demo request — ${p.name}`)}>Request a guided demo <span class="arrow">→</span></a>
+            </>
+          )}
+        </div>
+      </div>
+    </div>
+    <p class="wrap small muted live__privacy">{p.privacy}</p>
+  </section>
+
+  <!-- ── Next ─────────────────────────────────────────────────── -->
+  <nav class="next" aria-label="More case studies" data-tone-section="light">
+    <a class="next__link" href={`/work/${next.id}/`} data-nav-next>
+      <span class="label">Next project · {next.number}</span>
+      <span class="h1 next__name">{next.name} <span class="arrow">→</span></span>
+      <span class="lead">{next.tagline}</span>
+    </a>
+    <a class="sr-only" href={`/work/${prev.id}/`} data-nav-prev>Previous project: {prev.name}</a>
+  </nav>
+</Base>
+
+<style>
+  /* Hero */
+  /* Clip sideways only: the hero phone may overlap the next section. */
+  .cs-hero { position: relative; z-index: 1; background: var(--stage); padding-top: 112px; overflow-x: clip; }
+  .cs-hero--dark { color: var(--on-dark); }
+  .cs-hero--dark .label, .cs-hero--dark .lead { color: var(--on-dark-2); }
+  .cs-hero--dark .link { color: var(--on-dark); }
+  .cs-hero--light { color: var(--ink); }
+
+  .rail { display: flex; align-items: center; gap: 1.5rem; padding: 0.6rem 0 2.6rem; font-size: 0.88rem; font-weight: 600; }
+  .rail__back { opacity: 0.75; white-space: nowrap; }
+  .rail__back:hover { opacity: 1; }
+  .rail__list { display: flex; gap: 0.35rem; margin-left: auto; }
+  .rail__list a { display: inline-flex; gap: 0.5rem; padding: 0.45rem 0.85rem; border-radius: 999px; opacity: 0.6; transition: opacity 200ms, background-color 200ms; }
+  .rail__list a:hover { opacity: 1; }
+  .rail__list a[aria-current='page'] { opacity: 1; background: color-mix(in srgb, currentColor 12%, transparent); }
+  .rail__keys { display: inline-flex; gap: 0.25rem; opacity: 0.5; }
+  kbd { font: inherit; font-size: 0.72rem; padding: 0.1rem 0.4rem; border-radius: 5px; box-shadow: inset 0 0 0 1px currentColor; }
+
+  .cs-hero__copy { max-width: 62rem; }
+  .cs-hero h1 { margin-top: 1.2rem; }
+  .cs-hero__tag { margin-top: 1.4rem; max-width: 36ch; font-size: clamp(1.3rem, 1.05rem + 0.9vw, 1.85rem); line-height: 1.35; font-weight: 520; }
+  .meta { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: var(--gap); margin-top: clamp(2.5rem, 1.5rem + 3vw, 4rem); padding-top: 1.4rem; border-top: 1px solid color-mix(in srgb, currentColor 18%, transparent); }
+  .meta dt { font-size: var(--fs-label); font-weight: 650; letter-spacing: 0.14em; text-transform: uppercase; opacity: 0.6; }
+  .meta dd { margin-top: 0.45rem; font-weight: 560; }
+  .cs-hero__cta { display: flex; flex-wrap: wrap; align-items: center; gap: 1rem 2rem; margin-top: 2.2rem; }
+  .cs-hero__stage { margin-top: clamp(3rem, 2rem + 4vw, 5.5rem); padding-bottom: clamp(5rem, 3rem + 6vw, 9rem); }
+
+  @media (max-width: 900px) {
+    .rail__name, .rail__keys { display: none; }
+    .meta { grid-template-columns: 1fr 1fr; row-gap: 1.4rem; }
+  }
+
+  /* Summary */
+  .summary { padding: clamp(5rem, 3rem + 6vw, 9rem) 0 0; }
+  .summary__grid { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); column-gap: var(--gap); row-gap: 1rem; }
+  .summary__grid .label { grid-column: 1 / span 3; padding-top: 0.55rem; }
+  .summary__text { grid-column: 4 / span 8; font-weight: 560; }
+  @media (max-width: 900px) { .summary__grid .label, .summary__text { grid-column: 1 / -1; } }
+
+  /* Challenge / solution */
+  .cs__grid { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(2.5rem, 1rem + 5vw, 6rem); }
+  .cs__col { display: grid; gap: 1.1rem; align-content: start; padding-top: 1.6rem; border-top: 1px solid var(--line-2); }
+  .cs__col .muted { font-size: 1.08rem; line-height: 1.65; }
+  @media (max-width: 860px) { .cs__grid { grid-template-columns: 1fr; } }
+
+  /* Tour */
+  .tour { background: var(--tint); padding-block: var(--section); }
+  .tour__head { display: grid; gap: 1rem; margin-bottom: clamp(2rem, 1rem + 3vw, 4rem); }
+  .tour__grid { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); column-gap: var(--gap); }
+  .tour__steps { grid-column: 1 / span 4; }
+  .tour__step { min-height: 64vh; display: flex; flex-direction: column; justify-content: center; gap: 0.9rem; opacity: 0.32; transition: opacity 600ms var(--ease-out); }
+  .tour__step.is-active { opacity: 1; }
+  .tour__step:first-child { min-height: 60vh; justify-content: flex-start; padding-top: 6vh; }
+  .tour__num { font-weight: 650; color: var(--accent); filter: brightness(0.75); }
+  .tour__inline { display: none; }
+  .tour__media { grid-column: 6 / span 7; }
+  .tour__sticky { position: sticky; top: calc(50vh - min(21vw, 300px)); height: min(42vw, 600px); }
+  .tour__frame { position: absolute; inset: 0; display: flex; align-items: center; opacity: 0; transform: translateY(18px) scale(0.985); transition: opacity 700ms var(--ease-out), transform 900ms var(--ease-out); }
+  .tour__frame.is-active { opacity: 1; transform: none; }
+  .tour__frame > :global(*) { width: 100%; }
+  .tour__frame--phone { justify-content: center; }
+  .tour__frame--phone > :global(*) { width: auto; height: 100%; aspect-ratio: 390 / 888; }
+
+  @media (max-width: 1000px) {
+    .tour__steps { grid-column: 1 / -1; display: grid; gap: 4.5rem; }
+    .tour__step, .tour__step:first-child { min-height: 0; opacity: 1; padding-top: 0; }
+    .tour__media { display: none; }
+    .tour__inline { display: block; margin-top: 1.4rem; }
+    .tour__inline :global(.phone) { width: min(62%, 300px); margin-inline: auto; }
+  }
+
+  /* Capabilities */
+  .sec-head { max-width: 48rem; display: grid; gap: 1.1rem; margin-bottom: clamp(3rem, 2rem + 3vw, 4.5rem); }
+  .caps { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); border-top: 1px solid var(--line-2); }
+  .cap { padding: 2.2rem 2.2rem 2.4rem 0; border-bottom: 1px solid var(--line-2); display: grid; gap: 0.75rem; align-content: start; }
+  .cap:not(:nth-child(3n + 1)) { padding-left: 2.2rem; border-left: 1px solid var(--line-2); }
+  .cap__num { font-size: 0.85rem; font-weight: 650; color: var(--leaf); }
+  @media (max-width: 960px) {
+    .caps { grid-template-columns: 1fr 1fr; }
+    .cap, .cap:not(:nth-child(3n + 1)) { padding: 2rem 1.4rem 2rem 0; border-left: 0; }
+    .cap:nth-child(2n) { padding-left: 1.4rem; border-left: 1px solid var(--line-2); }
+  }
+  @media (max-width: 600px) {
+    .caps { grid-template-columns: 1fr; }
+    .cap, .cap:nth-child(2n) { padding: 1.8rem 0; border-left: 0; }
+  }
+
+  /* Roles */
+  .roles__grid { display: grid; gap: var(--gap); }
+  .roles__grid--2 { grid-template-columns: 1.25fr 1fr; }
+  .roles__grid--3 { grid-template-columns: 1.5fr 1fr 1fr; }
+  .role { display: grid; grid-template-rows: auto 1fr; background: var(--white); border-radius: var(--r-card); overflow: hidden; box-shadow: 0 0 0 1px var(--line); }
+  .role__visual { background: var(--stage); padding: 2rem 1.6rem 0; display: flex; justify-content: center; align-items: flex-end; gap: 1rem; min-height: 340px; overflow: hidden; }
+  .role__visual--desk { padding: 2rem 0 0 1.6rem; justify-content: flex-start; }
+  .role__visual--desk > :global(.bframe) { width: 112%; flex: none; border-bottom-left-radius: 0; border-bottom-right-radius: 0; margin-bottom: -2px; }
+  .role__visual--phones > :global(.phone) { width: min(46%, 210px); flex: none; margin-bottom: -18%; }
+  .role__visual--phones > :global(.phone:nth-child(2)) { margin-bottom: -28%; }
+  .role__text { padding: 1.8rem 1.8rem 2rem; display: grid; gap: 0.7rem; align-content: start; }
+  .role__device { font-size: var(--fs-label); font-weight: 650; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-3); }
+  .role__lead { font-weight: 560; color: var(--ink-2); }
+  .role__points { display: grid; gap: 0.5rem; margin-top: 0.4rem; color: var(--ink-3); font-size: var(--fs-small); }
+  .role__points li { display: grid; grid-template-columns: 14px 1fr; gap: 0.6rem; }
+  .role__points li::before { content: ''; width: 6px; height: 6px; margin-top: 0.6em; border-radius: 50%; background: var(--leaf); }
+  @media (max-width: 1100px) { .roles__grid--3 { grid-template-columns: 1fr 1fr; } .roles__grid--3 .role:first-child { grid-column: 1 / -1; } }
+  @media (max-width: 820px) { .roles__grid--2, .roles__grid--3 { grid-template-columns: 1fr; } .roles__grid--3 .role:first-child { grid-column: auto; } }
+
+  /* Architecture */
+  .arch__layers { display: grid; gap: 0.75rem; }
+  .arch__layer { display: grid; grid-template-columns: 11rem 1fr; align-items: center; gap: 1rem; padding: 1.1rem 1.3rem; border-radius: 16px; background: var(--white); box-shadow: 0 0 0 1px var(--line); }
+  .arch__name { font-size: var(--fs-label); font-weight: 650; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-3); }
+  .arch__items { display: flex; flex-wrap: wrap; gap: 0.6rem; }
+  .arch__item { display: inline-flex; align-items: center; gap: 0.7rem; padding: 0.55rem 0.6rem 0.55rem 0.95rem; border-radius: 999px; font-weight: 600; font-size: 0.95rem; box-shadow: inset 0 0 0 1px var(--line-2); }
+  .arch__item em { font-style: normal; font-size: 0.72rem; font-weight: 650; letter-spacing: 0.06em; text-transform: uppercase; padding: 0.22rem 0.55rem; border-radius: 999px; background: var(--paper-2); color: var(--ink-3); }
+  .arch__item.is-live { background: var(--forest); color: var(--on-dark); box-shadow: none; }
+  .arch__item.is-live em { background: var(--lime); color: var(--ink); }
+  .arch__item.is-in-development em { background: #e9e3c9; color: #5c4f12; }
+  .arch__note { margin-top: 1.4rem; }
+  @media (max-width: 700px) { .arch__layer { grid-template-columns: 1fr; } }
+
+  /* Mobile */
+  .mobile { background: var(--stage); }
+  .mobile:not(.on-dark) { color: var(--ink); }
+  .mobile__row { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: clamp(1rem, 0.5rem + 2vw, 2.4rem); align-items: start; }
+  .mobile__phone:nth-child(even) { margin-top: 3.5rem; }
+  .mobile__cap { margin-top: 1.1rem; text-align: center; opacity: 0.7; }
+  @media (max-width: 900px) {
+    .mobile__row { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; padding-bottom: 1rem; scrollbar-width: none; }
+    .mobile__row::-webkit-scrollbar { display: none; }
+    .mobile__phone { flex: 0 0 62%; scroll-snap-align: center; }
+    .mobile__phone:nth-child(even) { margin-top: 0; }
+  }
+
+  /* Value */
+  .value { display: grid; grid-template-columns: 1fr 1fr; gap: 0 var(--gap); }
+  .value__item { padding: 2rem 0 2.2rem; border-top: 1px solid var(--line-2); display: grid; gap: 0.7rem; align-content: start; }
+  .value__item .muted { max-width: 42ch; font-size: 1.05rem; }
+  .pull { margin-top: clamp(3rem, 2rem + 3vw, 5rem); padding: clamp(2rem, 1.5rem + 3vw, 4rem); border-radius: var(--r-stage); background: var(--forest); color: var(--on-dark); }
+  .pull blockquote { max-width: 40ch; font-weight: 560; line-height: 1.32; }
+  .pull figcaption { margin-top: 1.6rem; color: var(--on-dark-2); }
+  .pull strong { color: var(--on-dark); }
+  @media (max-width: 760px) { .value { grid-template-columns: 1fr; } }
+
+  /* Live */
+  .live__grid { display: grid; grid-template-columns: 1fr 1.1fr; gap: clamp(2.5rem, 1rem + 5vw, 6rem); align-items: start; }
+  .live__stack { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 1.4rem; }
+  .live__highlights { display: grid; gap: 0.9rem; margin-top: 2rem; color: var(--on-dark-2); }
+  .live__highlights li { display: grid; grid-template-columns: 18px 1fr; gap: 0.7rem; }
+  .live__highlights li::before { content: ''; width: 14px; height: 7px; margin-top: 0.62em; background: url('/brand/crita-c.svg') no-repeat center / contain; }
+  .live__card { display: grid; gap: 1.1rem; justify-items: start; padding: clamp(1.6rem, 1rem + 2vw, 2.6rem); border-radius: var(--r-card); background: var(--night-2); box-shadow: inset 0 0 0 1px var(--line-dark); }
+  .live__url { margin-top: -0.4rem; }
+  .live__url a:hover { color: var(--on-dark); }
+  .demo { width: 100%; margin-top: 1rem; padding-top: 1.4rem; border-top: 1px solid var(--line-dark); display: grid; gap: 0.8rem; justify-items: start; }
+  .demo__title { font-weight: 650; }
+  .demo__table { width: 100%; border-collapse: collapse; font-size: 0.92rem; }
+  .demo__table th { text-align: left; font-size: var(--fs-label); letter-spacing: 0.12em; text-transform: uppercase; color: var(--on-dark-3); font-weight: 650; padding: 0 0.8rem 0.6rem 0; }
+  .demo__table td { padding: 0.7rem 0.8rem 0.7rem 0; border-top: 1px solid var(--line-dark); vertical-align: middle; }
+  .demo__table code { font-family: ui-monospace, 'SFMono-Regular', Menlo, Consolas, monospace; font-size: 0.86rem; color: var(--on-dark); }
+  .demo__copy { margin-left: 0.4rem; font-size: 0.72rem; font-weight: 650; letter-spacing: 0.06em; text-transform: uppercase; color: var(--lime); opacity: 0.8; }
+  .demo__copy:hover { opacity: 1; }
+  .live__privacy { margin-top: 3rem; }
+  @media (max-width: 900px) {
+    .live__grid { grid-template-columns: 1fr; }
+    .demo__table, .demo__table tbody, .demo__table tr, .demo__table td { display: block; }
+    .demo__table thead { display: none; }
+    .demo__table tr { padding: 0.6rem 0; border-top: 1px solid var(--line-dark); }
+    .demo__table td { border: 0; padding: 0.2rem 0; }
+  }
+
+  /* Next */
+  .next { background: var(--paper); }
+  .next__link { display: grid; gap: 1rem; width: min(100% - 2 * var(--gutter), var(--maxw)); margin-inline: auto; padding: clamp(4.5rem, 3rem + 5vw, 8rem) 0; }
+  .next__name { transition: color 300ms; }
+  .next__link:hover .next__name { color: var(--leaf); }
+  .next__link .arrow { display: inline-block; transition: transform 500ms var(--ease-out); }
+  .next__link:hover .arrow { transform: translateX(10px); }
+</style>

@@ -1,0 +1,18 @@
+---
+import Base from '../layouts/Base.astro';
+---
+<Base title="Page not found · Crita Creative LLP" tone="dark">
+  <section class="nf on-dark" data-tone-section="dark">
+    <div class="wrap">
+      <p class="label">404</p>
+      <h1 class="h1">This page isn’t part of the portfolio.</h1>
+      <a class="btn btn--lime" href="/">Back to the selected work <span class="arrow">→</span></a>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .nf { min-height: 80vh; display: grid; align-items: center; padding: 9rem 0 5rem; }
+  .nf .wrap { display: grid; gap: 1.6rem; justify-items: start; }
+  .nf h1 { max-width: 16ch; }
+</style>
