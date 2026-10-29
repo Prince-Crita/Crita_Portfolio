@@ -1,7 +1,7 @@
 {
   "meta": {
     "title": "Crita Creative LLP — Selected Work 2026",
-    "description": "Selected software projects by Crita Creative LLP: field-audit operations, scrap-yard inventory, business intelligence and warehouse management platforms.",
+    "description": "Selected software projects by Crita Creative LLP: yard operations, café POS and ordering, business intelligence, field audits, warehousing, sales CRM, material trading, expenses, lead discovery and customer support.",
     "year": "2026"
   },
 
@@ -27,12 +27,12 @@
       ]
     },
     "capabilities": [
-      { "title": "Operations platforms", "body": "Role-based systems that plan, run and audit work across field teams and the office.", "proof": ["smc", "veloce"] },
+      { "title": "Operations platforms", "body": "Role-based systems that plan, run and audit work across field teams and the office.", "proof": ["smc", "veloce", "veloce-trade", "support-portal"] },
       { "title": "Inventory & warehousing", "body": "Lots, barcodes, bins and ledgers that make every unit of stock traceable.", "proof": ["veloce", "city-threads"] },
-      { "title": "Business intelligence", "body": "Dashboards that turn the systems you already use into clear decisions.", "proof": ["clario", "veloce"] },
-      { "title": "Applied AI", "body": "Assistants that answer from your own data, with sources — never invented numbers.", "proof": ["clario"] },
-      { "title": "Mobile-first apps", "body": "Designed for one hand on the shop floor and in the field, packaged for Android.", "proof": ["smc", "veloce", "city-threads"] },
-      { "title": "Multi-tenant foundations", "body": "Workspaces, roles, data isolation and audit trails, ready to scale.", "proof": ["veloce", "clario"] }
+      { "title": "Business intelligence", "body": "Dashboards that turn the systems you already use into clear decisions.", "proof": ["clario", "veloce", "expense-log"] },
+      { "title": "Applied AI", "body": "Assistants that answer from your own data, with sources — never invented numbers.", "proof": ["clario", "ai-sales-crm"] },
+      { "title": "Mobile-first apps", "body": "Designed for one hand on the shop floor and in the field, packaged for Android.", "proof": ["smc", "veloce", "city-threads", "tribal-brew-coffee", "veloce-trade"] },
+      { "title": "Multi-tenant foundations", "body": "Workspaces, roles, data isolation and audit trails, ready to scale.", "proof": ["veloce", "clario", "expense-log"] }
     ],
     "contact": {
       "email": "abishek@crita.in",
@@ -49,89 +49,8 @@
 
   "projects": [
     {
-      "id": "smc",
-      "number": "01",
-      "name": "SMC Task Management",
-      "client": "Shaabi Management Consultancy",
-      "sector": "Audit & consulting",
-      "type": "Field operations platform",
-      "platforms": "Web · Android",
-      "roles": "Admin · Field Executive",
-      "tagline": "Field audits, planned, run and closed in one system.",
-      "summary": "A field-audit operations platform for an audit consultancy. Admins plan visits and define each client’s checklist; executives run every visit from their phone; nothing incomplete is lost between visits.",
-      "challenge": {
-        "headline": "Weekly audits, dozens of clients, no single view.",
-        "body": "SMC’s executives visit client sites every week to verify operations, stock, accounts and reports — and every client needs a different checklist. Tracking was manual: unfinished items relied on memory to reach the next visit, and management had no live view of progress across the team."
-      },
-      "solution": {
-        "headline": "One system, from the admin’s calendar to the executive’s phone.",
-        "body": "Crita built a role-based platform that turns each audit visit into a structured, trackable workflow. Admins schedule visits and configure checklists per client. Executives open the visit on their phone, complete each item or record why it couldn’t be done, and close it only when the rules are met. Unfinished work carries forward — with admin approval — into the next visit."
-      },
-      "capabilities": [
-        { "title": "Visit planning & calendar", "body": "Schedule, reschedule and reassign visits across executives in a weekly calendar.", "shot": "smc/admin-desktop/calendar-w34" },
-        { "title": "Client-specific checklists", "body": "Each client gets its own task and subtask template, applied to every new visit automatically.", "shot": "smc/admin-desktop/task-config" },
-        { "title": "Rules that keep audits complete", "body": "A visit closes only when required work is done. The MD meeting must be answered and every open item needs a reason.", "shot": "smc/executive-mobile/visit-partial-tasks" },
-        { "title": "Carry-forward with approval", "body": "Unfinished items move into the next visit with their history — after an admin reviews and approves them.", "shot": "smc/admin-desktop/carry-forward" },
-        { "title": "Progress, trail and summary", "body": "Live progress per visit, a full activity trail and an automatic summary with a rating when the visit closes.", "shot": "smc/executive-desktop/visit-summary" },
-        { "title": "Attendance & leave", "body": "Executives punch in and request leave from the app; admins review attendance and approve requests.", "shot": "smc/executive-mobile/attendance" }
-      ],
-      "tour": [
-        { "title": "The week at a glance", "body": "Admins plan visits across the team in a weekly calendar — done, in progress, planned and carried forward, colour-coded.", "shot": "smc/admin-desktop/calendar-w34" },
-        { "title": "Live operational dashboard", "body": "Completion rate, staff performance and task distribution, with every executive’s workload one click away.", "shot": "smc/admin-desktop/dashboard-analytics" },
-        { "title": "Carry-forward, under control", "body": "Nothing moves to the next visit until an admin reviews it, chooses the schedule date and approves.", "shot": "smc/admin-desktop/carry-forward" },
-        { "title": "A visit, start to finish", "body": "Tasks, subtasks, carried items and an activity trail on one screen — then an automatic summary at closure.", "shot": "smc/executive-desktop/visit-closed" }
-      ],
-      "rolesDetail": [
-        {
-          "name": "Admin",
-          "device": "Desktop & mobile",
-          "lead": "Plans the week and keeps every visit on track.",
-          "points": ["Dashboard of visits, completion rate and staff performance", "Weekly calendar for scheduling and reassignment", "Carry-forward approvals and client checklists", "Executive workload, attendance and leave"],
-          "shots": ["smc/admin-desktop/dashboard"]
-        },
-        {
-          "name": "Field Executive",
-          "device": "Mobile-first",
-          "lead": "Runs each visit on site, from the phone.",
-          "points": ["Pending visits and carried-forward items at a glance", "Checklist per task, with reasons for open items", "MD meeting confirmation before closing", "Punch in, punch out and leave requests"],
-          "shots": ["smc/executive-mobile/dashboard", "smc/executive-mobile/visit-closed"]
-        }
-      ],
-      "mobile": ["smc/executive-mobile/dashboard", "smc/executive-mobile/visit-partial-tasks", "smc/executive-mobile/visit-summary", "smc/executive-mobile/attendance"],
-      "mobileTitle": "Planned at the desk. Run in the field.",
-      "mobileNote": "Executives run every visit from their phone — checklists, reasons, summaries, attendance. Admins get the same live picture on desktop and mobile.",
-      "value": [
-        { "title": "Live visibility", "body": "Management sees the status of every visit and executive without chasing calls." },
-        { "title": "Nothing slips between visits", "body": "Unfinished items carry forward with their reason, so follow-ups are never lost." },
-        { "title": "Consistent audits", "body": "Client-specific checklists and closing rules make every visit complete and comparable." },
-        { "title": "Less manual reporting", "body": "Progress and visit summaries are produced by the system, not compiled by hand." }
-      ],
-      "quote": null,
-      "delivery": {
-        "stack": ["Next.js", "TypeScript", "PostgreSQL", "Prisma", "Role-based access", "Android app"],
-        "highlights": [
-          "Mobile-first web app with an Android build for field executives",
-          "Executives only ever see the visits assigned to them",
-          "Lean data and instant checklist feedback on mobile networks"
-        ]
-      },
-      "live": { "url": "https://smc-crita.vercel.app/login", "label": "View live project", "name": "SMC Task Management" },
-      "demo": { "roles": ["Admin", "Field Executive"] },
-      "privacy": "Client, contact and staff names in these screens are anonymised to protect SMC’s confidentiality.",
-      "theme": { "stage": "#13213D", "stageInk": "light", "accent": "#7EA6F2", "tint": "#E9EDF5" },
-      "media": {
-        "hero": "smc/admin-desktop/dashboard",
-        "heroPhone": "smc/executive-mobile/visit-closed",
-        "card": "smc/admin-desktop/calendar-w34",
-        "challenge": "smc/admin-desktop/visits",
-        "solution": "smc/admin-mobile/calendar",
-        "responsiveDesktop": "smc/admin-desktop/dashboard"
-      }
-    },
-
-    {
       "id": "veloce",
-      "number": "02",
+      "number": "01",
       "name": "Veloce Scrap Flow",
       "client": "Veloce",
       "sector": "Scrap & recycling",
@@ -218,6 +137,94 @@
         "challenge": "veloce/owner-mobile/home",
         "solution": "veloce/admin-desktop/yard",
         "responsiveDesktop": "veloce/admin-desktop/analytics-dispatch"
+      }
+    },
+
+    {
+      "id": "tribal-brew-coffee",
+      "number": "02",
+      "name": "Tribal Brew Coffee",
+      "client": "Tribal Brew Coffee",
+      "sector": "Café & food service",
+      "type": "Café POS, back office & ordering app",
+      "platforms": "Web POS · Mobile app",
+      "roles": "Head office · Outlet staff · Customers",
+      "tagline": "One menu for every outlet — from the counter to the customer’s phone.",
+      "summary": "A point of sale and back office for a multi-outlet coffee chain, with a customer ordering app. Outlet teams bill at the counter, head office runs the menu, offers, outlets and reports from one system, and customers browse the same live menu on their phones.",
+      "challenge": {
+        "headline": "Many cafés, one menu, no single system.",
+        "body": "Tribal Brew runs cafés across Bengaluru and Mysuru, plus pop-ups at events. Every counter needs fast billing with the right drink options and taxes, every outlet needs the same menu and prices, and customers now expect to order from their phones."
+      },
+      "solution": {
+        "headline": "A counter POS, a central back office and a customer app on one catalogue.",
+        "body": "Crita built a web POS for the counter — categories, search, drink options with their own prices, GST on every bill and order status — on a back office where head office manages items, modifier groups, discounts, outlets, staff roles and reports. The customer app reads the same live menu and outlet list, so what customers see is what the counter sells."
+      },
+      "capabilities": [
+        { "title": "Counter-speed POS", "body": "Categories, search by name or POS code and a running bill with tax — built for the queue at the counter.", "shot": "tribal-brew-coffee/desktop/admin/pos-cart" },
+        { "title": "Drink options that price themselves", "body": "Milk, roast and sweetener choices carry their own surcharges, applied as the order is taken.", "shot": "tribal-brew-coffee/desktop/admin/pos-options" },
+        { "title": "Bills and order status", "body": "Every bill per outlet with its items, GST split and status — ready to pick up, completed or cancelled.", "shot": "tribal-brew-coffee/desktop/admin/bill" },
+        { "title": "One catalogue for every outlet", "body": "Items, categories, modifier groups, taxes and charges, managed centrally and assigned to the outlets that sell them.", "shot": "tribal-brew-coffee/desktop/admin/items" },
+        { "title": "Offers under control", "body": "Discounts for staff, reviews, events and subscriptions, defined once by head office.", "shot": "tribal-brew-coffee/desktop/admin/discounts" },
+        { "title": "Customer ordering app", "body": "Customers pick their café, browse the live menu with photos and prices, and customise drinks before ordering.", "shot": "tribal-brew-coffee/mobile/customer/menu" }
+      ],
+      "tour": [
+        { "title": "Orders at the counter", "body": "Tap items, choose milk, roast and sweetener, and the bill — with tax — builds as you go.", "shot": "tribal-brew-coffee/desktop/admin/pos-cart" },
+        { "title": "Every bill, every outlet", "body": "Takeaway and held bills per outlet, with status and totals at a glance.", "shot": "tribal-brew-coffee/desktop/admin/orders" },
+        { "title": "A menu managed once", "body": "Items with photos, prices and categories, assigned to the outlets that sell them.", "shot": "tribal-brew-coffee/desktop/admin/items" },
+        { "title": "The same menu, on the customer’s phone", "body": "The ordering app shows each café’s live menu, photos and prices.", "shot": "tribal-brew-coffee/mobile/customer/menu" }
+      ],
+      "rolesDetail": [
+        {
+          "name": "Head office",
+          "device": "Back office · web",
+          "lead": "Runs the menu, offers and outlets.",
+          "points": ["Items, categories and modifier groups", "Discounts, taxes and charges", "Outlets, staff roles and employees", "Sales, product, category and tax reports"],
+          "shots": ["tribal-brew-coffee/desktop/admin/items"]
+        },
+        {
+          "name": "Outlet staff",
+          "device": "POS · web",
+          "lead": "Bills at the counter, fast.",
+          "points": ["Takeaway and held bills for their outlet", "Drink options and a running bill with GST", "Ready, completed and cancelled status", "Printed bills"],
+          "shots": ["tribal-brew-coffee/desktop/admin/pos-cart"]
+        },
+        {
+          "name": "Customer",
+          "device": "Mobile app",
+          "lead": "Orders from the phone.",
+          "points": ["Nearest café and its live menu", "Photos, prices and customisable drinks", "Every café and its character", "Help centre and order history"],
+          "shots": ["tribal-brew-coffee/mobile/customer/home", "tribal-brew-coffee/mobile/customer/cafes"]
+        }
+      ],
+      "mobile": ["tribal-brew-coffee/mobile/customer/home", "tribal-brew-coffee/mobile/customer/menu", "tribal-brew-coffee/mobile/customer/cafes", "tribal-brew-coffee/mobile/customer/help"],
+      "mobileTitle": "The café, in the customer’s pocket.",
+      "mobileNote": "The ordering app opens on the nearest café with its live menu and prices — the same catalogue the counter sells from.",
+      "value": [
+        { "title": "One menu, everywhere", "body": "Prices, options and offers change once and reach every outlet and the app." },
+        { "title": "Faster counters", "body": "Drink options and taxes are applied as the order is taken, not worked out by hand." },
+        { "title": "Offers that stay controlled", "body": "Discounts are set by head office, not improvised at the counter." },
+        { "title": "Ready for direct orders", "body": "The customer app runs on the same system as the outlets." }
+      ],
+      "quote": null,
+      "delivery": {
+        "stack": ["Angular", "React Native (Expo)", "NestJS API", "Razorpay", "Google Sign-In", "Role-based access"],
+        "highlights": [
+          "Web POS and customer app on one API and one catalogue",
+          "Drink options with their own prices, applied as orders are taken",
+          "GST split on every bill; outlet reports downloadable as PDF or Excel"
+        ]
+      },
+      "live": { "url": "https://server.crita.in/tbc/login", "label": "View live POS", "name": "Tribal Brew Coffee" },
+      "demo": { "roles": ["POS", "Back office"] },
+      "privacy": "Live outlet screens, shown without customer details. The customer app is shown with a demonstration profile.",
+      "theme": { "stage": "#33241B", "stageInk": "light", "accent": "#D9A066", "tint": "#F3EDE6" },
+      "media": {
+        "hero": "tribal-brew-coffee/desktop/admin/pos-cart",
+        "heroPhone": "tribal-brew-coffee/mobile/customer/menu",
+        "card": "tribal-brew-coffee/desktop/admin/pos-cart",
+        "challenge": "tribal-brew-coffee/desktop/admin/orders",
+        "solution": "tribal-brew-coffee/mobile/customer/home",
+        "responsiveDesktop": "tribal-brew-coffee/desktop/admin/items"
       }
     },
 
@@ -312,8 +319,177 @@
     },
 
     {
-      "id": "city-threads",
+      "id": "smc",
       "number": "04",
+      "name": "SMC Task Management",
+      "client": "Shaabi Management Consultancy",
+      "sector": "Audit & consulting",
+      "type": "Field operations platform",
+      "platforms": "Web · Android",
+      "roles": "Admin · Field Executive",
+      "tagline": "Field audits, planned, run and closed in one system.",
+      "summary": "A field-audit operations platform for an audit consultancy. Admins plan visits and define each client’s checklist; executives run every visit from their phone; nothing incomplete is lost between visits.",
+      "challenge": {
+        "headline": "Weekly audits, dozens of clients, no single view.",
+        "body": "SMC’s executives visit client sites every week to verify operations, stock, accounts and reports — and every client needs a different checklist. Tracking was manual: unfinished items relied on memory to reach the next visit, and management had no live view of progress across the team."
+      },
+      "solution": {
+        "headline": "One system, from the admin’s calendar to the executive’s phone.",
+        "body": "Crita built a role-based platform that turns each audit visit into a structured, trackable workflow. Admins schedule visits and configure checklists per client. Executives open the visit on their phone, complete each item or record why it couldn’t be done, and close it only when the rules are met. Unfinished work carries forward — with admin approval — into the next visit."
+      },
+      "capabilities": [
+        { "title": "Visit planning & calendar", "body": "Schedule, reschedule and reassign visits across executives in a weekly calendar.", "shot": "smc/admin-desktop/calendar-w34" },
+        { "title": "Client-specific checklists", "body": "Each client gets its own task and subtask template, applied to every new visit automatically.", "shot": "smc/admin-desktop/task-config" },
+        { "title": "Rules that keep audits complete", "body": "A visit closes only when required work is done. The MD meeting must be answered and every open item needs a reason.", "shot": "smc/executive-mobile/visit-partial-tasks" },
+        { "title": "Carry-forward with approval", "body": "Unfinished items move into the next visit with their history — after an admin reviews and approves them.", "shot": "smc/admin-desktop/carry-forward" },
+        { "title": "Progress, trail and summary", "body": "Live progress per visit, a full activity trail and an automatic summary with a rating when the visit closes.", "shot": "smc/executive-desktop/visit-summary" },
+        { "title": "Attendance & leave", "body": "Executives punch in and request leave from the app; admins review attendance and approve requests.", "shot": "smc/executive-mobile/attendance" }
+      ],
+      "tour": [
+        { "title": "The week at a glance", "body": "Admins plan visits across the team in a weekly calendar — done, in progress, planned and carried forward, colour-coded.", "shot": "smc/admin-desktop/calendar-w34" },
+        { "title": "Live operational dashboard", "body": "Completion rate, staff performance and task distribution, with every executive’s workload one click away.", "shot": "smc/admin-desktop/dashboard-analytics" },
+        { "title": "Carry-forward, under control", "body": "Nothing moves to the next visit until an admin reviews it, chooses the schedule date and approves.", "shot": "smc/admin-desktop/carry-forward" },
+        { "title": "A visit, start to finish", "body": "Tasks, subtasks, carried items and an activity trail on one screen — then an automatic summary at closure.", "shot": "smc/executive-desktop/visit-closed" }
+      ],
+      "rolesDetail": [
+        {
+          "name": "Admin",
+          "device": "Desktop & mobile",
+          "lead": "Plans the week and keeps every visit on track.",
+          "points": ["Dashboard of visits, completion rate and staff performance", "Weekly calendar for scheduling and reassignment", "Carry-forward approvals and client checklists", "Executive workload, attendance and leave"],
+          "shots": ["smc/admin-desktop/dashboard"]
+        },
+        {
+          "name": "Field Executive",
+          "device": "Mobile-first",
+          "lead": "Runs each visit on site, from the phone.",
+          "points": ["Pending visits and carried-forward items at a glance", "Checklist per task, with reasons for open items", "MD meeting confirmation before closing", "Punch in, punch out and leave requests"],
+          "shots": ["smc/executive-mobile/dashboard", "smc/executive-mobile/visit-closed"]
+        }
+      ],
+      "mobile": ["smc/executive-mobile/dashboard", "smc/executive-mobile/visit-partial-tasks", "smc/executive-mobile/visit-summary", "smc/executive-mobile/attendance"],
+      "mobileTitle": "Planned at the desk. Run in the field.",
+      "mobileNote": "Executives run every visit from their phone — checklists, reasons, summaries, attendance. Admins get the same live picture on desktop and mobile.",
+      "value": [
+        { "title": "Live visibility", "body": "Management sees the status of every visit and executive without chasing calls." },
+        { "title": "Nothing slips between visits", "body": "Unfinished items carry forward with their reason, so follow-ups are never lost." },
+        { "title": "Consistent audits", "body": "Client-specific checklists and closing rules make every visit complete and comparable." },
+        { "title": "Less manual reporting", "body": "Progress and visit summaries are produced by the system, not compiled by hand." }
+      ],
+      "quote": null,
+      "delivery": {
+        "stack": ["Next.js", "TypeScript", "PostgreSQL", "Prisma", "Role-based access", "Android app"],
+        "highlights": [
+          "Mobile-first web app with an Android build for field executives",
+          "Executives only ever see the visits assigned to them",
+          "Lean data and instant checklist feedback on mobile networks"
+        ]
+      },
+      "live": { "url": "https://smc-crita.vercel.app/login", "label": "View live project", "name": "SMC Task Management" },
+      "demo": { "roles": ["Admin", "Field Executive"] },
+      "privacy": "Client, contact and staff names in these screens are anonymised to protect SMC’s confidentiality.",
+      "theme": { "stage": "#13213D", "stageInk": "light", "accent": "#7EA6F2", "tint": "#E9EDF5" },
+      "media": {
+        "hero": "smc/admin-desktop/dashboard",
+        "heroPhone": "smc/executive-mobile/visit-closed",
+        "card": "smc/admin-desktop/calendar-w34",
+        "challenge": "smc/admin-desktop/visits",
+        "solution": "smc/admin-mobile/calendar",
+        "responsiveDesktop": "smc/admin-desktop/dashboard"
+      }
+    },
+
+    {
+      "id": "ai-sales-crm",
+      "number": "05",
+      "name": "AI Sales CRM",
+      "client": "A Crita product",
+      "sector": "Sales & CRM",
+      "type": "Sales CRM with an AI co-pilot",
+      "platforms": "Web · Responsive",
+      "roles": "Sales teams",
+      "tagline": "Leads, pipeline and follow-ups — with an AI co-pilot that reads every deal.",
+      "summary": "Crita’s sales CRM: leads, contacts, a drag-and-drop pipeline, notes and follow-ups in one workspace, with Google Gemini summarising leads, drafting emails and rating the health of the pipeline.",
+      "challenge": {
+        "headline": "Deals slip between spreadsheets and memory.",
+        "body": "Small sales teams track leads in sheets and inboxes. Follow-ups are forgotten, nobody sees the pipeline’s real value, and every email to a prospect starts from a blank page."
+      },
+      "solution": {
+        "headline": "A clean CRM, with an assistant inside every lead.",
+        "body": "Crita built a CRM around the sales day: a dashboard of pipeline value, closed revenue and win rate; leads by stage, priority and source; a pipeline board; contacts, notes and follow-ups. Gemini reads each lead to suggest the next best action, drafts the email in the chosen tone and rates the pipeline as a whole."
+      },
+      "capabilities": [
+        { "title": "Pipeline dashboard", "body": "Pipeline value, closed revenue, win rate and new leads per month, with the latest lead movements.", "shot": "ai-sales-crm/desktop/dashboard" },
+        { "title": "Leads in order", "body": "Stage, priority, source and value on every lead, with a filter for each.", "shot": "ai-sales-crm/desktop/leads" },
+        { "title": "Drag-and-drop pipeline", "body": "New, qualified, proposal and won columns, with the value of every stage.", "shot": "ai-sales-crm/desktop/pipeline" },
+        { "title": "AI lead summary", "body": "A plain-language summary, risk score, suggested priority and next best action for any lead.", "shot": "ai-sales-crm/desktop/lead-ai" },
+        { "title": "AI email drafts", "body": "Follow-up emails drafted by purpose and tone, ready to copy.", "shot": "ai-sales-crm/desktop/lead-email" },
+        { "title": "Follow-ups that don’t slip", "body": "Tasks with priority and status, and overdue work flagged.", "shot": "ai-sales-crm/desktop/follow-ups" }
+      ],
+      "tour": [
+        { "title": "The sales day on one screen", "body": "Pipeline value, revenue, win rate and new leads, with the latest movements underneath.", "shot": "ai-sales-crm/desktop/dashboard" },
+        { "title": "Every deal, by stage", "body": "A pipeline board with the value of each stage — move a deal by dragging it.", "shot": "ai-sales-crm/desktop/pipeline" },
+        { "title": "Ask what to do next", "body": "Gemini summarises the lead, scores its risk and suggests the next best action.", "shot": "ai-sales-crm/desktop/lead-ai" },
+        { "title": "Pipeline health, scored", "body": "One click rates the whole pipeline and explains what is working and where deals stall.", "shot": "ai-sales-crm/desktop/insights" }
+      ],
+      "rolesDetail": [],
+      "architecture": {
+        "title": "A CRM with the AI built in.",
+        "principle": "Gemini works from the CRM’s own records: summaries, drafts and insights come from the leads, notes and pipeline the team already keeps.",
+        "layers": [
+          { "name": "Workspace", "items": [
+            { "label": "Leads", "status": "Live" },
+            { "label": "Contacts", "status": "Live" },
+            { "label": "Pipeline", "status": "Live" },
+            { "label": "Notes", "status": "Live" },
+            { "label": "Follow-ups", "status": "Live" }
+          ] },
+          { "name": "AI co-pilot", "items": [
+            { "label": "Lead summaries", "status": "Live" },
+            { "label": "Email drafts", "status": "Live" },
+            { "label": "Pipeline insights", "status": "Live" }
+          ] },
+          { "name": "Platform", "items": [
+            { "label": "Secure sign-in", "status": "Live" },
+            { "label": "Google Gemini", "status": "Live" }
+          ] }
+        ]
+      },
+      "mobile": ["ai-sales-crm/mobile/dashboard", "ai-sales-crm/mobile/pipeline", "ai-sales-crm/mobile/leads", "ai-sales-crm/mobile/lead-ai"],
+      "mobileTitle": "The pipeline, wherever the meeting is.",
+      "mobileNote": "Dashboard, leads, pipeline and AI summaries all adapt to a phone — check a deal and its next step on the way in.",
+      "value": [
+        { "title": "A pipeline you can see", "body": "Value, stage and win rate live on the dashboard, not in a spreadsheet." },
+        { "title": "Next steps, suggested", "body": "Every lead comes with a clear next best action." },
+        { "title": "Faster outreach", "body": "Follow-up emails are drafted in seconds, in the right tone." },
+        { "title": "Nothing forgotten", "body": "Follow-ups carry priority and due dates, and overdue work stands out." }
+      ],
+      "quote": null,
+      "delivery": {
+        "stack": ["React", "Node.js", "Express", "MongoDB", "Google Gemini", "JWT auth"],
+        "highlights": [
+          "Gemini summaries, email drafts and pipeline insights from the CRM’s own records",
+          "Drag-and-drop pipeline across stages",
+          "One-click demo workspace for prospects"
+        ]
+      },
+      "live": { "url": "https://crita-crm.vercel.app/", "label": "Try the live demo", "name": "AI Sales CRM" },
+      "demo": { "roles": ["Sales"], "selfServe": "One-click demo account — choose “Try Demo Account” on the sign-in screen." },
+      "privacy": "Shown in the public demo workspace with sample data.",
+      "theme": { "stage": "#D7ECE4", "stageInk": "dark", "accent": "#0F7A57", "tint": "#ECF4F0" },
+      "media": {
+        "hero": "ai-sales-crm/desktop/dashboard",
+        "heroPhone": "ai-sales-crm/mobile/lead-ai",
+        "card": "ai-sales-crm/desktop/dashboard",
+        "challenge": "ai-sales-crm/desktop/leads",
+        "solution": "ai-sales-crm/desktop/lead-ai",
+        "responsiveDesktop": "ai-sales-crm/desktop/pipeline"
+      }
+    },
+
+    {
+      "id": "city-threads",
+      "number": "06",
       "name": "City Threads",
       "client": "City Threads Textiles",
       "sector": "Textile distribution",
@@ -400,6 +576,331 @@
         "challenge": "city-threads/admin-desktop/warehouse",
         "solution": "city-threads/executive-mobile/stock-unit",
         "responsiveDesktop": "city-threads/admin-desktop/stock"
+      }
+    },
+
+    {
+      "id": "veloce-trade",
+      "number": "07",
+      "name": "Veloce Trade",
+      "client": "Veloce",
+      "sector": "Scrap & recycling",
+      "type": "B2B material-trading app",
+      "platforms": "Mobile app",
+      "roles": "Client · Vendor · Recycler",
+      "tagline": "List, buy, dispatch and get paid — every truckload on one app.",
+      "summary": "A mobile trading app for Veloce’s network of material sellers, vendors and recyclers. Clients list material for pickup with its pricing; vendors raise purchase orders, send truckloads, assign drivers, labour and vehicles, upload documents and record payments — with every shipment tracked step by step.",
+      "challenge": {
+        "headline": "Trades run on calls, paperwork and trust.",
+        "body": "Buying and moving material between companies involves pricing, taxes, trucks, weighment slips, invoices and part payments. When that lives in phone calls and paper, nobody can see where a load is, which documents are missing or what is still owed."
+      },
+      "solution": {
+        "headline": "One app for every step of a trade.",
+        "body": "Crita built Veloce Trade as a role-based mobile app. Verified companies list material with pricing that includes TDS, TCS and GST; buyers order against listings; and each fulfilment moves through assignment, loading, documents, invoicing, payment and transit — with the people, the vehicle and the proof attached at every step."
+      },
+      "capabilities": [
+        { "title": "Verified trading partners", "body": "Companies join with GST, PAN, MSME, signatory and bank documents, checked before the account goes live.", "shot": "veloce-trade/mobile/vendor-executive/documents" },
+        { "title": "Listings with pricing built in", "body": "Material, zone, quantity and payment terms, with TDS, TCS and GST shown before the listing is created.", "shot": "veloce-trade/mobile/client-executive/create-pickup" },
+        { "title": "Purchase orders from listings", "body": "Buyers order against a listing, within its available quantity, and set the delivery details.", "shot": "veloce-trade/mobile/vendor-executive/create-po" },
+        { "title": "Trucks, drivers and labour", "body": "Each fulfilment gets its driver, labour and vehicle from the company’s own resources.", "shot": "veloce-trade/mobile/vendor-executive/assign-resources" },
+        { "title": "Shipments tracked step by step", "body": "From assigned to delivered, with weighment slips and location-tagged vehicle photos at the stage that needs them.", "shot": "veloce-trade/mobile/vendor-executive/fulfilment-status" },
+        { "title": "Payables, receivables and instalments", "body": "Payments recorded with bank advice and receipts; dashboards show what is paid, payable and receivable.", "shot": "veloce-trade/mobile/vendor-executive/payments-dashboard" }
+      ],
+      "tour": [
+        { "title": "Pickups by status", "body": "Active, in-transit, completed and cancelled pickups, with payments alongside.", "shot": "veloce-trade/mobile/client-executive/dashboard" },
+        { "title": "List material with its pricing", "body": "Zone, quantity, units and payment terms, with the taxes calculated up front.", "shot": "veloce-trade/mobile/client-executive/create-pickup" },
+        { "title": "Every shipment, step by step", "body": "Assigned, loading, documents, invoicing, payment and transit — each step timestamped.", "shot": "veloce-trade/mobile/vendor-executive/fulfilment-status" },
+        { "title": "Money in and out", "body": "Paid, payable and receivable totals across bills and invoices.", "shot": "veloce-trade/mobile/vendor-executive/payments-dashboard" }
+      ],
+      "rolesDetail": [
+        {
+          "name": "Client Executive",
+          "device": "Mobile app",
+          "lead": "Lists material and tracks pickups.",
+          "points": ["Pickups with pricing and payment terms", "Pickup status, history and purchase orders", "Contracts and payments", "Company documents and profile"],
+          "shots": ["veloce-trade/mobile/client-executive/dashboard", "veloce-trade/mobile/client-executive/create-pickup"]
+        },
+        {
+          "name": "Vendor Executive",
+          "device": "Mobile app",
+          "lead": "Buys, dispatches and settles.",
+          "points": ["Purchase orders against listings", "Fulfilments with driver, labour and vehicle", "Documents at each shipment stage", "Payables, receivables and instalments"],
+          "shots": ["veloce-trade/mobile/vendor-executive/home", "veloce-trade/mobile/vendor-executive/upload-documents"]
+        }
+      ],
+      "mobile": ["veloce-trade/mobile/vendor-executive/today", "veloce-trade/mobile/vendor-executive/create-po", "veloce-trade/mobile/vendor-executive/upload-documents", "veloce-trade/mobile/vendor-executive/record-payment"],
+      "mobileTitle": "Built for the people moving the material.",
+      "mobileNote": "Every role works from a phone — listing, ordering, loading, documenting and paying, one clear step at a time. Recyclers use the same toolkit.",
+      "value": [
+        { "title": "Every load visible", "body": "Each shipment’s stage, people and vehicle are visible the moment they change." },
+        { "title": "Proof at every step", "body": "Weighment slips, photos, invoices and payment receipts sit on the shipment they belong to." },
+        { "title": "Pricing without surprises", "body": "Taxes and payment terms are shown before anything is listed or ordered." },
+        { "title": "A verified network", "body": "Companies trade only after their documents are checked." }
+      ],
+      "quote": null,
+      "delivery": {
+        "stack": ["Mobile app", "Role-based workspaces", "OTP sign-up", "KYC document checks", "Location-tagged uploads", "Instalment payments"],
+        "highlights": [
+          "A ten-step shipment flow, with a timestamp on every change",
+          "TDS, TCS and GST calculated before a listing is created",
+          "Uploads that need a location are refused without one"
+        ]
+      },
+      "live": null,
+      "demo": { "roles": ["Client Executive", "Vendor Executive", "Recycler"] },
+      "privacy": "Screens from Veloce Trade’s user guide, with its demonstration accounts. The app is in production with Veloce.",
+      "theme": { "stage": "#15402F", "stageInk": "light", "accent": "#7BC59A", "tint": "#E8F0EA" },
+      "media": {
+        "hero": "veloce-trade/mobile/vendor-executive/fulfilment-status",
+        "heroPhone": "veloce-trade/mobile/vendor-executive/payments-dashboard",
+        "heroPhones": ["veloce-trade/mobile/client-executive/create-pickup", "veloce-trade/mobile/vendor-executive/fulfilment-status", "veloce-trade/mobile/vendor-executive/payments-dashboard"],
+        "card": "veloce-trade/mobile/vendor-executive/fulfilment-status",
+        "challenge": "veloce-trade/mobile/client-executive/dashboard",
+        "solution": "veloce-trade/mobile/vendor-executive/fulfilment-status",
+        "responsiveDesktop": "veloce-trade/mobile/vendor-executive/payments"
+      }
+    },
+
+    {
+      "id": "expense-log",
+      "number": "08",
+      "name": "Expense Log",
+      "client": "A Crita product",
+      "sector": "Finance & operations",
+      "type": "Expense, approval & budget platform",
+      "platforms": "Web · Responsive",
+      "roles": "Admin · Manager · Finance · Employee",
+      "tagline": "Every claim approved, reimbursed and measured against budget.",
+      "summary": "A multi-company expense platform: employees log claims, managers approve them for their department, finance reimburses, and administrators see spend by category, department and payment mode against each department’s budget.",
+      "challenge": {
+        "headline": "Receipts in inboxes, approvals in chats.",
+        "body": "Expense claims usually travel by email and messaging apps. Approvals are hard to trace, reimbursements are tracked in spreadsheets, and nobody can compare a department’s spending with its budget until the month is over."
+      },
+      "solution": {
+        "headline": "One flow, from claim to reimbursement.",
+        "body": "Crita built Expense Log around companies and roles. Claims carry their category, department and payment mode; managers approve or reject within their department; finance records reimbursements; and budgets are set per department and month, so reports compare spend with plan."
+      },
+      "capabilities": [
+        { "title": "Spend at a glance", "body": "This month, last month, pending, approved and rejected totals, with a six-month trend.", "shot": "expense-log/desktop/admin/home" },
+        { "title": "Where the money goes", "body": "Spend by category, department and payment mode, with the status of every claim.", "shot": "expense-log/desktop/admin/home-breakdown" },
+        { "title": "Claims with a status", "body": "Every claim with its category, amount and mode — pending, approved, rejected or paid.", "shot": "expense-log/desktop/manager/expenses" },
+        { "title": "Budgets by department", "body": "Monthly budgets per department and category, exportable to Excel.", "shot": "expense-log/desktop/admin/budget" },
+        { "title": "Reports that answer questions", "body": "Expense summary, department, category, reimbursement and budget-versus-actual reports.", "shot": "expense-log/desktop/admin/report" },
+        { "title": "Companies, departments and roles", "body": "Several companies on one platform, each with departments and admin, manager, finance and employee users.", "shot": "expense-log/desktop/admin/users" }
+      ],
+      "tour": [
+        { "title": "The month in one view", "body": "Totals by status, a six-month trend and the split by category, department and payment mode.", "shot": "expense-log/desktop/admin/home" },
+        { "title": "Every claim, traceable", "body": "Filter claims by company, department, category, date or amount, and see where each one stands.", "shot": "expense-log/desktop/admin/expenses" },
+        { "title": "Budgets set in advance", "body": "Department budgets by financial month, ready for comparison with actual spend.", "shot": "expense-log/desktop/admin/budget" },
+        { "title": "Reports for finance", "body": "Expenses, budgets, approvals, rejections and reimbursements, summarised and drillable.", "shot": "expense-log/desktop/admin/report" }
+      ],
+      "rolesDetail": [
+        {
+          "name": "Administrator",
+          "device": "Desktop & mobile",
+          "lead": "Sees every company and department.",
+          "points": ["Spend summary, trends and breakdowns", "Companies, departments and users", "Budgets by department and category", "Reports across the business"],
+          "shots": ["expense-log/desktop/admin/home"]
+        },
+        {
+          "name": "Manager",
+          "device": "Desktop",
+          "lead": "Approves for their department.",
+          "points": ["Department expense tracker with status", "Approve or reject claims", "Expense categories", "Department budgets"],
+          "shots": ["expense-log/desktop/manager/expenses"]
+        }
+      ],
+      "mobile": ["expense-log/mobile/admin/home", "expense-log/mobile/admin/home-trend", "expense-log/mobile/admin/expenses", "expense-log/mobile/admin/report"],
+      "mobileTitle": "Claims and spend, on the go.",
+      "mobileNote": "Summaries, trends and the expense tracker adapt to a phone, so approvals don’t wait for a desk.",
+      "value": [
+        { "title": "Faster approvals", "body": "Claims reach the right manager with what they need to decide." },
+        { "title": "Budgets that mean something", "body": "Spend is compared with each department’s budget as it happens." },
+        { "title": "Clear reimbursements", "body": "Finance sees what is approved, paid back or still pending." },
+        { "title": "Ready for groups", "body": "Several companies run on one platform, each with its own departments and users." }
+      ],
+      "quote": null,
+      "delivery": {
+        "stack": ["React", "FastAPI", "Python", "JWT roles", "Multi-company", "Excel export"],
+        "highlights": [
+          "Role-scoped data: managers see their department, administrators every company",
+          "Hierarchical expense categories",
+          "Department budgets by financial month, exportable to Excel"
+        ]
+      },
+      "live": { "url": "https://expense-logger-one.vercel.app/", "label": "View live app", "name": "Expense Log" },
+      "demo": { "roles": ["Administrator", "Manager"] },
+      "privacy": "Shown with sample companies and test data; names and emails are anonymised.",
+      "theme": { "stage": "#ECE5D3", "stageInk": "dark", "accent": "#3E6B35", "tint": "#F4F1E8" },
+      "media": {
+        "hero": "expense-log/desktop/admin/home",
+        "heroPhone": "expense-log/mobile/admin/home",
+        "card": "expense-log/desktop/admin/home",
+        "challenge": "expense-log/desktop/admin/expenses",
+        "solution": "expense-log/desktop/admin/report",
+        "responsiveDesktop": "expense-log/desktop/admin/budget"
+      }
+    },
+
+    {
+      "id": "lead-discovery-crm",
+      "number": "09",
+      "name": "Lead Discovery CRM",
+      "client": "A Crita product",
+      "sector": "Sales & marketing",
+      "type": "Website lead & discovery CRM",
+      "platforms": "Web · Responsive",
+      "roles": "Crita team · Prospects",
+      "tagline": "Visitors answer a few questions. The team gets a qualified lead.",
+      "summary": "Crita’s own lead engine: discovery questionnaires published on the website turn visitors into structured leads, every response gets a fit score and next-step coaching, and the team manages clients, questionnaires and responses in one CRM.",
+      "challenge": {
+        "headline": "An enquiry is a name and a phone number.",
+        "body": "A typical contact form says who got in touch, not what they need. Teams repeat the same questions before every first meeting and have no consistent way to judge which enquiries fit what they offer."
+      },
+      "solution": {
+        "headline": "Discovery before the first call.",
+        "body": "Crita built topic-based discovery questionnaires — branding, workflows and AI, business software, inventory, websites, retail and manufacturing — published on the website and sent as private links. Answers land in a CRM as leads with a fit score, the gaps still open and suggested next steps, beside clients, templates and assignments."
+      },
+      "capabilities": [
+        { "title": "Topic questionnaires", "body": "A library of discovery questionnaires by service, versioned, with CSV import and export.", "shot": "lead-discovery-crm/desktop/admin/templates" },
+        { "title": "Published on the website", "body": "Each questionnaire has its own page on the website, ready for any visitor.", "shot": "lead-discovery-crm/desktop/prospect/questionnaire" },
+        { "title": "Responses in one place", "body": "Every response with its topic, source and date, filterable by questionnaire.", "shot": "lead-discovery-crm/desktop/admin/responses" },
+        { "title": "Fit score and next steps", "body": "Each response is scored against its topic and turned into a summary of what is unclear and what to do next.", "shot": "lead-discovery-crm/desktop/admin/insight" },
+        { "title": "Clients and assignments", "body": "Clients, website leads and questionnaire assignments, tracked from pending to completed.", "shot": "lead-discovery-crm/desktop/admin/dashboard" },
+        { "title": "Made for phones", "body": "Questionnaires work on a phone, from the first field to the last answer.", "shot": "lead-discovery-crm/mobile/prospect/questionnaire" }
+      ],
+      "tour": [
+        { "title": "The prospect’s side", "body": "A short, focused questionnaire for each service, opened from the website or a private link.", "shot": "lead-discovery-crm/desktop/prospect/questionnaire" },
+        { "title": "Every response, organised", "body": "Responses by questionnaire and source, newest first.", "shot": "lead-discovery-crm/desktop/admin/responses" },
+        { "title": "Scored before the first call", "body": "A fit score, the open questions and next steps — with what the prospect sees marked clearly.", "shot": "lead-discovery-crm/desktop/admin/insight" },
+        { "title": "The funnel at a glance", "body": "Clients, website leads, templates and responses, with pending and completed counts.", "shot": "lead-discovery-crm/desktop/admin/dashboard" }
+      ],
+      "rolesDetail": [
+        {
+          "name": "Crita team",
+          "device": "Web CRM",
+          "lead": "Qualifies and follows up.",
+          "points": ["Dashboard of clients, leads and responses", "Questionnaire templates and assignments", "Responses with fit score and next steps", "Clients and website leads"],
+          "shots": ["lead-discovery-crm/desktop/admin/dashboard"]
+        },
+        {
+          "name": "Prospect",
+          "device": "Phone or desktop",
+          "lead": "Answers a few focused questions.",
+          "points": ["A questionnaire for the service they need", "No account needed", "Private links for invited clients", "A summary of next steps"],
+          "shots": ["lead-discovery-crm/mobile/prospect/questionnaire"]
+        }
+      ],
+      "mobile": ["lead-discovery-crm/mobile/prospect/questionnaire", "lead-discovery-crm/mobile/admin/dashboard", "lead-discovery-crm/mobile/admin/responses", "lead-discovery-crm/mobile/admin/insight"],
+      "mobileTitle": "Discovery that works on a phone.",
+      "mobileNote": "Prospects answer on whatever device found you; the team reviews scores and next steps from theirs.",
+      "value": [
+        { "title": "Better first meetings", "body": "The team arrives knowing the prospect’s goals, gaps and priorities." },
+        { "title": "Leads ranked by fit", "body": "Scores show which enquiries match what you offer." },
+        { "title": "One place for every enquiry", "body": "Website leads, invited clients and responses sit together." },
+        { "title": "Reusable discovery", "body": "Questionnaires are templates: versioned, exportable and easy to add." }
+      ],
+      "quote": null,
+      "delivery": {
+        "stack": ["Flutter (web)", "Firebase Authentication", "Cloud Firestore", "Firebase Hosting"],
+        "highlights": [
+          "One codebase for the public questionnaires and the CRM",
+          "Fit scores and next-step coaching from every response",
+          "Questionnaires imported and exported as CSV"
+        ]
+      },
+      "live": { "url": "https://critacreativellp-dev.web.app/", "label": "View live CRM", "name": "Lead Discovery CRM" },
+      "demo": { "roles": ["Admin"] },
+      "privacy": "Shown with Crita’s internal test responses; contact details are hidden.",
+      "theme": { "stage": "#2E3820", "stageInk": "light", "accent": "#C5D35E", "tint": "#EFF1E6" },
+      "media": {
+        "hero": "lead-discovery-crm/desktop/admin/insight",
+        "heroPhone": "lead-discovery-crm/mobile/prospect/questionnaire",
+        "card": "lead-discovery-crm/desktop/admin/insight",
+        "challenge": "lead-discovery-crm/desktop/prospect/questionnaire",
+        "solution": "lead-discovery-crm/desktop/admin/insight",
+        "responsiveDesktop": "lead-discovery-crm/desktop/admin/responses"
+      }
+    },
+
+    {
+      "id": "support-portal",
+      "number": "10",
+      "name": "Support Portal",
+      "client": "A Crita product",
+      "sector": "Customer support",
+      "type": "Ticketing & support portal",
+      "platforms": "Web · Responsive",
+      "roles": "Requester · Administrator",
+      "tagline": "Raise it, track it, resolve it — with every step on record.",
+      "summary": "Crita’s support desk for its clients: a help centre and knowledge base, a simple form to raise tickets with attachments, and an admin queue where each ticket is assigned, reviewed, approved, resolved and closed — with its full history.",
+      "challenge": {
+        "headline": "Support requests get lost in email.",
+        "body": "When issues arrive by email and phone, nobody clearly owns them, clients can’t see progress, and there is no record of who approved or changed what."
+      },
+      "solution": {
+        "headline": "One portal, for clients and the support team.",
+        "body": "Crita built a portal with two sides. Requesters raise tickets by type and priority, attach files and follow their status. Administrators work one queue — assign, review, approve, resolve and close — reply to the requester or add internal notes, and every status change is recorded."
+      },
+      "capabilities": [
+        { "title": "Help centre and knowledge base", "body": "Answers by topic — getting started, accounts, billing, integrations, APIs and troubleshooting.", "shot": "support-portal/desktop/public/knowledge-base" },
+        { "title": "Tickets in a minute", "body": "Subject, type, priority and description, with up to ten attachments.", "shot": "support-portal/desktop/requester/raise-ticket" },
+        { "title": "One admin queue", "body": "Every ticket with its requester, assignee, priority and status, filterable by each.", "shot": "support-portal/desktop/admin/queue" },
+        { "title": "A workflow with approvals", "body": "Review, approve, resolve and close — with replies to the requester and notes they never see.", "shot": "support-portal/desktop/admin/ticket" },
+        { "title": "Every change on record", "body": "Status changes with who made them and when, across every ticket.", "shot": "support-portal/desktop/admin/history" },
+        { "title": "Ticket types and rules", "body": "Ticket types set by administrators, each with or without an approval step.", "shot": "support-portal/desktop/admin/types" }
+      ],
+      "tour": [
+        { "title": "Help first", "body": "A public help centre explains how tickets are handled and links to the knowledge base.", "shot": "support-portal/desktop/public/help-centre" },
+        { "title": "Raise a ticket", "body": "Type, priority, a description and attachments — tied to the requester’s account.", "shot": "support-portal/desktop/requester/raise-ticket" },
+        { "title": "Work the queue", "body": "Every ticket, its requester, owner, priority and status in one filterable list.", "shot": "support-portal/desktop/admin/queue" },
+        { "title": "From review to closed", "body": "Conversation, details and the workflow on one screen, with the approver recorded.", "shot": "support-portal/desktop/admin/ticket" }
+      ],
+      "rolesDetail": [
+        {
+          "name": "Requester",
+          "device": "Desktop & mobile",
+          "lead": "Raises and follows tickets.",
+          "points": ["Help centre and knowledge base", "Tickets by type and priority", "Attachments with every ticket", "Status of their own tickets"],
+          "shots": ["support-portal/mobile/public/help-centre", "support-portal/mobile/requester/raise-ticket"]
+        },
+        {
+          "name": "Administrator",
+          "device": "Desktop",
+          "lead": "Works the whole queue.",
+          "points": ["Queue of every ticket, with filters", "Assign, review, approve, resolve and close", "Replies and internal notes", "Ticket types, users and full history"],
+          "shots": ["support-portal/desktop/admin/ticket"]
+        }
+      ],
+      "mobile": ["support-portal/mobile/public/help-centre", "support-portal/mobile/requester/raise-ticket", "support-portal/mobile/admin/queue", "support-portal/mobile/admin/ticket"],
+      "mobileTitle": "Support from any screen.",
+      "mobileNote": "Clients raise and follow tickets from their phones; the support team can check the queue on the move.",
+      "value": [
+        { "title": "Nothing falls through", "body": "Every request has an owner, a status and a history." },
+        { "title": "Clients stay informed", "body": "Requesters see their tickets and replies without chasing." },
+        { "title": "Approvals on record", "body": "Tickets that need sign-off record who approved them and when." },
+        { "title": "Answers before tickets", "body": "A knowledge base handles common questions first." }
+      ],
+      "quote": null,
+      "delivery": {
+        "stack": ["React", "NestJS API", "Role-based access", "Audit history", "File attachments"],
+        "highlights": [
+          "Requester and administrator portals on one codebase",
+          "An approval step that can be switched on per ticket type",
+          "Internal notes kept apart from replies to the requester"
+        ]
+      },
+      "live": { "url": "https://server.crita.in/support-ticket/dev", "label": "View live portal", "name": "Support Portal" },
+      "demo": { "roles": ["Requester", "Administrator"] },
+      "privacy": "Development instance with test tickets; names and emails are anonymised.",
+      "theme": { "stage": "#DCE6E2", "stageInk": "dark", "accent": "#1F5C50", "tint": "#EEF3F1" },
+      "media": {
+        "hero": "support-portal/desktop/admin/ticket",
+        "heroPhone": "support-portal/mobile/public/help-centre",
+        "card": "support-portal/desktop/admin/ticket",
+        "challenge": "support-portal/desktop/public/help-centre",
+        "solution": "support-portal/desktop/admin/queue",
+        "responsiveDesktop": "support-portal/desktop/admin/history"
       }
     }
   ]

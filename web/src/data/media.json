@@ -1,4 +1,337 @@
 {
+ "ai-sales-crm/desktop/dashboard": {
+  "w": 2880,
+  "h": 1800,
+  "device": "desktop",
+  "title": "Sales dashboard",
+  "variants": [
+   {
+    "w": 800,
+    "src": "/media/ai-sales-crm/desktop/dashboard-800.webp"
+   },
+   {
+    "w": 1400,
+    "src": "/media/ai-sales-crm/desktop/dashboard-1400.webp"
+   },
+   {
+    "w": 2200,
+    "src": "/media/ai-sales-crm/desktop/dashboard-2200.webp"
+   }
+  ],
+  "print": [
+   {
+    "w": 1400,
+    "src": "/media/ai-sales-crm/desktop/dashboard-1400.jpg"
+   },
+   {
+    "w": 2200,
+    "src": "/media/ai-sales-crm/desktop/dashboard-2200.jpg"
+   }
+  ],
+  "deck": "assets/media/ai-sales-crm/desktop/dashboard.jpg"
+ },
+ "ai-sales-crm/desktop/follow-ups": {
+  "w": 2880,
+  "h": 1800,
+  "device": "desktop",
+  "title": "Follow-ups",
+  "variants": [
+   {
+    "w": 800,
+    "src": "/media/ai-sales-crm/desktop/follow-ups-800.webp"
+   },
+   {
+    "w": 1400,
+    "src": "/media/ai-sales-crm/desktop/follow-ups-1400.webp"
+   },
+   {
+    "w": 2200,
+    "src": "/media/ai-sales-crm/desktop/follow-ups-2200.webp"
+   }
+  ],
+  "print": [
+   {
+    "w": 1400,
+    "src": "/media/ai-sales-crm/desktop/follow-ups-1400.jpg"
+   },
+   {
+    "w": 2200,
+    "src": "/media/ai-sales-crm/desktop/follow-ups-2200.jpg"
+   }
+  ],
+  "deck": "assets/media/ai-sales-crm/desktop/follow-ups.jpg"
+ },
+ "ai-sales-crm/desktop/insights": {
+  "w": 2880,
+  "h": 1800,
+  "device": "desktop",
+  "title": "AI pipeline health and insights",
+  "variants": [
+   {
+    "w": 800,
+    "src": "/media/ai-sales-crm/desktop/insights-800.webp"
+   },
+   {
+    "w": 1400,
+    "src": "/media/ai-sales-crm/desktop/insights-1400.webp"
+   },
+   {
+    "w": 2200,
+    "src": "/media/ai-sales-crm/desktop/insights-2200.webp"
+   }
+  ],
+  "print": [
+   {
+    "w": 1400,
+    "src": "/media/ai-sales-crm/desktop/insights-1400.jpg"
+   },
+   {
+    "w": 2200,
+    "src": "/media/ai-sales-crm/desktop/insights-2200.jpg"
+   }
+  ],
+  "deck": "assets/media/ai-sales-crm/desktop/insights.jpg"
+ },
+ "ai-sales-crm/desktop/lead-ai": {
+  "w": 2880,
+  "h": 1800,
+  "device": "desktop",
+  "title": "AI lead summary with next best action",
+  "variants": [
+   {
+    "w": 800,
+    "src": "/media/ai-sales-crm/desktop/lead-ai-800.webp"
+   },
+   {
+    "w": 1400,
+    "src": "/media/ai-sales-crm/desktop/lead-ai-1400.webp"
+   },
+   {
+    "w": 2200,
+    "src": "/media/ai-sales-crm/desktop/lead-ai-2200.webp"
+   }
+  ],
+  "print": [
+   {
+    "w": 1400,
+    "src": "/media/ai-sales-crm/desktop/lead-ai-1400.jpg"
+   },
+   {
+    "w": 2200,
+    "src": "/media/ai-sales-crm/desktop/lead-ai-2200.jpg"
+   }
+  ],
+  "deck": "assets/media/ai-sales-crm/desktop/lead-ai.jpg"
+ },
+ "ai-sales-crm/desktop/lead-email": {
+  "w": 2880,
+  "h": 1800,
+  "device": "desktop",
+  "title": "AI email draft",
+  "variants": [
+   {
+    "w": 800,
+    "src": "/media/ai-sales-crm/desktop/lead-email-800.webp"
+   },
+   {
+    "w": 1400,
+    "src": "/media/ai-sales-crm/desktop/lead-email-1400.webp"
+   },
+   {
+    "w": 2200,
+    "src": "/media/ai-sales-crm/desktop/lead-email-2200.webp"
+   }
+  ],
+  "print": [
+   {
+    "w": 1400,
+    "src": "/media/ai-sales-crm/desktop/lead-email-1400.jpg"
+   },
+   {
+    "w": 2200,
+    "src": "/media/ai-sales-crm/desktop/lead-email-2200.jpg"
+   }
+  ],
+  "deck": "assets/media/ai-sales-crm/desktop/lead-email.jpg"
+ },
+ "ai-sales-crm/desktop/leads": {
+  "w": 2880,
+  "h": 1800,
+  "device": "desktop",
+  "title": "Leads",
+  "variants": [
+   {
+    "w": 800,
+    "src": "/media/ai-sales-crm/desktop/leads-800.webp"
+   },
+   {
+    "w": 1400,
+    "src": "/media/ai-sales-crm/desktop/leads-1400.webp"
+   },
+   {
+    "w": 2200,
+    "src": "/media/ai-sales-crm/desktop/leads-2200.webp"
+   }
+  ],
+  "print": [
+   {
+    "w": 1400,
+    "src": "/media/ai-sales-crm/desktop/leads-1400.jpg"
+   },
+   {
+    "w": 2200,
+    "src": "/media/ai-sales-crm/desktop/leads-2200.jpg"
+   }
+  ],
+  "deck": "assets/media/ai-sales-crm/desktop/leads.jpg"
+ },
+ "ai-sales-crm/desktop/pipeline": {
+  "w": 2880,
+  "h": 1800,
+  "device": "desktop",
+  "title": "Pipeline board",
+  "variants": [
+   {
+    "w": 800,
+    "src": "/media/ai-sales-crm/desktop/pipeline-800.webp"
+   },
+   {
+    "w": 1400,
+    "src": "/media/ai-sales-crm/desktop/pipeline-1400.webp"
+   },
+   {
+    "w": 2200,
+    "src": "/media/ai-sales-crm/desktop/pipeline-2200.webp"
+   }
+  ],
+  "print": [
+   {
+    "w": 1400,
+    "src": "/media/ai-sales-crm/desktop/pipeline-1400.jpg"
+   },
+   {
+    "w": 2200,
+    "src": "/media/ai-sales-crm/desktop/pipeline-2200.jpg"
+   }
+  ],
+  "deck": "assets/media/ai-sales-crm/desktop/pipeline.jpg"
+ },
+ "ai-sales-crm/mobile/dashboard": {
+  "w": 1170,
+  "h": 2532,
+  "device": "mobile",
+  "title": "Dashboard",
+  "variants": [
+   {
+    "w": 390,
+    "src": "/media/ai-sales-crm/mobile/dashboard-390.webp"
+   },
+   {
+    "w": 780,
+    "src": "/media/ai-sales-crm/mobile/dashboard-780.webp"
+   },
+   {
+    "w": 1170,
+    "src": "/media/ai-sales-crm/mobile/dashboard-1170.webp"
+   }
+  ],
+  "top": "#ffffff",
+  "topDark": false,
+  "print": [
+   {
+    "w": 780,
+    "src": "/media/ai-sales-crm/mobile/dashboard-780.jpg"
+   }
+  ],
+  "deck": "assets/media/ai-sales-crm/mobile/dashboard.jpg"
+ },
+ "ai-sales-crm/mobile/lead-ai": {
+  "w": 1170,
+  "h": 2532,
+  "device": "mobile",
+  "title": "AI lead summary",
+  "variants": [
+   {
+    "w": 390,
+    "src": "/media/ai-sales-crm/mobile/lead-ai-390.webp"
+   },
+   {
+    "w": 780,
+    "src": "/media/ai-sales-crm/mobile/lead-ai-780.webp"
+   },
+   {
+    "w": 1170,
+    "src": "/media/ai-sales-crm/mobile/lead-ai-1170.webp"
+   }
+  ],
+  "top": "#fffeff",
+  "topDark": false,
+  "print": [
+   {
+    "w": 780,
+    "src": "/media/ai-sales-crm/mobile/lead-ai-780.jpg"
+   }
+  ],
+  "deck": "assets/media/ai-sales-crm/mobile/lead-ai.jpg"
+ },
+ "ai-sales-crm/mobile/leads": {
+  "w": 1170,
+  "h": 2532,
+  "device": "mobile",
+  "title": "Leads",
+  "variants": [
+   {
+    "w": 390,
+    "src": "/media/ai-sales-crm/mobile/leads-390.webp"
+   },
+   {
+    "w": 780,
+    "src": "/media/ai-sales-crm/mobile/leads-780.webp"
+   },
+   {
+    "w": 1170,
+    "src": "/media/ai-sales-crm/mobile/leads-1170.webp"
+   }
+  ],
+  "top": "#ffffff",
+  "topDark": false,
+  "print": [
+   {
+    "w": 780,
+    "src": "/media/ai-sales-crm/mobile/leads-780.jpg"
+   }
+  ],
+  "deck": "assets/media/ai-sales-crm/mobile/leads.jpg"
+ },
+ "ai-sales-crm/mobile/pipeline": {
+  "w": 1170,
+  "h": 2532,
+  "device": "mobile",
+  "title": "Pipeline",
+  "variants": [
+   {
+    "w": 390,
+    "src": "/media/ai-sales-crm/mobile/pipeline-390.webp"
+   },
+   {
+    "w": 780,
+    "src": "/media/ai-sales-crm/mobile/pipeline-780.webp"
+   },
+   {
+    "w": 1170,
+    "src": "/media/ai-sales-crm/mobile/pipeline-1170.webp"
+   }
+  ],
+  "top": "#ffffff",
+  "topDark": false,
+  "print": [
+   {
+    "w": 780,
+    "src": "/media/ai-sales-crm/mobile/pipeline-780.jpg"
+   }
+  ],
+  "deck": "assets/media/ai-sales-crm/mobile/pipeline.jpg"
+ },
  "city-threads/admin-desktop/counts": {
   "w": 2880,
   "h": 1800,
@@ -1571,6 +1904,672 @@
   ],
   "deck": "assets/media/clario/owner-mobile/workspace.jpg"
  },
+ "expense-log/desktop/admin/budget": {
+  "w": 2880,
+  "h": 1800,
+  "device": "desktop",
+  "title": "Department budgets",
+  "variants": [
+   {
+    "w": 800,
+    "src": "/media/expense-log/desktop/admin/budget-800.webp"
+   },
+   {
+    "w": 1400,
+    "src": "/media/expense-log/desktop/admin/budget-1400.webp"
+   },
+   {
+    "w": 2200,
+    "src": "/media/expense-log/desktop/admin/budget-2200.webp"
+   }
+  ],
+  "print": [
+   {
+    "w": 1400,
+    "src": "/media/expense-log/desktop/admin/budget-1400.jpg"
+   },
+   {
+    "w": 2200,
+    "src": "/media/expense-log/desktop/admin/budget-2200.jpg"
+   }
+  ],
+  "deck": "assets/media/expense-log/desktop/admin/budget.jpg"
+ },
+ "expense-log/desktop/admin/companies": {
+  "w": 2880,
+  "h": 1800,
+  "device": "desktop",
+  "title": "Companies",
+  "variants": [
+   {
+    "w": 800,
+    "src": "/media/expense-log/desktop/admin/companies-800.webp"
+   },
+   {
+    "w": 1400,
+    "src": "/media/expense-log/desktop/admin/companies-1400.webp"
+   },
+   {
+    "w": 2200,
+    "src": "/media/expense-log/desktop/admin/companies-2200.webp"
+   }
+  ],
+  "print": [
+   {
+    "w": 1400,
+    "src": "/media/expense-log/desktop/admin/companies-1400.jpg"
+   },
+   {
+    "w": 2200,
+    "src": "/media/expense-log/desktop/admin/companies-2200.jpg"
+   }
+  ],
+  "deck": "assets/media/expense-log/desktop/admin/companies.jpg"
+ },
+ "expense-log/desktop/admin/expenses": {
+  "w": 2880,
+  "h": 1800,
+  "device": "desktop",
+  "title": "All expenses tracker",
+  "variants": [
+   {
+    "w": 800,
+    "src": "/media/expense-log/desktop/admin/expenses-800.webp"
+   },
+   {
+    "w": 1400,
+    "src": "/media/expense-log/desktop/admin/expenses-1400.webp"
+   },
+   {
+    "w": 2200,
+    "src": "/media/expense-log/desktop/admin/expenses-2200.webp"
+   }
+  ],
+  "print": [
+   {
+    "w": 1400,
+    "src": "/media/expense-log/desktop/admin/expenses-1400.jpg"
+   },
+   {
+    "w": 2200,
+    "src": "/media/expense-log/desktop/admin/expenses-2200.jpg"
+   }
+  ],
+  "deck": "assets/media/expense-log/desktop/admin/expenses.jpg"
+ },
+ "expense-log/desktop/admin/home-breakdown": {
+  "w": 2880,
+  "h": 1800,
+  "device": "desktop",
+  "title": "Spend by category, department and payment mode",
+  "variants": [
+   {
+    "w": 800,
+    "src": "/media/expense-log/desktop/admin/home-breakdown-800.webp"
+   },
+   {
+    "w": 1400,
+    "src": "/media/expense-log/desktop/admin/home-breakdown-1400.webp"
+   },
+   {
+    "w": 2200,
+    "src": "/media/expense-log/desktop/admin/home-breakdown-2200.webp"
+   }
+  ],
+  "print": [
+   {
+    "w": 1400,
+    "src": "/media/expense-log/desktop/admin/home-breakdown-1400.jpg"
+   },
+   {
+    "w": 2200,
+    "src": "/media/expense-log/desktop/admin/home-breakdown-2200.jpg"
+   }
+  ],
+  "deck": "assets/media/expense-log/desktop/admin/home-breakdown.jpg"
+ },
+ "expense-log/desktop/admin/home": {
+  "w": 2880,
+  "h": 1800,
+  "device": "desktop",
+  "title": "Expense summary",
+  "variants": [
+   {
+    "w": 800,
+    "src": "/media/expense-log/desktop/admin/home-800.webp"
+   },
+   {
+    "w": 1400,
+    "src": "/media/expense-log/desktop/admin/home-1400.webp"
+   },
+   {
+    "w": 2200,
+    "src": "/media/expense-log/desktop/admin/home-2200.webp"
+   }
+  ],
+  "print": [
+   {
+    "w": 1400,
+    "src": "/media/expense-log/desktop/admin/home-1400.jpg"
+   },
+   {
+    "w": 2200,
+    "src": "/media/expense-log/desktop/admin/home-2200.jpg"
+   }
+  ],
+  "deck": "assets/media/expense-log/desktop/admin/home.jpg"
+ },
+ "expense-log/desktop/admin/report": {
+  "w": 2880,
+  "h": 1800,
+  "device": "desktop",
+  "title": "Reports overview",
+  "variants": [
+   {
+    "w": 800,
+    "src": "/media/expense-log/desktop/admin/report-800.webp"
+   },
+   {
+    "w": 1400,
+    "src": "/media/expense-log/desktop/admin/report-1400.webp"
+   },
+   {
+    "w": 2200,
+    "src": "/media/expense-log/desktop/admin/report-2200.webp"
+   }
+  ],
+  "print": [
+   {
+    "w": 1400,
+    "src": "/media/expense-log/desktop/admin/report-1400.jpg"
+   },
+   {
+    "w": 2200,
+    "src": "/media/expense-log/desktop/admin/report-2200.jpg"
+   }
+  ],
+  "deck": "assets/media/expense-log/desktop/admin/report.jpg"
+ },
+ "expense-log/desktop/admin/users": {
+  "w": 2880,
+  "h": 1800,
+  "device": "desktop",
+  "title": "Users and roles",
+  "variants": [
+   {
+    "w": 800,
+    "src": "/media/expense-log/desktop/admin/users-800.webp"
+   },
+   {
+    "w": 1400,
+    "src": "/media/expense-log/desktop/admin/users-1400.webp"
+   },
+   {
+    "w": 2200,
+    "src": "/media/expense-log/desktop/admin/users-2200.webp"
+   }
+  ],
+  "print": [
+   {
+    "w": 1400,
+    "src": "/media/expense-log/desktop/admin/users-1400.jpg"
+   },
+   {
+    "w": 2200,
+    "src": "/media/expense-log/desktop/admin/users-2200.jpg"
+   }
+  ],
+  "deck": "assets/media/expense-log/desktop/admin/users.jpg"
+ },
+ "expense-log/desktop/manager/categories": {
+  "w": 2880,
+  "h": 1800,
+  "device": "desktop",
+  "title": "Expense categories",
+  "variants": [
+   {
+    "w": 800,
+    "src": "/media/expense-log/desktop/manager/categories-800.webp"
+   },
+   {
+    "w": 1400,
+    "src": "/media/expense-log/desktop/manager/categories-1400.webp"
+   },
+   {
+    "w": 2200,
+    "src": "/media/expense-log/desktop/manager/categories-2200.webp"
+   }
+  ],
+  "print": [
+   {
+    "w": 1400,
+    "src": "/media/expense-log/desktop/manager/categories-1400.jpg"
+   },
+   {
+    "w": 2200,
+    "src": "/media/expense-log/desktop/manager/categories-2200.jpg"
+   }
+  ],
+  "deck": "assets/media/expense-log/desktop/manager/categories.jpg"
+ },
+ "expense-log/desktop/manager/expenses": {
+  "w": 2880,
+  "h": 1800,
+  "device": "desktop",
+  "title": "Department expenses with approval status",
+  "variants": [
+   {
+    "w": 800,
+    "src": "/media/expense-log/desktop/manager/expenses-800.webp"
+   },
+   {
+    "w": 1400,
+    "src": "/media/expense-log/desktop/manager/expenses-1400.webp"
+   },
+   {
+    "w": 2200,
+    "src": "/media/expense-log/desktop/manager/expenses-2200.webp"
+   }
+  ],
+  "print": [
+   {
+    "w": 1400,
+    "src": "/media/expense-log/desktop/manager/expenses-1400.jpg"
+   },
+   {
+    "w": 2200,
+    "src": "/media/expense-log/desktop/manager/expenses-2200.jpg"
+   }
+  ],
+  "deck": "assets/media/expense-log/desktop/manager/expenses.jpg"
+ },
+ "expense-log/mobile/admin/expenses": {
+  "w": 1170,
+  "h": 2532,
+  "device": "mobile",
+  "title": "Expense tracker",
+  "variants": [
+   {
+    "w": 390,
+    "src": "/media/expense-log/mobile/admin/expenses-390.webp"
+   },
+   {
+    "w": 780,
+    "src": "/media/expense-log/mobile/admin/expenses-780.webp"
+   },
+   {
+    "w": 1170,
+    "src": "/media/expense-log/mobile/admin/expenses-1170.webp"
+   }
+  ],
+  "top": "#f5f2e6",
+  "topDark": false,
+  "print": [
+   {
+    "w": 780,
+    "src": "/media/expense-log/mobile/admin/expenses-780.jpg"
+   }
+  ],
+  "deck": "assets/media/expense-log/mobile/admin/expenses.jpg"
+ },
+ "expense-log/mobile/admin/home-trend": {
+  "w": 1170,
+  "h": 2532,
+  "device": "mobile",
+  "title": "Trend and category split",
+  "variants": [
+   {
+    "w": 390,
+    "src": "/media/expense-log/mobile/admin/home-trend-390.webp"
+   },
+   {
+    "w": 780,
+    "src": "/media/expense-log/mobile/admin/home-trend-780.webp"
+   },
+   {
+    "w": 1170,
+    "src": "/media/expense-log/mobile/admin/home-trend-1170.webp"
+   }
+  ],
+  "top": "#f5f2e6",
+  "topDark": false,
+  "print": [
+   {
+    "w": 780,
+    "src": "/media/expense-log/mobile/admin/home-trend-780.jpg"
+   }
+  ],
+  "deck": "assets/media/expense-log/mobile/admin/home-trend.jpg"
+ },
+ "expense-log/mobile/admin/home": {
+  "w": 1170,
+  "h": 2532,
+  "device": "mobile",
+  "title": "Expense summary",
+  "variants": [
+   {
+    "w": 390,
+    "src": "/media/expense-log/mobile/admin/home-390.webp"
+   },
+   {
+    "w": 780,
+    "src": "/media/expense-log/mobile/admin/home-780.webp"
+   },
+   {
+    "w": 1170,
+    "src": "/media/expense-log/mobile/admin/home-1170.webp"
+   }
+  ],
+  "top": "#f5f2e6",
+  "topDark": false,
+  "print": [
+   {
+    "w": 780,
+    "src": "/media/expense-log/mobile/admin/home-780.jpg"
+   }
+  ],
+  "deck": "assets/media/expense-log/mobile/admin/home.jpg"
+ },
+ "expense-log/mobile/admin/report": {
+  "w": 1170,
+  "h": 2532,
+  "device": "mobile",
+  "title": "Reports",
+  "variants": [
+   {
+    "w": 390,
+    "src": "/media/expense-log/mobile/admin/report-390.webp"
+   },
+   {
+    "w": 780,
+    "src": "/media/expense-log/mobile/admin/report-780.webp"
+   },
+   {
+    "w": 1170,
+    "src": "/media/expense-log/mobile/admin/report-1170.webp"
+   }
+  ],
+  "top": "#f5f2e6",
+  "topDark": false,
+  "print": [
+   {
+    "w": 780,
+    "src": "/media/expense-log/mobile/admin/report-780.jpg"
+   }
+  ],
+  "deck": "assets/media/expense-log/mobile/admin/report.jpg"
+ },
+ "lead-discovery-crm/desktop/admin/dashboard": {
+  "w": 2880,
+  "h": 1800,
+  "device": "desktop",
+  "title": "Lead dashboard",
+  "variants": [
+   {
+    "w": 800,
+    "src": "/media/lead-discovery-crm/desktop/admin/dashboard-800.webp"
+   },
+   {
+    "w": 1400,
+    "src": "/media/lead-discovery-crm/desktop/admin/dashboard-1400.webp"
+   },
+   {
+    "w": 2200,
+    "src": "/media/lead-discovery-crm/desktop/admin/dashboard-2200.webp"
+   }
+  ],
+  "print": [
+   {
+    "w": 1400,
+    "src": "/media/lead-discovery-crm/desktop/admin/dashboard-1400.jpg"
+   },
+   {
+    "w": 2200,
+    "src": "/media/lead-discovery-crm/desktop/admin/dashboard-2200.jpg"
+   }
+  ],
+  "deck": "assets/media/lead-discovery-crm/desktop/admin/dashboard.jpg"
+ },
+ "lead-discovery-crm/desktop/admin/insight": {
+  "w": 2880,
+  "h": 1800,
+  "device": "desktop",
+  "title": "Response with campaign insight and fit score",
+  "variants": [
+   {
+    "w": 800,
+    "src": "/media/lead-discovery-crm/desktop/admin/insight-800.webp"
+   },
+   {
+    "w": 1400,
+    "src": "/media/lead-discovery-crm/desktop/admin/insight-1400.webp"
+   },
+   {
+    "w": 2200,
+    "src": "/media/lead-discovery-crm/desktop/admin/insight-2200.webp"
+   }
+  ],
+  "print": [
+   {
+    "w": 1400,
+    "src": "/media/lead-discovery-crm/desktop/admin/insight-1400.jpg"
+   },
+   {
+    "w": 2200,
+    "src": "/media/lead-discovery-crm/desktop/admin/insight-2200.jpg"
+   }
+  ],
+  "deck": "assets/media/lead-discovery-crm/desktop/admin/insight.jpg"
+ },
+ "lead-discovery-crm/desktop/admin/responses": {
+  "w": 2880,
+  "h": 1800,
+  "device": "desktop",
+  "title": "Questionnaire responses",
+  "variants": [
+   {
+    "w": 800,
+    "src": "/media/lead-discovery-crm/desktop/admin/responses-800.webp"
+   },
+   {
+    "w": 1400,
+    "src": "/media/lead-discovery-crm/desktop/admin/responses-1400.webp"
+   },
+   {
+    "w": 2200,
+    "src": "/media/lead-discovery-crm/desktop/admin/responses-2200.webp"
+   }
+  ],
+  "print": [
+   {
+    "w": 1400,
+    "src": "/media/lead-discovery-crm/desktop/admin/responses-1400.jpg"
+   },
+   {
+    "w": 2200,
+    "src": "/media/lead-discovery-crm/desktop/admin/responses-2200.jpg"
+   }
+  ],
+  "deck": "assets/media/lead-discovery-crm/desktop/admin/responses.jpg"
+ },
+ "lead-discovery-crm/desktop/admin/templates": {
+  "w": 2880,
+  "h": 1800,
+  "device": "desktop",
+  "title": "Discovery questionnaire templates",
+  "variants": [
+   {
+    "w": 800,
+    "src": "/media/lead-discovery-crm/desktop/admin/templates-800.webp"
+   },
+   {
+    "w": 1400,
+    "src": "/media/lead-discovery-crm/desktop/admin/templates-1400.webp"
+   },
+   {
+    "w": 2200,
+    "src": "/media/lead-discovery-crm/desktop/admin/templates-2200.webp"
+   }
+  ],
+  "print": [
+   {
+    "w": 1400,
+    "src": "/media/lead-discovery-crm/desktop/admin/templates-1400.jpg"
+   },
+   {
+    "w": 2200,
+    "src": "/media/lead-discovery-crm/desktop/admin/templates-2200.jpg"
+   }
+  ],
+  "deck": "assets/media/lead-discovery-crm/desktop/admin/templates.jpg"
+ },
+ "lead-discovery-crm/desktop/prospect/questionnaire": {
+  "w": 2880,
+  "h": 1800,
+  "device": "desktop",
+  "title": "Public discovery questionnaire",
+  "variants": [
+   {
+    "w": 800,
+    "src": "/media/lead-discovery-crm/desktop/prospect/questionnaire-800.webp"
+   },
+   {
+    "w": 1400,
+    "src": "/media/lead-discovery-crm/desktop/prospect/questionnaire-1400.webp"
+   },
+   {
+    "w": 2200,
+    "src": "/media/lead-discovery-crm/desktop/prospect/questionnaire-2200.webp"
+   }
+  ],
+  "print": [
+   {
+    "w": 1400,
+    "src": "/media/lead-discovery-crm/desktop/prospect/questionnaire-1400.jpg"
+   },
+   {
+    "w": 2200,
+    "src": "/media/lead-discovery-crm/desktop/prospect/questionnaire-2200.jpg"
+   }
+  ],
+  "deck": "assets/media/lead-discovery-crm/desktop/prospect/questionnaire.jpg"
+ },
+ "lead-discovery-crm/mobile/admin/dashboard": {
+  "w": 1170,
+  "h": 2532,
+  "device": "mobile",
+  "title": "Lead dashboard",
+  "variants": [
+   {
+    "w": 390,
+    "src": "/media/lead-discovery-crm/mobile/admin/dashboard-390.webp"
+   },
+   {
+    "w": 780,
+    "src": "/media/lead-discovery-crm/mobile/admin/dashboard-780.webp"
+   },
+   {
+    "w": 1170,
+    "src": "/media/lead-discovery-crm/mobile/admin/dashboard-1170.webp"
+   }
+  ],
+  "top": "#ffffff",
+  "topDark": false,
+  "print": [
+   {
+    "w": 780,
+    "src": "/media/lead-discovery-crm/mobile/admin/dashboard-780.jpg"
+   }
+  ],
+  "deck": "assets/media/lead-discovery-crm/mobile/admin/dashboard.jpg"
+ },
+ "lead-discovery-crm/mobile/admin/insight": {
+  "w": 1170,
+  "h": 2532,
+  "device": "mobile",
+  "title": "Campaign insight",
+  "variants": [
+   {
+    "w": 390,
+    "src": "/media/lead-discovery-crm/mobile/admin/insight-390.webp"
+   },
+   {
+    "w": 780,
+    "src": "/media/lead-discovery-crm/mobile/admin/insight-780.webp"
+   },
+   {
+    "w": 1170,
+    "src": "/media/lead-discovery-crm/mobile/admin/insight-1170.webp"
+   }
+  ],
+  "top": "#ffffff",
+  "topDark": false,
+  "print": [
+   {
+    "w": 780,
+    "src": "/media/lead-discovery-crm/mobile/admin/insight-780.jpg"
+   }
+  ],
+  "deck": "assets/media/lead-discovery-crm/mobile/admin/insight.jpg"
+ },
+ "lead-discovery-crm/mobile/admin/responses": {
+  "w": 1170,
+  "h": 2532,
+  "device": "mobile",
+  "title": "Responses by questionnaire",
+  "variants": [
+   {
+    "w": 390,
+    "src": "/media/lead-discovery-crm/mobile/admin/responses-390.webp"
+   },
+   {
+    "w": 780,
+    "src": "/media/lead-discovery-crm/mobile/admin/responses-780.webp"
+   },
+   {
+    "w": 1170,
+    "src": "/media/lead-discovery-crm/mobile/admin/responses-1170.webp"
+   }
+  ],
+  "top": "#ffffff",
+  "topDark": false,
+  "print": [
+   {
+    "w": 780,
+    "src": "/media/lead-discovery-crm/mobile/admin/responses-780.jpg"
+   }
+  ],
+  "deck": "assets/media/lead-discovery-crm/mobile/admin/responses.jpg"
+ },
+ "lead-discovery-crm/mobile/prospect/questionnaire": {
+  "w": 1170,
+  "h": 2532,
+  "device": "mobile",
+  "title": "Discovery questionnaire on a phone",
+  "variants": [
+   {
+    "w": 390,
+    "src": "/media/lead-discovery-crm/mobile/prospect/questionnaire-390.webp"
+   },
+   {
+    "w": 780,
+    "src": "/media/lead-discovery-crm/mobile/prospect/questionnaire-780.webp"
+   },
+   {
+    "w": 1170,
+    "src": "/media/lead-discovery-crm/mobile/prospect/questionnaire-1170.webp"
+   }
+  ],
+  "top": "#f7f9f3",
+  "topDark": false,
+  "print": [
+   {
+    "w": 780,
+    "src": "/media/lead-discovery-crm/mobile/prospect/questionnaire-780.jpg"
+   }
+  ],
+  "deck": "assets/media/lead-discovery-crm/mobile/prospect/questionnaire.jpg"
+ },
  "smc/admin-desktop/calendar-w33": {
   "w": 2880,
   "h": 1800,
@@ -2568,6 +3567,765 @@
   ],
   "deck": "assets/media/smc/executive-mobile/visits.jpg"
  },
+ "support-portal/desktop/admin/history": {
+  "w": 2880,
+  "h": 1800,
+  "device": "desktop",
+  "title": "Status history",
+  "variants": [
+   {
+    "w": 800,
+    "src": "/media/support-portal/desktop/admin/history-800.webp"
+   },
+   {
+    "w": 1400,
+    "src": "/media/support-portal/desktop/admin/history-1400.webp"
+   },
+   {
+    "w": 2200,
+    "src": "/media/support-portal/desktop/admin/history-2200.webp"
+   }
+  ],
+  "print": [
+   {
+    "w": 1400,
+    "src": "/media/support-portal/desktop/admin/history-1400.jpg"
+   },
+   {
+    "w": 2200,
+    "src": "/media/support-portal/desktop/admin/history-2200.jpg"
+   }
+  ],
+  "deck": "assets/media/support-portal/desktop/admin/history.jpg"
+ },
+ "support-portal/desktop/admin/queue": {
+  "w": 2880,
+  "h": 1800,
+  "device": "desktop",
+  "title": "Admin queue",
+  "variants": [
+   {
+    "w": 800,
+    "src": "/media/support-portal/desktop/admin/queue-800.webp"
+   },
+   {
+    "w": 1400,
+    "src": "/media/support-portal/desktop/admin/queue-1400.webp"
+   },
+   {
+    "w": 2200,
+    "src": "/media/support-portal/desktop/admin/queue-2200.webp"
+   }
+  ],
+  "print": [
+   {
+    "w": 1400,
+    "src": "/media/support-portal/desktop/admin/queue-1400.jpg"
+   },
+   {
+    "w": 2200,
+    "src": "/media/support-portal/desktop/admin/queue-2200.jpg"
+   }
+  ],
+  "deck": "assets/media/support-portal/desktop/admin/queue.jpg"
+ },
+ "support-portal/desktop/admin/ticket": {
+  "w": 2880,
+  "h": 1800,
+  "device": "desktop",
+  "title": "Ticket with conversation and workflow",
+  "variants": [
+   {
+    "w": 800,
+    "src": "/media/support-portal/desktop/admin/ticket-800.webp"
+   },
+   {
+    "w": 1400,
+    "src": "/media/support-portal/desktop/admin/ticket-1400.webp"
+   },
+   {
+    "w": 2200,
+    "src": "/media/support-portal/desktop/admin/ticket-2200.webp"
+   }
+  ],
+  "print": [
+   {
+    "w": 1400,
+    "src": "/media/support-portal/desktop/admin/ticket-1400.jpg"
+   },
+   {
+    "w": 2200,
+    "src": "/media/support-portal/desktop/admin/ticket-2200.jpg"
+   }
+  ],
+  "deck": "assets/media/support-portal/desktop/admin/ticket.jpg"
+ },
+ "support-portal/desktop/admin/types": {
+  "w": 2880,
+  "h": 1800,
+  "device": "desktop",
+  "title": "Ticket types and approval rules",
+  "variants": [
+   {
+    "w": 800,
+    "src": "/media/support-portal/desktop/admin/types-800.webp"
+   },
+   {
+    "w": 1400,
+    "src": "/media/support-portal/desktop/admin/types-1400.webp"
+   },
+   {
+    "w": 2200,
+    "src": "/media/support-portal/desktop/admin/types-2200.webp"
+   }
+  ],
+  "print": [
+   {
+    "w": 1400,
+    "src": "/media/support-portal/desktop/admin/types-1400.jpg"
+   },
+   {
+    "w": 2200,
+    "src": "/media/support-portal/desktop/admin/types-2200.jpg"
+   }
+  ],
+  "deck": "assets/media/support-portal/desktop/admin/types.jpg"
+ },
+ "support-portal/desktop/public/help-centre": {
+  "w": 2880,
+  "h": 1800,
+  "device": "desktop",
+  "title": "Support portal home",
+  "variants": [
+   {
+    "w": 800,
+    "src": "/media/support-portal/desktop/public/help-centre-800.webp"
+   },
+   {
+    "w": 1400,
+    "src": "/media/support-portal/desktop/public/help-centre-1400.webp"
+   },
+   {
+    "w": 2200,
+    "src": "/media/support-portal/desktop/public/help-centre-2200.webp"
+   }
+  ],
+  "print": [
+   {
+    "w": 1400,
+    "src": "/media/support-portal/desktop/public/help-centre-1400.jpg"
+   },
+   {
+    "w": 2200,
+    "src": "/media/support-portal/desktop/public/help-centre-2200.jpg"
+   }
+  ],
+  "deck": "assets/media/support-portal/desktop/public/help-centre.jpg"
+ },
+ "support-portal/desktop/public/knowledge-base": {
+  "w": 2880,
+  "h": 1800,
+  "device": "desktop",
+  "title": "Knowledge base",
+  "variants": [
+   {
+    "w": 800,
+    "src": "/media/support-portal/desktop/public/knowledge-base-800.webp"
+   },
+   {
+    "w": 1400,
+    "src": "/media/support-portal/desktop/public/knowledge-base-1400.webp"
+   },
+   {
+    "w": 2200,
+    "src": "/media/support-portal/desktop/public/knowledge-base-2200.webp"
+   }
+  ],
+  "print": [
+   {
+    "w": 1400,
+    "src": "/media/support-portal/desktop/public/knowledge-base-1400.jpg"
+   },
+   {
+    "w": 2200,
+    "src": "/media/support-portal/desktop/public/knowledge-base-2200.jpg"
+   }
+  ],
+  "deck": "assets/media/support-portal/desktop/public/knowledge-base.jpg"
+ },
+ "support-portal/desktop/requester/raise-ticket": {
+  "w": 2880,
+  "h": 1800,
+  "device": "desktop",
+  "title": "Raise a ticket",
+  "variants": [
+   {
+    "w": 800,
+    "src": "/media/support-portal/desktop/requester/raise-ticket-800.webp"
+   },
+   {
+    "w": 1400,
+    "src": "/media/support-portal/desktop/requester/raise-ticket-1400.webp"
+   },
+   {
+    "w": 2200,
+    "src": "/media/support-portal/desktop/requester/raise-ticket-2200.webp"
+   }
+  ],
+  "print": [
+   {
+    "w": 1400,
+    "src": "/media/support-portal/desktop/requester/raise-ticket-1400.jpg"
+   },
+   {
+    "w": 2200,
+    "src": "/media/support-portal/desktop/requester/raise-ticket-2200.jpg"
+   }
+  ],
+  "deck": "assets/media/support-portal/desktop/requester/raise-ticket.jpg"
+ },
+ "support-portal/mobile/admin/queue": {
+  "w": 1170,
+  "h": 2532,
+  "device": "mobile",
+  "title": "Admin queue",
+  "variants": [
+   {
+    "w": 390,
+    "src": "/media/support-portal/mobile/admin/queue-390.webp"
+   },
+   {
+    "w": 780,
+    "src": "/media/support-portal/mobile/admin/queue-780.webp"
+   },
+   {
+    "w": 1170,
+    "src": "/media/support-portal/mobile/admin/queue-1170.webp"
+   }
+  ],
+  "top": "#fbfaea",
+  "topDark": false,
+  "print": [
+   {
+    "w": 780,
+    "src": "/media/support-portal/mobile/admin/queue-780.jpg"
+   }
+  ],
+  "deck": "assets/media/support-portal/mobile/admin/queue.jpg"
+ },
+ "support-portal/mobile/admin/ticket": {
+  "w": 1170,
+  "h": 2532,
+  "device": "mobile",
+  "title": "Ticket on mobile",
+  "variants": [
+   {
+    "w": 390,
+    "src": "/media/support-portal/mobile/admin/ticket-390.webp"
+   },
+   {
+    "w": 780,
+    "src": "/media/support-portal/mobile/admin/ticket-780.webp"
+   },
+   {
+    "w": 1170,
+    "src": "/media/support-portal/mobile/admin/ticket-1170.webp"
+   }
+  ],
+  "top": "#fbfaea",
+  "topDark": false,
+  "print": [
+   {
+    "w": 780,
+    "src": "/media/support-portal/mobile/admin/ticket-780.jpg"
+   }
+  ],
+  "deck": "assets/media/support-portal/mobile/admin/ticket.jpg"
+ },
+ "support-portal/mobile/public/help-centre": {
+  "w": 1170,
+  "h": 2532,
+  "device": "mobile",
+  "title": "Support portal home",
+  "variants": [
+   {
+    "w": 390,
+    "src": "/media/support-portal/mobile/public/help-centre-390.webp"
+   },
+   {
+    "w": 780,
+    "src": "/media/support-portal/mobile/public/help-centre-780.webp"
+   },
+   {
+    "w": 1170,
+    "src": "/media/support-portal/mobile/public/help-centre-1170.webp"
+   }
+  ],
+  "top": "#cfcec0",
+  "topDark": false,
+  "print": [
+   {
+    "w": 780,
+    "src": "/media/support-portal/mobile/public/help-centre-780.jpg"
+   }
+  ],
+  "deck": "assets/media/support-portal/mobile/public/help-centre.jpg"
+ },
+ "support-portal/mobile/requester/raise-ticket": {
+  "w": 1170,
+  "h": 2532,
+  "device": "mobile",
+  "title": "Raise a ticket",
+  "variants": [
+   {
+    "w": 390,
+    "src": "/media/support-portal/mobile/requester/raise-ticket-390.webp"
+   },
+   {
+    "w": 780,
+    "src": "/media/support-portal/mobile/requester/raise-ticket-780.webp"
+   },
+   {
+    "w": 1170,
+    "src": "/media/support-portal/mobile/requester/raise-ticket-1170.webp"
+   }
+  ],
+  "top": "#fbfaea",
+  "topDark": false,
+  "print": [
+   {
+    "w": 780,
+    "src": "/media/support-portal/mobile/requester/raise-ticket-780.jpg"
+   }
+  ],
+  "deck": "assets/media/support-portal/mobile/requester/raise-ticket.jpg"
+ },
+ "tribal-brew-coffee/desktop/admin/bill": {
+  "w": 2880,
+  "h": 1800,
+  "device": "desktop",
+  "title": "Bill with GST split",
+  "variants": [
+   {
+    "w": 800,
+    "src": "/media/tribal-brew-coffee/desktop/admin/bill-800.webp"
+   },
+   {
+    "w": 1400,
+    "src": "/media/tribal-brew-coffee/desktop/admin/bill-1400.webp"
+   },
+   {
+    "w": 2200,
+    "src": "/media/tribal-brew-coffee/desktop/admin/bill-2200.webp"
+   }
+  ],
+  "print": [
+   {
+    "w": 1400,
+    "src": "/media/tribal-brew-coffee/desktop/admin/bill-1400.jpg"
+   },
+   {
+    "w": 2200,
+    "src": "/media/tribal-brew-coffee/desktop/admin/bill-2200.jpg"
+   }
+  ],
+  "deck": "assets/media/tribal-brew-coffee/desktop/admin/bill.jpg"
+ },
+ "tribal-brew-coffee/desktop/admin/discounts": {
+  "w": 2880,
+  "h": 1800,
+  "device": "desktop",
+  "title": "Discounts and offers",
+  "variants": [
+   {
+    "w": 800,
+    "src": "/media/tribal-brew-coffee/desktop/admin/discounts-800.webp"
+   },
+   {
+    "w": 1400,
+    "src": "/media/tribal-brew-coffee/desktop/admin/discounts-1400.webp"
+   },
+   {
+    "w": 2200,
+    "src": "/media/tribal-brew-coffee/desktop/admin/discounts-2200.webp"
+   }
+  ],
+  "print": [
+   {
+    "w": 1400,
+    "src": "/media/tribal-brew-coffee/desktop/admin/discounts-1400.jpg"
+   },
+   {
+    "w": 2200,
+    "src": "/media/tribal-brew-coffee/desktop/admin/discounts-2200.jpg"
+   }
+  ],
+  "deck": "assets/media/tribal-brew-coffee/desktop/admin/discounts.jpg"
+ },
+ "tribal-brew-coffee/desktop/admin/items": {
+  "w": 2880,
+  "h": 1800,
+  "device": "desktop",
+  "title": "Menu catalogue",
+  "variants": [
+   {
+    "w": 800,
+    "src": "/media/tribal-brew-coffee/desktop/admin/items-800.webp"
+   },
+   {
+    "w": 1400,
+    "src": "/media/tribal-brew-coffee/desktop/admin/items-1400.webp"
+   },
+   {
+    "w": 2200,
+    "src": "/media/tribal-brew-coffee/desktop/admin/items-2200.webp"
+   }
+  ],
+  "print": [
+   {
+    "w": 1400,
+    "src": "/media/tribal-brew-coffee/desktop/admin/items-1400.jpg"
+   },
+   {
+    "w": 2200,
+    "src": "/media/tribal-brew-coffee/desktop/admin/items-2200.jpg"
+   }
+  ],
+  "deck": "assets/media/tribal-brew-coffee/desktop/admin/items.jpg"
+ },
+ "tribal-brew-coffee/desktop/admin/locations": {
+  "w": 2880,
+  "h": 1800,
+  "device": "desktop",
+  "title": "Outlets",
+  "variants": [
+   {
+    "w": 800,
+    "src": "/media/tribal-brew-coffee/desktop/admin/locations-800.webp"
+   },
+   {
+    "w": 1400,
+    "src": "/media/tribal-brew-coffee/desktop/admin/locations-1400.webp"
+   },
+   {
+    "w": 2200,
+    "src": "/media/tribal-brew-coffee/desktop/admin/locations-2200.webp"
+   }
+  ],
+  "print": [
+   {
+    "w": 1400,
+    "src": "/media/tribal-brew-coffee/desktop/admin/locations-1400.jpg"
+   },
+   {
+    "w": 2200,
+    "src": "/media/tribal-brew-coffee/desktop/admin/locations-2200.jpg"
+   }
+  ],
+  "deck": "assets/media/tribal-brew-coffee/desktop/admin/locations.jpg"
+ },
+ "tribal-brew-coffee/desktop/admin/modifiers": {
+  "w": 2880,
+  "h": 1800,
+  "device": "desktop",
+  "title": "Modifier groups",
+  "variants": [
+   {
+    "w": 800,
+    "src": "/media/tribal-brew-coffee/desktop/admin/modifiers-800.webp"
+   },
+   {
+    "w": 1400,
+    "src": "/media/tribal-brew-coffee/desktop/admin/modifiers-1400.webp"
+   },
+   {
+    "w": 2200,
+    "src": "/media/tribal-brew-coffee/desktop/admin/modifiers-2200.webp"
+   }
+  ],
+  "print": [
+   {
+    "w": 1400,
+    "src": "/media/tribal-brew-coffee/desktop/admin/modifiers-1400.jpg"
+   },
+   {
+    "w": 2200,
+    "src": "/media/tribal-brew-coffee/desktop/admin/modifiers-2200.jpg"
+   }
+  ],
+  "deck": "assets/media/tribal-brew-coffee/desktop/admin/modifiers.jpg"
+ },
+ "tribal-brew-coffee/desktop/admin/orders": {
+  "w": 2880,
+  "h": 1800,
+  "device": "desktop",
+  "title": "Outlet bills",
+  "variants": [
+   {
+    "w": 800,
+    "src": "/media/tribal-brew-coffee/desktop/admin/orders-800.webp"
+   },
+   {
+    "w": 1400,
+    "src": "/media/tribal-brew-coffee/desktop/admin/orders-1400.webp"
+   },
+   {
+    "w": 2200,
+    "src": "/media/tribal-brew-coffee/desktop/admin/orders-2200.webp"
+   }
+  ],
+  "print": [
+   {
+    "w": 1400,
+    "src": "/media/tribal-brew-coffee/desktop/admin/orders-1400.jpg"
+   },
+   {
+    "w": 2200,
+    "src": "/media/tribal-brew-coffee/desktop/admin/orders-2200.jpg"
+   }
+  ],
+  "deck": "assets/media/tribal-brew-coffee/desktop/admin/orders.jpg"
+ },
+ "tribal-brew-coffee/desktop/admin/pos-cart": {
+  "w": 2880,
+  "h": 1800,
+  "device": "desktop",
+  "title": "Point of sale with a live order",
+  "variants": [
+   {
+    "w": 800,
+    "src": "/media/tribal-brew-coffee/desktop/admin/pos-cart-800.webp"
+   },
+   {
+    "w": 1400,
+    "src": "/media/tribal-brew-coffee/desktop/admin/pos-cart-1400.webp"
+   },
+   {
+    "w": 2200,
+    "src": "/media/tribal-brew-coffee/desktop/admin/pos-cart-2200.webp"
+   }
+  ],
+  "print": [
+   {
+    "w": 1400,
+    "src": "/media/tribal-brew-coffee/desktop/admin/pos-cart-1400.jpg"
+   },
+   {
+    "w": 2200,
+    "src": "/media/tribal-brew-coffee/desktop/admin/pos-cart-2200.jpg"
+   }
+  ],
+  "deck": "assets/media/tribal-brew-coffee/desktop/admin/pos-cart.jpg"
+ },
+ "tribal-brew-coffee/desktop/admin/pos-options": {
+  "w": 2880,
+  "h": 1800,
+  "device": "desktop",
+  "title": "Drink options: milk, roast and sweetener",
+  "variants": [
+   {
+    "w": 800,
+    "src": "/media/tribal-brew-coffee/desktop/admin/pos-options-800.webp"
+   },
+   {
+    "w": 1400,
+    "src": "/media/tribal-brew-coffee/desktop/admin/pos-options-1400.webp"
+   },
+   {
+    "w": 2200,
+    "src": "/media/tribal-brew-coffee/desktop/admin/pos-options-2200.webp"
+   }
+  ],
+  "print": [
+   {
+    "w": 1400,
+    "src": "/media/tribal-brew-coffee/desktop/admin/pos-options-1400.jpg"
+   },
+   {
+    "w": 2200,
+    "src": "/media/tribal-brew-coffee/desktop/admin/pos-options-2200.jpg"
+   }
+  ],
+  "deck": "assets/media/tribal-brew-coffee/desktop/admin/pos-options.jpg"
+ },
+ "tribal-brew-coffee/desktop/admin/reports": {
+  "w": 2880,
+  "h": 1800,
+  "device": "desktop",
+  "title": "Sales and tax reports",
+  "variants": [
+   {
+    "w": 800,
+    "src": "/media/tribal-brew-coffee/desktop/admin/reports-800.webp"
+   },
+   {
+    "w": 1400,
+    "src": "/media/tribal-brew-coffee/desktop/admin/reports-1400.webp"
+   },
+   {
+    "w": 2200,
+    "src": "/media/tribal-brew-coffee/desktop/admin/reports-2200.webp"
+   }
+  ],
+  "print": [
+   {
+    "w": 1400,
+    "src": "/media/tribal-brew-coffee/desktop/admin/reports-1400.jpg"
+   },
+   {
+    "w": 2200,
+    "src": "/media/tribal-brew-coffee/desktop/admin/reports-2200.jpg"
+   }
+  ],
+  "deck": "assets/media/tribal-brew-coffee/desktop/admin/reports.jpg"
+ },
+ "tribal-brew-coffee/desktop/admin/roles": {
+  "w": 2880,
+  "h": 1800,
+  "device": "desktop",
+  "title": "Staff roles",
+  "variants": [
+   {
+    "w": 800,
+    "src": "/media/tribal-brew-coffee/desktop/admin/roles-800.webp"
+   },
+   {
+    "w": 1400,
+    "src": "/media/tribal-brew-coffee/desktop/admin/roles-1400.webp"
+   },
+   {
+    "w": 2200,
+    "src": "/media/tribal-brew-coffee/desktop/admin/roles-2200.webp"
+   }
+  ],
+  "print": [
+   {
+    "w": 1400,
+    "src": "/media/tribal-brew-coffee/desktop/admin/roles-1400.jpg"
+   },
+   {
+    "w": 2200,
+    "src": "/media/tribal-brew-coffee/desktop/admin/roles-2200.jpg"
+   }
+  ],
+  "deck": "assets/media/tribal-brew-coffee/desktop/admin/roles.jpg"
+ },
+ "tribal-brew-coffee/mobile/customer/cafes": {
+  "w": 1170,
+  "h": 2532,
+  "device": "mobile",
+  "title": "Choose a café",
+  "variants": [
+   {
+    "w": 390,
+    "src": "/media/tribal-brew-coffee/mobile/customer/cafes-390.webp"
+   },
+   {
+    "w": 780,
+    "src": "/media/tribal-brew-coffee/mobile/customer/cafes-780.webp"
+   },
+   {
+    "w": 1170,
+    "src": "/media/tribal-brew-coffee/mobile/customer/cafes-1170.webp"
+   }
+  ],
+  "top": "#ffffff",
+  "topDark": false,
+  "print": [
+   {
+    "w": 780,
+    "src": "/media/tribal-brew-coffee/mobile/customer/cafes-780.jpg"
+   }
+  ],
+  "deck": "assets/media/tribal-brew-coffee/mobile/customer/cafes.jpg"
+ },
+ "tribal-brew-coffee/mobile/customer/help": {
+  "w": 1170,
+  "h": 2532,
+  "device": "mobile",
+  "title": "Help centre",
+  "variants": [
+   {
+    "w": 390,
+    "src": "/media/tribal-brew-coffee/mobile/customer/help-390.webp"
+   },
+   {
+    "w": 780,
+    "src": "/media/tribal-brew-coffee/mobile/customer/help-780.webp"
+   },
+   {
+    "w": 1170,
+    "src": "/media/tribal-brew-coffee/mobile/customer/help-1170.webp"
+   }
+  ],
+  "top": "#ffffff",
+  "topDark": false,
+  "print": [
+   {
+    "w": 780,
+    "src": "/media/tribal-brew-coffee/mobile/customer/help-780.jpg"
+   }
+  ],
+  "deck": "assets/media/tribal-brew-coffee/mobile/customer/help.jpg"
+ },
+ "tribal-brew-coffee/mobile/customer/home": {
+  "w": 1170,
+  "h": 2532,
+  "device": "mobile",
+  "title": "Home",
+  "variants": [
+   {
+    "w": 390,
+    "src": "/media/tribal-brew-coffee/mobile/customer/home-390.webp"
+   },
+   {
+    "w": 780,
+    "src": "/media/tribal-brew-coffee/mobile/customer/home-780.webp"
+   },
+   {
+    "w": 1170,
+    "src": "/media/tribal-brew-coffee/mobile/customer/home-1170.webp"
+   }
+  ],
+  "top": "#ffffff",
+  "topDark": false,
+  "print": [
+   {
+    "w": 780,
+    "src": "/media/tribal-brew-coffee/mobile/customer/home-780.jpg"
+   }
+  ],
+  "deck": "assets/media/tribal-brew-coffee/mobile/customer/home.jpg"
+ },
+ "tribal-brew-coffee/mobile/customer/menu": {
+  "w": 1170,
+  "h": 2532,
+  "device": "mobile",
+  "title": "Menu with live prices",
+  "variants": [
+   {
+    "w": 390,
+    "src": "/media/tribal-brew-coffee/mobile/customer/menu-390.webp"
+   },
+   {
+    "w": 780,
+    "src": "/media/tribal-brew-coffee/mobile/customer/menu-780.webp"
+   },
+   {
+    "w": 1170,
+    "src": "/media/tribal-brew-coffee/mobile/customer/menu-1170.webp"
+   }
+  ],
+  "top": "#ffffff",
+  "topDark": false,
+  "print": [
+   {
+    "w": 780,
+    "src": "/media/tribal-brew-coffee/mobile/customer/menu-780.jpg"
+   }
+  ],
+  "deck": "assets/media/tribal-brew-coffee/mobile/customer/menu.jpg"
+ },
  "veloce/admin-desktop/analytics-dispatch": {
   "w": 2880,
   "h": 1800,
@@ -3409,5 +5167,305 @@
    }
   ],
   "deck": "assets/media/veloce/supervisor-mobile/outward.jpg"
+ },
+ "veloce-trade/mobile/client-executive/create-pickup": {
+  "w": 785,
+  "h": 1624,
+  "device": "mobile",
+  "title": "Listing with pricing overview",
+  "variants": [
+   {
+    "w": 390,
+    "src": "/media/veloce-trade/mobile/client-executive/create-pickup-390.webp"
+   },
+   {
+    "w": 780,
+    "src": "/media/veloce-trade/mobile/client-executive/create-pickup-780.webp"
+   }
+  ],
+  "top": "#ffffff",
+  "topDark": false,
+  "print": [
+   {
+    "w": 780,
+    "src": "/media/veloce-trade/mobile/client-executive/create-pickup-780.jpg"
+   }
+  ],
+  "deck": "assets/media/veloce-trade/mobile/client-executive/create-pickup.jpg"
+ },
+ "veloce-trade/mobile/client-executive/dashboard": {
+  "w": 785,
+  "h": 1435,
+  "device": "mobile",
+  "title": "Pickups by status",
+  "variants": [
+   {
+    "w": 390,
+    "src": "/media/veloce-trade/mobile/client-executive/dashboard-390.webp"
+   },
+   {
+    "w": 780,
+    "src": "/media/veloce-trade/mobile/client-executive/dashboard-780.webp"
+   }
+  ],
+  "top": "#ffffff",
+  "topDark": false,
+  "print": [
+   {
+    "w": 780,
+    "src": "/media/veloce-trade/mobile/client-executive/dashboard-780.jpg"
+   }
+  ],
+  "deck": "assets/media/veloce-trade/mobile/client-executive/dashboard.jpg"
+ },
+ "veloce-trade/mobile/vendor-executive/assign-resources": {
+  "w": 785,
+  "h": 1624,
+  "device": "mobile",
+  "title": "Driver, labour and vehicle",
+  "variants": [
+   {
+    "w": 390,
+    "src": "/media/veloce-trade/mobile/vendor-executive/assign-resources-390.webp"
+   },
+   {
+    "w": 780,
+    "src": "/media/veloce-trade/mobile/vendor-executive/assign-resources-780.webp"
+   }
+  ],
+  "top": "#ffffff",
+  "topDark": false,
+  "print": [
+   {
+    "w": 780,
+    "src": "/media/veloce-trade/mobile/vendor-executive/assign-resources-780.jpg"
+   }
+  ],
+  "deck": "assets/media/veloce-trade/mobile/vendor-executive/assign-resources.jpg"
+ },
+ "veloce-trade/mobile/vendor-executive/create-po": {
+  "w": 785,
+  "h": 1624,
+  "device": "mobile",
+  "title": "Purchase order from a listing",
+  "variants": [
+   {
+    "w": 390,
+    "src": "/media/veloce-trade/mobile/vendor-executive/create-po-390.webp"
+   },
+   {
+    "w": 780,
+    "src": "/media/veloce-trade/mobile/vendor-executive/create-po-780.webp"
+   }
+  ],
+  "top": "#ffffff",
+  "topDark": false,
+  "print": [
+   {
+    "w": 780,
+    "src": "/media/veloce-trade/mobile/vendor-executive/create-po-780.jpg"
+   }
+  ],
+  "deck": "assets/media/veloce-trade/mobile/vendor-executive/create-po.jpg"
+ },
+ "veloce-trade/mobile/vendor-executive/documents": {
+  "w": 785,
+  "h": 1624,
+  "device": "mobile",
+  "title": "Company documents for verification",
+  "variants": [
+   {
+    "w": 390,
+    "src": "/media/veloce-trade/mobile/vendor-executive/documents-390.webp"
+   },
+   {
+    "w": 780,
+    "src": "/media/veloce-trade/mobile/vendor-executive/documents-780.webp"
+   }
+  ],
+  "top": "#ffffff",
+  "topDark": false,
+  "print": [
+   {
+    "w": 780,
+    "src": "/media/veloce-trade/mobile/vendor-executive/documents-780.jpg"
+   }
+  ],
+  "deck": "assets/media/veloce-trade/mobile/vendor-executive/documents.jpg"
+ },
+ "veloce-trade/mobile/vendor-executive/fulfilment-status": {
+  "w": 785,
+  "h": 1624,
+  "device": "mobile",
+  "title": "Shipment status, step by step",
+  "variants": [
+   {
+    "w": 390,
+    "src": "/media/veloce-trade/mobile/vendor-executive/fulfilment-status-390.webp"
+   },
+   {
+    "w": 780,
+    "src": "/media/veloce-trade/mobile/vendor-executive/fulfilment-status-780.webp"
+   }
+  ],
+  "top": "#ffffff",
+  "topDark": false,
+  "print": [
+   {
+    "w": 780,
+    "src": "/media/veloce-trade/mobile/vendor-executive/fulfilment-status-780.jpg"
+   }
+  ],
+  "deck": "assets/media/veloce-trade/mobile/vendor-executive/fulfilment-status.jpg"
+ },
+ "veloce-trade/mobile/vendor-executive/home": {
+  "w": 785,
+  "h": 1624,
+  "device": "mobile",
+  "title": "Vendor executive home",
+  "variants": [
+   {
+    "w": 390,
+    "src": "/media/veloce-trade/mobile/vendor-executive/home-390.webp"
+   },
+   {
+    "w": 780,
+    "src": "/media/veloce-trade/mobile/vendor-executive/home-780.webp"
+   }
+  ],
+  "top": "#ffffff",
+  "topDark": false,
+  "print": [
+   {
+    "w": 780,
+    "src": "/media/veloce-trade/mobile/vendor-executive/home-780.jpg"
+   }
+  ],
+  "deck": "assets/media/veloce-trade/mobile/vendor-executive/home.jpg"
+ },
+ "veloce-trade/mobile/vendor-executive/payments-dashboard": {
+  "w": 785,
+  "h": 1624,
+  "device": "mobile",
+  "title": "Payables and receivables",
+  "variants": [
+   {
+    "w": 390,
+    "src": "/media/veloce-trade/mobile/vendor-executive/payments-dashboard-390.webp"
+   },
+   {
+    "w": 780,
+    "src": "/media/veloce-trade/mobile/vendor-executive/payments-dashboard-780.webp"
+   }
+  ],
+  "top": "#ffffff",
+  "topDark": false,
+  "print": [
+   {
+    "w": 780,
+    "src": "/media/veloce-trade/mobile/vendor-executive/payments-dashboard-780.jpg"
+   }
+  ],
+  "deck": "assets/media/veloce-trade/mobile/vendor-executive/payments-dashboard.jpg"
+ },
+ "veloce-trade/mobile/vendor-executive/payments": {
+  "w": 785,
+  "h": 1624,
+  "device": "mobile",
+  "title": "Payments by status",
+  "variants": [
+   {
+    "w": 390,
+    "src": "/media/veloce-trade/mobile/vendor-executive/payments-390.webp"
+   },
+   {
+    "w": 780,
+    "src": "/media/veloce-trade/mobile/vendor-executive/payments-780.webp"
+   }
+  ],
+  "top": "#ffffff",
+  "topDark": false,
+  "print": [
+   {
+    "w": 780,
+    "src": "/media/veloce-trade/mobile/vendor-executive/payments-780.jpg"
+   }
+  ],
+  "deck": "assets/media/veloce-trade/mobile/vendor-executive/payments.jpg"
+ },
+ "veloce-trade/mobile/vendor-executive/record-payment": {
+  "w": 785,
+  "h": 1624,
+  "device": "mobile",
+  "title": "Recording a payment",
+  "variants": [
+   {
+    "w": 390,
+    "src": "/media/veloce-trade/mobile/vendor-executive/record-payment-390.webp"
+   },
+   {
+    "w": 780,
+    "src": "/media/veloce-trade/mobile/vendor-executive/record-payment-780.webp"
+   }
+  ],
+  "top": "#ffffff",
+  "topDark": false,
+  "print": [
+   {
+    "w": 780,
+    "src": "/media/veloce-trade/mobile/vendor-executive/record-payment-780.jpg"
+   }
+  ],
+  "deck": "assets/media/veloce-trade/mobile/vendor-executive/record-payment.jpg"
+ },
+ "veloce-trade/mobile/vendor-executive/today": {
+  "w": 785,
+  "h": 1624,
+  "device": "mobile",
+  "title": "Today at a glance",
+  "variants": [
+   {
+    "w": 390,
+    "src": "/media/veloce-trade/mobile/vendor-executive/today-390.webp"
+   },
+   {
+    "w": 780,
+    "src": "/media/veloce-trade/mobile/vendor-executive/today-780.webp"
+   }
+  ],
+  "top": "#ffffff",
+  "topDark": false,
+  "print": [
+   {
+    "w": 780,
+    "src": "/media/veloce-trade/mobile/vendor-executive/today-780.jpg"
+   }
+  ],
+  "deck": "assets/media/veloce-trade/mobile/vendor-executive/today.jpg"
+ },
+ "veloce-trade/mobile/vendor-executive/upload-documents": {
+  "w": 785,
+  "h": 1624,
+  "device": "mobile",
+  "title": "Weighment slip and vehicle photos",
+  "variants": [
+   {
+    "w": 390,
+    "src": "/media/veloce-trade/mobile/vendor-executive/upload-documents-390.webp"
+   },
+   {
+    "w": 780,
+    "src": "/media/veloce-trade/mobile/vendor-executive/upload-documents-780.webp"
+   }
+  ],
+  "top": "#ffffff",
+  "topDark": false,
+  "print": [
+   {
+    "w": 780,
+    "src": "/media/veloce-trade/mobile/vendor-executive/upload-documents-780.jpg"
+   }
+  ],
+  "deck": "assets/media/veloce-trade/mobile/vendor-executive/upload-documents.jpg"
  }
 }

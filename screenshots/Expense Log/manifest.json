@@ -1,0 +1,106 @@
+{
+  "desktop/admin/home": {
+    "title": "Expense summary",
+    "role": "admin",
+    "device": "desktop",
+    "url": "https://expense-logger-one.vercel.app/home",
+    "full": false,
+    "capturedAt": "2026-10-29T17:26:25.979Z"
+  },
+  "desktop/admin/home-breakdown": {
+    "title": "Spend by category, department and payment mode",
+    "role": "admin",
+    "device": "desktop",
+    "url": "https://expense-logger-one.vercel.app/home",
+    "full": false,
+    "capturedAt": "2026-10-29T17:26:35.766Z"
+  },
+  "desktop/admin/expenses": {
+    "title": "All expenses tracker",
+    "role": "admin",
+    "device": "desktop",
+    "url": "https://expense-logger-one.vercel.app/all-expenses",
+    "full": false,
+    "capturedAt": "2026-10-29T17:26:44.197Z"
+  },
+  "desktop/admin/budget": {
+    "title": "Department budgets",
+    "role": "admin",
+    "device": "desktop",
+    "url": "https://expense-logger-one.vercel.app/budget",
+    "full": false,
+    "capturedAt": "2026-10-29T17:26:52.972Z"
+  },
+  "desktop/admin/report": {
+    "title": "Reports overview",
+    "role": "admin",
+    "device": "desktop",
+    "url": "https://expense-logger-one.vercel.app/report",
+    "full": false,
+    "capturedAt": "2026-10-29T17:27:00.990Z"
+  },
+  "desktop/admin/users": {
+    "title": "Users and roles",
+    "role": "admin",
+    "device": "desktop",
+    "url": "https://expense-logger-one.vercel.app/user-management",
+    "full": false,
+    "capturedAt": "2026-10-29T17:27:08.743Z"
+  },
+  "desktop/admin/companies": {
+    "title": "Companies",
+    "role": "admin",
+    "device": "desktop",
+    "url": "https://expense-logger-one.vercel.app/company-management",
+    "full": false,
+    "capturedAt": "2026-10-29T17:27:17.024Z"
+  },
+  "desktop/manager/expenses": {
+    "title": "Department expenses with approval status",
+    "role": "manager",
+    "device": "desktop",
+    "url": "https://expense-logger-one.vercel.app/all-expenses",
+    "full": false,
+    "capturedAt": "2026-10-29T17:27:37.322Z"
+  },
+  "desktop/manager/categories": {
+    "title": "Expense categories",
+    "role": "manager",
+    "device": "desktop",
+    "url": "https://expense-logger-one.vercel.app/category-management",
+    "full": false,
+    "capturedAt": "2026-10-29T17:27:44.575Z"
+  },
+  "mobile/admin/expenses": {
+    "title": "Expense tracker",
+    "role": "admin",
+    "device": "mobile",
+    "url": "https://expense-logger-one.vercel.app/all-expenses",
+    "full": false,
+    "capturedAt": "2026-10-29T17:28:36.364Z"
+  },
+  "mobile/admin/report": {
+    "title": "Reports",
+    "role": "admin",
+    "device": "mobile",
+    "url": "https://expense-logger-one.vercel.app/report",
+    "full": false,
+    "capturedAt": "2026-10-29T17:28:45.055Z"
+  },
+  "mobile/admin/home": {
+    "title": "Expense summary",
+    "role": "admin",
+    "device": "mobile",
+    "url": "https://expense-logger-one.vercel.app/home",
+    "full": false,
+    "capturedAt": "2026-10-29T17:27:58.518Z"
+  },
+  "mobile/admin/home-trend": {
+    "title": "Trend and category split",
+    "role": "admin",
+    "device": "mobile",
+    "url": "https://expense-logger-one.vercel.app/home",
+    "full": false,
+    "capturedAt": "2026-10-29T17:28:08.308Z"
+  }
+}

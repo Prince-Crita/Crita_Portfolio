@@ -1,0 +1,98 @@
+{
+  "mobile/client-executive/dashboard": {
+    "title": "Pickups by status",
+    "role": "client-executive",
+    "device": "mobile",
+    "url": "https://www.canva.com/design/DAHV01Wz-H4/l7az2Lcj0JhILrSO5ma1eA/view",
+    "source": "Canva image 5e3a86c4-10ea-4720-811f-4f008556c6f6",
+    "capturedAt": "2026-10-29T18:10:55.327Z"
+  },
+  "mobile/client-executive/create-pickup": {
+    "title": "Listing with pricing overview",
+    "role": "client-executive",
+    "device": "mobile",
+    "url": "https://www.canva.com/design/DAHV01Wz-H4/l7az2Lcj0JhILrSO5ma1eA/view",
+    "source": "Canva image 020192dd-a554-46e2-ad14-d449959ee855",
+    "capturedAt": "2026-10-29T18:10:55.536Z"
+  },
+  "mobile/vendor-executive/home": {
+    "title": "Vendor executive home",
+    "role": "vendor-executive",
+    "device": "mobile",
+    "url": "https://www.canva.com/design/DAHV01Wz-H4/l7az2Lcj0JhILrSO5ma1eA/view",
+    "source": "Canva image 51e774f3-32db-46b3-a71c-256b893f4b0b",
+    "capturedAt": "2026-10-29T18:10:55.734Z"
+  },
+  "mobile/vendor-executive/payments-dashboard": {
+    "title": "Payables and receivables",
+    "role": "vendor-executive",
+    "device": "mobile",
+    "url": "https://www.canva.com/design/DAHV01Wz-H4/l7az2Lcj0JhILrSO5ma1eA/view",
+    "source": "Canva image 157608e5-438a-4015-be24-90e3cdc14d84",
+    "capturedAt": "2026-10-29T18:10:55.956Z"
+  },
+  "mobile/vendor-executive/assign-resources": {
+    "title": "Driver, labour and vehicle",
+    "role": "vendor-executive",
+    "device": "mobile",
+    "url": "https://www.canva.com/design/DAHV01Wz-H4/l7az2Lcj0JhILrSO5ma1eA/view",
+    "source": "Canva image 878e3ea6-77aa-41df-93d7-2bbbb13f5c44",
+    "capturedAt": "2026-10-29T18:10:56.573Z"
+  },
+  "mobile/vendor-executive/fulfilment-status": {
+    "title": "Shipment status, step by step",
+    "role": "vendor-executive",
+    "device": "mobile",
+    "url": "https://www.canva.com/design/DAHV01Wz-H4/l7az2Lcj0JhILrSO5ma1eA/view",
+    "source": "Canva image fdc05f21-c647-43f0-900f-26ebd80d2913",
+    "capturedAt": "2026-10-29T17:58:46.227Z"
+  },
+  "mobile/vendor-executive/upload-documents": {
+    "title": "Weighment slip and vehicle photos",
+    "role": "vendor-executive",
+    "device": "mobile",
+    "url": "https://www.canva.com/design/DAHV01Wz-H4/l7az2Lcj0JhILrSO5ma1eA/view",
+    "source": "Canva image a4ca5d55-17bf-4752-87e3-e2fe0d94447a",
+    "capturedAt": "2026-10-29T18:10:56.778Z"
+  },
+  "mobile/vendor-executive/record-payment": {
+    "title": "Recording a payment",
+    "role": "vendor-executive",
+    "device": "mobile",
+    "url": "https://www.canva.com/design/DAHV01Wz-H4/l7az2Lcj0JhILrSO5ma1eA/view",
+    "source": "Canva image c32bf9b5-73f5-4b02-b22b-b16b084024c0",
+    "capturedAt": "2026-10-29T18:10:56.970Z"
+  },
+  "mobile/vendor-executive/documents": {
+    "title": "Company documents for verification",
+    "role": "vendor-executive",
+    "device": "mobile",
+    "url": "https://www.canva.com/design/DAHV01Wz-H4/l7az2Lcj0JhILrSO5ma1eA/view",
+    "source": "Canva image 57a3d16a-bcef-4aa9-becd-477adbe5de88",
+    "capturedAt": "2026-10-29T17:58:46.891Z"
+  },
+  "mobile/vendor-executive/today": {
+    "title": "Today at a glance",
+    "role": "vendor-executive",
+    "device": "mobile",
+    "url": "https://www.canva.com/design/DAHV01Wz-H4/l7az2Lcj0JhILrSO5ma1eA/view",
+    "source": "Canva image acbee596-ea75-4eab-a819-72f4fe68c491",
+    "capturedAt": "2026-10-29T18:10:56.163Z"
+  },
+  "mobile/vendor-executive/create-po": {
+    "title": "Purchase order from a listing",
+    "role": "vendor-executive",
+    "device": "mobile",
+    "url": "https://www.canva.com/design/DAHV01Wz-H4/l7az2Lcj0JhILrSO5ma1eA/view",
+    "source": "Canva image 7cc4e288-bd19-4d21-9963-ae9072f98116",
+    "capturedAt": "2026-10-29T18:10:56.377Z"
+  },
+  "mobile/vendor-executive/payments": {
+    "title": "Payments by status",
+    "role": "vendor-executive",
+    "device": "mobile",
+    "url": "https://www.canva.com/design/DAHV01Wz-H4/l7az2Lcj0JhILrSO5ma1eA/view",
+    "source": "Canva image ec5e4319-56ea-4d2a-8259-06f884a65558",
+    "capturedAt": "2026-10-29T18:10:57.176Z"
+  }
+}

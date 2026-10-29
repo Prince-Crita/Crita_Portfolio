@@ -6,6 +6,7 @@
 // presenter-only demo logins from content/demo-access.json added to the notes.
 import fs from 'node:fs';
 import path from 'node:path';
+import { createRequire } from 'node:module';
 import { fileURLToPath } from 'node:url';
 import pptxgen from 'pptxgenjs';
 import { applyTheme } from './lib/theme.mjs';
@@ -64,6 +65,11 @@ const brand = (f) => path.join(root, 'ppt', 'brand', f);
 const W = 13.333;
 const M = 0.6; // side margin
 
+// Slide transitions by slide number: chapters fade through black, slides that
+// repeat a layout morph, everything else fades (see addMotion at the end).
+const motion = {};
+const mark = (kind) => (motion[pres.slides.length] = kind);
+
 // ── Layouts ──────────────────────────────────────────────────────────
 const footer = (dark) => [
   { text: { text: `${company.name} — Selected work ${year}`, options: { x: M, y: 7.02, w: 6, h: 0.22, fontSize: 8.5, color: dark ? HEX.onDark3 : HEX.ink3, margin: 0 } } },
@@ -103,7 +109,8 @@ function rule(s, x, y, w, dark = false) {
 }
 
 /** Places a rendered composition so its frames fill `box` (fit, aligned). */
-function placeArt(s, name, box, { align = 'center', valign = 'middle', alt = '' } = {}) {
+// `reveal` names the picture so the slide's entrance animation can find it (see transitions below).
+function placeArt(s, name, box, { align = 'center', valign = 'middle', alt = '', reveal } = {}) {
   const a = art[name];
   if (!a) throw new Error(`missing art "${name}" — run node ppt/build-art.mjs`);
   const cw = a.w - a.pad.l - a.pad.r;
@@ -113,7 +120,10 @@ function placeArt(s, name, box, { align = 'center', valign = 'middle', alt = '' 
   const fh = ch * k;
   const fx = align === 'left' ? box.x : align === 'right' ? box.x + box.w - fw : box.x + (box.w - fw) / 2;
   const fy = valign === 'top' ? box.y : valign === 'bottom' ? box.y + box.h - fh : box.y + (box.h - fh) / 2;
-  s.addImage({ path: path.join(root, 'ppt', 'art', `${name}.jpg`), x: fx - a.pad.l * k, y: fy - a.pad.t * k, w: a.w * k, h: a.h * k, altText: alt });
+  s.addImage({
+    path: path.join(root, 'ppt', 'art', `${name}.jpg`), x: fx - a.pad.l * k, y: fy - a.pad.t * k, w: a.w * k, h: a.h * k, altText: alt,
+    ...(reveal ? { objectName: `reveal-${reveal}` } : {}),
+  });
   return { x: fx, y: fy, w: fw, h: fh };
 }
 
@@ -149,6 +159,7 @@ const isMobile = (k) => media[k]?.device === 'mobile';
 const dark = (p) => p.theme.stageInk === 'light';
 const join = (a) => a.join(', ').replace(/, ([^,]*)$/, ' and $1');
 const nameOf = (id) => projects.find((p) => p.id === id).name;
+const COUNT = ['No', 'One', 'Two', 'Three', 'Four', 'Five', 'Six', 'Seven', 'Eight', 'Nine', 'Ten', 'Eleven', 'Twelve'][projects.length] ?? String(projects.length);
 
 // Slide numbers are fixed by structure: 4 opening slides, 8 per project, then the close.
 const PER_PROJECT = 8;
@@ -158,6 +169,7 @@ const introSlide = (i) => 5 + i * PER_PROJECT;
 pres.addSection({ title: 'Introduction' });
 {
   const s = pres.addSlide({ masterName: 'Cover', sectionTitle: 'Introduction' });
+  mark('chapter');
   s.addImage({ path: brand('logo.png'), x: M, y: 0.55, w: 1.55, h: 1.55 * (124 / 644), altText: 'Crita' });
   s.addText(`SELECTED WORK ${year}`, tb({ x: W - M - 3.4, y: 0.58, w: 3.4, h: 0.24, fontSize: 9, bold: true, charSpacing: 2, color: HEX.onDark3, align: 'right', valign: 'middle' }));
   label(s, company.positioning, M, 1.72, { dark: true, w: 4.6 });
@@ -171,23 +183,26 @@ pres.addSection({ title: 'Introduction' });
   );
   s.addText(company.intro, tb({ x: M, y: 4.72, w: 5.3, h: 1.15, fontSize: 13, color: HEX.onDark2, lineSpacingMultiple: 1.12 }));
   placeArt(s, 'cover', { x: 6.55, y: 1.3, w: 6.2, h: 4.6 }, { alt: 'Screens from SMC Task Management, Clario, Veloce Scrap Flow and City Threads' });
-  rule(s, M, 6.22, W - 2 * M, true);
+  rule(s, M, 6.12, W - 2 * M, true);
+  // Every project, five to a row, each a link to its first slide.
+  const colW = (W - 2 * M) / 5;
   projects.forEach((p, i) => {
-    const x = M + i * 3.06;
+    const x = M + (i % 5) * colW;
+    const y = 6.24 + Math.floor(i / 5) * 0.42;
     s.addText(
       [
-        { text: p.number, options: { color: HEX.lime, bold: true, fontSize: 9.5, breakLine: true } },
-        { text: p.name, options: { color: HEX.onDark, bold: true, fontSize: 12.5, breakLine: true } },
-        { text: p.type, options: { color: HEX.onDark3, fontSize: 9.5 } },
+        { text: `${p.number}  `, options: { color: HEX.lime, bold: true, fontSize: 9 } },
+        { text: p.name, options: { color: HEX.onDark, bold: true, fontSize: 11 } },
       ],
-      tb({ x, y: 6.36, w: 2.9, h: 0.78, lineSpacingMultiple: 1.05 })
+      tb({ x, y, w: colW - 0.12, h: 0.32, valign: 'middle' })
     );
-    linkArea(s, introSlide(i), x, 6.32, 2.9, 0.82, `Go to ${p.name}`);
+    linkArea(s, introSlide(i), x, y, colW - 0.12, 0.32, `Go to ${p.name}`);
   });
   s.addNotes(
     `OPEN — who we are in one breath.\n` +
       `“Crita is a consulting-led technology partner. We design and build custom business platforms around the way each business actually works.”\n\n` +
-      `What follows: four real platforms we built — a field-audit system, a scrap-yard inventory platform, our own business-intelligence product and a textile warehouse system. Every screen is from the live product.\n\n` +
+      `What follows: ${COUNT.toLowerCase()} platforms we built — ${projects.map((p) => `${p.name} (${p.type.toLowerCase()})`).join('; ')}. ` +
+      `Screens are from the products themselves; Veloce Trade’s come from its user guide.\n\n` +
       `Tip: click a project name at the bottom to jump straight to it.`
   );
 }
@@ -260,28 +275,28 @@ pres.addSection({ title: 'Introduction' });
 {
   const s = pres.addSlide({ masterName: 'Content Light', sectionTitle: 'Introduction' });
   label(s, 'Selected work', M, 0.55);
-  s.addText('Four platforms, each built around how the business actually works.', { placeholder: 'title', w: 11 });
+  s.addText(`${COUNT} platforms, each built around how the business actually works.`, { placeholder: 'title', w: 11 });
+  // Five cards a row: the project's stage with its screens, then number, name and sector.
+  const gap = 0.24;
+  const cw = (W - 2 * M - 4 * gap) / 5;
   projects.forEach((p, i) => {
-    const col = i % 2;
-    const row = Math.floor(i / 2);
-    const x = M + col * 6.13;
-    const y = 2.05 + row * 2.45;
-    s.addShape(S.roundRect, { x, y, w: 2.95, h: 2.2, fill: { color: hex(p.theme.stage) }, line: { type: 'none' }, rectRadius: 0.12 });
-    placeArt(s, `${p.id}-hero`, { x: x + 0.2, y: y + 0.22, w: 2.55, h: 1.62 }, { valign: 'top', alt: `${p.name} screens` });
+    const x = M + (i % 5) * (cw + gap);
+    const y = 1.85 + Math.floor(i / 5) * 2.55;
+    s.addShape(S.roundRect, { x, y, w: cw, h: 1.5, fill: { color: hex(p.theme.stage) }, line: { type: 'none' }, rectRadius: 0.1 });
+    placeArt(s, `${p.id}-hero`, { x: x + 0.14, y: y + 0.14, w: cw - 0.28, h: 1.22 }, { alt: `${p.name} screens` });
     s.addText(
       [
-        { text: p.number, options: { bold: true, color: HEX.leaf, fontSize: 9.5, breakLine: true } },
-        { text: p.name, options: { bold: true, color: HEX.ink, fontSize: 18, breakLine: true } },
-        { text: `${p.client} · ${p.sector}`, options: { color: HEX.ink3, fontSize: 9.5, breakLine: true } },
-        { text: p.tagline, options: { color: HEX.ink2, fontSize: 11.5, breakLine: true } },
-        { text: `Slide ${introSlide(i)} →`, options: { color: HEX.moss, fontSize: 9.5, bold: true } },
+        { text: p.number, options: { bold: true, color: HEX.leaf, fontSize: 9, breakLine: true } },
+        { text: p.name, options: { bold: true, color: HEX.ink, fontSize: 13, breakLine: true } },
+        { text: p.sector, options: { color: HEX.ink3, fontSize: 9, breakLine: true } },
+        { text: `Slide ${introSlide(i)} →`, options: { color: HEX.moss, fontSize: 9, bold: true } },
       ],
-      tb({ x: x + 3.2, y: y + 0.12, w: 2.75, h: 2.05, paraSpaceAfter: 4 })
+      tb({ x, y: y + 1.6, w: cw, h: 0.88, paraSpaceAfter: 2 })
     );
-    linkArea(s, introSlide(i), x, y, 5.95, 2.2, `Go to ${p.name}`);
+    linkArea(s, introSlide(i), x, y, cw, 2.45, `Go to ${p.name}`);
   });
   s.addNotes(
-    `SELECTED WORK — four platforms. Click any card or name to jump to that project; use the section list (left panel) to hide projects you won't present.\n\n` +
+    `SELECTED WORK — ${COUNT.toLowerCase()} platforms. Click any card or name to jump to that project; use the section list (left panel) to hide projects you won't present.\n\n` +
       projects.map((p, i) => `${p.number} ${p.name} (slide ${introSlide(i)}) — ${p.client}, ${p.sector}. ${p.tagline}`).join('\n')
   );
 }
@@ -302,11 +317,15 @@ projects.forEach((p, pi) => {
   // 1 · Intro
   {
     const s = pres.addSlide({ masterName: d ? 'Project Intro Dark' : 'Project Intro Light', sectionTitle: section });
+    mark('chapter');
     s.background = { color: stage };
     label(s, `${p.number} — ${p.type}`, M, 0.6, { dark: d, w: 5.2 });
     s.addText(p.name, { placeholder: 'title' });
-    // Names up to ~17 characters set on one line at 40pt; close the gap below them.
-    const lift = p.name.length <= 17 ? 0.62 : 0;
+    // Names that set on one line at 40pt close the gap below them. The width is a
+    // rough estimate in ems (narrow, wide and capital letters), less the title's
+    // -1pt letter-spacing, against the 5.25in box.
+    const em = [...p.name].reduce((w, c) => w + (/[iljtfr .,'’]/.test(c) ? 0.3 : /[mwMW]/.test(c) ? 0.85 : /[A-Z]/.test(c) ? 0.68 : 0.56), 0);
+    const lift = em * (40 / 72) - p.name.length / 72 <= 5.25 ? 0.62 : 0;
     s.addText(p.tagline, tb({ x: M, y: 2.68 - lift, w: 5.0, h: 0.85, fontSize: 16.5, fontFace: FONT_MEDIUM, color: text1, lineSpacingMultiple: 1.08 }));
     s.addText(p.summary, tb({ x: M, y: 3.58 - lift, w: 5.0, h: 1.45, fontSize: 11, color: text2, lineSpacingMultiple: 1.15 }));
     rule(s, M, 5.2, 5.0, d);
@@ -316,15 +335,16 @@ projects.forEach((p, pi) => {
       s.addText(
         [
           { text: k.toUpperCase(), options: { fontSize: 8, bold: true, charSpacing: 1.6, color: text3, breakLine: true } },
-          { text: v, options: { fontSize: 11, bold: true, color: text1 } },
+          // PowerPoint never breaks a line at " · ": a zero-width space after the dot lets it.
+          { text: v.replace(/ · /g, ' ·​ '), options: { fontSize: 11, bold: true, color: text1 } },
         ],
         tb({ x, y, w: 2.45, h: 0.7, paraSpaceAfter: 2 })
       );
     });
-    placeArt(s, `${p.id}-hero`, { x: 6.0, y: 1.05, w: 6.75, h: 5.4 }, { alt: `${p.name} on desktop and mobile` });
+    placeArt(s, `${p.id}-hero`, { x: 6.0, y: 1.05, w: 6.75, h: 5.4 }, { alt: `${p.name} on desktop and mobile`, reveal: 1 });
     s.addNotes(
       `${p.name.toUpperCase()} — ${p.client} (${p.sector}).\n\nOne-liner: “${p.tagline}”\n\n${p.summary}\n\n` +
-        `Live: ${p.live.name}` + (p.privacy ? `\nNote: ${p.privacy}` : '')
+        (p.live ? `Live: ${p.live.name}` : 'In production — shown in a walkthrough, no public link.') + (p.privacy ? `\nNote: ${p.privacy}` : '')
     );
   }
 
@@ -345,6 +365,7 @@ projects.forEach((p, pi) => {
   // 3–4 · Product experience
   [[0, 1], [2, 3]].forEach((pair, part) => {
     const s = pres.addSlide({ masterName: 'Content Light', sectionTitle: section });
+    if (part === 1) mark('morph');
     s.background = { color: tint };
     label(s, `Product experience · ${part + 1} of 2`, M, 0.55);
     s.addText(`Inside ${p.name}.`, { placeholder: 'title' });
@@ -357,10 +378,10 @@ projects.forEach((p, pi) => {
         { text: t.body, options: { color: HEX.ink3, fontSize: 11 } },
       ];
       if (isMobile(t.shot)) {
-        placeArt(s, `${p.id}-tour-${idx}`, { x, y: 1.75, w: 2.3, h: 5.05 }, { align: 'left', valign: 'top', alt: t.title });
+        placeArt(s, `${p.id}-tour-${idx}`, { x, y: 1.75, w: 2.3, h: 5.05 }, { align: 'left', valign: 'top', alt: t.title, reveal: j + 1 });
         s.addText(cap, tb({ x: x + 2.6, y: 3.2, w: 3.2, h: 2.0, paraSpaceAfter: 4 }));
       } else {
-        placeArt(s, `${p.id}-tour-${idx}`, { x, y: 1.75, w: 5.9, h: 3.75 }, { align: 'left', valign: 'top', alt: t.title });
+        placeArt(s, `${p.id}-tour-${idx}`, { x, y: 1.75, w: 5.9, h: 3.75 }, { align: 'left', valign: 'top', alt: t.title, reveal: j + 1 });
         s.addText(cap, tb({ x, y: 5.72, w: 5.7, h: 1.15, paraSpaceAfter: 3 }));
       }
     });
@@ -442,8 +463,10 @@ projects.forEach((p, pi) => {
     });
     s.addText('“Live” is available in the product today. “In development” and “Planned” describe the platform’s direction.', tb({ x: M, y: 6.25, w: 11, h: 0.3, fontSize: 9.5, color: HEX.ink3 }));
     s.addNotes(
-      `ARCHITECTURE — be precise about what is live.\nLive today: Zoho Books connection, the Finance command centre and Ask Clario, on multi-workspace tenancy.\n` +
-        `In development: Tally. Planned: inventory connectors (e.g. Veloce, City Threads) and lead management.\n\n${a.principle}`
+      p.id === 'clario'
+        ? `ARCHITECTURE — be precise about what is live.\nLive today: Zoho Books connection, the Finance command centre and Ask Clario, on multi-workspace tenancy.\n` +
+            `In development: Tally. Planned: inventory connectors (e.g. Veloce, City Threads) and lead management.\n\n${a.principle}`
+        : `ARCHITECTURE — ${a.title}\n` + a.layers.map((l) => `${l.name}: ${l.items.map((it) => `${it.label} (${it.status})`).join(', ')}.`).join('\n') + `\n\n${a.principle}`
     );
   }
 
@@ -454,7 +477,7 @@ projects.forEach((p, pi) => {
     label(s, 'Responsive experience', M, 0.55, { dark: d });
     s.addText(p.mobileTitle, { placeholder: 'title', w: 4.4, h: 1.7, fontSize: 26, lineSpacingMultiple: 0.98 });
     s.addText(p.mobileNote, tb({ x: M, y: 2.75, w: 4.1, h: 1.6, fontSize: 13, color: text2, lineSpacingMultiple: 1.15 }));
-    placeArt(s, `${p.id}-mobile`, { x: 5.05, y: 0.75, w: 7.7, h: 5.95 }, { alt: `${p.name} on phones` });
+    placeArt(s, `${p.id}-mobile`, { x: 5.05, y: 0.75, w: 7.7, h: 5.95 }, { alt: `${p.name} on phones`, reveal: 1 });
     s.addNotes(`RESPONSIVE\n${p.mobileNote}\n\nScreens: ${p.mobile.map((k) => media[k].title).join(' · ')}.`);
   }
 
@@ -495,11 +518,21 @@ projects.forEach((p, pi) => {
     const after = chips(s, p.delivery.stack, sx, 0.98, sw);
     if (p.quote) bullets(s, p.delivery.highlights, sx, after + 0.22, sw, 1.65, { size: 10 });
     s.addShape(S.roundRect, { x: sx, y: 4.3, w: sw, h: 2.5, fill: { color: HEX.night }, line: { type: 'none' }, rectRadius: 0.14 });
-    label(s, 'Live product', sx + 0.3, 4.55, { dark: true, w: sw - 0.6 });
-    s.addText(`${p.live.label} →`, tb({ x: sx + 0.3, y: 4.92, w: sw - 0.6, h: 0.4, fontSize: 16, bold: true, color: HEX.lime, hyperlink: { url: p.live.url, tooltip: p.live.name } }));
-    s.addText(p.live.name, tb({ x: sx + 0.3, y: 5.33, w: sw - 0.6, h: 0.25, fontSize: 9, color: HEX.onDark3 }));
-    linkArea(s, p.live.url, sx + 0.3, 5.33, Math.min(sw - 0.6, 0.15 + p.live.name.length * 0.07), 0.25, p.live.name);
-    if (publicAccounts) {
+    if (p.live) {
+      label(s, 'Live product', sx + 0.3, 4.55, { dark: true, w: sw - 0.6 });
+      s.addText(`${p.live.label} →`, tb({ x: sx + 0.3, y: 4.92, w: sw - 0.6, h: 0.4, fontSize: 16, bold: true, color: HEX.lime, hyperlink: { url: p.live.url, tooltip: p.live.name } }));
+      s.addText(p.live.name, tb({ x: sx + 0.3, y: 5.33, w: sw - 0.6, h: 0.25, fontSize: 9, color: HEX.onDark3 }));
+      linkArea(s, p.live.url, sx + 0.3, 5.33, Math.min(sw - 0.6, 0.15 + p.live.name.length * 0.07), 0.25, p.live.name);
+    } else {
+      // In production with no public link: the walkthrough is the demo.
+      label(s, 'In production', sx + 0.3, 4.55, { dark: true, w: sw - 0.6 });
+      s.addText('Walkthrough on request →', tb({ x: sx + 0.3, y: 4.92, w: sw - 0.6, h: 0.4, fontSize: 16, bold: true, color: HEX.lime, hyperlink: { url: `mailto:${company.contact.email}`, tooltip: company.contact.email } }));
+    }
+    if (!p.live) {
+      s.addText(`A live walkthrough of the ${join(p.demo.roles)} views.`, tb({ x: sx + 0.3, y: 5.75, w: sw - 0.6, h: 0.8, fontSize: 10.5, color: HEX.onDark2 }));
+    } else if (p.demo?.selfServe) {
+      s.addText(p.demo.selfServe, tb({ x: sx + 0.3, y: 5.75, w: sw - 0.6, h: 0.8, fontSize: 10.5, color: HEX.onDark2 }));
+    } else if (publicAccounts) {
       s.addText(
         publicAccounts.flatMap((a, i) => [
           { text: `${a.role}`, options: { bold: true, color: HEX.onDark, breakLine: true } },
@@ -514,14 +547,16 @@ projects.forEach((p, pi) => {
 
     const creds = (list) => list.map((a) => `   ${a.role}: ${a.user}  /  ${a.pass}`).join('\n');
     let demoNotes;
-    if (publicAccounts) demoNotes = `Demo accounts (${p.demo.publicNote ?? 'public'}):\n${creds(publicAccounts)}`;
-    else if (presenter) demoNotes = `PRESENTER ONLY — do not project, screenshot or send these logins (${presenter.why}):\n${creds(presenter.accounts)}`;
+    if (!p.live) demoNotes = `No public link: offer a walkthrough of the ${join(p.demo.roles)} views.`;
+    else if (p.demo?.selfServe) demoNotes = p.demo.selfServe;
+    else if (publicAccounts) demoNotes = `Demo accounts (${p.demo.publicNote ?? 'public'}):\n${creds(publicAccounts)}`;
+    else if (presenter?.accounts.length) demoNotes = `PRESENTER ONLY — do not project, screenshot or send these logins (${presenter.why}):\n${creds(presenter.accounts)}`;
     else demoNotes = `Logins for the live demo are in the presenter copy of this deck.`;
     s.addNotes(
       `BUSINESS VALUE\n` + p.value.map((v) => `• ${v.title} — ${v.body}`).join('\n') +
         (p.quote ? `\n\nClient quote (${p.quote.name}, ${p.quote.company}): “${p.quote.text}”` : '') +
         `\n\nDELIVERY: ${p.delivery.stack.join(', ')}.\n` + p.delivery.highlights.map((h) => `• ${h}`).join('\n') +
-        `\n\nLIVE DEMO — ${p.live.name}\n${demoNotes}` +
+        `\n\nLIVE DEMO — ${p.live ? p.live.name : `${p.name} (walkthrough only)`}\n${demoNotes}` +
         (presenter?.path ? `\nSuggested path:\n` + presenter.path.map((x) => `   • ${x}`).join('\n') : '') +
         (pi < projects.length - 1 ? `\n\nNext: ${projects[pi + 1].name}.` : '')
     );
@@ -532,6 +567,7 @@ projects.forEach((p, pi) => {
 pres.addSection({ title: 'Closing' });
 {
   const s = pres.addSlide({ masterName: 'Cover', sectionTitle: 'Closing' });
+  mark('chapter');
   s.addImage({ path: brand('pattern-c.png'), x: 8.6, y: -0.3, w: 5.4, h: 5.4 * (1600 / 1200), transparency: 90, altText: '' });
   label(s, company.closing.eyebrow, M, 1.65, { dark: true });
   s.addText(company.closing.headline, tb({ x: M, y: 2.0, w: 8.2, h: 2.4, fontSize: 46, bold: true, color: HEX.onDark, lineSpacingMultiple: 0.92, charSpacing: -1.2 }));
@@ -551,6 +587,68 @@ pres.addSection({ title: 'Closing' });
   );
 }
 
+// ── Motion ───────────────────────────────────────────────────────────
+// pptxgenjs writes no transitions or animations, so they are added to the slide
+// XML here: a fade on every slide (through black for chapters, a morph with a
+// fade fallback where a layout repeats), and the pictures named "reveal-N" fade
+// in one after another as the slide opens — no extra clicks for the presenter.
+const MC = 'http://schemas.openxmlformats.org/markup-compatibility/2006';
+const P159 = 'http://schemas.microsoft.com/office/powerpoint/2015/09/main';
+const transitionXml = (kind) =>
+  kind === 'chapter'
+    ? '<p:transition spd="slow"><p:fade thruBlk="1"/></p:transition>'
+    : kind === 'morph'
+      ? `<mc:AlternateContent xmlns:mc="${MC}"><mc:Choice xmlns:p159="${P159}" Requires="p159"><p:transition spd="slow"><p159:morph option="byObject"/></p:transition></mc:Choice><mc:Fallback><p:transition spd="slow"><p:fade/></p:transition></mc:Fallback></mc:AlternateContent>`
+      : '<p:transition spd="med"><p:fade/></p:transition>';
+
+function timingXml(spids) {
+  let id = 3;
+  let at = 0;
+  const effects = spids.map((spid) => {
+    const outer = ++id;
+    const effect = ++id;
+    const set = ++id;
+    const fade = ++id;
+    const delay = at === 0 ? 150 : 0;
+    const xml =
+      `<p:par><p:cTn id="${outer}" fill="hold"><p:stCondLst><p:cond delay="${at}"/></p:stCondLst><p:childTnLst>` +
+      `<p:par><p:cTn id="${effect}" presetID="10" presetClass="entr" presetSubtype="0" fill="hold" nodeType="afterEffect"><p:stCondLst><p:cond delay="${delay}"/></p:stCondLst><p:childTnLst>` +
+      `<p:set><p:cBhvr><p:cTn id="${set}" dur="1" fill="hold"><p:stCondLst><p:cond delay="0"/></p:stCondLst></p:cTn><p:tgtEl><p:spTgt spid="${spid}"/></p:tgtEl><p:attrNameLst><p:attrName>style.visibility</p:attrName></p:attrNameLst></p:cBhvr><p:to><p:strVal val="visible"/></p:to></p:set>` +
+      `<p:animEffect transition="in" filter="fade"><p:cBhvr><p:cTn id="${fade}" dur="600"/><p:tgtEl><p:spTgt spid="${spid}"/></p:tgtEl></p:cBhvr></p:animEffect>` +
+      `</p:childTnLst></p:cTn></p:par></p:childTnLst></p:cTn></p:par>`;
+    at += delay + 600;
+    return xml;
+  });
+  return (
+    `<p:timing><p:tnLst><p:par><p:cTn id="1" dur="indefinite" restart="never" nodeType="tmRoot"><p:childTnLst>` +
+    `<p:seq concurrent="1" nextAc="seek"><p:cTn id="2" dur="indefinite" nodeType="mainSeq"><p:childTnLst>` +
+    `<p:par><p:cTn id="3" fill="hold"><p:stCondLst><p:cond delay="indefinite"/><p:cond evt="onBegin" delay="0"><p:tn val="2"/></p:cond></p:stCondLst><p:childTnLst>` +
+    effects.join('') +
+    `</p:childTnLst></p:cTn></p:par></p:childTnLst></p:cTn>` +
+    `<p:prevCondLst><p:cond evt="onPrev" delay="0"><p:tgtEl><p:sldTgt/></p:tgtEl></p:cond></p:prevCondLst>` +
+    `<p:nextCondLst><p:cond evt="onNext" delay="0"><p:tgtEl><p:sldTgt/></p:tgtEl></p:cond></p:nextCondLst></p:seq>` +
+    `</p:childTnLst></p:cTn></p:par></p:tnLst></p:timing>`
+  );
+}
+
+async function addMotion(file) {
+  const require = createRequire(import.meta.url);
+  const JSZip = require(require.resolve('jszip', { paths: [require.resolve('pptxgenjs')] }));
+  const zip = await JSZip.loadAsync(fs.readFileSync(file));
+  for (let n = 1; n <= pres.slides.length; n++) {
+    const part = `ppt/slides/slide${n}.xml`;
+    let xml = await zip.file(part).async('string');
+    // A morph animates the change itself; fading the pictures in as well would compete with it.
+    const reveals = motion[n] === 'morph' ? [] : [...xml.matchAll(/<p:cNvPr id="(\d+)" name="reveal-(\d+)"/g)].sort((a, b) => a[2] - b[2]).map((m) => m[1]);
+    const motionXml = transitionXml(motion[n] ?? 'fade') + (reveals.length ? timingXml(reveals) : '');
+    if (!xml.includes('</p:clrMapOvr>')) throw new Error(`${part}: no clrMapOvr to anchor the transition`);
+    xml = xml.replace('</p:clrMapOvr>', `</p:clrMapOvr>${motionXml}`);
+    zip.file(part, xml);
+  }
+  fs.writeFileSync(file, await zip.generateAsync({ type: 'nodebuffer', compression: 'DEFLATE' }));
+}
+
 await pres.writeFile({ fileName: OUT });
 await applyTheme(OUT, { ...THEME, font: FONT });
+await addMotion(OUT);
 console.log(`PPTX: ${path.relative(root, OUT)} — ${pres.slides.length} slides, ${(fs.statSync(OUT).size / 1048576).toFixed(1)} MB`);

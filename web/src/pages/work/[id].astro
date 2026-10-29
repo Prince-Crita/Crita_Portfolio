@@ -4,7 +4,7 @@ import Stage from '../../components/Stage.astro';
 import Device from '../../components/Device.astro';
 import PhoneFrame from '../../components/PhoneFrame.astro';
 import BrowserFrame from '../../components/BrowserFrame.astro';
-import { projects, neighbours, publicDemo, demoRoles, mailto, shot, type Project } from '../../lib/content';
+import { projects, neighbours, publicDemo, demoRoles, selfServeDemo, liveOf, mailto, shot, type Project } from '../../lib/content';
 
 export function getStaticPaths() {
   return projects.map((p) => ({ params: { id: p.id }, props: { project: p } }));
@@ -14,9 +14,12 @@ const { project: p } = Astro.props as { project: Project };
 const { prev, next } = neighbours(p.id);
 const lightStage = p.theme.stageInk === 'light';
 const darkUI = p.id === 'veloce';
-const url = p.live.name;
+const live = liveOf(p);
+const url = live?.name ?? p.name;
 const demo = publicDemo(p.id);
 const roles = demoRoles(p.id);
+const selfServe = selfServeDemo(p.id);
+const walkthrough = mailto(`Walkthrough request — ${p.name}`);
 const arch = (p as any).architecture as
   | { title: string; principle: string; layers: { name: string; items: { label: string; status: string }[] }[] }
   | undefined;
@@ -35,7 +38,7 @@ const isMobile = (k: string) => shot(k).device === 'mobile';
     data-tone-section={lightStage ? 'dark' : 'light'}
   >
     <div class="wrap">
-      <nav class="rail" aria-label="Case studies">
+      <nav class:list={['rail', projects.length > 5 && 'rail--compact']} aria-label="Case studies">
         <a href="/#work" class="rail__back"><span aria-hidden="true">←</span> All work</a>
         <ol class="rail__list">
           {projects.map((q) => (
@@ -63,7 +66,9 @@ const isMobile = (k: string) => shot(k).device === 'mobile';
       </dl>
 
       <div class="cs-hero__cta" data-reveal style="--i:4">
-        <a class:list={['btn', lightStage ? 'btn--lime' : '']} href={p.live.url} target="_blank" rel="noopener">{p.live.label} <span class="arrow">↗</span></a>
+        {live
+          ? <a class:list={['btn', lightStage ? 'btn--lime' : '']} href={live.url} target="_blank" rel="noopener">{live.label} <span class="arrow">↗</span></a>
+          : <a class:list={['btn', lightStage ? 'btn--lime' : '']} href={walkthrough}>Request a walkthrough <span class="arrow">→</span></a>}
         <a class="link" href="#live">Demo access <span class="arrow">↓</span></a>
       </div>
     </div>
@@ -261,14 +266,30 @@ const isMobile = (k: string) => shot(k).device === 'mobile';
       </div>
 
       <div class="live__card" data-reveal style="--i:1">
-        <p class="label">Live product</p>
-        <h2 class="h3">See {p.name} running.</h2>
-        <a class="btn btn--lime" href={p.live.url} target="_blank" rel="noopener">{p.live.label} <span class="arrow">↗</span></a>
-        <p class="small muted live__url"><a href={p.live.url} target="_blank" rel="noopener">{p.live.name} <span class="arrow">↗</span></a></p>
+        {live ? (
+          <>
+            <p class="label">Live product</p>
+            <h2 class="h3">See {p.name} running.</h2>
+            <a class="btn btn--lime" href={live.url} target="_blank" rel="noopener">{live.label} <span class="arrow">↗</span></a>
+            <p class="small muted live__url"><a href={live.url} target="_blank" rel="noopener">{live.name} <span class="arrow">↗</span></a></p>
+          </>
+        ) : (
+          <>
+            <p class="label">In production</p>
+            <h2 class="h3">See {p.name} in a walkthrough.</h2>
+            <p class="muted small">We’ll take you through the {roles.join(', ').replace(/, ([^,]*)$/, ' and $1')} views live.</p>
+            <a class="btn btn--lime" href={walkthrough}>Request a walkthrough <span class="arrow">→</span></a>
+          </>
+        )}
 
-        <div class="demo">
+        {live && <div class="demo">
           <p class="demo__title">Demo access</p>
-          {demo ? (
+          {selfServe && live ? (
+            <>
+              <p class="muted small">{selfServe}</p>
+              <a class="link" href={live.url} target="_blank" rel="noopener">Open the demo <span class="arrow">↗</span></a>
+            </>
+          ) : demo ? (
             <table class="demo__table">
               <thead><tr><th>Role</th><th>Username</th><th>Password</th></tr></thead>
               <tbody>
@@ -287,7 +308,7 @@ const isMobile = (k: string) => shot(k).device === 'mobile';
               <a class="link" href={mailto(`Guided demo request — ${p.name}`)}>Request a guided demo <span class="arrow">→</span></a>
             </>
           )}
-        </div>
+        </div>}
       </div>
     </div>
     <p class="wrap small muted live__privacy">{p.privacy}</p>
@@ -321,6 +342,8 @@ const isMobile = (k: string) => shot(k).device === 'mobile';
   .rail__list a:hover { opacity: 1; }
   .rail__list a[aria-current='page'] { opacity: 1; background: color-mix(in srgb, currentColor 12%, transparent); }
   .rail__keys { display: inline-flex; gap: 0.25rem; opacity: 0.5; }
+  /* Many projects: only the current one keeps its name; the rest show their number. */
+  .rail--compact .rail__list a:not([aria-current='page']) .rail__name { display: none; }
   kbd { font: inherit; font-size: 0.72rem; padding: 0.1rem 0.4rem; border-radius: 5px; box-shadow: inset 0 0 0 1px currentColor; }
 
   .cs-hero__copy { max-width: 62rem; }
@@ -335,6 +358,10 @@ const isMobile = (k: string) => shot(k).device === 'mobile';
   @media (max-width: 900px) {
     .rail__name, .rail__keys { display: none; }
     .meta { grid-template-columns: 1fr 1fr; row-gap: 1.4rem; }
+    /* Every project number stays on screen: they wrap instead of running off. */
+    .rail--compact { align-items: flex-start; }
+    .rail--compact .rail__list { flex-wrap: wrap; justify-content: flex-end; row-gap: 0.2rem; }
+    .rail--compact .rail__list a { padding: 0.35rem 0.6rem; }
   }
 
   /* Summary */

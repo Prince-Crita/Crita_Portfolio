@@ -1,0 +1,114 @@
+{
+  "desktop/admin/pos-cart": {
+    "title": "Point of sale with a live order",
+    "role": "admin",
+    "device": "desktop",
+    "url": "https://server.crita.in/tbc/pos/sell/orders",
+    "full": false,
+    "capturedAt": "2026-10-29T17:08:49.894Z"
+  },
+  "desktop/admin/orders": {
+    "title": "Outlet bills",
+    "role": "admin",
+    "device": "desktop",
+    "url": "https://server.crita.in/tbc/pos/sell/orders",
+    "full": false,
+    "capturedAt": "2026-10-29T17:09:19.389Z"
+  },
+  "desktop/admin/bill": {
+    "title": "Bill with GST split",
+    "role": "admin",
+    "device": "desktop",
+    "url": "https://server.crita.in/tbc/pos/sell/orders",
+    "full": false,
+    "capturedAt": "2026-10-29T17:09:34.195Z"
+  },
+  "desktop/admin/items": {
+    "title": "Menu catalogue",
+    "role": "admin",
+    "device": "desktop",
+    "url": "https://server.crita.in/tbc/catalogue/items",
+    "full": false,
+    "capturedAt": "2026-10-29T17:09:43.415Z"
+  },
+  "desktop/admin/modifiers": {
+    "title": "Modifier groups",
+    "role": "admin",
+    "device": "desktop",
+    "url": "https://server.crita.in/tbc/catalogue/modifier-groups",
+    "full": false,
+    "capturedAt": "2026-10-29T17:09:50.732Z"
+  },
+  "desktop/admin/discounts": {
+    "title": "Discounts and offers",
+    "role": "admin",
+    "device": "desktop",
+    "url": "https://server.crita.in/tbc/catalogue/discounts",
+    "full": false,
+    "capturedAt": "2026-10-29T17:09:56.377Z"
+  },
+  "desktop/admin/locations": {
+    "title": "Outlets",
+    "role": "admin",
+    "device": "desktop",
+    "url": "https://server.crita.in/tbc/admin/locations",
+    "full": false,
+    "capturedAt": "2026-10-29T17:10:02.123Z"
+  },
+  "desktop/admin/roles": {
+    "title": "Staff roles",
+    "role": "admin",
+    "device": "desktop",
+    "url": "https://server.crita.in/tbc/admin/user_roles",
+    "full": false,
+    "capturedAt": "2026-10-29T17:10:07.664Z"
+  },
+  "desktop/admin/reports": {
+    "title": "Sales and tax reports",
+    "role": "admin",
+    "device": "desktop",
+    "url": "https://server.crita.in/tbc/reports",
+    "full": false,
+    "capturedAt": "2026-10-29T17:10:14.182Z"
+  },
+  "mobile/customer/home": {
+    "title": "Home",
+    "role": "customer",
+    "device": "mobile",
+    "url": "http://127.0.0.1:59896/tabs",
+    "full": false,
+    "capturedAt": "2026-10-29T17:29:50.372Z"
+  },
+  "mobile/customer/menu": {
+    "title": "Menu with live prices",
+    "role": "customer",
+    "device": "mobile",
+    "url": "http://127.0.0.1:59896/tabs/menu",
+    "full": false,
+    "capturedAt": "2026-10-29T17:30:00.490Z"
+  },
+  "mobile/customer/cafes": {
+    "title": "Choose a café",
+    "role": "customer",
+    "device": "mobile",
+    "url": "http://127.0.0.1:58235/tabs/store",
+    "full": false,
+    "capturedAt": "2026-10-29T18:48:27.837Z"
+  },
+  "mobile/customer/help": {
+    "title": "Help centre",
+    "role": "customer",
+    "device": "mobile",
+    "url": "http://127.0.0.1:63312/help-center",
+    "full": false,
+    "capturedAt": "2026-10-29T18:41:41.203Z"
+  },
+  "desktop/admin/pos-options": {
+    "title": "Drink options: milk, roast and sweetener",
+    "role": "admin",
+    "device": "desktop",
+    "url": "https://server.crita.in/tbc/pos/sell/orders",
+    "full": false,
+    "capturedAt": "2026-10-29T17:09:08.902Z"
+  }
+}

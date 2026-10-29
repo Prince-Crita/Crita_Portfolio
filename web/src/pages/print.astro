@@ -4,17 +4,22 @@ import Print from '../layouts/Print.astro';
 import BrowserFrame from '../components/BrowserFrame.astro';
 import PhoneFrame from '../components/PhoneFrame.astro';
 import Device from '../components/Device.astro';
-import { site, company, projects, projectById, publicDemo, demoRoles, shot, type Project } from '../lib/content';
+import { site, company, projects, projectById, projectCount, publicDemo, demoRoles, selfServeDemo, liveOf, phonesOnly, heroPhones, shot, type Project } from '../lib/content';
 
 type Page =
-  | { type: 'cover' | 'about' | 'index' | 'close' }
+  | { type: 'cover' | 'about' | 'close' }
+  | { type: 'index'; items: Project[]; part: number; parts: number }
   | { type: 'intro' | 'cs' | 'caps' | 'roles' | 'value'; p: Project }
   | { type: 'tour'; p: Project; items: number[]; part: number };
+
+// The work index holds up to six tiles a page.
+const PER_INDEX = 6;
+const indexParts = Math.ceil(projects.length / PER_INDEX);
 
 const pages: Page[] = [
   { type: 'cover' },
   { type: 'about' },
-  { type: 'index' },
+  ...Array.from({ length: indexParts }, (_, i): Page => ({ type: 'index', items: projects.slice(i * PER_INDEX, (i + 1) * PER_INDEX), part: i + 1, parts: indexParts })),
   ...projects.flatMap((p): Page[] => [
     { type: 'intro', p },
     { type: 'cs', p },
@@ -37,7 +42,7 @@ const joinRoles = (r: string[]) => r.join(', ').replace(/, ([^,]*)$/, ' and $1')
     const n = i + 1;
     const p = 'p' in pg ? pg.p : undefined;
     const darkUI = p?.id === 'veloce';
-    const url = p ? p.live.name : '';
+    const url = p ? (p.live?.name ?? p.name) : '';
     const footer = (tone: 'light' | 'dark') => (
       <footer class:list={['pf', tone === 'dark' && 'pf--dark']}>
         <span>{company.name} — Selected work {site.meta.year}</span>
@@ -110,15 +115,21 @@ const joinRoles = (r: string[]) => r.join(', ').replace(/, ([^,]*)$/, ' and $1')
 
     /* ── Selected work index ───────────────────────────────── */
     if (pg.type === 'index') return (
-      <section class="pg pg--paper2 index">
-        <p class="plabel">Selected work</p>
-        <h2 class="p-h2 index__title">Four platforms, each built around how the business actually works.</h2>
+      <section class:list={['pg', 'pg--paper2', 'index', pg.parts > 1 && 'index--compact']}>
+        <p class="plabel">Selected work{pg.parts > 1 && ` · ${pg.part} of ${pg.parts}`}</p>
+        {pg.part === 1 && <h2 class="p-h2 index__title">{projectCount} platforms, each built around how the business actually works.</h2>}
         <ol class="index__grid">
-          {projects.map((q) => (
+          {pg.items.map((q) => (
             <li class="tile">
-              <a class="tile__art" href={`#p-${q.id}`} style={`--stage:${q.theme.stage}`}>
-                <div class="tile__desk"><BrowserFrame k={q.media.hero} url={q.live.name} tone={q.id === 'veloce' ? 'dark' : 'light'} pick={1400} /></div>
-                <div class="tile__phone"><PhoneFrame k={q.media.heroPhone} pick={390} /></div>
+              <a class:list={['tile__art', phonesOnly(q) && 'tile__art--phones']} href={`#p-${q.id}`} style={`--stage:${q.theme.stage}`}>
+                {phonesOnly(q) ? (
+                  heroPhones(q).map((k) => <div class="tile__p"><PhoneFrame k={k} pick={390} /></div>)
+                ) : (
+                  <>
+                    <div class="tile__desk"><BrowserFrame k={q.media.hero} url={q.live?.name ?? q.name} tone={q.id === 'veloce' ? 'dark' : 'light'} pick={1400} /></div>
+                    <div class="tile__phone"><PhoneFrame k={q.media.heroPhone} pick={390} /></div>
+                  </>
+                )}
               </a>
               <div class="tile__text">
                 <span class="tnum tile__num">{q.number}</span>
@@ -149,10 +160,16 @@ const joinRoles = (r: string[]) => r.join(', ').replace(/, ([^,]*)$/, ' and $1')
             <div><dt>Roles</dt><dd>{p.roles}</dd></div>
           </dl>
         </div>
-        <div class="intro__art">
-          <div class="intro__desk"><BrowserFrame k={p.media.hero} url={url} tone={darkUI ? 'dark' : 'light'} pick={2200} /></div>
-          <div class="intro__phone"><PhoneFrame k={p.media.heroPhone} pick={780} /></div>
-        </div>
+        {phonesOnly(p) ? (
+          <div class="intro__art intro__art--phones">
+            {heroPhones(p).map((k) => <div class="intro__p"><PhoneFrame k={k} pick={780} /></div>)}
+          </div>
+        ) : (
+          <div class="intro__art">
+            <div class="intro__desk"><BrowserFrame k={p.media.hero} url={url} tone={darkUI ? 'dark' : 'light'} pick={2200} /></div>
+            <div class="intro__phone"><PhoneFrame k={p.media.heroPhone} pick={780} /></div>
+          </div>
+        )}
         {footer(p.theme.stageInk === 'light' ? 'dark' : 'light')}
       </section>
     );
@@ -299,6 +316,8 @@ const joinRoles = (r: string[]) => r.join(', ').replace(/, ([^,]*)$/, ' and $1')
     /* ── Value, delivery & live ────────────────────────────── */
     if (pg.type === 'value' && p) {
       const demo = publicDemo(p.id);
+      const live = liveOf(p);
+      const selfServe = selfServeDemo(p.id);
       return (
         <section class="pg value">
           <div class="value__main">
@@ -321,21 +340,35 @@ const joinRoles = (r: string[]) => r.join(', ').replace(/, ([^,]*)$/, ' and $1')
               <ul class="value__hl">{p.delivery.highlights.map((h) => <li class="p-small">{h}</li>)}</ul>
             </div>
             <div class="livebox">
-              <p class="plabel plabel--dark">Live product</p>
-              <a class="livebox__link" href={p.live.url}>{p.live.label} →</a>
-              <p class="livebox__url"><a href={p.live.url}>{p.live.name}</a></p>
-              <div class="livebox__demo">
-                <p class="livebox__title">Demo access</p>
-                {demo ? (
-                  <table>
-                    <tbody>
-                      {demo.map((a: any) => (<tr><td>{a.role}</td><td><code>{a.user}</code></td><td><code>{a.pass}</code></td></tr>))}
-                    </tbody>
-                  </table>
-                ) : (
-                  <p class="p-small">Guided demo of the {joinRoles(demoRoles(p.id))} views, on request — <a href={`mailto:${company.contact.email}`}>{company.contact.email}</a></p>
-                )}
-              </div>
+              {live ? (
+                <>
+                  <p class="plabel plabel--dark">Live product</p>
+                  <a class="livebox__link" href={live.url}>{live.label} →</a>
+                  <p class="livebox__url"><a href={live.url}>{live.name}</a></p>
+                </>
+              ) : (
+                <>
+                  <p class="plabel plabel--dark">In production</p>
+                  <a class="livebox__link" href={`mailto:${company.contact.email}`}>Walkthrough on request →</a>
+                  <p class="p-small">A live walkthrough of the {joinRoles(demoRoles(p.id))} views — <a href={`mailto:${company.contact.email}`}>{company.contact.email}</a></p>
+                </>
+              )}
+              {live && (
+                <div class="livebox__demo">
+                  <p class="livebox__title">Demo access</p>
+                  {selfServe ? (
+                    <p class="p-small">{selfServe}</p>
+                  ) : demo ? (
+                    <table>
+                      <tbody>
+                        {demo.map((a: any) => (<tr><td>{a.role}</td><td><code>{a.user}</code></td><td><code>{a.pass}</code></td></tr>))}
+                      </tbody>
+                    </table>
+                  ) : (
+                    <p class="p-small">Guided demo of the {joinRoles(demoRoles(p.id))} views, on request — <a href={`mailto:${company.contact.email}`}>{company.contact.email}</a></p>
+                  )}
+                </div>
+              )}
             </div>
             <p class="p-small muted value__privacy">{p.privacy}</p>
           </aside>
@@ -434,7 +467,7 @@ const joinRoles = (r: string[]) => r.join(', ').replace(/, ([^,]*)$/, ' and $1')
   .ca--main { width: 112mm; right: 0; top: 16mm; }
   .ca--phone { width: 27mm; left: 18mm; top: 44mm; }
   .ca--phone2 { width: 25mm; right: -4mm; top: 52mm; }
-  .cover__index { display: grid; grid-template-columns: repeat(4, 1fr); gap: 5mm; border-top: 0.25mm solid var(--line-dark); padding-top: 4mm; }
+  .cover__index { display: grid; grid-template-columns: repeat(5, 1fr); gap: 3mm 5mm; border-top: 0.25mm solid var(--line-dark); padding-top: 4mm; }
   .cover__index li { display: grid; gap: 0.6mm; font-size: 7.6pt; color: var(--on-dark-3); }
   .cover__index strong { font-size: 9.4pt; color: var(--on-dark); font-weight: 620; }
   .cover__contact { position: absolute; right: 16mm; top: 15mm; display: none; }
@@ -464,6 +497,12 @@ const joinRoles = (r: string[]) => r.join(', ').replace(/, ([^,]*)$/, ' and $1')
   .tile__text { display: grid; gap: 1.2mm; align-content: center; }
   .tile__num { color: var(--leaf); font-weight: 650; font-size: 8pt; }
   .tile__page { color: var(--leaf); font-weight: 600; margin-top: 1mm; }
+  /* Index over several pages: three rows of tiles a page. */
+  .index--compact .index__grid { gap: 6mm 10mm; }
+  .index--compact .tile__art { height: 40mm; }
+  .tile__art--phones { display: flex; justify-content: center; align-items: flex-start; gap: 3mm; padding: 4mm 4mm 0; }
+  .tile__p { width: 15mm; margin-top: 3mm; }
+  .tile__p:nth-child(2) { width: 17mm; margin-top: 0; }
 
   /* Intro */
   .intro { display: grid; grid-template-columns: 96mm 1fr; gap: 10mm; align-items: center; }
@@ -476,6 +515,9 @@ const joinRoles = (r: string[]) => r.join(', ').replace(/, ([^,]*)$/, ' and $1')
   .intro__art { position: relative; height: 150mm; display: flex; align-items: center; }
   .intro__desk { width: 142mm; }
   .intro__phone { position: absolute; width: 36mm; right: -2mm; bottom: 6mm; }
+  .intro__art--phones { justify-content: center; align-items: flex-start; gap: 8mm; }
+  .intro__p { width: 42mm; margin-top: 14mm; }
+  .intro__p:nth-child(2) { width: 48mm; margin-top: 0; }
 
   /* Challenge & solution */
   .cs { display: grid; grid-template-columns: 104mm 1fr; gap: 12mm; }

@@ -18,9 +18,13 @@ if (!fs.existsSync(accessFile)) {
   process.exit(0);
 }
 const access = JSON.parse(fs.readFileSync(accessFile, 'utf8'));
-const secrets = Object.entries(access)
+const values = Object.entries(access)
   .filter(([k, v]) => !k.startsWith('_') && v.visibility !== 'public')
   .flatMap(([, v]) => v.accounts.flatMap((a) => [a.user, a.pass]));
+// Values this short (e.g. "1234") occur by chance in binary PDF data and
+// ordinary text, so they cannot be checked meaningfully; they are only counted.
+const secrets = values.filter((s) => s.length >= 6);
+const tooShort = values.length - secrets.length;
 
 const hits = [];
 const scan = (label, text) => secrets.forEach((s) => text.includes(s) && hits.push(`${label}: "${s}"`));
@@ -47,4 +51,7 @@ if (hits.length) {
   console.error('Presenter-only logins found in public outputs:\n  ' + hits.join('\n  '));
   process.exit(1);
 }
-console.log(`Leak check passed: ${secrets.length} presenter-only values absent from the website, PDFs and the main deck (notes included).`);
+console.log(
+  `Leak check passed: ${secrets.length} presenter-only values absent from the website, PDFs and the main deck (notes included).` +
+    (tooShort ? ` ${tooShort} value(s) under 6 characters not checkable.` : '')
+);

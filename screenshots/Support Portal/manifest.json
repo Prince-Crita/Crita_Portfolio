@@ -1,0 +1,90 @@
+{
+  "desktop/public/help-centre": {
+    "title": "Support portal home",
+    "role": "public",
+    "device": "desktop",
+    "url": "https://server.crita.in/support-ticket/dev/",
+    "full": false,
+    "capturedAt": "2026-10-29T17:12:47.675Z"
+  },
+  "desktop/public/knowledge-base": {
+    "title": "Knowledge base",
+    "role": "public",
+    "device": "desktop",
+    "url": "https://server.crita.in/support-ticket/dev/#/knowledge-base",
+    "full": false,
+    "capturedAt": "2026-10-29T17:12:52.109Z"
+  },
+  "desktop/requester/raise-ticket": {
+    "title": "Raise a ticket",
+    "role": "requester",
+    "device": "desktop",
+    "url": "https://server.crita.in/support-ticket/dev/#/portal/tickets/new",
+    "full": false,
+    "capturedAt": "2026-10-29T17:13:00.982Z"
+  },
+  "desktop/admin/queue": {
+    "title": "Admin queue",
+    "role": "admin",
+    "device": "desktop",
+    "url": "https://server.crita.in/support-ticket/dev/#/portal/tickets",
+    "full": false,
+    "capturedAt": "2026-10-29T17:13:10.787Z"
+  },
+  "desktop/admin/ticket": {
+    "title": "Ticket with conversation and workflow",
+    "role": "admin",
+    "device": "desktop",
+    "url": "https://server.crita.in/support-ticket/dev/#/portal/tickets/SUPPORT-392484",
+    "full": false,
+    "capturedAt": "2026-10-29T17:13:15.163Z"
+  },
+  "desktop/admin/history": {
+    "title": "Status history",
+    "role": "admin",
+    "device": "desktop",
+    "url": "https://server.crita.in/support-ticket/dev/#/portal/history",
+    "full": false,
+    "capturedAt": "2026-10-29T17:13:19.566Z"
+  },
+  "desktop/admin/types": {
+    "title": "Ticket types and approval rules",
+    "role": "admin",
+    "device": "desktop",
+    "url": "https://server.crita.in/support-ticket/dev/#/portal/support-ticket-types",
+    "full": false,
+    "capturedAt": "2026-10-29T17:13:23.955Z"
+  },
+  "mobile/public/help-centre": {
+    "title": "Support portal home",
+    "role": "public",
+    "device": "mobile",
+    "url": "https://server.crita.in/support-ticket/dev/",
+    "full": false,
+    "capturedAt": "2026-10-29T17:13:29.605Z"
+  },
+  "mobile/requester/raise-ticket": {
+    "title": "Raise a ticket",
+    "role": "requester",
+    "device": "mobile",
+    "url": "https://server.crita.in/support-ticket/dev/#/portal/tickets/new",
+    "full": false,
+    "capturedAt": "2026-10-29T17:13:38.228Z"
+  },
+  "mobile/admin/queue": {
+    "title": "Admin queue",
+    "role": "admin",
+    "device": "mobile",
+    "url": "https://server.crita.in/support-ticket/dev/#/portal/tickets",
+    "full": false,
+    "capturedAt": "2026-10-29T17:13:46.581Z"
+  },
+  "mobile/admin/ticket": {
+    "title": "Ticket on mobile",
+    "role": "admin",
+    "device": "mobile",
+    "url": "https://server.crita.in/support-ticket/dev/#/portal/tickets/SUPPORT-392484",
+    "full": false,
+    "capturedAt": "2026-10-29T17:13:50.928Z"
+  }
+}

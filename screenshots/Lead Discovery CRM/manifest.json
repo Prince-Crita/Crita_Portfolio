@@ -1,0 +1,82 @@
+{
+  "desktop/admin/dashboard": {
+    "title": "Lead dashboard",
+    "role": "admin",
+    "device": "desktop",
+    "url": "https://critacreativellp-dev.web.app/dashboard",
+    "full": false,
+    "capturedAt": "2026-10-29T17:10:32.418Z"
+  },
+  "desktop/admin/responses": {
+    "title": "Questionnaire responses",
+    "role": "admin",
+    "device": "desktop",
+    "url": "https://critacreativellp-dev.web.app/responses",
+    "full": false,
+    "capturedAt": "2026-10-29T17:10:46.276Z"
+  },
+  "desktop/admin/insight": {
+    "title": "Response with campaign insight and fit score",
+    "role": "admin",
+    "device": "desktop",
+    "url": "https://critacreativellp-dev.web.app/responses",
+    "full": false,
+    "capturedAt": "2026-10-29T17:29:34.125Z"
+  },
+  "desktop/admin/templates": {
+    "title": "Discovery questionnaire templates",
+    "role": "admin",
+    "device": "desktop",
+    "url": "https://critacreativellp-dev.web.app/templates",
+    "full": false,
+    "capturedAt": "2026-10-29T17:11:22.088Z"
+  },
+  "desktop/prospect/questionnaire": {
+    "title": "Public discovery questionnaire",
+    "role": "prospect",
+    "device": "desktop",
+    "url": "https://critacreativellp-dev.web.app/discover/inventory-mgmt",
+    "full": false,
+    "capturedAt": "2026-10-29T17:11:35.906Z"
+  },
+  "mobile/prospect/questionnaire": {
+    "title": "Discovery questionnaire on a phone",
+    "role": "prospect",
+    "device": "mobile",
+    "url": "https://critacreativellp-dev.web.app/discover/inventory-mgmt",
+    "full": false,
+    "capturedAt": "2026-10-29T17:11:49.214Z"
+  },
+  "mobile/admin/dashboard": {
+    "title": "Lead dashboard",
+    "role": "admin",
+    "device": "mobile",
+    "url": "https://critacreativellp-dev.web.app/dashboard",
+    "full": false,
+    "capturedAt": "2026-10-29T17:17:35.239Z"
+  },
+  "mobile/admin/insight": {
+    "title": "Campaign insight",
+    "role": "admin",
+    "device": "mobile",
+    "url": "https://critacreativellp-dev.web.app/responses",
+    "full": false,
+    "capturedAt": "2026-10-29T17:30:14.741Z"
+  },
+  "mobile/admin/templates": {
+    "title": "Questionnaire templates",
+    "role": "admin",
+    "device": "mobile",
+    "url": "https://critacreativellp-dev.web.app/templates",
+    "full": false,
+    "capturedAt": "2026-10-29T17:18:30.146Z"
+  },
+  "mobile/admin/responses": {
+    "title": "Responses by questionnaire",
+    "role": "admin",
+    "device": "mobile",
+    "url": "https://critacreativellp-dev.web.app/responses",
+    "full": false,
+    "capturedAt": "2026-10-29T18:59:01.971Z"
+  }
+}

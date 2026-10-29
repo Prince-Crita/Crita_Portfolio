@@ -33,5 +33,41 @@
       { "key": "executive", "role": "Warehouse Executive", "user": "…", "pass": "…" }
     ],
     "path": ["Tap a role under “Demonstration access” on the login screen."]
+  },
+  "tribal-brew-coffee": {
+    "visibility": "presenter",
+    "why": "Live production POS of a working café chain — view only.",
+    "accounts": [{ "key": "admin", "role": "Head office (test login)", "user": "…", "pass": "…" }],
+    "path": ["Point of Sale → Sell → choose an outlet → open a completed bill."]
+  },
+  "lead-discovery-crm": {
+    "visibility": "presenter",
+    "why": "A Crita team member’s own account.",
+    "accounts": [{ "key": "admin", "role": "Admin", "user": "…", "pass": "…" }],
+    "path": ["Dashboard → Responses → open a response → Templates."]
+  },
+  "ai-sales-crm": {
+    "visibility": "public",
+    "why": "One-click demo account on the app’s own sign-in screen.",
+    "accounts": [],
+    "path": ["Sign-in screen → Try Demo Account → Sign in."]
+  },
+  "expense-log": {
+    "visibility": "presenter",
+    "why": "Shared demo backend; the admin account can change company data.",
+    "accounts": [
+      { "key": "admin", "role": "Administrator", "user": "…", "pass": "…" },
+      { "key": "manager", "role": "Manager", "user": "…", "pass": "…" }
+    ],
+    "path": ["Administrator: Home → All Expenses → Budget Management → Report."]
+  },
+  "support-portal": {
+    "visibility": "presenter",
+    "why": "The administrator account can change any ticket.",
+    "accounts": [
+      { "key": "requester", "role": "Requester", "user": "…", "pass": "…" },
+      { "key": "admin", "role": "Administrator", "user": "…", "pass": "…" }
+    ],
+    "path": ["Administrator: All tickets → open the resolved ticket → History."]
   }
 }

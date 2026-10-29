@@ -6,9 +6,11 @@ from PIL import Image, ImageDraw
 root, out = sys.argv[1], sys.argv[2]
 os.makedirs(out, exist_ok=True)
 content = json.load(open(os.path.join(root, 'content', 'portfolio.json'), encoding='utf-8'))
+# Keys map to files through the media manifest (folder names are slugged in keys).
+media = json.load(open(os.path.join(root, 'web', 'src', 'data', 'media.json'), encoding='utf-8'))
 refs = []
 def collect(v):
-    if isinstance(v, str) and re.match(r'^[a-z-]+/[a-z]+-(desktop|mobile)/', v):
+    if isinstance(v, str) and re.match(r'^[a-z0-9-]+/([a-z]+-)?(desktop|mobile)/', v):
         if v not in refs: refs.append(v)
     elif isinstance(v, list): [collect(x) for x in v]
     elif isinstance(v, dict): [collect(x) for x in v.values()]
@@ -16,8 +18,8 @@ collect(content)
 
 tiles = []
 for k in refs:
-    im = Image.open(os.path.join(root, 'screenshots', k + '.png')).convert('RGB')
-    mobile = '-mobile/' in k
+    im = Image.open(os.path.join(root, media[k]['deck'])).convert('RGB')
+    mobile = media[k]['device'] == 'mobile'
     if not mobile: im = im.crop((0, 0, im.width, min(im.height, int(im.width * 0.625))))
     im.thumbnail((480, 300) if not mobile else (180, 390))
     tile = Image.new('RGB', (490, 420), (255, 255, 255))

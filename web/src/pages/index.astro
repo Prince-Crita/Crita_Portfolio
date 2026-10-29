@@ -3,7 +3,7 @@ import Base from '../layouts/Base.astro';
 import BrowserFrame from '../components/BrowserFrame.astro';
 import PhoneFrame from '../components/PhoneFrame.astro';
 import ProjectCard from '../components/ProjectCard.astro';
-import { site, company, projects, projectById, mailto } from '../lib/content';
+import { site, company, projects, projectById, projectCount, mailto } from '../lib/content';
 
 const quotes = projects.filter((p) => p.quote);
 const nameOf = (id: string) => projectById(id).name;
@@ -68,7 +68,7 @@ const nameOf = (id: string) => projectById(id).name;
     <div class="wrap">
       <header class="work__head">
         <p class="label" data-reveal>Selected work</p>
-        <h2 class="h2" data-reveal style="--i:1">Four platforms, each built around how the business actually works.</h2>
+        <h2 class="h2" data-reveal style="--i:1">{projectCount} platforms, each built around how the business actually works.</h2>
         <ol class="work__index" data-reveal style="--i:2">
           {projects.map((p) => (
             <li><a href={`/work/${p.id}/`}><span class="tnum">{p.number}</span>{p.name}</a></li>

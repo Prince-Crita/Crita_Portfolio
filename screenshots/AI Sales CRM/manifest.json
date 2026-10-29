@@ -1,0 +1,90 @@
+{
+  "desktop/dashboard": {
+    "title": "Sales dashboard",
+    "role": "sales",
+    "device": "desktop",
+    "url": "https://crita-crm.vercel.app/",
+    "full": false,
+    "capturedAt": "2026-10-29T17:08:56.302Z"
+  },
+  "desktop/insights": {
+    "title": "AI pipeline health and insights",
+    "role": "sales",
+    "device": "desktop",
+    "url": "https://crita-crm.vercel.app/",
+    "full": false,
+    "capturedAt": "2026-10-29T17:09:27.148Z"
+  },
+  "desktop/pipeline": {
+    "title": "Pipeline board",
+    "role": "sales",
+    "device": "desktop",
+    "url": "https://crita-crm.vercel.app/",
+    "full": false,
+    "capturedAt": "2026-10-29T17:09:41.036Z"
+  },
+  "desktop/leads": {
+    "title": "Leads",
+    "role": "sales",
+    "device": "desktop",
+    "url": "https://crita-crm.vercel.app/",
+    "full": false,
+    "capturedAt": "2026-10-29T17:09:54.247Z"
+  },
+  "desktop/lead-ai": {
+    "title": "AI lead summary with next best action",
+    "role": "sales",
+    "device": "desktop",
+    "url": "https://crita-crm.vercel.app/",
+    "full": false,
+    "capturedAt": "2026-10-29T17:10:31.059Z"
+  },
+  "desktop/lead-email": {
+    "title": "AI email draft",
+    "role": "sales",
+    "device": "desktop",
+    "url": "https://crita-crm.vercel.app/",
+    "full": false,
+    "capturedAt": "2026-10-29T17:11:11.582Z"
+  },
+  "desktop/follow-ups": {
+    "title": "Follow-ups",
+    "role": "sales",
+    "device": "desktop",
+    "url": "https://crita-crm.vercel.app/",
+    "full": false,
+    "capturedAt": "2026-10-29T17:11:35.051Z"
+  },
+  "mobile/dashboard": {
+    "title": "Dashboard",
+    "role": "sales",
+    "device": "mobile",
+    "url": "https://crita-crm.vercel.app/",
+    "full": false,
+    "capturedAt": "2026-10-29T17:11:56.924Z"
+  },
+  "mobile/pipeline": {
+    "title": "Pipeline",
+    "role": "sales",
+    "device": "mobile",
+    "url": "https://crita-crm.vercel.app/",
+    "full": false,
+    "capturedAt": "2026-10-29T17:12:11.251Z"
+  },
+  "mobile/leads": {
+    "title": "Leads",
+    "role": "sales",
+    "device": "mobile",
+    "url": "https://crita-crm.vercel.app/",
+    "full": false,
+    "capturedAt": "2026-10-29T17:12:25.576Z"
+  },
+  "mobile/lead-ai": {
+    "title": "AI lead summary",
+    "role": "sales",
+    "device": "mobile",
+    "url": "https://crita-crm.vercel.app/",
+    "full": false,
+    "capturedAt": "2026-10-29T18:50:04.785Z"
+  }
+}

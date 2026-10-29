@@ -2,7 +2,9 @@
 //   web/public/media/<key>-<w>.webp   responsive variants for the site and PDF
 //   assets/media/<key>.jpg            high-quality JPEGs for the PowerPoint deck
 //   web/src/data/media.json           manifest: dimensions + variant URLs per key
-// A key is the screenshot path without extension, e.g. "smc/admin-desktop/dashboard".
+// A key is the screenshot path without extension, e.g. "smc/admin-desktop/dashboard";
+// folders named after a project ("Tribal Brew Coffee/desktop/admin/pos") become
+// lower-case and hyphenated ("tribal-brew-coffee/desktop/admin/pos").
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -27,21 +29,22 @@ const walk = (dir) =>
   });
 
 const fresh = (out, srcStat) => fs.existsSync(out) && fs.statSync(out).mtimeMs >= srcStat.mtimeMs;
+const slug = (p) => p.toLowerCase().replace(/\s+/g, '-');
 
 // Capture titles (written by tools/capture) become alt text.
 const titles = {};
 for (const project of fs.readdirSync(SRC)) {
   const m = path.join(SRC, project, 'manifest.json');
   if (!fs.existsSync(m)) continue;
-  for (const [k, v] of Object.entries(JSON.parse(fs.readFileSync(m, 'utf8')))) titles[`${project}/${k}`] = v.title;
+  for (const [k, v] of Object.entries(JSON.parse(fs.readFileSync(m, 'utf8')))) titles[slug(`${project}/${k}`)] = v.title;
 }
 
 const manifest = {};
 let made = 0;
 const files = walk(SRC);
 for (const file of files) {
-  const key = path.relative(SRC, file).replace(/\\/g, '/').replace(/\.png$/, '');
-  const device = key.includes('-mobile/') ? 'mobile' : 'desktop';
+  const key = slug(path.relative(SRC, file).replace(/\\/g, '/').replace(/\.png$/, ''));
+  const device = /(^|\/)mobile\/|-mobile\//.test(key) ? 'mobile' : 'desktop';
   const stat = fs.statSync(file);
   const { width, height } = await sharp(file).metadata();
   const entry = { w: width, h: height, device, title: titles[key] ?? '', variants: [] };
@@ -100,7 +103,7 @@ fs.writeFileSync(MANIFEST, JSON.stringify(manifest, null, 1));
 const content = JSON.parse(fs.readFileSync(path.join(root, 'content', 'portfolio.json'), 'utf8'));
 const refs = new Set();
 const collect = (v) => {
-  if (typeof v === 'string' && /^[a-z-]+\/[a-z]+-(desktop|mobile)\//.test(v)) refs.add(v);
+  if (typeof v === 'string' && /^[a-z0-9-]+\/([a-z]+-)?(desktop|mobile)\//.test(v)) refs.add(v);
   else if (Array.isArray(v)) v.forEach(collect);
   else if (v && typeof v === 'object') Object.values(v).forEach(collect);
 };
