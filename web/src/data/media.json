@@ -2216,7 +2216,7 @@
   "w": 1170,
   "h": 2532,
   "device": "mobile",
-  "title": "Trend and category split",
+  "title": "Spend by category, department and payment mode",
   "variants": [
    {
     "w": 390,
@@ -4359,7 +4359,7 @@
  },
  "veloce/admin-desktop/analytics-full": {
   "w": 2880,
-  "h": 4038,
+  "h": 1800,
   "device": "desktop",
   "title": "Analytics · 90 days (full page)",
   "variants": [

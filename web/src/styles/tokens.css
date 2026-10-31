@@ -58,7 +58,7 @@
   --fs-lead: clamp(1.125rem, 1.02rem + 0.42vw, 1.4rem);
   --fs-body: 1.0625rem;
   --fs-small: 0.9375rem;
-  --fs-label: 0.75rem;
+  --fs-label: 0.8rem;
 
   /* Space & layout */
   --gutter: clamp(20px, 4.2vw, 64px);

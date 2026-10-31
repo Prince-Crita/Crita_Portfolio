@@ -159,6 +159,11 @@ const isMobile = (k) => media[k]?.device === 'mobile';
 const dark = (p) => p.theme.stageInk === 'light';
 const join = (a) => a.join(', ').replace(/, ([^,]*)$/, ' and $1');
 const nameOf = (id) => projects.find((p) => p.id === id).name;
+// The one route to a product: a demo request by email (same message as the website).
+const demoRequest = (p) =>
+  `mailto:${company.contact.email}?subject=${encodeURIComponent(`Demo Request — ${p.name}`)}&body=${encodeURIComponent(
+    `Hello Crita team,\n\nWe would like to see a demonstration of ${p.name}. Please suggest a suitable time.\n\nName:\nCompany:\nPhone:\n\nThank you.`
+  )}`;
 const COUNT = ['No', 'One', 'Two', 'Three', 'Four', 'Five', 'Six', 'Seven', 'Eight', 'Nine', 'Ten', 'Eleven', 'Twelve'][projects.length] ?? String(projects.length);
 
 // Slide numbers are fixed by structure: 4 opening slides, 8 per project, then the close.
@@ -182,7 +187,7 @@ pres.addSection({ title: 'Introduction' });
     tb({ x: M, y: 2.08, w: 5.7, h: 2.55, fontSize: 44, bold: true, lineSpacingMultiple: 0.9, charSpacing: -1.2 })
   );
   s.addText(company.intro, tb({ x: M, y: 4.72, w: 5.3, h: 1.15, fontSize: 13, color: HEX.onDark2, lineSpacingMultiple: 1.12 }));
-  placeArt(s, 'cover', { x: 6.55, y: 1.3, w: 6.2, h: 4.6 }, { alt: 'Screens from SMC Task Management, Clario, Veloce Scrap Flow and City Threads' });
+  placeArt(s, 'cover', { x: 6.55, y: 1.3, w: 6.2, h: 4.6 }, { alt: 'Screens from SMC Task Management, Clario, Veloce Inventory and City Threads' });
   rule(s, M, 6.12, W - 2 * M, true);
   // Every project, five to a row, each a link to its first slide.
   const colW = (W - 2 * M) / 5;
@@ -229,7 +234,7 @@ pres.addSection({ title: 'Introduction' });
       [
         { text: pad2(i + 1), options: { bold: true, color: HEX.leaf, fontSize: 9.5, breakLine: true } },
         { text: st.title, options: { bold: true, color: HEX.ink, fontSize: 15, breakLine: true } },
-        { text: st.body, options: { color: HEX.ink3, fontSize: 10.5 } },
+        { text: st.body, options: { color: HEX.ink3, fontSize: 11.5 } },
       ],
       tb({ x, y: 5.5, w: 2.86, h: 1.4, paraSpaceAfter: 3 })
     );
@@ -258,8 +263,8 @@ pres.addSection({ title: 'Introduction' });
       [
         { text: pad2(i + 1), options: { bold: true, color: HEX.leaf, fontSize: 9.5, breakLine: true } },
         { text: c.title, options: { bold: true, color: HEX.ink, fontSize: 16, breakLine: true } },
-        { text: c.body, options: { color: HEX.ink3, fontSize: 11, breakLine: true } },
-        { text: c.proof.map(nameOf).join('  ·  '), options: { color: HEX.moss, fontSize: 9.5, bold: true } },
+        { text: c.body, options: { color: HEX.ink3, fontSize: 12, breakLine: true } },
+        { text: c.proof.map(nameOf).join('  ·  '), options: { color: HEX.moss, fontSize: 10, bold: true } },
       ],
       tb({ x, y: y + 0.16, w: 3.75, h: 1.95, paraSpaceAfter: 4 })
     );
@@ -281,14 +286,14 @@ pres.addSection({ title: 'Introduction' });
   const cw = (W - 2 * M - 4 * gap) / 5;
   projects.forEach((p, i) => {
     const x = M + (i % 5) * (cw + gap);
-    const y = 1.85 + Math.floor(i / 5) * 2.55;
+    const y = 2.0 + Math.floor(i / 5) * 2.45;
     s.addShape(S.roundRect, { x, y, w: cw, h: 1.5, fill: { color: hex(p.theme.stage) }, line: { type: 'none' }, rectRadius: 0.1 });
     placeArt(s, `${p.id}-hero`, { x: x + 0.14, y: y + 0.14, w: cw - 0.28, h: 1.22 }, { alt: `${p.name} screens` });
     s.addText(
       [
         { text: p.number, options: { bold: true, color: HEX.leaf, fontSize: 9, breakLine: true } },
         { text: p.name, options: { bold: true, color: HEX.ink, fontSize: 13, breakLine: true } },
-        { text: p.sector, options: { color: HEX.ink3, fontSize: 9, breakLine: true } },
+        { text: p.sector, options: { color: HEX.ink3, fontSize: 9.5, breakLine: true } },
         { text: `Slide ${introSlide(i)} →`, options: { color: HEX.moss, fontSize: 9, bold: true } },
       ],
       tb({ x, y: y + 1.6, w: cw, h: 0.88, paraSpaceAfter: 2 })
@@ -312,7 +317,6 @@ projects.forEach((p, pi) => {
   const text2 = d ? HEX.onDark2 : HEX.ink2;
   const text3 = d ? HEX.onDark3 : HEX.ink3;
   const presenter = access[p.id]; // presenter-only logins and demo path (optional file)
-  const publicAccounts = p.demo?.public ?? null;
 
   // 1 · Intro
   {
@@ -326,8 +330,8 @@ projects.forEach((p, pi) => {
     // -1pt letter-spacing, against the 5.25in box.
     const em = [...p.name].reduce((w, c) => w + (/[iljtfr .,'’]/.test(c) ? 0.3 : /[mwMW]/.test(c) ? 0.85 : /[A-Z]/.test(c) ? 0.68 : 0.56), 0);
     const lift = em * (40 / 72) - p.name.length / 72 <= 5.25 ? 0.62 : 0;
-    s.addText(p.tagline, tb({ x: M, y: 2.68 - lift, w: 5.0, h: 0.85, fontSize: 16.5, fontFace: FONT_MEDIUM, color: text1, lineSpacingMultiple: 1.08 }));
-    s.addText(p.summary, tb({ x: M, y: 3.58 - lift, w: 5.0, h: 1.45, fontSize: 11, color: text2, lineSpacingMultiple: 1.15 }));
+    s.addText(p.tagline, tb({ x: M, y: 2.68 - lift, w: 5.0, h: 0.95, fontSize: 16.5, fontFace: FONT_MEDIUM, color: text1, lineSpacingMultiple: 1.08 }));
+    s.addText(p.summary, tb({ x: M, y: 3.7 - lift, w: 5.0, h: 1.45, fontSize: 12, color: text2, lineSpacingMultiple: 1.15 }));
     rule(s, M, 5.2, 5.0, d);
     [['Client', p.client], ['Sector', p.sector], ['Platform', p.platforms], ['Roles', p.roles]].forEach(([k, v], i) => {
       const x = M + (i % 2) * 2.6;
@@ -344,7 +348,7 @@ projects.forEach((p, pi) => {
     placeArt(s, `${p.id}-hero`, { x: 6.0, y: 1.05, w: 6.75, h: 5.4 }, { alt: `${p.name} on desktop and mobile`, reveal: 1 });
     s.addNotes(
       `${p.name.toUpperCase()} — ${p.client} (${p.sector}).\n\nOne-liner: “${p.tagline}”\n\n${p.summary}\n\n` +
-        (p.live ? `Live: ${p.live.name}` : 'In production — shown in a walkthrough, no public link.') + (p.privacy ? `\nNote: ${p.privacy}` : '')
+        `Demo: on request, ${company.contact.email}.` + (p.privacy ? `\nNote: ${p.privacy}` : '')
     );
   }
 
@@ -375,7 +379,7 @@ projects.forEach((p, pi) => {
       const cap = [
         { text: pad2(idx + 1), options: { bold: true, color: HEX.leaf, fontSize: 9.5, breakLine: true } },
         { text: t.title, options: { bold: true, color: HEX.ink, fontSize: 15, breakLine: true } },
-        { text: t.body, options: { color: HEX.ink3, fontSize: 11 } },
+        { text: t.body, options: { color: HEX.ink3, fontSize: 12 } },
       ];
       if (isMobile(t.shot)) {
         placeArt(s, `${p.id}-tour-${idx}`, { x, y: 1.75, w: 2.3, h: 5.05 }, { align: 'left', valign: 'top', alt: t.title, reveal: j + 1 });
@@ -401,7 +405,7 @@ projects.forEach((p, pi) => {
         [
           { text: pad2(i + 1), options: { bold: true, color: HEX.leaf, fontSize: 9.5, breakLine: true } },
           { text: c.title, options: { bold: true, color: HEX.ink, fontSize: 14, breakLine: true } },
-          { text: c.body, options: { color: HEX.ink3, fontSize: 10.5 } },
+          { text: c.body, options: { color: HEX.ink3, fontSize: 11.5 } },
         ],
         tb({ x, y: y + 0.13, w: 3.9, h: 1.45, paraSpaceAfter: 3 })
       );
@@ -428,7 +432,7 @@ projects.forEach((p, pi) => {
         [
           { text: r.device.toUpperCase(), options: { fontSize: 8, bold: true, charSpacing: 1.6, color: text3, breakLine: true } },
           { text: r.name, options: { fontSize: 17, bold: true, color: text1, breakLine: true } },
-          { text: r.lead, options: { fontSize: 11, color: text1 } },
+          { text: r.lead, options: { fontSize: 12, color: text1 } },
         ],
         tb({ x, y: 4.86, w: colW, h: 0.95, paraSpaceAfter: 2 })
       );
@@ -493,7 +497,7 @@ projects.forEach((p, pi) => {
       s.addText(
         [
           { text: v.title, options: { bold: true, color: HEX.ink, fontSize: 14.5, breakLine: true } },
-          { text: v.body, options: { color: HEX.ink3, fontSize: 10.5 } },
+          { text: v.body, options: { color: HEX.ink3, fontSize: 11.5 } },
         ],
         tb({ x, y: y + 0.14, w: 3.55, h: 1.2, paraSpaceAfter: 3 })
       );
@@ -518,45 +522,23 @@ projects.forEach((p, pi) => {
     const after = chips(s, p.delivery.stack, sx, 0.98, sw);
     if (p.quote) bullets(s, p.delivery.highlights, sx, after + 0.22, sw, 1.65, { size: 10 });
     s.addShape(S.roundRect, { x: sx, y: 4.3, w: sw, h: 2.5, fill: { color: HEX.night }, line: { type: 'none' }, rectRadius: 0.14 });
-    if (p.live) {
-      label(s, 'Live product', sx + 0.3, 4.55, { dark: true, w: sw - 0.6 });
-      s.addText(`${p.live.label} →`, tb({ x: sx + 0.3, y: 4.92, w: sw - 0.6, h: 0.4, fontSize: 16, bold: true, color: HEX.lime, hyperlink: { url: p.live.url, tooltip: p.live.name } }));
-      s.addText(p.live.name, tb({ x: sx + 0.3, y: 5.33, w: sw - 0.6, h: 0.25, fontSize: 9, color: HEX.onDark3 }));
-      linkArea(s, p.live.url, sx + 0.3, 5.33, Math.min(sw - 0.6, 0.15 + p.live.name.length * 0.07), 0.25, p.live.name);
-    } else {
-      // In production with no public link: the walkthrough is the demo.
-      label(s, 'In production', sx + 0.3, 4.55, { dark: true, w: sw - 0.6 });
-      s.addText('Walkthrough on request →', tb({ x: sx + 0.3, y: 4.92, w: sw - 0.6, h: 0.4, fontSize: 16, bold: true, color: HEX.lime, hyperlink: { url: `mailto:${company.contact.email}`, tooltip: company.contact.email } }));
-    }
-    if (!p.live) {
-      s.addText(`A live walkthrough of the ${join(p.demo.roles)} views.`, tb({ x: sx + 0.3, y: 5.75, w: sw - 0.6, h: 0.8, fontSize: 10.5, color: HEX.onDark2 }));
-    } else if (p.demo?.selfServe) {
-      s.addText(p.demo.selfServe, tb({ x: sx + 0.3, y: 5.75, w: sw - 0.6, h: 0.8, fontSize: 10.5, color: HEX.onDark2 }));
-    } else if (publicAccounts) {
-      s.addText(
-        publicAccounts.flatMap((a, i) => [
-          { text: `${a.role}`, options: { bold: true, color: HEX.onDark, breakLine: true } },
-          { text: `${a.user}  ·  ${a.pass}`, options: { color: HEX.onDark2, breakLine: i < publicAccounts.length - 1 } },
-        ]),
-        tb({ x: sx + 0.3, y: 5.72, w: sw - 0.6, h: 0.95, fontSize: 9.5, paraSpaceAfter: 2 })
-      );
-    } else {
-      s.addText(`Live demo: ${join(p.demo.roles)} views.`, tb({ x: sx + 0.3, y: 5.75, w: sw - 0.6, h: 0.8, fontSize: 10.5, color: HEX.onDark2 }));
-    }
-    s.addText(p.privacy, tb({ x: sx, y: 6.86, w: sw, h: 0.3, fontSize: 8, color: HEX.ink3 }));
+    // The portfolio never links to a product: a demo is requested by email.
+    label(s, 'Product demo', sx + 0.3, 4.55, { dark: true, w: sw - 0.6 });
+    s.addText('Request Demo →', tb({ x: sx + 0.3, y: 4.92, w: sw - 0.6, h: 0.4, fontSize: 16, bold: true, color: HEX.lime, hyperlink: { url: demoRequest(p), tooltip: `Email ${company.contact.email}` } }));
+    s.addText(`A guided demo of the ${join(p.demo.roles)} views, arranged by the Crita team.`, tb({ x: sx + 0.3, y: 5.45, w: sw - 0.6, h: 0.8, fontSize: 11.5, color: HEX.onDark2 }));
+    s.addText(company.contact.email, tb({ x: sx + 0.3, y: 6.25, w: sw - 0.6, h: 0.3, fontSize: 10.5, bold: true, color: HEX.onDark, hyperlink: { url: demoRequest(p), tooltip: `Email ${company.contact.email}` } }));
+    s.addText(p.privacy, tb({ x: sx, y: 6.86, w: sw, h: 0.3, fontSize: 9, color: HEX.ink3 }));
 
     const creds = (list) => list.map((a) => `   ${a.role}: ${a.user}  /  ${a.pass}`).join('\n');
     let demoNotes;
-    if (!p.live) demoNotes = `No public link: offer a walkthrough of the ${join(p.demo.roles)} views.`;
-    else if (p.demo?.selfServe) demoNotes = p.demo.selfServe;
-    else if (publicAccounts) demoNotes = `Demo accounts (${p.demo.publicNote ?? 'public'}):\n${creds(publicAccounts)}`;
-    else if (presenter?.accounts.length) demoNotes = `PRESENTER ONLY — do not project, screenshot or send these logins (${presenter.why}):\n${creds(presenter.accounts)}`;
-    else demoNotes = `Logins for the live demo are in the presenter copy of this deck.`;
+    if (presenter?.accounts.length) demoNotes = `PRESENTER ONLY — do not project, screenshot or send these logins (${presenter.why}):\n${creds(presenter.accounts)}`;
+    else if (presenter) demoNotes = presenter.why;
+    else demoNotes = `Demos are arranged on request; logins for presenting are in the presenter copy of this deck.`;
     s.addNotes(
       `BUSINESS VALUE\n` + p.value.map((v) => `• ${v.title} — ${v.body}`).join('\n') +
         (p.quote ? `\n\nClient quote (${p.quote.name}, ${p.quote.company}): “${p.quote.text}”` : '') +
         `\n\nDELIVERY: ${p.delivery.stack.join(', ')}.\n` + p.delivery.highlights.map((h) => `• ${h}`).join('\n') +
-        `\n\nLIVE DEMO — ${p.live ? p.live.name : `${p.name} (walkthrough only)`}\n${demoNotes}` +
+        `\n\nDEMO — clients request one from ${company.contact.email}; no project links are shared.\n${demoNotes}` +
         (presenter?.path ? `\nSuggested path:\n` + presenter.path.map((x) => `   • ${x}`).join('\n') : '') +
         (pi < projects.length - 1 ? `\n\nNext: ${projects[pi + 1].name}.` : '')
     );

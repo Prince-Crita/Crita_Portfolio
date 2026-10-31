@@ -9,6 +9,8 @@ export default defineConfig({
   output: 'static',
   trailingSlash: 'ignore',
   build: { format: 'directory' },
+  // Fetch a page as soon as its link is hovered or focused, so opening a project is instant.
+  prefetch: { prefetchAll: true, defaultStrategy: 'hover' },
   devToolbar: { enabled: false },
   // The project list is the home page's "Selected work" section; /work/ itself has no page.
   redirects: { '/work': '/#work' },

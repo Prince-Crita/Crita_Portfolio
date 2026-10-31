@@ -26,7 +26,7 @@
     "path": ["Overview → Ask Clario → History → open a conversation."]
   },
   "city-threads": {
-    "visibility": "public",
+    "visibility": "presenter",
     "why": "Demonstration accounts offered on the app’s own login screen.",
     "accounts": [
       { "key": "admin", "role": "Administrator", "user": "…", "pass": "…" },

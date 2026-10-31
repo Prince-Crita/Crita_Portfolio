@@ -8,7 +8,8 @@ interface Props {
   k: string;
   alt?: string;
   sizes?: string;
-  eager?: boolean;
+  /** true loads at once; 'high' also marks the page's main image as the first to fetch. */
+  eager?: boolean | 'high';
   pick?: number;
   class?: string;
   style?: string;
@@ -32,7 +33,7 @@ const height = Math.round((chosen.w / m.w) * m.h);
   alt={alt ?? m.title}
   loading={eager || pick ? 'eager' : 'lazy'}
   decoding={pick ? 'sync' : 'async'}
-  fetchpriority={eager ? 'high' : undefined}
+  fetchpriority={eager === 'high' ? 'high' : undefined}
   class={cls}
   style={style}
 />

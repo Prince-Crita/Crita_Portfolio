@@ -27,7 +27,7 @@ const phones = phonesOnly(p) ? heroPhones(p) : null;
           data-parallax={size === 'hero' ? (i === 1 ? '-0.05' : '0.03') : undefined}
           style={vt && i === 1 ? `view-transition-name:stage-${p.id}` : undefined}
         >
-          <PhoneFrame k={k} sizes={size === 'hero' ? '(min-width: 1100px) 22vw, 30vw' : '(min-width: 1100px) 14vw, 28vw'} eager={eager} />
+          <PhoneFrame k={k} sizes={size === 'hero' ? '(min-width: 1100px) 22vw, 30vw' : '(min-width: 1100px) 14vw, 28vw'} eager={eager && (i === 1 ? 'high' : true)} />
         </div>
       ))}
     </div>
@@ -36,7 +36,7 @@ const phones = phonesOnly(p) ? heroPhones(p) : null;
   <div class:list={['stage', `stage--${size}`, `stage--${p.theme.stageInk}`]} style={`--stage:${p.theme.stage};--accent:${p.theme.accent}`}>
     <span class="stage__glow" aria-hidden="true"></span>
     <div class="stage__desk" data-parallax={size === 'hero' ? '0.03' : undefined}>
-      <BrowserFrame k={p.media.hero} url={p.live?.name ?? p.name} tone={dark ? 'dark' : 'light'} sizes={sizes} eager={eager} vt={vt ? `stage-${p.id}` : undefined} />
+      <BrowserFrame k={p.media.hero} url={p.name} tone={dark ? 'dark' : 'light'} sizes={sizes} eager={eager && 'high'} vt={vt ? `stage-${p.id}` : undefined} />
     </div>
     <div class="stage__phone" data-parallax={size === 'hero' ? '-0.05' : undefined}>
       <PhoneFrame k={p.media.heroPhone} sizes={size === 'hero' ? '(min-width: 1100px) 16vw, 34vw' : '(min-width: 1100px) 11vw, 26vw'} eager={eager} />

@@ -1,5 +1,6 @@
-// Veloce Scrap Flow — Yard OS. The live deployment runs on a test yard, so
-// masking only tidies test labels and hides admin IP addresses.
+// Veloce Inventory — Yard OS. The live deployment runs on a test yard, so
+// masking tidies test labels, hides admin IP addresses and shows the product
+// under its portfolio name (the app still calls itself Scrap Flow).
 
 const RANGE_90 = [
   { click: '.aRangeBtn' },
@@ -28,6 +29,11 @@ export default {
       'testingyard1.in': 'veloceyards.in',
       'testyard1.in': 'veloceyards.in',
       'Dispatch Tester': 'Ramesh K',
+      'admin@scrapflow.in': 'admin@veloce.in',
+      'scrapflow.in': 'veloce.in',
+      'Scrap Flow': 'Veloce Inventory',
+      'SCRAP FLOW': 'VELOCE INVENTORY',
+      ScrapFlow: 'Veloce Inventory',
     },
     // Whole-cell renames for SKUs a tester typed in lower case or named "demo".
     exact: {

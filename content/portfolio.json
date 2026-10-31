@@ -51,13 +51,13 @@
     {
       "id": "veloce",
       "number": "01",
-      "name": "Veloce Scrap Flow",
+      "name": "Veloce Inventory",
       "client": "Veloce",
       "sector": "Scrap & recycling",
       "type": "Yard operations & inventory platform",
-      "platforms": "Web · Android",
+      "platforms": "Web · Mobile app",
       "roles": "Admin · Owner · Supervisor",
-      "tagline": "Every kilogram, from weighbridge to dispatch.",
+      "tagline": "Replaced an untracked yard-to-truck process with one live inventory ledger, from weighbridge to dispatch.",
       "summary": "A yard operating system for a scrap business: a calculator-fast mobile app for the weighbridge and the sorting floor, and a desktop console that gives management live control across yards and warehouses.",
       "challenge": {
         "headline": "Mixed loads in. Graded material out. No reliable trail in between.",
@@ -65,7 +65,7 @@
       },
       "solution": {
         "headline": "Built for the yard floor. Controlled from one console.",
-        "body": "Crita built Scrap Flow as a multi-yard platform. Owners and supervisors work in a mobile app designed like a calculator — big keys, live rates, clear steps — while the platform admin manages yards, warehouses, users and analytics from a desktop console. Every action writes to one inventory ledger, updated in real time."
+        "body": "Crita built Veloce Inventory as a multi-yard platform. Owners and supervisors work in a mobile app designed like a calculator — big keys, live rates, clear steps — while the platform admin manages yards, warehouses, users and analytics from a desktop console. Every action writes to one inventory ledger, updated in real time."
       },
       "capabilities": [
         { "title": "Inward at the weighbridge", "body": "Vendor, vehicle and multiple weighments on an LED-style keypad, with photo evidence. Each load becomes a traceable lot.", "shot": "veloce/owner-mobile/inward-keypad" },
@@ -126,7 +126,6 @@
           "Number-plate recognition built as a separate computer-vision service (YOLOv8 + PaddleOCR)"
         ]
       },
-      "live": { "url": "https://scrap-flow-veloce-crita.vercel.app/", "label": "View live project", "name": "Veloce Scrap Management" },
       "demo": { "roles": ["Admin", "Owner", "Supervisor"] },
       "privacy": "Screens from the live demonstration yard.",
       "theme": { "stage": "#033F2D", "stageInk": "light", "accent": "#F5A524", "tint": "#EEF0E8" },
@@ -149,7 +148,7 @@
       "type": "Café POS, back office & ordering app",
       "platforms": "Web POS · Mobile app",
       "roles": "Head office · Outlet staff · Customers",
-      "tagline": "One menu for every outlet — from the counter to the customer’s phone.",
+      "tagline": "Brought every café counter, the head-office menu and customer orders onto one connected platform.",
       "summary": "A point of sale and back office for a multi-outlet coffee chain, with a customer ordering app. Outlet teams bill at the counter, head office runs the menu, offers, outlets and reports from one system, and customers browse the same live menu on their phones.",
       "challenge": {
         "headline": "Many cafés, one menu, no single system.",
@@ -214,7 +213,6 @@
           "GST split on every bill; outlet reports downloadable as PDF or Excel"
         ]
       },
-      "live": { "url": "https://server.crita.in/tbc/login", "label": "View live POS", "name": "Tribal Brew Coffee" },
       "demo": { "roles": ["POS", "Back office"] },
       "privacy": "Live outlet screens, shown without customer details. The customer app is shown with a demonstration profile.",
       "theme": { "stage": "#33241B", "stageInk": "light", "accent": "#D9A066", "tint": "#F3EDE6" },
@@ -237,7 +235,7 @@
       "type": "Business-intelligence platform",
       "platforms": "Web · Responsive",
       "roles": "Workspace owners & members",
-      "tagline": "Understand your business, not just your numbers.",
+      "tagline": "Turned scattered accounting data into clear, sourced answers business owners can act on.",
       "summary": "Crita’s own business-intelligence platform. Clario connects to the systems a business already uses — starting with Zoho Books — and turns them into a clear finance command centre, with an assistant that answers in plain words, from the books.",
       "challenge": {
         "headline": "The numbers exist. The answers don’t.",
@@ -304,7 +302,6 @@
           "Workspace isolation enforced on the server"
         ]
       },
-      "live": { "url": "https://clariocrita.vercel.app/login?next=%2F", "label": "View live product", "name": "Clario" },
       "demo": { "roles": ["Workspace owner"] },
       "privacy": "Shown with a sample company and test data.",
       "theme": { "stage": "#E2E9D6", "stageInk": "dark", "accent": "#6E9A1E", "tint": "#EEF2E7" },
@@ -325,9 +322,9 @@
       "client": "Shaabi Management Consultancy",
       "sector": "Audit & consulting",
       "type": "Field operations platform",
-      "platforms": "Web · Android",
+      "platforms": "Web · Mobile app",
       "roles": "Admin · Field Executive",
-      "tagline": "Field audits, planned, run and closed in one system.",
+      "tagline": "Streamlined fragmented field audits into one system that plans, runs and closes every visit.",
       "summary": "A field-audit operations platform for an audit consultancy. Admins plan visits and define each client’s checklist; executives run every visit from their phone; nothing incomplete is lost between visits.",
       "challenge": {
         "headline": "Weekly audits, dozens of clients, no single view.",
@@ -385,7 +382,6 @@
           "Lean data and instant checklist feedback on mobile networks"
         ]
       },
-      "live": { "url": "https://smc-crita.vercel.app/login", "label": "View live project", "name": "SMC Task Management" },
       "demo": { "roles": ["Admin", "Field Executive"] },
       "privacy": "Client, contact and staff names in these screens are anonymised to protect SMC’s confidentiality.",
       "theme": { "stage": "#13213D", "stageInk": "light", "accent": "#7EA6F2", "tint": "#E9EDF5" },
@@ -408,7 +404,7 @@
       "type": "Sales CRM with an AI co-pilot",
       "platforms": "Web · Responsive",
       "roles": "Sales teams",
-      "tagline": "Leads, pipeline and follow-ups — with an AI co-pilot that reads every deal.",
+      "tagline": "Gave sales teams one pipeline where AI summarises every lead and suggests the next step.",
       "summary": "Crita’s sales CRM: leads, contacts, a drag-and-drop pipeline, notes and follow-ups in one workspace, with Google Gemini summarising leads, drafting emails and rating the health of the pipeline.",
       "challenge": {
         "headline": "Deals slip between spreadsheets and memory.",
@@ -473,8 +469,7 @@
           "One-click demo workspace for prospects"
         ]
       },
-      "live": { "url": "https://crita-crm.vercel.app/", "label": "Try the live demo", "name": "AI Sales CRM" },
-      "demo": { "roles": ["Sales"], "selfServe": "One-click demo account — choose “Try Demo Account” on the sign-in screen." },
+      "demo": { "roles": ["Sales"] },
       "privacy": "Shown in the public demo workspace with sample data.",
       "theme": { "stage": "#D7ECE4", "stageInk": "dark", "accent": "#0F7A57", "tint": "#ECF4F0" },
       "media": {
@@ -494,9 +489,9 @@
       "client": "City Threads Textiles",
       "sector": "Textile distribution",
       "type": "Warehouse & inventory management",
-      "platforms": "Web · Android",
+      "platforms": "Web · Mobile app",
       "roles": "Administrator · Warehouse Executive",
-      "tagline": "Every lot, every bin, every dispatch — accounted for.",
+      "tagline": "Replaced a memory-dependent inventory process with barcoded stock tracked bin by bin.",
       "summary": "A warehouse management system for a textile distributor: barcoded stock units, a visual map of every rack and bin, and an order-to-dispatch flow — with a one-handed phone app for the warehouse floor.",
       "challenge": {
         "headline": "Two warehouses. A fragmented inventory process.",
@@ -558,15 +553,7 @@
           "Served from Cloudflare’s global edge network"
         ]
       },
-      "live": { "url": "https://city-threads-prototype.prince-4a5.workers.dev/", "label": "View live demo", "name": "City Threads" },
-      "demo": {
-        "roles": ["Administrator", "Warehouse Executive"],
-        "public": [
-          { "role": "Administrator", "user": "admin@citythreads.com", "pass": "Admin@123" },
-          { "role": "Warehouse Executive", "user": "aarav@citythreads.com", "pass": "Exec@123" }
-        ],
-        "publicNote": "Demonstration accounts, also offered on the app’s own login screen."
-      },
+      "demo": { "roles": ["Administrator", "Warehouse Executive"] },
       "privacy": "Demonstration environment with sample data.",
       "theme": { "stage": "#DFE4EC", "stageInk": "dark", "accent": "#1D3A7A", "tint": "#EDF0F4" },
       "media": {
@@ -588,7 +575,7 @@
       "type": "B2B material-trading app",
       "platforms": "Mobile app",
       "roles": "Client · Vendor · Recycler",
-      "tagline": "List, buy, dispatch and get paid — every truckload on one app.",
+      "tagline": "Moved phone-and-paper material trades onto one app that tracks every truckload, from listing to payment.",
       "summary": "A mobile trading app for Veloce’s network of material sellers, vendors and recyclers. Clients list material for pickup with its pricing; vendors raise purchase orders, send truckloads, assign drivers, labour and vehicles, upload documents and record payments — with every shipment tracked step by step.",
       "challenge": {
         "headline": "Trades run on calls, paperwork and trust.",
@@ -646,7 +633,6 @@
           "Uploads that need a location are refused without one"
         ]
       },
-      "live": null,
       "demo": { "roles": ["Client Executive", "Vendor Executive", "Recycler"] },
       "privacy": "Screens from Veloce Trade’s user guide, with its demonstration accounts. The app is in production with Veloce.",
       "theme": { "stage": "#15402F", "stageInk": "light", "accent": "#7BC59A", "tint": "#E8F0EA" },
@@ -670,7 +656,7 @@
       "type": "Expense, approval & budget platform",
       "platforms": "Web · Responsive",
       "roles": "Admin · Manager · Finance · Employee",
-      "tagline": "Every claim approved, reimbursed and measured against budget.",
+      "tagline": "Replaced expense approvals lost in email and chat with tracked claims, budgets and reimbursements.",
       "summary": "A multi-company expense platform: employees log claims, managers approve them for their department, finance reimburses, and administrators see spend by category, department and payment mode against each department’s budget.",
       "challenge": {
         "headline": "Receipts in inboxes, approvals in chats.",
@@ -728,7 +714,6 @@
           "Department budgets by financial month, exportable to Excel"
         ]
       },
-      "live": { "url": "https://expense-logger-one.vercel.app/", "label": "View live app", "name": "Expense Log" },
       "demo": { "roles": ["Administrator", "Manager"] },
       "privacy": "Shown with sample companies and test data; names and emails are anonymised.",
       "theme": { "stage": "#ECE5D3", "stageInk": "dark", "accent": "#3E6B35", "tint": "#F4F1E8" },
@@ -751,7 +736,7 @@
       "type": "Website lead & discovery CRM",
       "platforms": "Web · Responsive",
       "roles": "Crita team · Prospects",
-      "tagline": "Visitors answer a few questions. The team gets a qualified lead.",
+      "tagline": "Turned bare contact-form enquiries into scored, qualified leads with clear next steps.",
       "summary": "Crita’s own lead engine: discovery questionnaires published on the website turn visitors into structured leads, every response gets a fit score and next-step coaching, and the team manages clients, questionnaires and responses in one CRM.",
       "challenge": {
         "headline": "An enquiry is a name and a phone number.",
@@ -809,7 +794,6 @@
           "Questionnaires imported and exported as CSV"
         ]
       },
-      "live": { "url": "https://critacreativellp-dev.web.app/", "label": "View live CRM", "name": "Lead Discovery CRM" },
       "demo": { "roles": ["Admin"] },
       "privacy": "Shown with Crita’s internal test responses; contact details are hidden.",
       "theme": { "stage": "#2E3820", "stageInk": "light", "accent": "#C5D35E", "tint": "#EFF1E6" },
@@ -832,7 +816,7 @@
       "type": "Ticketing & support portal",
       "platforms": "Web · Responsive",
       "roles": "Requester · Administrator",
-      "tagline": "Raise it, track it, resolve it — with every step on record.",
+      "tagline": "Gave clients one place to raise issues and the team one queue to resolve them, every step on record.",
       "summary": "Crita’s support desk for its clients: a help centre and knowledge base, a simple form to raise tickets with attachments, and an admin queue where each ticket is assigned, reviewed, approved, resolved and closed — with its full history.",
       "challenge": {
         "headline": "Support requests get lost in email.",
@@ -890,7 +874,6 @@
           "Internal notes kept apart from replies to the requester"
         ]
       },
-      "live": { "url": "https://server.crita.in/support-ticket/dev", "label": "View live portal", "name": "Support Portal" },
       "demo": { "roles": ["Requester", "Administrator"] },
       "privacy": "Development instance with test tickets; names and emails are anonymised.",
       "theme": { "stage": "#DCE6E2", "stageInk": "dark", "accent": "#1F5C50", "tint": "#EEF3F1" },

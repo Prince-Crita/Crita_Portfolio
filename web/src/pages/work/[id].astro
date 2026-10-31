@@ -4,7 +4,7 @@ import Stage from '../../components/Stage.astro';
 import Device from '../../components/Device.astro';
 import PhoneFrame from '../../components/PhoneFrame.astro';
 import BrowserFrame from '../../components/BrowserFrame.astro';
-import { projects, neighbours, publicDemo, demoRoles, selfServeDemo, liveOf, mailto, shot, type Project } from '../../lib/content';
+import { projects, company, neighbours, demoRoles, demoRequest, joinAnd, shot, type Project } from '../../lib/content';
 
 export function getStaticPaths() {
   return projects.map((p) => ({ params: { id: p.id }, props: { project: p } }));
@@ -14,12 +14,9 @@ const { project: p } = Astro.props as { project: Project };
 const { prev, next } = neighbours(p.id);
 const lightStage = p.theme.stageInk === 'light';
 const darkUI = p.id === 'veloce';
-const live = liveOf(p);
-const url = live?.name ?? p.name;
-const demo = publicDemo(p.id);
+const url = p.name;
 const roles = demoRoles(p.id);
-const selfServe = selfServeDemo(p.id);
-const walkthrough = mailto(`Walkthrough request — ${p.name}`);
+const request = demoRequest(p);
 const arch = (p as any).architecture as
   | { title: string; principle: string; layers: { name: string; items: { label: string; status: string }[] }[] }
   | undefined;
@@ -66,10 +63,7 @@ const isMobile = (k: string) => shot(k).device === 'mobile';
       </dl>
 
       <div class="cs-hero__cta" data-reveal style="--i:4">
-        {live
-          ? <a class:list={['btn', lightStage ? 'btn--lime' : '']} href={live.url} target="_blank" rel="noopener">{live.label} <span class="arrow">↗</span></a>
-          : <a class:list={['btn', lightStage ? 'btn--lime' : '']} href={walkthrough}>Request a walkthrough <span class="arrow">→</span></a>}
-        <a class="link" href="#live">Demo access <span class="arrow">↓</span></a>
+        <a class:list={['btn', lightStage ? 'btn--lime' : '']} href={request}>Request Demo <span class="arrow">→</span></a>
       </div>
     </div>
 
@@ -256,8 +250,8 @@ const isMobile = (k: string) => shot(k).device === 'mobile';
     </div>
   </section>
 
-  <!-- ── Delivery + live ──────────────────────────────────────── -->
-  <section id="live" class="section on-dark live" data-tone-section="dark">
+  <!-- ── Delivery + demo ──────────────────────────────────────── -->
+  <section id="demo" class="section on-dark live" data-tone-section="dark">
     <div class="wrap live__grid">
       <div class="live__build" data-reveal>
         <p class="label">Technology & delivery</p>
@@ -266,49 +260,11 @@ const isMobile = (k: string) => shot(k).device === 'mobile';
       </div>
 
       <div class="live__card" data-reveal style="--i:1">
-        {live ? (
-          <>
-            <p class="label">Live product</p>
-            <h2 class="h3">See {p.name} running.</h2>
-            <a class="btn btn--lime" href={live.url} target="_blank" rel="noopener">{live.label} <span class="arrow">↗</span></a>
-            <p class="small muted live__url"><a href={live.url} target="_blank" rel="noopener">{live.name} <span class="arrow">↗</span></a></p>
-          </>
-        ) : (
-          <>
-            <p class="label">In production</p>
-            <h2 class="h3">See {p.name} in a walkthrough.</h2>
-            <p class="muted small">We’ll take you through the {roles.join(', ').replace(/, ([^,]*)$/, ' and $1')} views live.</p>
-            <a class="btn btn--lime" href={walkthrough}>Request a walkthrough <span class="arrow">→</span></a>
-          </>
-        )}
-
-        {live && <div class="demo">
-          <p class="demo__title">Demo access</p>
-          {selfServe && live ? (
-            <>
-              <p class="muted small">{selfServe}</p>
-              <a class="link" href={live.url} target="_blank" rel="noopener">Open the demo <span class="arrow">↗</span></a>
-            </>
-          ) : demo ? (
-            <table class="demo__table">
-              <thead><tr><th>Role</th><th>Username</th><th>Password</th></tr></thead>
-              <tbody>
-                {demo.map((a: any) => (
-                  <tr>
-                    <td>{a.role}</td>
-                    <td><code>{a.user}</code> <button class="demo__copy" type="button" data-copy={a.user}>Copy</button></td>
-                    <td><code>{a.pass}</code> <button class="demo__copy" type="button" data-copy={a.pass}>Copy</button></td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          ) : (
-            <>
-              <p class="muted small">A guided demo is available for {roles.join(', ').replace(/, ([^,]*)$/, ' and $1')} views. We’ll walk you through it live.</p>
-              <a class="link" href={mailto(`Guided demo request — ${p.name}`)}>Request a guided demo <span class="arrow">→</span></a>
-            </>
-          )}
-        </div>}
+        <p class="label">Product demo</p>
+        <h2 class="h3">See {p.name} in a guided demo.</h2>
+        <p class="live__note">Our team will walk you through the {joinAnd(roles)} views and answer your questions.</p>
+        <a class="btn btn--lime" href={request}>Request Demo <span class="arrow">→</span></a>
+        <p class="small muted">Opens an email to {company.contact.email}</p>
       </div>
     </div>
     <p class="wrap small muted live__privacy">{p.privacy}</p>
@@ -334,7 +290,7 @@ const isMobile = (k: string) => shot(k).device === 'mobile';
   .cs-hero--dark .link { color: var(--on-dark); }
   .cs-hero--light { color: var(--ink); }
 
-  .rail { display: flex; align-items: center; gap: 1.5rem; padding: 0.6rem 0 2.6rem; font-size: 0.88rem; font-weight: 600; }
+  .rail { display: flex; align-items: center; gap: 1.5rem; padding: 0.6rem 0 2.6rem; font-size: 0.92rem; font-weight: 600; }
   .rail__back { opacity: 0.75; white-space: nowrap; }
   .rail__back:hover { opacity: 1; }
   .rail__list { display: flex; gap: 0.35rem; margin-left: auto; }
@@ -444,7 +400,7 @@ const isMobile = (k: string) => shot(k).device === 'mobile';
   .arch__name { font-size: var(--fs-label); font-weight: 650; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-3); }
   .arch__items { display: flex; flex-wrap: wrap; gap: 0.6rem; }
   .arch__item { display: inline-flex; align-items: center; gap: 0.7rem; padding: 0.55rem 0.6rem 0.55rem 0.95rem; border-radius: 999px; font-weight: 600; font-size: 0.95rem; box-shadow: inset 0 0 0 1px var(--line-2); }
-  .arch__item em { font-style: normal; font-size: 0.72rem; font-weight: 650; letter-spacing: 0.06em; text-transform: uppercase; padding: 0.22rem 0.55rem; border-radius: 999px; background: var(--paper-2); color: var(--ink-3); }
+  .arch__item em { font-style: normal; font-size: 0.76rem; font-weight: 650; letter-spacing: 0.06em; text-transform: uppercase; padding: 0.22rem 0.55rem; border-radius: 999px; background: var(--paper-2); color: var(--ink-3); }
   .arch__item.is-live { background: var(--forest); color: var(--on-dark); box-shadow: none; }
   .arch__item.is-live em { background: var(--lime); color: var(--ink); }
   .arch__item.is-in-development em { background: #e9e3c9; color: #5c4f12; }
@@ -481,23 +437,10 @@ const isMobile = (k: string) => shot(k).device === 'mobile';
   .live__highlights li { display: grid; grid-template-columns: 18px 1fr; gap: 0.7rem; }
   .live__highlights li::before { content: ''; width: 14px; height: 7px; margin-top: 0.62em; background: url('/brand/crita-c.svg') no-repeat center / contain; }
   .live__card { display: grid; gap: 1.1rem; justify-items: start; padding: clamp(1.6rem, 1rem + 2vw, 2.6rem); border-radius: var(--r-card); background: var(--night-2); box-shadow: inset 0 0 0 1px var(--line-dark); }
-  .live__url { margin-top: -0.4rem; }
-  .live__url a:hover { color: var(--on-dark); }
-  .demo { width: 100%; margin-top: 1rem; padding-top: 1.4rem; border-top: 1px solid var(--line-dark); display: grid; gap: 0.8rem; justify-items: start; }
-  .demo__title { font-weight: 650; }
-  .demo__table { width: 100%; border-collapse: collapse; font-size: 0.92rem; }
-  .demo__table th { text-align: left; font-size: var(--fs-label); letter-spacing: 0.12em; text-transform: uppercase; color: var(--on-dark-3); font-weight: 650; padding: 0 0.8rem 0.6rem 0; }
-  .demo__table td { padding: 0.7rem 0.8rem 0.7rem 0; border-top: 1px solid var(--line-dark); vertical-align: middle; }
-  .demo__table code { font-family: ui-monospace, 'SFMono-Regular', Menlo, Consolas, monospace; font-size: 0.86rem; color: var(--on-dark); }
-  .demo__copy { margin-left: 0.4rem; font-size: 0.72rem; font-weight: 650; letter-spacing: 0.06em; text-transform: uppercase; color: var(--lime); opacity: 0.8; }
-  .demo__copy:hover { opacity: 1; }
+  .live__note { color: var(--on-dark-2); max-width: 40ch; }
   .live__privacy { margin-top: 3rem; }
   @media (max-width: 900px) {
     .live__grid { grid-template-columns: 1fr; }
-    .demo__table, .demo__table tbody, .demo__table tr, .demo__table td { display: block; }
-    .demo__table thead { display: none; }
-    .demo__table tr { padding: 0.6rem 0; border-top: 1px solid var(--line-dark); }
-    .demo__table td { border: 0; padding: 0.2rem 0; }
   }
 
   /* Next */

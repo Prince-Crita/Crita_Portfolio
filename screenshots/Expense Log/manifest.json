@@ -5,7 +5,7 @@
     "device": "desktop",
     "url": "https://expense-logger-one.vercel.app/home",
     "full": false,
-    "capturedAt": "2026-10-29T17:26:25.979Z"
+    "capturedAt": "2026-10-31T10:40:28.328Z"
   },
   "desktop/admin/home-breakdown": {
     "title": "Spend by category, department and payment mode",
@@ -13,7 +13,7 @@
     "device": "desktop",
     "url": "https://expense-logger-one.vercel.app/home",
     "full": false,
-    "capturedAt": "2026-10-29T17:26:35.766Z"
+    "capturedAt": "2026-10-31T10:40:37.465Z"
   },
   "desktop/admin/expenses": {
     "title": "All expenses tracker",
@@ -21,7 +21,7 @@
     "device": "desktop",
     "url": "https://expense-logger-one.vercel.app/all-expenses",
     "full": false,
-    "capturedAt": "2026-10-29T17:26:44.197Z"
+    "capturedAt": "2026-10-31T10:40:44.791Z"
   },
   "desktop/admin/budget": {
     "title": "Department budgets",
@@ -29,7 +29,7 @@
     "device": "desktop",
     "url": "https://expense-logger-one.vercel.app/budget",
     "full": false,
-    "capturedAt": "2026-10-29T17:26:52.972Z"
+    "capturedAt": "2026-10-31T10:40:51.898Z"
   },
   "desktop/admin/report": {
     "title": "Reports overview",
@@ -37,7 +37,7 @@
     "device": "desktop",
     "url": "https://expense-logger-one.vercel.app/report",
     "full": false,
-    "capturedAt": "2026-10-29T17:27:00.990Z"
+    "capturedAt": "2026-10-31T10:41:18.351Z"
   },
   "desktop/admin/users": {
     "title": "Users and roles",
@@ -45,7 +45,7 @@
     "device": "desktop",
     "url": "https://expense-logger-one.vercel.app/user-management",
     "full": false,
-    "capturedAt": "2026-10-29T17:27:08.743Z"
+    "capturedAt": "2026-10-31T10:41:25.413Z"
   },
   "desktop/admin/companies": {
     "title": "Companies",
@@ -53,7 +53,7 @@
     "device": "desktop",
     "url": "https://expense-logger-one.vercel.app/company-management",
     "full": false,
-    "capturedAt": "2026-10-29T17:27:17.024Z"
+    "capturedAt": "2026-10-31T10:41:32.483Z"
   },
   "desktop/manager/expenses": {
     "title": "Department expenses with approval status",
@@ -61,7 +61,7 @@
     "device": "desktop",
     "url": "https://expense-logger-one.vercel.app/all-expenses",
     "full": false,
-    "capturedAt": "2026-10-29T17:27:37.322Z"
+    "capturedAt": "2026-10-31T10:41:44.622Z"
   },
   "desktop/manager/categories": {
     "title": "Expense categories",
@@ -69,7 +69,7 @@
     "device": "desktop",
     "url": "https://expense-logger-one.vercel.app/category-management",
     "full": false,
-    "capturedAt": "2026-10-29T17:27:44.575Z"
+    "capturedAt": "2026-10-31T10:41:52.360Z"
   },
   "mobile/admin/expenses": {
     "title": "Expense tracker",
@@ -77,7 +77,7 @@
     "device": "mobile",
     "url": "https://expense-logger-one.vercel.app/all-expenses",
     "full": false,
-    "capturedAt": "2026-10-29T17:28:36.364Z"
+    "capturedAt": "2026-10-31T11:17:51.381Z"
   },
   "mobile/admin/report": {
     "title": "Reports",
@@ -85,7 +85,7 @@
     "device": "mobile",
     "url": "https://expense-logger-one.vercel.app/report",
     "full": false,
-    "capturedAt": "2026-10-29T17:28:45.055Z"
+    "capturedAt": "2026-10-31T10:42:48.648Z"
   },
   "mobile/admin/home": {
     "title": "Expense summary",
@@ -93,14 +93,14 @@
     "device": "mobile",
     "url": "https://expense-logger-one.vercel.app/home",
     "full": false,
-    "capturedAt": "2026-10-29T17:27:58.518Z"
+    "capturedAt": "2026-10-31T10:42:08.149Z"
   },
   "mobile/admin/home-trend": {
-    "title": "Trend and category split",
+    "title": "Spend by category, department and payment mode",
     "role": "admin",
     "device": "mobile",
     "url": "https://expense-logger-one.vercel.app/home",
     "full": false,
-    "capturedAt": "2026-10-29T17:28:08.308Z"
+    "capturedAt": "2026-10-31T11:17:33.661Z"
   }
 }

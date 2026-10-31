@@ -117,21 +117,6 @@ function keys() {
   });
 }
 
-function copy() {
-  document.querySelectorAll<HTMLButtonElement>('[data-copy]').forEach((btn) => {
-    btn.addEventListener('click', async () => {
-      try {
-        await navigator.clipboard.writeText(btn.dataset.copy || '');
-        const was = btn.textContent;
-        btn.textContent = 'Copied';
-        setTimeout(() => (btn.textContent = was), 1400);
-      } catch {
-        /* clipboard unavailable: the value stays visible to select manually */
-      }
-    });
-  });
-}
-
 export function initMotion() {
   reveals();
   header();
@@ -139,5 +124,4 @@ export function initMotion() {
   tours();
   menu();
   keys();
-  copy();
 }

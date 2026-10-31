@@ -23,20 +23,20 @@ const nameOf = (id: string) => projectById(id).name;
         <p class="lead">{company.intro}</p>
         <div class="hero__cta">
           <a class="btn btn--lime" href="#work">Explore the work <span class="arrow">↓</span></a>
-          <a class="btn btn--ghost" href="/Crita-Portfolio-2026.pdf" download>Download PDF</a>
+          <a class="btn btn--ghost" href="/Crita-Portfolio-2026.pdf" download data-astro-prefetch="false">Download PDF</a>
         </div>
       </div>
     </div>
 
     <div class="wrap--wide hero__stage" aria-label="Screens from the four featured projects">
       <div class="hs hs--left" data-parallax="0.06">
-        <BrowserFrame k={projectById('smc').tour[0].shot} url={projectById('smc').live.name} sizes="(min-width: 1100px) 40vw, 1px" eager />
+        <BrowserFrame k={projectById('smc').tour[0].shot} url={projectById('smc').name} sizes="(min-width: 1100px) 40vw, 1px" eager />
       </div>
       <div class="hs hs--right" data-parallax="0.06">
-        <BrowserFrame k="city-threads/admin-desktop/warehouse" url={projectById('city-threads').live.name} sizes="(min-width: 1100px) 40vw, 1px" eager />
+        <BrowserFrame k="city-threads/admin-desktop/warehouse" url={projectById('city-threads').name} sizes="(min-width: 1100px) 40vw, 1px" eager />
       </div>
       <div class="hs hs--main">
-        <BrowserFrame k={projectById('clario').media.hero} url={projectById('clario').live.name} sizes="(min-width: 1100px) 58vw, 94vw" eager />
+        <BrowserFrame k={projectById('clario').media.hero} url={projectById('clario').name} sizes="(min-width: 1100px) 58vw, 94vw" eager="high" />
       </div>
       <div class="hs hs--p1" data-parallax="-0.06">
         <PhoneFrame k="veloce/owner-mobile/inward-keypad" sizes="(min-width: 1100px) 14vw, 30vw" eager />
@@ -227,7 +227,7 @@ const nameOf = (id: string) => projectById(id).name;
   .cap__num { font-size: 0.85rem; font-weight: 650; color: var(--leaf); }
   .cap p.muted { max-width: 34ch; }
   .cap__proof { display: flex; flex-wrap: wrap; gap: 0.45rem; margin-top: 0.6rem; }
-  .cap__proof .chip { font-size: 0.78rem; transition: background-color 200ms, border-color 200ms; }
+  .cap__proof .chip { font-size: 0.84rem; transition: background-color 200ms, border-color 200ms; }
   .cap__proof .chip:hover { background: var(--white); border-color: var(--ink); }
   @media (max-width: 960px) {
     .caps { grid-template-columns: 1fr 1fr; }

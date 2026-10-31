@@ -17,7 +17,7 @@ import { company, projects, site } from '../lib/content';
         <ul>
           <li><a href={`mailto:${company.contact.email}`}>{company.contact.email}</a></li>
           <li><a href={company.contact.website} target="_blank" rel="noopener">{company.contact.websiteLabel}</a></li>
-          <li><a href="/Crita-Portfolio-2026.pdf" download>Download the PDF portfolio</a></li>
+          <li><a href="/Crita-Portfolio-2026.pdf" download data-astro-prefetch="false">Download the PDF portfolio</a></li>
         </ul>
       </div>
     </div>

@@ -24,7 +24,7 @@ const links = [
     </nav>
 
     <div class="hdr__actions">
-      <a class="hdr__pdf" href="/Crita-Portfolio-2026.pdf" download>
+      <a class="hdr__pdf" href="/Crita-Portfolio-2026.pdf" download data-astro-prefetch="false">
         <svg viewBox="0 0 16 16" width="15" height="15" aria-hidden="true"><path d="M8 2v8m0 0 3.2-3.2M8 10 4.8 6.8M3 13h10" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
         <span>PDF</span>
       </a>
@@ -53,7 +53,7 @@ const links = [
     </ul>
     <ul class="menu__links">
       {links.map((l) => <li><a href={l.href}>{l.label}</a></li>)}
-      <li><a href="/Crita-Portfolio-2026.pdf" download>Download PDF</a></li>
+      <li><a href="/Crita-Portfolio-2026.pdf" download data-astro-prefetch="false">Download PDF</a></li>
     </ul>
     <a class="btn btn--lime" href={mailto('Project enquiry — from the Crita portfolio')}>{company.closing.cta} <span class="arrow">→</span></a>
   </div>

@@ -31,6 +31,15 @@ const walk = (dir) =>
 const fresh = (out, srcStat) => fs.existsSync(out) && fs.statSync(out).mtimeMs >= srcStat.mtimeMs;
 const slug = (p) => p.toLowerCase().replace(/\s+/g, '-');
 
+// Dimensions and status-bar colours of unchanged screenshots are kept between
+// runs, so `npm run dev` doesn't decode every PNG again before starting.
+const CACHE = path.join(root, 'node_modules', '.cache', 'crita-media.json');
+let cache = {};
+try {
+  cache = JSON.parse(fs.readFileSync(CACHE, 'utf8'));
+} catch {}
+const nextCache = {};
+
 // Capture titles (written by tools/capture) become alt text.
 const titles = {};
 for (const project of fs.readdirSync(SRC)) {
@@ -46,11 +55,15 @@ for (const file of files) {
   const key = slug(path.relative(SRC, file).replace(/\\/g, '/').replace(/\.png$/, ''));
   const device = /(^|\/)mobile\/|-mobile\//.test(key) ? 'mobile' : 'desktop';
   const stat = fs.statSync(file);
-  const { width, height } = await sharp(file).metadata();
+  const known = cache[key]?.mtimeMs === stat.mtimeMs && cache[key]?.size === stat.size ? cache[key] : null;
+  const { width, height } = known ?? (await sharp(file).metadata());
   const entry = { w: width, h: height, device, title: titles[key] ?? '', variants: [] };
 
   // Phone frames draw a status bar in the app's own top colour.
-  if (device === 'mobile') {
+  if (device === 'mobile' && known) {
+    entry.top = known.top;
+    entry.topDark = known.topDark;
+  } else if (device === 'mobile') {
     // Top-left corner only (below any thin loading bar), so header icons and
     // progress indicators don't skew the background colour.
     // stats() ignores the pipeline, so materialise the crop first.
@@ -94,10 +107,13 @@ for (const file of files) {
   }
   entry.deck = path.relative(root, jpg).replace(/\\/g, '/');
   manifest[key] = entry;
+  nextCache[key] = { mtimeMs: stat.mtimeMs, size: stat.size, width, height, top: entry.top, topDark: entry.topDark };
 }
 
 fs.mkdirSync(path.dirname(MANIFEST), { recursive: true });
 fs.writeFileSync(MANIFEST, JSON.stringify(manifest, null, 1));
+fs.mkdirSync(path.dirname(CACHE), { recursive: true });
+fs.writeFileSync(CACHE, JSON.stringify(nextCache));
 
 // Every screenshot the content refers to must exist.
 const content = JSON.parse(fs.readFileSync(path.join(root, 'content', 'portfolio.json'), 'utf8'));

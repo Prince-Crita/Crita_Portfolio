@@ -1,6 +1,6 @@
 // Build-time access to the shared portfolio content and the media manifest.
 // The website deliberately never reads content/demo-access.json (presenter-only
-// logins); public demo accounts live in portfolio.json under each project's `demo`.
+// logins) and shows no project links or logins: demos are requested by email.
 import content from '../../../content/portfolio.json';
 import media from '../data/media.json';
 
@@ -44,20 +44,24 @@ export function shot(key: string): MediaEntry {
   return m;
 }
 
-type Demo = { roles: string[]; public?: { role: string; user: string; pass: string }[]; publicNote?: string; selfServe?: string };
+type Demo = { roles: string[] };
 const demoOf = (id: string) => (projectById(id) as Project & { demo?: Demo }).demo;
-
-/** Demo accounts that may be shown publicly (website and PDF), or null. */
-export const publicDemo = (id: string) => demoOf(id)?.public ?? null;
 
 /** Role names offered in a guided demo, without credentials. */
 export const demoRoles = (id: string) => demoOf(id)?.roles ?? [];
 
-/** How to try a demo that opens itself (e.g. a one-click demo account), or null. */
-export const selfServeDemo = (id: string) => demoOf(id)?.selfServe ?? null;
+/** "A, B and C" */
+export const joinAnd = (list: string[]) => list.join(', ').replace(/, ([^,]*)$/, ' and $1');
 
-/** The live product link, or null for a product that can only be shown in a walkthrough. */
-export const liveOf = (p: Project) => (p.live as { url: string; label: string; name: string } | null) ?? null;
+export const mailto = (subject: string, body?: string) =>
+  `mailto:${company.contact.email}?subject=${encodeURIComponent(subject)}${body ? `&body=${encodeURIComponent(body)}` : ''}`;
 
-export const mailto = (subject: string) =>
-  `mailto:${company.contact.email}?subject=${encodeURIComponent(subject)}`;
+/**
+ * The portfolio's one route to a product: a demo request by email. Projects are
+ * never linked directly, and no login is ever shown.
+ */
+export const demoRequest = (p: Project) =>
+  mailto(
+    `Demo Request — ${p.name}`,
+    `Hello Crita team,\n\nWe would like to see a demonstration of ${p.name}. Please suggest a suitable time.\n\nName:\nCompany:\nPhone:\n\nThank you.`
+  );

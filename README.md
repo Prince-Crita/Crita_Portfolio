@@ -57,7 +57,9 @@ The deck uses the Satoshi font. Install it from `assets/fonts/Satoshi/ttf` on th
 
 ## Demo logins and screenshots
 
-`content/demo-access.json` holds the demo logins. It is private and git-ignored (template: `demo-access.example.json`), and so is `ppt/presenter/`. Only the screenshot tool and the presenter copy of the deck use it. City Threads is the only project whose demo logins are public, in `portfolio.json` under `demo.public`; AI Sales CRM has a one-click demo account on its own sign-in screen (`demo.selfServe`). `npm run check` fails if a private login appears in the website, the PDFs or the main deck.
+`content/demo-access.json` holds the demo logins. It is private and git-ignored (template: `demo-access.example.json`), and so is `ppt/presenter/`. Only the screenshot tool and the presenter copy of the deck use it. The website, the PDFs and the main deck show no project links and no logins: each project's "Request Demo" opens an email to the address in `company.contact.email`, and `demo.roles` in `portfolio.json` only names the views a demo covers. `npm run check` fails if a login appears in the website, the PDFs or the main deck.
+
+Some screens are tidied for display while they are captured, in the browser only (nothing is sent to the app): names and test values are masked, Veloce's app shows its portfolio name, Veloce Inventory, and Expense Log's phone screens get a phone layout of the app's own components.
 
 To recapture screens (read-only: the tool only opens pages, tabs and filters):
 
